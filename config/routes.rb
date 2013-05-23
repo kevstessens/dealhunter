@@ -1,5 +1,6 @@
 DealHunter::Application.routes.draw do
 
+
   resources :countries
 
 
@@ -25,6 +26,8 @@ DealHunter::Application.routes.draw do
 
 
   resources :addresses
+
+  devise_for :users
 
 
   resources :clients
