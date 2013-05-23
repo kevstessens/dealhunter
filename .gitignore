@@ -22,7 +22,7 @@ Gemfile.lock
 /pubic/*
 
 # Ignore .idea
-/.idea/*
+.idea/*
 
 # Ignore bundler config
 /.bundle
@@ -33,3 +33,27 @@ Gemfile.lock
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore gemfile.lock
+#Gemfile.lock
+
+# Ignore bundler config
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/db/schema.rb
+public/uploads
+
+.idea
+.rvmrc
+public/system
+
+# Ignore DS_STORE
+.DS_Store
+
+public/
