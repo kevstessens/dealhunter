@@ -1,5 +1,29 @@
 DealHunter::Application.routes.draw do
 
+  resources :clients_offers
+
+
+  resources :offers_titles
+
+
+  resources :client_titles
+
+
+  resources :titles
+
+
+  resources :prizes
+
+
+  resources :offers
+
+
+  resources :branches
+
+
+  resources :addresses
+
+
   resources :clients
 
 
