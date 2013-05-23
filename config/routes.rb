@@ -1,5 +1,8 @@
 DealHunter::Application.routes.draw do
 
+  resources :countries
+
+
   resources :clients_offers
 
 
