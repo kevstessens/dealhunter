@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
    has_one :user_role
-   belongs_to :company
+   has_one :company
    belongs_to :client
 
-  attr_accessible :email, :password, :role_id
+  attr_accessible :email, :password, :user_role_id
 
   validates_presence_of :email, :password
 
