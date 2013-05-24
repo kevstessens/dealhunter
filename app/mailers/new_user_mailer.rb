@@ -6,4 +6,9 @@ class NewUserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Bienvenido a Dealhunter!")
   end
 
+  def new_client_email(user)
+    @user = user
+    mail(:to => user.email, :subject => "Bienvenido a Dealhunter!")
+  end
+
 end
