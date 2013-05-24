@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :dependent => :destroy
 
   attr_accessible :cuit, :name, :user_id, :user_attributes
 

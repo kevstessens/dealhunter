@@ -9,3 +9,5 @@
 UserRole.create(:name => "CompanyUser")
 UserRole.create(:name => "ClientUSer")
 
+Country.create!(:name => "Argentina")
+

@@ -28,6 +28,13 @@ gem 'devise'
 
 gem 'nested_form'
 
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'forgery'
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
