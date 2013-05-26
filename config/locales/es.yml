@@ -1,0 +1,111 @@
+es:
+
+  formtastic:
+    :yes: "Sí"
+    :no: "No"
+
+  activerecord:
+    attributes:
+      admin_user:
+        email: Mail
+        password: Contraseña
+        encrypted_password: Contraseña encriptada
+        current_sign_in_at: Sign in actual
+        last_sign_in_at: Último sign in
+        sing_in_count: Cantidad de sign in
+      user:
+        email: Mail
+        password: Contraseña
+        created_at: Creación
+        updated_at: Actualización
+      client:
+        address_id: Dirección
+        first_name: Nombre
+        last_name: Apellido
+        user_id: Usuario
+        email: Mail
+        password: Contraseña
+        created_at: Creación
+        updated_at: Actualización
+      company:
+        cuit: Cuit
+        name: Nombre
+        user_id: Usuario
+        created_at: Creación
+        updated_at: Actualización
+      address:
+        country: País
+        street: Calle
+        city: Localidad
+        state: Provincia
+        floor: Piso
+        number: Número
+    models:
+       address: Dirección
+       admin_user: Administrador
+       client: Cliente
+       company: Empresa
+       country: País
+       user: Usuario
+
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: Demasiado corta (min 8 caracteres)
+              confirmation: Contraseñas no coinciden
+
+  time:
+    am: am
+    formats:
+      default: ! '%A, %d de %B de %Y %H:%M:%S %z'
+      long: ! '%d de %B de %Y %H:%M'
+      short: ! '%d de %b %H:%M'
+    pm: pm
+
+
+  errors:
+      messages:
+        expired: "ha expirado, por favor pida una nueva"
+        not_found: "no encontrado"
+        already_confirmed: "ya ha sido confirmado, por favor intente de iniciar sesión"
+        not_locked: "no ha sido bloqueado"
+        not_saved:
+          one: "Un error no permite que este %{resource} sea guardado:"
+          other: "%{count} errores no permiten que este %{resource} sea guardado:"
+
+  devise:
+    failure:
+      already_authenticated: "Ya has iniciado sesión."
+      unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
+      unconfirmed: "Debes confirmar tu cuenta para continuar."
+      locked: "Tu cuenta está bloqueada."
+      invalid: "Mail o contraseña inválido."
+      invalid_token: "Invalid authentication token."
+      timeout: "Tu sesión ha expirado, por favor inicie sesión nuevamente para continuar."
+      inactive: "Tu cuenta no ha sido activada aun."
+      user:
+        not_found_in_database: "Mail o contraseña inválido"
+      admin_user:
+        not_found_in_database: "Mail o contraseña inválido"
+    sessions:
+      signed_in: "Inicio de sesión exitoso."
+      signed_out: "Cierre de sesión exitoso."
+    registrations:
+      signed_up: "Bienvenido! Tu registro ha sido exitoso."
+      updated: "Has modificado tu cuenta exitosamente."
+      destroyed: "¡Adios! Tu cuenta ha sido cancelada exitosamente.Esperamos verte pronto."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones de reseto de contraseña"
+      unlock_instructions:
+        subject: "Instrucciones de desbloqueo"
+
+  support:
+    array:
+      two_words_connector: " y "
+      words_connector: ", "
+      last_word_connector: " y "
