@@ -3,4 +3,7 @@ class Client < ActiveRecord::Base
   has_many :titles, :through => :client_title
 
   attr_accessible :address_id, :first_name, :last_name, :user_id
+  attr_writer :user_id
+
+  validates_presence_of :user_id
 end
