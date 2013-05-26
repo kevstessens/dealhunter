@@ -18,6 +18,10 @@ es:
         password: Contraseña
         created_at: Creación
         updated_at: Actualización
+        current_sign_in_at: Sign in actual
+        last_sign_in_at: Último sign in
+        sign_in_count: Cant. sing in
+        password_confirmation: Confirmación contraseña
       client:
         address_id: Dirección
         first_name: Nombre
