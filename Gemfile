@@ -28,12 +28,15 @@ gem 'devise'
 
 gem 'nested_form'
 
+gem 'rspec-rails', '~> 2.0'
+gem 'factory_girl_rails'
+gem 'forgery'
+gem 'capybara'
+
+
 group :development, :test do
   gem 'sqlite3'
-  gem 'factory_girl_rails'
-  gem 'forgery'
-  gem 'rspec-rails', '~> 2.0'
-  gem 'capybara'
+
 end
 
 group :production do
