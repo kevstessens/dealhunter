@@ -75,4 +75,9 @@ DealHunter::Application.configure do
       :enable_starttls_auto => true
   }
 
+
+  config.action_mailer.default_url_options = { :host => 'dealhunterarg.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+
+
 end
