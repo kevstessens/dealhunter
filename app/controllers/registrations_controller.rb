@@ -1,3 +1,2 @@
-class
-  # To change this template use File | Settings | File Templates.
+class RegistrationsController < InheritedResources::Base
 end

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
    has_one :user_role
    has_one :company
-   belongs_to :client
+   has_one :client
 
   attr_accessible :email, :password, :user_role_id
 
