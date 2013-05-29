@@ -85,18 +85,7 @@
                 </li>
               </ul>
             </nav>
-            <div id="recommend-to-friend" class="pull-right">
-              <ul>
-                <% if session[:body]!='page-micuenta' %>
-                    <li><h2><a href="#myModalInvite" role="button"  data-toggle="modal">INVITAR AMIGOS</a></h2></li>
-                    <li><h3><a href="#myModalInvite" role="button"  data-toggle="modal">Suma $30</a></h3></li>
-                <% else %>
 
-                    <li><h2><a href="<%= invitations_path%>" role="button"  data-toggle="modal">INVITAR AMIGOS</a></h2></li>
-                    <li><h3><a href="<%= invitations_path%>" role="button"  data-toggle="modal">Suma $30</a></h3></li>
-                <% end %>
-              </ul>
-            </div><!--end recommend-to-friend-->
           </div><!--end span6 offset3-->
         </div><!--end row-->
       </div><!--end container header-->
@@ -112,7 +101,7 @@
             <ul id="custumer-support" class="pull-right">
               <li class="custumer-support-title">Atención al Cliente</li>
               <li class="telephone-number">0800-111-DEAL(3315)</li>
-              <li class="contact-mail"><a href="<%= pages_contact_path %>"><i class="icon-contact-mail"></i> info@vontrip.com</a></li>
+              <li class="contact-mail"><a href="#"><i class="icon-contact-mail"></i> info@dealhunter.com</a></li>
             </ul>
           </div>
         </div>
