@@ -1,5 +1,5 @@
 class NewUserMailer < ActionMailer::Base
-  default :from => "Dealhunter Argentina"
+  default :from => "noresponder@dealhunter.com"
 
   def new_user_email(user)
     @user = user

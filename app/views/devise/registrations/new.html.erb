@@ -1,18 +1,128 @@
-<h2>Sign up</h2>
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vontrip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/bootstrap.css" rel="stylesheet">
+  <link href="../assets/vontrip.css" rel="stylesheet">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <!--    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+  -->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <![endif]-->
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <style>
+          /*esto es sólo para el landing
+          */
+      html,
+      body {
+          margin:0;
+          padding:0;
+          height:100%;
+      }
+  </style>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+</head>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<body id="landing">
+<div id="wrapper-landing">
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+  <!--container-->
+  <div class="container container-height">
+    <div class="row">
+      <div class="span6 center logo"><img src="../assets/logo-landing.png"></div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="row">
+      <section class="span6 center window" id="welcome-form">
+        <div class="row">
+          <div class="span3">
+            <div class="wrapper-padding">
+
+
+
+              <h3>Disfruta de las mejores experiencias en viajes y escapadas premium con hasta 70% de descuento</h3>
+              <h4>¡Hacete miembro, aprovecha nuestras ofertas y escapate!</h4>
+              <hr>
+              <div style="margin-top:-16px">¿Ya sos miembro?</div>
+              <a href="<%= new_user_session_path %>">
+                <button type="button" class="btn btn-vontrip medium" id="btn-inscribite" style="margin-left:28px; margin-top:0px;padding:6px !important;">Entrar</button>            </div>
+            </a>
+          </div>
+          <div class="span3">
+            <div class="wrapper-padding">
+              <hr class="visible-phone">
+              <h3 class="visible-phone" style="margin-bottom:30px;">Si ya estás registrado, ingresá acá</h3>
+
+
+
+              <%= form_for(@user) do |f| %>
+                  <% if @alert == "false" %>
+                      <div class="alert" id="register-alert">
+                        Datos inválidos.
+                      </div>
+                  <%end%>
+                  <%= f.text_field :full_name, :class => "input wide", :placeholder=>"Nombre Completo", :required => true %>
+                  <%= f.email_field :email, :class => "input wide", :placeholder=>"Email", :required => true %>
+                  <%= f.password_field :password, :class => "input wide", :placeholder=>"Contraseña", :required => true %>
+                  <%= f.password_field :password_confirmation, :class => "input wide", :placeholder=>"Repetir Contraseña", :required => true %>
+                  <hr>
+                  <button type="submit" class="btn btn-vontrip medium full-width">Inscribite</button>
+              <% end %>
+            </div>
+          </div>
+        </div><!--end row-->
+
+      </section>
+
+
+
+
+    </div><!--end row-->
+  </div><!--end container-->
+
+  <!--footer-->
+  <footer id="footer-wrapper">
+    <div class="container" >
+      <div  id="footer-middle" class="row">
+        <div class="span9">
+          <nav>
+            <ul class="inline">
+              <li><a href="<%= pages_we_path%>">Quiénes Somos</a></li>
+              <li><a href="<%= pages_work_with_us_path%>">Trabajá con Nosotros</a></li>
+              <li><a href="<%= pages_terms_and_conds_path%>">Términos y Condiciones</a></li>
+              <li><a href="<%= pages_faqs_path%>">Ayuda</a></li>
+              <li><a href="<%= pages_contact_path%>">Contacto</a></li>
+            </ul>
+          </nav>
+          <p class="copyright">Copyright © 2013 Vontrip.com. Todos los derechos reservados</p>
+        </div>
+
+        <div class="span3">
+          <ul class="inline pull-right social">
+            <li><a href="http://www.facebook.com/vontripargentina" target="_blank"><img src="/assets/icon-fb.png"></a></li>
+            <li><a href="https://twitter.com/VonTripArg" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
+            <li><a href="https://plus.google.com/116522684361738618061" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!--end footer-->
+
+</div><!-- wrapper-landing -->
+
+
+
+<script src="../assets/bootstrap-modal.js"></script>
+
+</body>
+
+</html>

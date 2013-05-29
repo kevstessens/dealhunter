@@ -41,9 +41,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    @user.user_role = UserRole.where("name = ?", "ClientUSer" ).first()
     respond_to do |format|
       if @user.save
+        @client = Client.new
+        @client.user = @user
+        @client.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else

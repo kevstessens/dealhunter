@@ -1,6 +1,13 @@
 DealHunter::Application.routes.draw do
 
 
+  match 'pages/work_with_us' => 'pages#work_with_us'
+  match 'pages/faqs' => 'pages#faqs'
+  match 'pages/contact' => 'pages#contact'
+  match 'pages/we' => 'pages#we'
+  match 'pages/terms_and_conds' => 'pages#terms_and_conds'
+
+
   resources :countries
 
 
@@ -40,6 +47,8 @@ DealHunter::Application.routes.draw do
 
 
   resources :users
+
+  devise_for :users, :controllers => { :registrations => "registrations"}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

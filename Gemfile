@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 
 # Gems used only for assets and not required
@@ -28,13 +28,20 @@ gem 'devise'
 
 gem 'nested_form'
 
+gem 'rspec-rails', '~> 2.0'
+gem 'factory_girl_rails'
+gem 'forgery'
+gem 'capybara'
+
+
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'forgery'
-  gem 'rspec-rails', '~> 2.0'
-  gem 'capybara'
+  gem 'sqlite3'
+
 end
 
+group :production do
+  gem 'pg'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
