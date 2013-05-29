@@ -14,13 +14,14 @@ def create
 
       if @user.active_for_authentication?
         sign_in("user", @user)
-        respond_with @user, :location => after_sign_up_path_for(@user)
+        #respond_with @user, :location => after_sign_up_path_for(@user)
+        respond_with @user, :location => edit_user_path(@user)
 
       else
         expire_session_data_after_sign_in!
         respond_with @user, :location => after_inactive_sign_up_path_for(@user)
       end
-    else
+    else                                                     g
       clean_up_passwords @user
       $user=@user
       redirect_to new_user_registration_path(:registration => false)
