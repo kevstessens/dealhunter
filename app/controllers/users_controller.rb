@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    session[:body]='page-micuenta'
     @users = User.all
 
     respond_to do |format|
@@ -13,6 +14,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    session[:body]='page-micuenta'
+
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -34,12 +37,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    session[:body]='page-micuenta'
     @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
+    session[:body]='page-micuenta'
+
     @user = User.new(params[:user])
     @user.user_role = UserRole.where("name = ?", "ClientUSer" ).first()
     respond_to do |format|
@@ -61,6 +67,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    session[:body]='page-micuenta'
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -75,6 +83,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    session[:body]='page-micuenta'
     @user = User.find(params[:id])
     @user.destroy
 
