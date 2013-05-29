@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
    has_one :company
    has_one :client
 
-  attr_accessible :email, :password, :user_role_id
+  attr_accessible :email, :password, :user_role_id, :company
 
   validates_presence_of :email, :password
 

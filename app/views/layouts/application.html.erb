@@ -75,11 +75,11 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                           <li><a href="#">Mis Ofertas</a></li>
-                          <% if current_user.user_role_id == 2 %>
+
                               <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
                               <li><a href="#">Preferencias</a></li>
                               <li><a href="#">Ayuda</a></li>
-                          <%end%>
+
 
                           <li class="divider"></li>
                           <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>

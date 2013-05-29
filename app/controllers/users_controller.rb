@@ -67,15 +67,36 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     session[:body]='page-micuenta'
 
+    if @user.user_role_id == 2
+      @client = Client.find_by_user_id(@user.id)
+      @address =Address.find_by_client_id(@client.id)
+      @client.update_attributes(params[:user][:client_attributes])
+      @address.update_attributes(params[:user][:client_attributes][:address_attributes])
+
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
+
+    else
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
   end
 
   # DELETE /users/1

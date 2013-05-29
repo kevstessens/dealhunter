@@ -57,6 +57,11 @@ class CompaniesController < ApplicationController
   # PUT /companies/1.json
   def update
     @company = Company.find(params[:id])
+    @company.name = params[:company][:name]
+    @company.cuit = params[:company][:cuit]
+    @company.save!
+
+    @company.user.update_attribute(:email, params[:company][:user][:email])
 
     respond_to do |format|
       if @company.update_attributes(params[:company])

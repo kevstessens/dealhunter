@@ -3,78 +3,86 @@
     <section class="span8">
 
       <header class="out">
-        <h2>Información de Usuario</h2>
+            <h2>Información de Usuario</h2>
+
       </header>
 
       <%= semantic_nested_form_for [@user] do |f|%>
+
+
           <div class="wrapper">
             <article class="row">
               <div class="span4">
                 <div class="wrapper-padding">
 
-                  <%=f.inputs :for => [:client, f.object.client || Client.new] do |h|%>
+                  <% if @user.user_role_id == 2 %>
 
-                      <div class="control-group clearfix">
-                        <label class="pull-left" for="inputEmail">Nombre</label>
-                        <%=h.input :first_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre" } %>
-                      </div>
-
-                      <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
+                      <%=f.inputs :for => [:client, f.object.client || Client.new] do |h|%>
 
                           <div class="control-group clearfix">
-                            <label class="pull-left" for="inputDireccion">Calle</label>
-                            <%=address.input :street, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Dirección Completa", :id => "inputDireccion" } %>
+                            <label class="pull-left" for="inputEmail">Nombre</label>
+                            <%=h.input :first_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre" } %>
                           </div>
 
-                          <div class="control-group clearfix">
-                            <label class="pull-left" for="inputLocalidad">Piso</label>
-                            <%=address.input :floor, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Piso", :id => "inputLocalidad" } %>
-                          </div>
+                          <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
 
-                          <div class="control-group clearfix">
-                            <label class="pull-left" for="inputLocalidad">Localidad</label>
-                            <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
-                          </div>
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputDireccion">Calle</label>
+                                <%=address.input :street, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Dirección Completa", :id => "inputDireccion" } %>
+                              </div>
 
-                          <div class="control-group clearfix">
-                            <label class="pull-left" for="inputPais">País</label>
-                            <%=address.input :country, :label => false, :required => true, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
-                          </div>
-                      <% end %>
-                  <% end %>
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputLocalidad">Piso</label>
+                                <%=address.input :floor, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Piso", :id => "inputLocalidad" } %>
+                              </div>
 
-                </div><!--end wrapper-padding-->
-              </div><!--end span4-->
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputLocalidad">Localidad</label>
+                                <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
+                              </div>
 
-              <div class="span4">
-                <div class="wrapper-padding">
-
-                  <%=f.inputs :for => [:client, f.object.client || Client.new] do |h|%>
-
-                      <div class="control-group clearfix">
-                        <label class="pull-left" for="inputApellido">Apellido</label>
-                        <%=h.input :last_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Apellido", :id => "inputApellido"} %>
-                      </div>
-
-                      <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
-                          <div class="control-group clearfix">
-                            <label class="pull-left" for="inputProvincia">Provincia</label>
-                            <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
-                          </div>
-
-                          <div class="control-group clearfix">
-                            <label class="pull-left" for="inputProvincia">Número</label>
-                            <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
-                          </div>
-
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputPais">País</label>
+                                <%=address.input :country, :label => false, :required => true, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
+                              </div>
+                          <% end %>
                       <% end %>
 
+                    </div><!--end wrapper-padding-->
+                  </div><!--end span4-->
+
+                  <div class="span4">
+                    <div class="wrapper-padding">
+
+                      <%=f.inputs :for => [:client, f.object.client || Client.new] do |h|%>
+
+                          <div class="control-group clearfix">
+                            <label class="pull-left" for="inputApellido">Apellido</label>
+                            <%=h.input :last_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Apellido", :id => "inputApellido"} %>
+                          </div>
+
+                          <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputProvincia">Provincia</label>
+                                <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
+                              </div>
+
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputProvincia">Número</label>
+                                <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
+                              </div>
+
+                          <% end %>
+
+                      <%end%>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputEmail">Email</label>
+                        <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
+                      </div>
                   <%end%>
 
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Email</label>
-                    <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
-                  </div>
+                <%end%>
 
                 </div><!--end wrapper-padding-->
               </div><!--end span4-->
@@ -95,9 +103,14 @@
           </div><!--end wrapper-->
 
 
-      <% end%>
     </section>
     <!--end main content-->
+
+
+
+
+
+
 
     <!--sidebar-->
     <aside class="span4">
