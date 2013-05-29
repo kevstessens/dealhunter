@@ -23,9 +23,9 @@
           */
       html,
       body {
-          margin:0;
-          padding:0;
-          height:100%;
+          margin: 0;
+          padding: 0;
+          height: 100%;
       }
   </style>
 
@@ -47,13 +47,13 @@
             <div class="wrapper-padding">
 
 
-
               <h3>Disfrutá de las mejores ofertas de una manera rápida y divertida</h3>
               <hr>
               <div style="margin-top:-16px">¿Ya sos miembro?</div>
               <a href="<%= new_user_session_path %>">
-                <button type="button" class="btn btn-vontrip medium rounded-borders-btn" id="btn-inscribite" style="margin-left:0px; margin-top:0px;padding:6px !important;">Entrar</button>            </div>
-                </a>
+                <button type="button" class="btn btn-vontrip medium rounded-borders-btn" id="btn-inscribite" style="margin-left:0px; margin-top:0px;padding:6px !important;">Entrar</button>
+            </div>
+            </a>
           </div>
           <div class="span3">
             <div class="wrapper-padding">
@@ -67,33 +67,39 @@
                       <div class="alert" id="register-alert">
                         Datos inválidos.
                       </div>
-                  <%end%>
-                  <%= f.email_field :email, :class => "input wide", :placeholder=>"Email", :required => true %>
-                  <%= f.password_field :password, :class => "input wide", :placeholder=>"Contraseña", :required => true %>
-                  <%= f.password_field :password_confirmation, :class => "input wide", :placeholder=>"Repetir Contraseña", :required => true %>
+                  <% end %>
+                  <%= f.email_field :email, :class => "input wide", :placeholder => "Email", :required => true %>
+                  <%= f.password_field :password, :class => "input wide", :placeholder => "Contraseña", :required => true %>
+                  <%= f.password_field :password_confirmation, :class => "input wide", :placeholder => "Repetir Contraseña", :required => true %>
                   <hr>
                   <button type="submit" class="btn btn-vontrip medium full-width rounded-borders-btn">Inscribite</button>
               <% end %>
             </div>
           </div>
-        </div><!--end row-->
+        </div>
+        <!--end row-->
 
       </section>
 
 
-
-
-    </div><!--end row-->
-  </div><!--end container-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
 
   <!--footer-->
   <footer id="footer-wrapper" class="dh-footer">
-    <div class="container" >
-      <div  id="footer-middle" class="row">
-        <div class="span9">
+    <div class="container">
+
+
+      <hr>
+
+      <div id="footer-middle" class="row">
+        <div class="span7">
           <nav>
             <ul class="inline">
               <li><a href="#">Quiénes Somos</a></li>
+              <li><a href="#">Trabajá con Nosotros</a></li>
               <li><a href="#">Términos y Condiciones</a></li>
               <li><a href="#">Ayuda</a></li>
               <li><a href="#">Contacto</a></li>
@@ -101,23 +107,30 @@
           </nav>
           <p class="copyright">Copyright © 2013 DealHunter.com. Todos los derechos reservados</p>
         </div>
-
         <div class="span3">
+          <ul id="custumer-support" class="pull-right">
+            <li class="custumer-support-title">Atención al Cliente</li>
+            <li class="telephone-number">0800-111-DEAL(3315)</li>
+            <li class="contact-mail"><a href="#"><i class="icon-contact-mail"></i> info@dealhunter.com</a></li>
+          </ul>
+        </div>
+
+        <div class="span2">
           <ul class="inline pull-right social">
             <li><a href="#" target="_blank"><img src="/assets/icon-fb.png"></a></li>
-            <li><a href="https://twitter.com/dealHunter4" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
+            <li><a href="https://twitter.com/VonTripArg" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
             <li><a href="#" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
 
           </ul>
         </div>
       </div>
-    </div>
 
+    </div>
   </footer>
   <!--end footer-->
 
-</div><!-- wrapper-landing -->
-
+</div>
+<!-- wrapper-landing -->
 
 
 <script src="../assets/bootstrap-modal.js"></script>

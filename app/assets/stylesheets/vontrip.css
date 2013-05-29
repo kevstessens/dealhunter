@@ -8,7 +8,7 @@ a:hover,
 a:active,
 a:focus {
     outline: 0;
-    color: #ff4b3d; /* red */
+    /*color: #ff4b3d; *//* red */
 
 }
 
@@ -96,7 +96,7 @@ aside h3 {
 }
 
 #page-micuenta aside h2 {
-    background: #899fac;
+    background-color: rgb(23, 46, 117);
     color: #FFF;
     font-size: 11px;
     font-weight: 700;
@@ -104,6 +104,32 @@ aside h3 {
     text-transform: uppercase;
     padding: 10px;
     margin: 0 0 10px 0;
+}
+
+#page-micuenta {
+    background-image: url(../assets/userbg.png);
+
+}
+
+#block {
+    background-image: url(../assets/bag.png);
+    -webkit-transition-property: left, top, background, -webkit-transform;
+    -webkit-transition-duration: 2s, 2s, 1s, 1s;
+    -webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+    -webkit-transition-delay: 0, 0, 0, 1s;
+    width: 100px;
+    height: 100px;
+}
+
+#stage:hover #block {
+    left: 100px;
+    top: 100px;
+    /*background: red;*/
+    -webkit-transform: rotate(360deg);
+}
+
+#main-content {
+    background: none;
 }
 
 aside ul {
@@ -267,28 +293,31 @@ header#top nav ul {
     *background-color: rgb(23, 46, 117);
 
 }
-.rounded-borders{
+
+.rounded-borders {
     border-radius: 25px 25px 25px 25px;
 }
-#welcome-form-membresia, #welcome-form{
+
+#welcome-form-membresia, #welcome-form {
     background: none !important;
 }
-.alert{
+
+.alert {
     background-color: rgb(229, 250, 252);
     border: 1px solid rgb(145, 124, 255);
 }
 
-.alert,.alert h4{
-    color:rgb(145, 124, 255);
+.alert, .alert h4 {
+    color: rgb(145, 124, 255);
 }
 
-.rounded-borders-btn{
-    border-radius: 8px;
+.rounded-borders-btn {
+    border-radius: 8px !important;
 }
 
 .btn-vontrip:active,
 .btn-vontrip.active {
-    background-color: #003399  \9;
+    background-color: #003399   \9;
 }
 
 .btn-vontrip-grey {
@@ -313,11 +342,11 @@ header#top nav ul {
 
 .btn-vontrip-grey:active,
 .btn-vontrip-grey.active {
-    background-color: #003399  \9;
+    background-color: #003399   \9;
 }
 
 .btn-group.open .btn.dropdown-toggle {
-    background-color: #79909e;
+    background-color: #003399
 }
 
 .full-width {
@@ -349,8 +378,10 @@ header#top nav ul {
     margin-right: 10px;
     margin-top: -5px;
 }
-.opaqueBG{
-    background-image: url(../assets/opaqueBG.png);
+
+.opaqueBG {
+    background: none;
+    background-image: url(../assets/opaqueBG.png) !important;
 }
 
 .btn-facebook {
@@ -474,20 +505,25 @@ header#top nav ul {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 
     padding: 20px 2.12765%; /*20 x 940 / 100*/
+    background: none;
 }
 
 #main-content .wrapper-padding {
     padding: 20px 2.64%;
     overflow: hidden;
 }
-.light-shadowed{
+
+.light-shadowed {
     -webkit-box-shadow: 9px 9px 13px -4px black;
     -moz-box-shadow: 9px 9px 13px -4px black;
     box-shadow: 9px 9px 13px -4px black;
 }
 
+.btn-group.open .btn.dropdown-toggle {
 
-.dh-footer{
+}
+
+.dh-footer {
     -moz-box-shadow: inset -2px 3px 13px #000000;
     -webkit-box-shadow: inset -2px 3px 13px #000000;
     box-shadow: inset -2px 3px 13px #000000;
