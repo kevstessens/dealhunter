@@ -1,6 +1,140 @@
-<h1>Editing user</h1>
+<div class="container" id="main-content">
+  <div class="row">
+    <section class="span8">
 
-<%= render 'form' %>
+      <header class="out">
+        <h2>Información de Contacto</h2>
+      </header>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+      <%= semantic_nested_form_for [@user] do |f|%>
+          <div class="wrapper">
+            <article class="row">
+              <div class="span4">
+                <div class="wrapper-padding">
+
+
+                  <div class="control-group clearfix">
+                    <label class="pull-left" for="inputEmail">Nombre</label>
+                    <%=f.input :first_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre" } %>
+                  </div>
+
+                  <%=f.inputs :for => [:client_info, f.object.client_info || ClientInfo.new] do |h|%>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputTelefono">Teléfono</label>
+                        <%=h.input :phone_number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Teléfono" } %>
+                      </div>
+
+                  <% end %>
+
+                  <%=f.inputs :for => [:address, f.object.address || Address.new] do |address|%>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputDireccion">Dirección</label>
+                        <%=address.input :street, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Dirección Completa", :id => "inputDireccion" } %>
+                      </div>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputLocalidad">Piso</label>
+                        <%=address.input :floor, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Piso", :id => "inputLocalidad" } %>
+                      </div>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputLocalidad">Localidad</label>
+                        <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
+                      </div>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputPais">País</label>
+                        <%=address.input :country, :label => false, :required => true, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
+                      </div>
+                  <% end %>
+
+                </div><!--end wrapper-padding-->
+              </div><!--end span4-->
+
+              <div class="span4">
+                <div class="wrapper-padding">
+
+                  <div class="control-group clearfix">
+                    <label class="pull-left" for="inputApellido">Apellido</label>
+                    <%=f.input :last_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Apellido", :id => "inputApellido"} %>
+                  </div>
+                  <%=f.inputs :for => [:address, f.object.address || Address.new] do |address|%>
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputCP">Código Postal</label>
+                        <%=address.input :postcode, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Código Postal", :id => "inputCP"} %>
+                      </div>
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputProvincia">Provincia</label>
+                        <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
+                      </div>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputProvincia">Número</label>
+                        <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
+                      </div>
+
+                  <% end %>
+                  <div class="control-group clearfix">
+                    <label class="pull-left" for="inputEmail">Email</label>
+                    <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
+                  </div>
+
+                  <%=f.inputs :for => [:client_info, f.object.client_info || ClientInfo.new] do |h|%>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputDNI">DNI</label>
+                        <%=h.input :dni, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "DNI" } %>
+                      </div>
+
+                  <% end %>
+
+                </div><!--end wrapper-padding-->
+              </div><!--end span4-->
+            </article>
+
+            <% if !session[:flash].nil? %>
+                <div class="alert" id="login-alert">
+                  <%= session[:flash][:notice] %>
+                </div>
+            <% end %>
+
+            <div class="wrapper-padding">
+              <hr>
+              <div class="text-center">
+                <button type="submit" class="btn btn-vontrip">Grabar Información</button>
+              </div>
+            </div><!--end wrapper-padding-->
+          </div><!--end wrapper-->
+
+
+      <% end%>
+    </section>
+    <!--end main content-->
+
+    <!--sidebar-->
+    <aside class="span4">
+
+      <div class="wrapper-padding">
+
+        <h2>Detalle de Cuenta</h2>
+        <ul class="aside-nav">
+          <li class="credit">Crédito Disponible:<span>$ <%= current_user.client.available_credit.to_i%></span></li>
+          <li><a href="<%= invitations_path%>">Invitaciones</a></li>
+          <li><a href="<%= user_path(current_user)%>">Reservas</a></li>
+          <li><a href="<%= users_gift_cards_path%>">Gift Cards</a></li>
+        </ul>
+        <h2>Información Personal</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= edit_user_path(current_user)%>" class="active">Información de Contacto</a></li>
+        </ul>
+        <h2>Preferencias</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= users_newsletter_freq_path%>">Preferencias de Email</a></li>
+          <li><a href="<%= edit_user_registration_path %>">Contraseña</a></li>
+        </ul>
+      </div>
+    </aside><!--end sidebar-->
+  </div><!--end container-->
+</div><!--end row-->
