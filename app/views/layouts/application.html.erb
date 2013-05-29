@@ -68,21 +68,25 @@
               <ul>
                 <li class="user-message">Bienvenido <span><%= current_user.email%></span></li>
                 <li>
-                  <div class="btn-group">
-                    <a class="btn btn-vontrip-grey dropdown-toggle" data-toggle="dropdown" href="#">
-                      <i class="icon-user icon-white"></i> Mi Cuenta
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu pull-right">
-                      <li><a href="#">Mis Ofertas</a></li>
-                      <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
-                      <li><a href="#">Preferencias</a></li>
-                      <li><a href="#">Ayuda</a></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
-                    </ul>
-                  </div><!--end btn-group-->
-                </li>
+                      <div class="btn-group">
+                        <a class="btn btn-vontrip-grey dropdown-toggle" data-toggle="dropdown" href="#">
+                          <i class="icon-user icon-white"></i> Mi Cuenta
+                          <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                          <li><a href="#">Mis Ofertas</a></li>
+                          <% if current_user.user_role_id == 2 %>
+                              <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+                              <li><a href="#">Preferencias</a></li>
+                              <li><a href="#">Ayuda</a></li>
+                          <%end%>
+
+                          <li class="divider"></li>
+                          <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+                        </ul>
+                      </div><!--end btn-group-->
+                    </li>
+
               </ul>
             </nav>
 
