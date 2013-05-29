@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :client_attributes
    has_one :user_role
    has_one :company
    has_one :client
@@ -14,5 +14,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :user_role_id
 
   validates_presence_of :email, :password
+
+
+  accepts_nested_attributes_for :client, :allow_destroy => true,
+                                :reject_if => proc { |attributes|
+                                  attributes['client_info_id'].blank? and
+                                      attributes['available_credit'].blank?
+
+                                }
 
 end
