@@ -14,7 +14,8 @@ def create
 
       if @user.active_for_authentication?
         sign_in("user", @user)
-        respond_with @user, :location => after_sign_up_path_for(@user)
+        #respond_with @user, :location => after_sign_up_path_for(@user)
+        respond_with @user, :location => user_edit_path(@user)
 
       else
         expire_session_data_after_sign_in!
