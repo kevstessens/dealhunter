@@ -66,7 +66,7 @@
           <div class="span6 offset3 clearfix" id="header-data">
             <nav class="pull-left">
               <ul>
-                <li class="user-message">Bienvenido <span><%= current_user.full_name%></span></li>
+                <li class="user-message">Bienvenido <span><%= current_user.email%></span></li>
                 <li>
                   <div class="btn-group">
                     <a class="btn btn-vontrip-grey dropdown-toggle" data-toggle="dropdown" href="#">
@@ -74,11 +74,10 @@
                       <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu pull-right">
-                      <li><a href="<%= user_path(current_user)%>">Reservas</a></li>
-                      <li><a href="<%= users_gift_cards_path%>">Detalle de Cuentas</a></li>
-                      <li><a href="<%= edit_user_path(current_user)%>">Información Personal</a></li>
-                      <li><a href="<%= users_newsletter_freq_path%>">Preferencias</a></li>
-                      <li><a href="<%= pages_faqs_path%>">Ayuda</a></li>
+                      <li><a href="#">Mis Ofertas</a></li>
+                      <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+                      <li><a href="#">Preferencias</a></li>
+                      <li><a href="#">Ayuda</a></li>
                       <li class="divider"></li>
                       <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
                     </ul>
@@ -112,7 +111,7 @@
           <div class="span6">
             <ul id="custumer-support" class="pull-right">
               <li class="custumer-support-title">Atención al Cliente</li>
-              <li class="telephone-number">0800-345-TRIP(8747)</li>
+              <li class="telephone-number">0800-111-DEAL(3315)</li>
               <li class="contact-mail"><a href="<%= pages_contact_path %>"><i class="icon-contact-mail"></i> info@vontrip.com</a></li>
             </ul>
           </div>
@@ -124,21 +123,21 @@
           <div class="span7">
             <nav>
               <ul class="inline">
-                <li><a href="<%= pages_we_path%>">Quiénes Somos</a></li>
-                <li><a href="<%= pages_work_with_us_path%>">Trabajá con Nosotros</a></li>
-                <li><a href="<%= pages_terms_and_conds_path%>">Términos y Condiciones</a></li>
-                <li><a href="<%= pages_faqs_path%>">Ayuda</a></li>
-                <li><a href="<%= pages_contact_path%>">Contacto</a></li>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Trabajá con Nosotros</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
               </ul>
             </nav>
-            <p class="copyright">Copyright © 2013 Vontrip.com. Todos los derechos reservados</p>
+            <p class="copyright">Copyright © 2013 DealHunter.com. Todos los derechos reservados</p>
           </div>
 
           <div class="span5">
             <ul class="inline pull-right social">
-              <li><a href="http://www.facebook.com/vontripargentina" target="_blank"><img src="/assets/icon-fb.png"></a></li>
+              <li><a href="#" target="_blank"><img src="/assets/icon-fb.png"></a></li>
               <li><a href="https://twitter.com/VonTripArg" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
-              <li><a href="https://plus.google.com/116522684361738618061" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
+              <li><a href="#" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
 
             </ul>
           </div>
