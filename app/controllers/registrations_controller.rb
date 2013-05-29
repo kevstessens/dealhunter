@@ -2,6 +2,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(params[:user])
+
+    client=Client.new()
+    client.user=@user
+    address=Address.new()
+    address.user= @user
+    client.address = address
+    @user.client = client
+
     if @user.save
       NewUserMailer.new_user_email(@user).deliver
 
