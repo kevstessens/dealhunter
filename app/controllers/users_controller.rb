@@ -45,7 +45,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     session[:body]='page-micuenta'
-
     @user = User.new(params[:user])
     @user.user_role = UserRole.where("name = ?", "ClientUSer" ).first()
     respond_to do |format|
@@ -66,7 +65,6 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
     session[:body]='page-micuenta'
 
     respond_to do |format|

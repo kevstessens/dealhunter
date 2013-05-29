@@ -6,6 +6,9 @@ DealHunter::Application.routes.draw do
   match 'pages/we' => 'pages#we'
   match 'pages/terms_and_conds' => 'pages#terms_and_conds'
 
+  root :to => "users#index"
+
+
   resources :countries
 
   resources :clients_offers
@@ -24,7 +27,7 @@ DealHunter::Application.routes.draw do
 
   resources :addresses
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations"}
 
   resources :clients
 
@@ -34,12 +37,11 @@ DealHunter::Application.routes.draw do
 
   resources :users
 
-  devise_for :users, :controllers => { :registrations => "registrations"}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
 
-  root :to => "offers#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1228,6 +1228,7 @@ body#landing {
     height: auto;
 }
 
+
 #landing  #footer-middle {
     padding: 40px 0;
 }
@@ -2306,4 +2307,10 @@ label.tweenty {
 .list-photo {
     width: 110px;
     height: 90px;
+}
+
+
+#footer-middle{
+    padding: 0 !important;
+
 }
