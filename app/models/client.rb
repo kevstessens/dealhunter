@@ -5,13 +5,7 @@ class Client < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :user_id, :address_attributes
 
-  validates_presence_of :user_id
 
 
-  accepts_nested_attributes_for :address, :allow_destroy => true,
-                                :reject_if => proc { |attributes|
-                                  attributes['city'].blank? and
-                                      attributes['number'].blank? and
-                                      attributes['street'].blank?
-                                }
+  accepts_nested_attributes_for :address, :allow_destroy => true
 end

@@ -64,40 +64,19 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+
     @user = User.find(params[:id])
-    session[:body]='page-micuenta'
-
-    if @user.user_role_id == 2
-
-      #@client = Client.find_by_user_id(@user.id)
-      #@address =Address.find_by_client_id(@client.id)
-      #@client.update_attributes(params[:user][:client_attributes])
-      #@address.update_attributes(params[:user][:client_attributes][:address_attributes])
-
-
     respond_to do |format|
+
       if @user.update_attributes(params[:user])
-        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
+        sign_in(@user, :bypass => true)
+        format.html { redirect_to edit_user_path(@user), notice: 'Se han registrado los cambios en su perfil.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity, notice: 'No se han podido cambiar sus datos.' }
       end
     end
-
-
-    else
-      respond_to do |format|
-        if @user.update_attributes(params[:user])
-          format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-
   end
 
   # DELETE /users/1

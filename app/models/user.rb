@@ -13,14 +13,10 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :user_role_id, :company
 
-  validates_presence_of :email, :password
+  validates_presence_of :email, :password, :on => :create
 
 
-  accepts_nested_attributes_for :client, :allow_destroy => true,
-                                :reject_if => proc { |attributes|
-                                  attributes['first_name'].blank? and
-                                      attributes['last_name'].blank?
 
-                                }
+  accepts_nested_attributes_for :client, :allow_destroy => true
 
 end
