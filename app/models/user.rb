@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :client, :allow_destroy => true,
                                 :reject_if => proc { |attributes|
-                                  attributes['client_info_id'].blank? and
-                                      attributes['available_credit'].blank?
+                                  attributes['first_name'].blank? and
+                                      attributes['last_name'].blank?
 
                                 }
 

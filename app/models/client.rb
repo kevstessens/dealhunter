@@ -11,10 +11,7 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :address, :allow_destroy => true,
                                 :reject_if => proc { |attributes|
                                   attributes['city'].blank? and
-                                      attributes['country'].blank? and
                                       attributes['number'].blank? and
-                                      attributes['postcode'].blank? and
-                                      attributes['state'].blank? and
                                       attributes['street'].blank?
                                 }
 end

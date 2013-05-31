@@ -68,10 +68,11 @@ class UsersController < ApplicationController
     session[:body]='page-micuenta'
 
     if @user.user_role_id == 2
-      @client = Client.find_by_user_id(@user.id)
-      @address =Address.find_by_client_id(@client.id)
-      @client.update_attributes(params[:user][:client_attributes])
-      @address.update_attributes(params[:user][:client_attributes][:address_attributes])
+
+      #@client = Client.find_by_user_id(@user.id)
+      #@address =Address.find_by_client_id(@client.id)
+      #@client.update_attributes(params[:user][:client_attributes])
+      #@address.update_attributes(params[:user][:client_attributes][:address_attributes])
 
 
     respond_to do |format|
