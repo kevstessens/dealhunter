@@ -1,3 +1,8 @@
+
+
+
+<% if current_user.user_role_id == 2%>
+
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8 rounded-borders light-shadowed" style="background: #ffffff;">
@@ -8,7 +13,7 @@
 
       </header>
 
-      <%= semantic_nested_form_for [@user] do |f|%>
+      <%= semantic_nested_form_for [current_user] do |f|%>
 
 
           <div class="wrapper">
@@ -138,3 +143,110 @@
     </aside><!--end sidebar-->
   </div><!--end container-->
 </div><!--end row-->
+
+<% elsif  current_user.user_role_id == 1%>
+
+    <div class="container" id="main-content">
+      <div class="row">
+        <section class="span8 rounded-borders light-shadowed" style="background: #ffffff;">
+
+
+          <header class="out rounded-borders-btn">
+            <h2>Información de Empresa</h2>
+
+          </header>
+
+          <%= semantic_nested_form_for [current_user.company] do |f|%>
+
+
+              <div class="wrapper">
+                <article class="row">
+                  <div class="span4">
+                    <div class="wrapper-padding">
+
+                      <%=f.inputs :for => [:user, f.object.user] do |h|%>
+
+                          <div class="control-group clearfix">
+                            <label class="pull-left" for="inputEmail">Nombre</label>
+                            <%=h.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email" } %>
+                          </div>
+
+                      <% end %>
+
+                    </div><!--end wrapper-padding-->
+                  </div><!--end span4-->
+
+                  <div class="span4">
+                    <div class="wrapper-padding">
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputEmail">Nombre</label>
+                        <%= f.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre", :id => "inputEmail"} %>
+                      </div>
+
+                      <div class="control-group clearfix">
+                        <label class="pull-left" for="inputEmail">CUIT</label>
+                        <%= f.input :cuit, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Ej. 22-2222222-2", :id => "inputEmail"} %>
+                      </div>
+          <%end%>
+
+          </div><!--end wrapper-padding-->
+          </div><!--end span4-->
+          </article>
+
+          <% if !session[:flash].nil? %>
+              <% if !session[:flash][:notice].nil? %>
+                  <div class="alert" id="login-alert">
+                    <%= session[:flash][:notice] %>
+                  </div>
+              <% end %>
+          <% end %>
+
+          <div class="wrapper-padding">
+            <hr>
+            <div class="text-center">
+              <button type="submit" class="btn btn-vontrip rounded-borders-btn">Grabar Información</button>
+            </div>
+          </div><!--end wrapper-padding-->
+          </div><!--end wrapper-->
+
+
+        </section>
+        <!--end main content-->
+
+
+
+
+
+
+
+        <!--sidebar-->
+        <aside class="span4" style="background: none;">
+
+          <div class="wrapper-padding rounded-borders light-shadowed" style="background: #ffffff;">
+
+            <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
+            <ul class="aside-nav">
+              <li><a href="#">Mis Ofertas</a></li>
+              <li><a href="#">Preferencias</a></li>
+            </ul>
+            <h2 class="rounded-borders-btn">Información Personal</h2>
+            <ul class="aside-nav">
+              <li><a href="<%= edit_user_path(current_user)%>" class="active">Mi Perfil</a></li>
+            </ul>
+            <h2 class="rounded-borders-btn">Preferencias</h2>
+            <ul class="aside-nav">
+              <li><a href="<%= edit_user_registration_path %>">Contraseña</a></li>        </ul>
+            </ul>
+          </div>
+          <!--<div id="bags">-->
+          <!--<div id="stage">-->
+          <!--<div id="block"></div>-->
+          <!--</div>-->
+          <!--</div>-->
+        </aside><!--end sidebar-->
+      </div><!--end container-->
+    </div><!--end row-->
+
+
+<% end %>

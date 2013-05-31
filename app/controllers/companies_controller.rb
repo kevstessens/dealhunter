@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
@@ -61,11 +63,11 @@ class CompaniesController < ApplicationController
     @company.cuit = params[:company][:cuit]
     @company.save!
 
-    @company.user.update_attribute(:email, params[:company][:user][:email])
+    @company.user.update_attribute(:email, params[:company][:user][:email])   unless params[:company][:user].nil?
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+        format.html { redirect_to edit_user_path(@company.user), notice: 'La información ha sido correctamente actualizada.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
