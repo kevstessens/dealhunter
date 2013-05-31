@@ -6,7 +6,7 @@ ActiveAdmin.register Company do
   controller do
     def create
       super
-      NewUserMailer.new_user_email(@company.user).deliver
+      NewUserMailer.new_user_email(@company.user, @company).deliver
     end
 
   end
