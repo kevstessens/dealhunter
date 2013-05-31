@@ -28,6 +28,8 @@ gem 'devise'
 
 gem 'nested_form'
 
+gem 'validates_timeliness'
+
 
 
 
