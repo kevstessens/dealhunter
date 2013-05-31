@@ -11,7 +11,7 @@ def create
       client.user=@user
       client.address=address
       client.save
-      NewUserMailer.new_user_email(@user).deliver
+      NewUserMailer.new_client_email(@user).deliver
 
       if @user.active_for_authentication?
         sign_in("user", @user)

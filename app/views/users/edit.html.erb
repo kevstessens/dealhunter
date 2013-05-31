@@ -91,9 +91,11 @@
             </article>
 
             <% if !session[:flash].nil? %>
-                <div class="alert" id="login-alert">
-                  <%= session[:flash][:notice] %>
-                </div>
+                <% if !session[:flash][:notice].nil? %>
+                    <div class="alert" id="login-alert">
+                     <%= session[:flash][:notice] %>
+                    </div>
+                <% end %>
             <% end %>
 
             <div class="wrapper-padding">
