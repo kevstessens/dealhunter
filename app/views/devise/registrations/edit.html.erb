@@ -1,29 +1,60 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!--container-->
+<div class="container" id="main-content">
+  <div class="row">
+    <section class="span8">
+      <header class="out">
+        <h2>Cambiar Contraseña</h2>
+      </header>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="wrapper-padding">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+        <div class="wrapper">
+          <article>
+            <%= form_for(current_user) do |f| %>
+                <label for="inputPass">Contraseña Actual: </label>
+                <%= f.password_field :password, :autocomplete => "off", :class => "input-xlarge" %>
+                <label for="inputNewPass">Nueva Contraseña: </label>
+                <%= f.password_field :password, :class => "input-xlarge" %>
+                <label for="inputNewPassAgain">Repetir Contraseña: </label>
+                <%= f.password_field :password, :class => "input-xlarge" %>
+                <hr>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-vontrip">Cambiar Contraseña</button>
+                </div>
+            <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          </article>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+        </div>
+        <!--end wrapper-->
+      </div>
+    </section>
+    <!--end main content-->
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+<!--sidebar-->
+<aside class="span4" style="background: none;">
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+  <div class="wrapper-padding rounded-borders light-shadowed" style="background: #ffffff;">
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+    <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
+    <ul class="aside-nav">
+      <li><a href="#">Mis Ofertas</a></li>
+      <li><a href="#">Preferencias</a></li>
+    </ul>
+    <h2 class="rounded-borders-btn">Información Personal</h2>
+    <ul class="aside-nav">
+      <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+    </ul>
+    <h2 class="rounded-borders-btn">Preferencias</h2>
+    <ul class="aside-nav">
+      <li><a href="<%= edit_user_registration_path %>" class="active">Contraseña</a></li>    </ul>
+  </div>
+  <!--<div id="bags">-->
+  <!--<div id="stage">-->
+  <!--<div id="block"></div>-->
+  <!--</div>-->
+  <!--</div>-->
+</aside><!--end sidebar-->
+</div><!--end container-->
+</div><!--end row-->
