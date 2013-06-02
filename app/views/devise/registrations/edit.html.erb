@@ -39,7 +39,11 @@
 
     <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
     <ul class="aside-nav">
-      <li><a href="#">Mis Ofertas</a></li>
+        <% if current_user.user_role_id = 1 %>
+      <li><a href="<%= users_offers_company_user_path %>">Mis Ofertas</a></li>
+          <% else %>
+      <li><a href="<%= users_offers_client_user_path %>">Mis Ofertas</a></li>
+          <% end %>
       <li><a href="#">Preferencias</a></li>
     </ul>
     <h2 class="rounded-borders-btn">Información Personal</h2>

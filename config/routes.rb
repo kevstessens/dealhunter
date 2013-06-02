@@ -5,6 +5,8 @@ DealHunter::Application.routes.draw do
   match 'pages/contact' => 'pages#contact'
   match 'pages/we' => 'pages#we'
   match 'pages/terms_and_conds' => 'pages#terms_and_conds'
+  match 'users/offers_company_user' => 'users#offers_company_user'
+  match 'users/offers_client_user' => 'users#offers_client_user'
 
   root :to => "offers#index"
 

@@ -30,6 +30,10 @@ gem 'nested_form'
 
 gem 'validates_timeliness'
 
+gem 'carrierwave'
+
+gem "mini_magick"
+
 
 
 

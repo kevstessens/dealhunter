@@ -91,4 +91,16 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def offers_company_user
+    session[:body]='page-micuenta'
+    @user = current_user
+    @offers = Offer.where("company_id = ?",@user.company.id)
+  end
+
+  def offers_client_user
+    session[:body]='page-micuenta'
+    @user = current_user
+    @offers = current_user.client.offers
+  end
 end

@@ -1,7 +1,8 @@
 class Client < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
-  has_many :titles, :through => :client_title
+  has_and_belongs_to_many :titles
   has_one :address
+  has_and_belongs_to_many :offers
 
   attr_accessible :first_name, :last_name, :user_id, :address_attributes
 
