@@ -1,0 +1,155 @@
+<div class="container" id="main-content">
+  <div class="row">
+    <section class="span8">
+      <header class="out">
+        <h2>Ofertas</h2>
+      </header>
+
+      <div class="wrapper-padding">
+
+        <div class="wrapper">
+          <article>
+
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">Todas</a></li>
+              <li><a href="#profile" data-toggle="tab">Activas</a></li>
+              <li><a href="#completadas" data-toggle="tab">Finalizadas</a></li>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+
+              <div class="tab-pane fade in active clearfix" id="home">
+
+                <% @offers.each do |offer| %>
+
+                        <div class="media hotel-item">
+                          <a class="pull-left" href="#">
+                            <% unless offer.offer.photo.nil? %>
+                                <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                            <%end%>
+                          </a>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                            <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                            <p><%= offer.company.name %></p>
+                          </div><!--end media-body-->
+                        </div><!--end media-->
+
+                    <% end %>
+
+
+                <div class="pagination">
+                  <ul>
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+
+              </div><!--end myTabContent-->
+
+              <div class="tab-pane fade" id="profile">
+
+                <% @offers.where('end_date > ?', Date.current).each do |offer| %>
+
+                    <div class="media hotel-item">
+                      <a class="pull-left" href="#">
+                        <% unless offer.offer.photo.nil? %>
+                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <%end%>
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                        <p><%= offer.company.name %></p>
+                      </div><!--end media-body-->
+                    </div><!--end media-->
+
+                <% end %>
+
+                <div class="pagination">
+                  <ul>
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="completadas">
+
+                <% @offers.where('end_date < ?', Date.current).each do |offer| %>
+
+                    <div class="media hotel-item">
+                      <a class="pull-left" href="#">
+                        <% unless offer.offer.photo.nil? %>
+                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <%end%>
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                        <p><%= offer.company.name %></p>
+                      </div><!--end media-body-->
+                    </div><!--end media-->
+
+                <% end %>
+
+                <div class="pagination">
+                  <ul>
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+        <!--end wrapper-->
+      </div>
+    </section>
+    <!--end main content-->
+
+    <!--sidebar-->
+    <aside class="span4" style="background: none;">
+
+      <div class="wrapper-padding rounded-borders light-shadowed" style="background: #ffffff;">
+
+        <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= users_offers_company_user_path %>" class="active">Mis Ofertas</a></li>
+          <li><a href="#">Preferencias</a></li>
+        </ul>
+        <h2 class="rounded-borders-btn">Información Personal</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+        </ul>
+        <h2 class="rounded-borders-btn">Preferencias</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= edit_user_registration_path %>">Contraseña</a></li>        </ul>
+        </ul>
+      </div>
+      <!--<div id="bags">-->
+      <!--<div id="stage">-->
+      <!--<div id="block"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+    </aside><!--end sidebar-->
+  </div><!--end container-->
+</div><!--end row-->

@@ -56,6 +56,8 @@ es:
       models:
         user:
           attributes:
+            email:
+              taken: Ya existe un usuario con esa dirección
             password:
               too_short: Demasiado corta (min 8 caracteres)
               confirmation: Contraseñas no coinciden

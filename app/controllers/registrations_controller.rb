@@ -4,14 +4,16 @@ class RegistrationsController < Devise::RegistrationsController
 def create
     @user = User.new(params[:user])
     @user.user_role_id = 2
+    address = Address.new()
+    client = Client.new()
+    client.user=@user
+    address.client=client
     if @user.save
-
-      address = Address.new()
-      client = Client.new()
-      client.user=@user
-      client.address=address
       client.save
-      NewUserMailer.new_user_email(@user).deliver
+      address.save
+
+
+      NewUserMailer.new_client_email(@user).deliver
 
       if @user.active_for_authentication?
         sign_in("user", @user)
