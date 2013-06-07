@@ -11,3 +11,16 @@ UserRole.create(:name => "ClientUSer")
 
 Country.create!(:name => "Argentina")
 
+Titles.create!(:name => "Indumentaria")
+Titles.create!(:name => "Gastronomía")
+Titles.create!(:name => "Viajes y Hoteles")
+Titles.create!(:name => "Belleza")
+Titles.create!(:name => "Deportes")
+Titles.create!(:name => "Cine")
+Titles.create!(:name => "Teatro")
+Titles.create!(:name => "Electrónica")
+Titles.create!(:name => "Cursos")
+Titles.create!(:name => "Muebles")
+Titles.create!(:name => "Artículos para la casa")
+
+
