@@ -1,20 +1,12 @@
 class Client < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
-  has_many :titles, :through => :client_title
+  has_and_belongs_to_many :titles
   has_one :address
+  has_and_belongs_to_many :offers
 
   attr_accessible :first_name, :last_name, :user_id, :address_attributes
 
-  validates_presence_of :user_id
 
 
-  accepts_nested_attributes_for :address, :allow_destroy => true,
-                                :reject_if => proc { |attributes|
-                                  attributes['city'].blank? and
-                                      attributes['country'].blank? and
-                                      attributes['number'].blank? and
-                                      attributes['postcode'].blank? and
-                                      attributes['state'].blank? and
-                                      attributes['street'].blank?
-                                }
+  accepts_nested_attributes_for :address, :allow_destroy => true
 end
