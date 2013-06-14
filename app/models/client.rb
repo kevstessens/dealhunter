@@ -6,9 +6,8 @@ class Client < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :user_id, :address_attributes
 
-
-
   accepts_nested_attributes_for :address, :allow_destroy => true
 
   validates_presence_of :user
+
 end
