@@ -103,4 +103,10 @@ class UsersController < ApplicationController
     @user = current_user
     @offers = current_user.client.offers
   end
+
+  def titles_user
+    @user = current_user
+  end
+
+
 end

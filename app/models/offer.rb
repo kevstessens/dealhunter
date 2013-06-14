@@ -8,10 +8,8 @@ class Offer < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
-
   validates_presence_of :name, :start_date, :end_date
   validate :time_coherence
-
 
 
   def time_coherence

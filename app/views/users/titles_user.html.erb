@@ -1,0 +1,218 @@
+<div class="container" id="main-content">
+  <div class="row">
+    <section class="span8">
+      <header class="out rounded-borders-btn">
+        <h2>Mis Intereses</h2>
+      </header>
+
+      <div class="wrapper">
+        <article class="row">
+          <div class="span2">
+            <div class="wrapper-padding">
+
+              <div>
+                <img class="title-image" src="../assets/indumentaria-femenina.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Indumentaria Femenina")%>
+                    <input type="checkbox" checked> Ropa Mujer </input>
+                  <%else%>
+                    <input type="checkbox"> Ropa Mujer </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/indumentaria-masculina.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Indumentaria Masculina")%>
+                      <input type="checkbox" checked> Ropa Hombre </input>
+                  <%else%>
+                      <input type="checkbox"> Ropa Hombre </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/bebes.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Ninos")%>
+                      <input type="checkbox" checked> Niños </input>
+                  <%else%>
+                      <input type="checkbox"> Niños </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="span2">
+            <div class="wrapper-padding">
+
+              <div>
+                <img class="title-image" src="../assets/gastronomia.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Gastronomia")%>
+                      <input type="checkbox" checked> Gastronomía </input>
+                  <%else%>
+                      <input type="checkbox"> Gastronomía </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/belleza.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Belleza")%>
+                      <input type="checkbox" checked> Belleza </input>
+                  <%else%>
+                      <input type="checkbox"> Belleza </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/cine.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Cine")%>
+                      <input type="checkbox" checked> Cine </input>
+                  <%else%>
+                      <input type="checkbox"> Cine </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+            </div>
+          </div>
+
+
+          <div class="span2">
+            <div class="wrapper-padding">
+              <div>
+                <img class="title-image" src="../assets/teatro.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Teatro")%>
+                      <input type="checkbox" checked> Teatro </input>
+                  <%else%>
+                      <input type="checkbox"> Teatro </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/electronicos.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Electronica")%>
+                      <input type="checkbox" checked> Electronica </input>
+                  <%else%>
+                      <input type="checkbox"> Electronica </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/estudio.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Estudio")%>
+                      <input type="checkbox" checked> Estudio </input>
+                  <%else%>
+                      <input type="checkbox"> Estudio </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+            </div>
+          </div>
+
+          <div class="span2">
+            <div class="wrapper-padding">
+              <div>
+                <img class="title-image" src="../assets/deporte.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Deportes")%>
+                      <input type="checkbox" checked> Deporte </input>
+                  <%else%>
+                      <input type="checkbox"> Deporte </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/hogar.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Hogar")%>
+                      <input type="checkbox" checked> Hogar </input>
+                  <%else%>
+                      <input type="checkbox"> Hogar </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+              <div>
+                <img class="title-image" src="../assets/viajes.jpg" alt=""/>
+                <div>
+                  <%if @user.client.prefer("Viajes y Hoteles")%>
+                      <input type="checkbox" checked> Viajes </input>
+                  <%else%>
+                      <input type="checkbox"> Viajes </input>
+                  <%end%>
+                </div>
+              </div>
+              <br>
+
+            </div>
+          </div>
+
+        </article>
+
+        <% if !session[:flash].nil? %>
+            <% if !session[:flash][:notice].nil? %>
+                <div class="alert" id="login-alert">
+                  <%= session[:flash][:notice] %>
+                </div>
+            <% end %>
+        <% end %>
+
+        <div class="wrapper-padding">
+          <hr>
+          <div class="text-center">
+            <button type="submit" class="btn btn-vontrip rounded-borders-btn">Grabar Información</button>
+          </div>
+        </div><!--end wrapper-padding-->
+      </div>
+
+    </section>
+    <!--end main content-->
+
+    <!--sidebar-->
+    <aside class="span4" style="...">
+
+      <div class="wrapper-padding rounded-borders light-shadowed" style="background: #ffffff;">
+
+        <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= users_offers_client_user_path %>">Mis Ofertas</a></li>
+          <li><a href="<%= users_titles_user_path %>" class="active">Mis Intereses</a></li>
+        </ul>
+        <h2 class="rounded-borders-btn">Información Personal</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+        </ul>
+        <h2 class="rounded-borders-btn">Preferencias</h2>
+        <ul class="aside-nav">
+          <li><a href="<%= edit_user_registration_path %>">Contraseña</a></li>        </ul>
+        </ul>
+      </div>
+    </aside><!--end sidebar-->
+  </div><!--end container-->
+</div><!--end row-->

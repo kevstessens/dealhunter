@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email, :password, :on => :create
 
-
-
   accepts_nested_attributes_for :client, :allow_destroy => true
+
 
 end
