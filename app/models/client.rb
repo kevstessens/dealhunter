@@ -10,4 +10,12 @@ class Client < ActiveRecord::Base
 
   validates_presence_of :user
 
+  def prefer(preference)
+    prefer = false
+    self.titles.each do |p|
+      prefer = preference.equals(p.name)
+    end
+    return prefer
+  end
+
 end
