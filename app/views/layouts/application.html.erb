@@ -87,7 +87,7 @@
                           <li><a href="<%= users_offers_client_user_path %>">Mis Ofertas</a></li>
                       <% end %>
                       <li><a href="<%= edit_user_path(current_user) %>">Mi Perfil</a></li>
-                      <li><a href="#">Preferencias</a></li>
+                      <li><a href="<%= users_titles_user_path %>">Preferencias</a></li>
                       <li><a href="#">Ayuda</a></li>
                       <li class="divider"></li>
                       <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
