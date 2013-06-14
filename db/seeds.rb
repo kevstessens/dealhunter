@@ -13,7 +13,7 @@ Country.create!(:name => "Argentina")
 
 Title.create!(:name => "Indumentaria Masculina")
 Title.create!(:name => "Indumentaria Femenina")
-Title.create!(:name => "Niños")
+Title.create!(:name => "Ninos")
 Title.create!(:name => "Gastronomia")
 Title.create!(:name => "Viajes y Hoteles")
 Title.create!(:name => "Belleza")
