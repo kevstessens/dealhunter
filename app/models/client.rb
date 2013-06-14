@@ -9,4 +9,6 @@ class Client < ActiveRecord::Base
 
 
   accepts_nested_attributes_for :address, :allow_destroy => true
+
+  validates_presence_of :user
 end
