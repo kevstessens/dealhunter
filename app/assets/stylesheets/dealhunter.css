@@ -273,7 +273,7 @@ header#top nav ul {
     border-top-right-radius: 0px;
 }
 
-.btn-vontrip {
+.btn-dealhunter {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: rgb(50, 83, 255);
@@ -282,12 +282,12 @@ header#top nav ul {
     /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 }
 
-.btn-vontrip:hover,
-.btn-vontrip:focus,
-.btn-vontrip:active,
-.btn-vontrip.active,
-.btn-vontrip.disabled,
-.btn-vontrip[disabled] {
+.btn-dealhunter:hover,
+.btn-dealhunter:focus,
+.btn-dealhunter:active,
+.btn-dealhunter.active,
+.btn-dealhunter.disabled,
+.btn-dealhunter[disabled] {
     color: #ffffff;
     background-color: rgb(23, 46, 117);
     *background-color: rgb(23, 46, 117);
@@ -315,12 +315,12 @@ header#top nav ul {
     border-radius: 8px !important;
 }
 
-.btn-vontrip:active,
-.btn-vontrip.active {
+.btn-dealhunter:active,
+.btn-dealhunter.active {
     background-color: #003399   \9;
 }
 
-.btn-vontrip-grey {
+.btn-dealhunter-grey {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #899FAC;
@@ -329,19 +329,19 @@ header#top nav ul {
     /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 }
 
-.btn-vontrip-grey:hover,
-.btn-vontrip-grey:focus,
-.btn-vontrip-grey:active,
-.btn-vontrip-grey.active,
-.btn-vontrip-grey.disabled,
-.btn-vontrip-grey[disabled] {
+.btn-dealhunter-grey:hover,
+.btn-dealhunter-grey:focus,
+.btn-dealhunter-grey:active,
+.btn-dealhunter-grey.active,
+.btn-dealhunter-grey.disabled,
+.btn-dealhunter-grey[disabled] {
     color: #ffffff;
     background-color: #76858E;
     *background-color: #76858E;
 }
 
-.btn-vontrip-grey:active,
-.btn-vontrip-grey.active {
+.btn-dealhunter-grey:active,
+.btn-dealhunter-grey.active {
     background-color: #003399   \9;
 }
 
