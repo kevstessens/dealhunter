@@ -1,8 +1,16 @@
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8">
+      <div id="recommend-to-friend" class="pull-right">
+        <ul>
+          <li><h2><a href="#myModalInvite" role="button"  data-toggle="modal">Nueva oferta</a></h2></li>
+
+        </ul>
+      </div><!--end recommend-to-friend-->
       <header class="out">
         <h2>Ofertas</h2>
+
+
       </header>
 
       <div class="wrapper-padding">
@@ -153,3 +161,55 @@
     </aside><!--end sidebar-->
   </div><!--end container-->
 </div><!--end row-->
+
+<div id="myModalInvite" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Nueva oferta</h3>
+  </div>
+  <div class="modal-body">
+    <div id="invitar-amigo-box">
+
+      <header class="clearfix">
+        <ul class="inline clearfix">
+          <li class="pull-left headlines">
+            <p>Aca podes registrar una nueva oferta para que tus clientes disfruten.<br><span class="red"></span></p>
+          </li>
+        </ul>
+      </header>
+      <hr>
+      <p><strong>Esto es lo que necesitamos para crear tu oferta:</strong></p>
+      <%= semantic_nested_form_for [Offer.new()] do |f|%>
+          <div id="nameFields">
+            <label>Nombre: <%= f.input :name, :label => false %> </label>
+          </div>
+          <div id="nameFields">
+            <label>Fecha de inicio: <%= f.input :start_date,:as => :string, :input_html => {:class => 'datepicker'}, :label => false%>
+            </label>
+         </div>
+         <div id="nameFields">
+             <label>Fecha de fin: <%= f.input :start_date,:as => :string, :input_html => {:class => 'datepicker'}, :label => false%> </label>
+         </div>
+          <div id="nameFields">
+            <label>Foto: <%= f.input :photo, :label => false%> </label>
+          </div>
+          <hr>
+          </div><!--end invitar-amigo-box-->
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+            <button class="btn btn-vontrip" type="submit">Invitar</button>
+          </div>
+      <% end %>
+
+      </div>  <!--end Modal-->
+
+<script type="text/javascript">
+    $(function() {
+        $('.datePicker').each(function() {
+            $(this).datepicker();
+        });
+    });
+</script>
+

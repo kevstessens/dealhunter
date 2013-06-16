@@ -25,11 +25,11 @@ describe Offer do
     @offer.should_not be_valid
   end
 
-  #it "is not valid if end_date < start_date" do
-  #  @offer.end_date = 10/07/2012
-  #  @offer.start_date = 10/10/2012
-  #  @offer.should_not be_valid
-  #end
+  it "is not valid if end_date < start_date" do
+    @offer.end_date = Date.current
+    @offer.start_date = Date.current.advance(:days => 30)
+    @offer.should_not be_valid
+  end
 
 
 end

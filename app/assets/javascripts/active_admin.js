@@ -45,8 +45,8 @@ $(document).ready(function() {
     $("h1.site_title").remove();
     $("h2").empty();
     $("h2").height(35);
-    $("h2").append("<a href='/'><img  src='/assets/vontrip.png' width='140px' height='30px' style='margin-top: 35px;'/></a> ");
-    $("div#titlebar_left").append("<a href='/'><img  src='/assets/vontrip.png' width='140px' height='30px' /></a> ");
+    $("h2").append("<a href='/'><img  src='/assets/dealhunter.png' width='140px' height='30px' style='margin-top: 35px;'/></a> ");
+    $("div#titlebar_left").append("<a href='/'><img  src='/assets/dealhunter.png' width='140px' height='30px' /></a> ");
     $("div#titlebar_left h2").remove();
     $("div#footer p").remove();
 
@@ -72,11 +72,11 @@ function toggle_admin_user(){
     console.log("toggle_admin_user");
 
 
-    if(document.getElementById("admin_user_user_role_id_1").checked) {     //admin vontrip
+    if(document.getElementById("admin_user_user_role_id_1").checked) {     //admin dealhunter
 
         $("#hotel_inputs").hide();
 
-    }else if(document.getElementById("admin_user_user_role_id_2").checked) {     //hotel
+    }else if(document.getElementById("admin_user_user_role_id_2").checked) {     //asdas
 
         $("#hotel_inputs").show();
 
