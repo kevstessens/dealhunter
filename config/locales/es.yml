@@ -61,7 +61,29 @@ es:
             password:
               too_short: Demasiado corta (min 8 caracteres)
               confirmation: Contraseñas no coinciden
-
+        address:
+          attributes:
+            state:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            city:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            postcode:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            street:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            number:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+              not_a_number: Debe ser un número
   time:
     am: am
     formats:
