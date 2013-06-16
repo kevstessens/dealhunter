@@ -11,8 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //= require_tree .
 
+$(document).ready(function() {
+    $( ".datepicker" ).datepicker("option", "dateFormat", 'dd/mm/yy' );
+
+})
 
 
 
-
-                                              F
