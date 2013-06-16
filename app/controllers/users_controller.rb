@@ -108,5 +108,8 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def branches_company_user
+
+  end
 
 end

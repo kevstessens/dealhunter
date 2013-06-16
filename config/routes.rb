@@ -8,10 +8,9 @@ DealHunter::Application.routes.draw do
   match 'users/offers_company_user' => 'users#offers_company_user'
   match 'users/offers_client_user' => 'users#offers_client_user'
   match 'users/titles_user' => 'users#titles_user'
-
+  match 'users/branches_company_user' => 'users#branches_company_user'
 
   root :to => "offers#index"
-
 
   resources :countries
 
