@@ -10,5 +10,12 @@ class Branch < ActiveRecord::Base
 
   validates :name, :presence => true, :length => { :minimum => 4, :maximum => 25}
 
+  def address_as_string
+    unless self.address_id.nil?
+      address = Address.find_by_id(self.address_id)
+      address.street + " " + address.number.to_s + " - " + address.city + ", " + address.state
+    end
+  end
+
 
 end
