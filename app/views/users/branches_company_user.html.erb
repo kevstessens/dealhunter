@@ -86,20 +86,29 @@
   </div>
   <div class="modal-body">
     <div id="invitar-amigo-box">
-
-      <header class="clearfix">
-        <ul class="inline clearfix">
-          <li class="pull-left headlines">
-            <p>Registra una sucursal<br><span class="red"></span></p>
-          </li>
-        </ul>
-      </header>
-      <hr>
-      <p><strong>Esto es lo que necesitamos para generar tu sucursal:</strong></p>
       <%= semantic_nested_form_for [Branch.new()] do |f|%>
           <div id="nameFields">
             <label>Nombre: <%= f.input :name, :label => false %> </label>
           </div>
+          <hr>
+
+          <%=f.inputs :for => [:address, f.object.address || Address.new] do |address|%>
+              <div id="nameFields">
+                <label>Calle: <%= address.input :street, :label => false %> </label>
+              </div>
+              <div id="nameFields">
+                <label>Número: <%= address.input :number, :label => false %> </label>
+              </div>
+              <div id="nameFields">
+                <label>Provincia: <%= address.input :state, :label => false %> </label>
+              </div>
+              <div id="nameFields">
+                <label>Localidad: <%= address.input :city, :label => false %> </label>
+              </div>
+              <div id="nameFields">
+                <label>País: <%= address.input :country, :as => :select, :prompt => "Seleccione País", :collection => Country.all,  :label => false %> </label>
+              </div>
+          <%end%>
      </div>
    </div>
           <div class="modal-footer">

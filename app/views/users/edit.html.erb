@@ -65,14 +65,15 @@
                           </div>
 
                           <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
-                              <div class="control-group clearfix">
-                                <label class="pull-left" for="inputProvincia">Provincia</label>
-                                <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
-                              </div>
 
                               <div class="control-group clearfix">
                                 <label class="pull-left" for="inputProvincia">Número</label>
                                 <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
+                              </div>
+
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputProvincia">Provincia</label>
+                                <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
                               </div>
 
                           <% end %>
