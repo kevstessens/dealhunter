@@ -48,7 +48,7 @@ class BranchesController < ApplicationController
         format.html { redirect_to users_branches_company_user_path , notice: 'Branch was successfully created.' }
         format.json { render json: @branch, status: :created, location: @branch }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back }
         format.json { render json: @branch.errors, status: :unprocessable_entity }
       end
     end
