@@ -229,6 +229,23 @@
               <%= offer.end_date %>
             </p>
           </div><!--end media-body-->
+          <hr>
+          <p>
+            <b>Clientes adheridos: </b>
+            <% offer.clients.each do |client| %>
+                <%= client.user.email %>
+            <%end%>
+          </p>
+          <hr>
+
+
+          <p>
+            <b>Áreas: </b>
+            <% offer.titles.each do |title| %>
+                <%= title.name %>
+            <%end%>
+          </p>
+
         </div>
 
       </div>

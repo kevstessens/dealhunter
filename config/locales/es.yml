@@ -59,6 +59,7 @@ es:
             email:
               taken: Ya existe un usuario con ese mail
               invalid: Mail inválido
+              blank: Completar
             password:
               too_short: Demasiado corta (min 8 caracteres)
               confirmation: Contraseñas no coinciden
@@ -66,13 +67,14 @@ es:
         company:
           attributes:
             name:
-                blank: No puede estar en blanco
-                too_short: Demasiado corto
-                too_long: Demasiado largo
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
         admin_user:
           attributes:
             email:
               invalid: Mail inválido
+              blank: Completar
               taken: Ya existe
             password:
               too_short: Demasiado corta (min 8 caracteres)

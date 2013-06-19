@@ -2,7 +2,7 @@ class Offer < ActiveRecord::Base
   has_one :company
   has_many :prices
   has_and_belongs_to_many :clients
-  has_many :titles, :through => :offers_titles
+  has_and_belongs_to_many :titles
 
   attr_accessible :company_id, :end_date, :name, :start_date, :photo
 
