@@ -459,8 +459,9 @@ header#top nav ul {
     */
     position: relative;
     width: 200px;
-    height: 114px;
-    background: url(../assets/recomendar-bt.png) no-repeat top center;
+    height: 80px;   /*todo: hacer responsive*/
+    /*background: url(../assets/recomendar-bt.png) no-repeat top center;*/
+    background-color: mediumaquamarine;
     text-align: center;
 }
 
