@@ -24,14 +24,14 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
+                        <p><%=  Company.find_by_id(offer.company_id).name %></p>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -58,14 +58,14 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
+                        <p><%=  Company.find_by_id(offer.company_id).name %></p>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -89,14 +89,14 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
+                        <p><%= Company.find_by_id(offer.company_id).name %></p>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
