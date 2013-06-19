@@ -106,6 +106,22 @@ class UsersController < ApplicationController
 
   def titles_user
     @user = current_user
+
+  end
+
+  def save_titles_user
+    @user = current_user
+    titles = params[:title_ids]
+    unless titles.nil?
+      ClientsTitles.where("client_id = ?", @user.client.id).each do |relation|
+        relation.destroy
+      end
+      titles.each do |title_id|
+        title = Title.find(title_id)
+        @user.client.titles.push(title)
+      end
+    end
+    redirect_to users_titles_user_path
   end
 
   def branches_company_user

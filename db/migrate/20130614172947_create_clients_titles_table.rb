@@ -4,7 +4,6 @@ class CreateClientsTitlesTable < ActiveRecord::Migration
       t.references :client
       t.references :title
 
-      t.timestamps
     end
     add_index :clients_titles, :title_id
     add_index :clients_titles, :client_id
