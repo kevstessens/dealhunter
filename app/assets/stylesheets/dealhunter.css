@@ -461,11 +461,20 @@ header#top nav ul {
     /*	float:left;
     */
     position: relative;
-    width: 200px;
-    height: 80px;   /*todo: hacer responsive*/
+     /*todo: hacer responsive*/
+
     /*background: url(../assets/recomendar-bt.png) no-repeat top center;*/
     background-color: mediumaquamarine;
     text-align: center;
+
+    width: 110px;
+    height: 40px;
+    margin: 1%;
+    font-size: 15.5px;
+    color: white;
+    cursor: pointer;
+
+
 }
 
 #recommend-to-friend h2 {
@@ -2123,7 +2132,6 @@ input:focus {
     }
 
     #recommend-to-friend {
-        margin: 0px;
         position: relative;
     }
 
