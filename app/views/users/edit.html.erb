@@ -167,8 +167,13 @@
                       <%=f.inputs :for => [:user, f.object.user] do |h|%>
 
                           <div class="control-group clearfix">
-                            <label class="pull-left" for="inputEmail">Nombre</label>
+                            <label class="pull-left" for="inputEmail">Email</label>
                             <%=h.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email" } %>
+                          </div>
+
+                          <div class="control-group clearfix">
+                            <label class="pull-left" for="inputEmail">CUIT</label>
+                            <%= f.input :cuit, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Ej. 22-2222222-2", :id => "inputEmail"} %>
                           </div>
 
                       <% end %>
@@ -184,10 +189,7 @@
                         <%= f.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre", :id => "inputEmail"} %>
                       </div>
 
-                      <div class="control-group clearfix">
-                        <label class="pull-left" for="inputEmail">CUIT</label>
-                        <%= f.input :cuit, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Ej. 22-2222222-2", :id => "inputEmail"} %>
-                      </div>
+
           <%end%>
 
           </div><!--end wrapper-padding-->
