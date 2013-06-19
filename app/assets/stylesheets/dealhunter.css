@@ -297,6 +297,9 @@ header#top nav ul {
     *background-color: rgb(23, 46, 117);
 
 }
+.interestName{
+    width: 120px;
+}
 
 .rounded-borders {
     border-radius: 25px 25px 25px 25px;
@@ -2013,6 +2016,7 @@ input:focus {
 
     /* header --------------------------- */
 
+
     #recommend-to-friend {
         width: 110px;
     }
@@ -2081,6 +2085,10 @@ input:focus {
 @media (max-width: 767px) {
 
     /* header --------------------------- */
+    body#landing {
+        background: url(../assets/userbg.png) no-repeat center center fixed;
+
+    }
 
     header#top {
         height: auto;
@@ -2271,6 +2279,10 @@ input:focus {
 @media (max-width: 480px) {
 
     /* header --------------------------- */
+    body#landing {
+        background: url(../assets/userbg.png) no-repeat center center fixed;
+
+    }
 
     header#top nav {
         text-align: center !important;
