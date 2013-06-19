@@ -1,8 +1,16 @@
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8">
+      <div id="recommend-to-friend" class="pull-right">
+        <ul>
+          <li><h2><a href="#myModalInvite" role="button"  data-toggle="modal">Nueva oferta</a></h2></li>
+
+        </ul>
+      </div><!--end recommend-to-friend-->
       <header class="out">
         <h2>Ofertas</h2>
+
+
       </header>
 
       <div class="wrapper-padding">
@@ -24,14 +32,13 @@
 
                         <div class="media hotel-item">
                           <a class="pull-left" href="#">
-                            <% unless offer.offer.photo.nil? %>
-                                <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                            <% unless offer.photo.nil? %>
+                                <img src="<%= offer.photo %>" class="media-object">
                             <%end%>
                           </a>
                           <div class="media-body">
-                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                             <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                            <p><%= offer.company.name %></p>
                           </div><!--end media-body-->
                         </div><!--end media-->
 
@@ -58,14 +65,13 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -89,14 +95,14 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
+
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -134,7 +140,7 @@
         <h2 class="rounded-borders-btn">Detalle de Cuenta</h2>
         <ul class="aside-nav">
           <li><a href="<%= users_offers_company_user_path %>" class="active">Mis Ofertas</a></li>
-          <li><a href="#">Mis Sucursales</a></li>
+          <li><a href="<%= users_branches_company_user_path %>">Mis Sucursales</a></li>
         </ul>
         <h2 class="rounded-borders-btn">Información Personal</h2>
         <ul class="aside-nav">
@@ -153,3 +159,56 @@
     </aside><!--end sidebar-->
   </div><!--end container-->
 </div><!--end row-->
+
+<div id="myModalInvite" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Nueva oferta</h3>
+  </div>
+  <div class="modal-body">
+    <div id="invitar-amigo-box">
+
+      <header class="clearfix">
+        <ul class="inline clearfix">
+          <li class="pull-left headlines">
+            <p>Aca podes registrar una nueva oferta para que tus clientes disfruten.<br><span class="red"></span></p>
+          </li>
+        </ul>
+      </header>
+      <hr>
+      <p><strong>Esto es lo que necesitamos para crear tu oferta:</strong></p>
+
+      <%= semantic_nested_form_for [Offer.new()] do |f|%>
+          <div id="nameFields">
+            <label>Nombre: <%= f.input :name, :label => false %> </label>
+          </div>
+          <div id="nameFields">
+            <label>Fecha de inicio: <%= f.input :start_date, :as => :string, :label => false%>
+            </label>
+         </div>
+         <div id="nameFields">
+             <label>Fecha de fin: <%= f.input :end_date, :as => :string, :label => false%> </label>
+         </div>
+          <div id="nameFields">
+            <label>Foto: <%= f.input :photo, :label => false%> </label>
+          </div>
+          <hr>
+          </div><!--end invitar-amigo-box-->
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+            <button class="btn btn-vontrip" type="submit">Guardar</button>
+          </div>
+      <% end %>
+
+      </div>  <!--end Modal-->
+
+<script type="text/javascript">
+    $(function() {
+        $('.datePicker').each(function() {
+            $(this).datepicker();
+        });
+    });
+</script>
+

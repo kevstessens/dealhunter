@@ -57,11 +57,46 @@ es:
         user:
           attributes:
             email:
-              taken: Ya existe un usuario con esa dirección
+              taken: Ya existe un usuario con ese mail
+              invalid: Mail inválido
             password:
               too_short: Demasiado corta (min 8 caracteres)
               confirmation: Contraseñas no coinciden
-
+              blank: Completar
+        company:
+          attributes:
+            name:
+                blank: No puede estar en blanco
+                too_short: Demasiado corto
+                too_long: Demasiado largo
+        admin_user:
+          attributes:
+            email:
+              invalid: Mail inválido
+              taken: Ya existe
+            password:
+              too_short: Demasiado corta (min 8 caracteres)
+              confirmation: No coinciden
+              blank: Completar
+        address:
+          attributes:
+            state:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            city:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            street:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+            number:
+              blank: No puede estar en blanco
+              too_short: Demasiado corto
+              too_long: Demasiado largo
+              not_a_number: Debe ser un número
   time:
     am: am
     formats:
