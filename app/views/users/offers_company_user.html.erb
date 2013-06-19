@@ -32,14 +32,13 @@
 
                         <div class="media hotel-item">
                           <a class="pull-left" href="#">
-                            <% unless offer.offer.photo.nil? %>
-                                <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                            <% unless offer.photo.nil? %>
+                                <img src="<%= offer.photo %>" class="media-object">
                             <%end%>
                           </a>
                           <div class="media-body">
-                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                             <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                            <p><%= offer.company.name %></p>
                           </div><!--end media-body-->
                         </div><!--end media-->
 
@@ -66,14 +65,13 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -97,14 +95,14 @@
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
-                        <% unless offer.offer.photo.nil? %>
-                            <img src="<%= offer.photo.photo_url(:list)%>" class="media-object">
+                        <% unless offer.photo.nil? %>
+                            <img src="<%= offer.photo%>" class="media-object">
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.title %></a></h4>
+                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= offer.company.name %></p>
+
                       </div><!--end media-body-->
                     </div><!--end media-->
 
@@ -179,16 +177,17 @@
       </header>
       <hr>
       <p><strong>Esto es lo que necesitamos para crear tu oferta:</strong></p>
+
       <%= semantic_nested_form_for [Offer.new()] do |f|%>
           <div id="nameFields">
             <label>Nombre: <%= f.input :name, :label => false %> </label>
           </div>
           <div id="nameFields">
-            <label>Fecha de inicio: <%= f.input :start_date,:as => :string, :input_html => {:class => 'datepicker'}, :label => false%>
+            <label>Fecha de inicio: <%= f.input :start_date, :as => :string, :label => false%>
             </label>
          </div>
          <div id="nameFields">
-             <label>Fecha de fin: <%= f.input :start_date,:as => :string, :input_html => {:class => 'datepicker'}, :label => false%> </label>
+             <label>Fecha de fin: <%= f.input :end_date, :as => :string, :label => false%> </label>
          </div>
           <div id="nameFields">
             <label>Foto: <%= f.input :photo, :label => false%> </label>
