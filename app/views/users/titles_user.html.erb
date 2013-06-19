@@ -4,176 +4,32 @@
       <header class="out rounded-borders-btn">
         <h2>Mis Intereses</h2>
       </header>
-
       <div class="wrapper">
-        <article class="row">
-          <div class="span2">
+
+      <article class="row">
+        <%= form_for current_user, :url => {:action => "save_titles_user"} do |f| %>
+            <%Title.all.each do |p|%>
+        <% if(p.id== 1 || p.id==4 || p.id==7 || p.id==10) %>
+        <div class="span2">
             <div class="wrapper-padding">
+        <% end %>
 
               <div>
-                <img class="title-image" src="../assets/indumentaria-femenina.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Indumentaria Femenina")%>
-                    <input type="checkbox" checked> Ropa Mujer </input>
-                  <%else%>
-                    <input type="checkbox"> Ropa Mujer </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
+                <img class="title-image" src="../assets/<%= p.icon_name%>.jpg" alt=""/>
               <div>
-                <img class="title-image" src="../assets/indumentaria-masculina.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Indumentaria Masculina")%>
-                      <input type="checkbox" checked> Ropa Hombre </input>
-                  <%else%>
-                      <input type="checkbox"> Ropa Hombre </input>
-                  <%end%>
-                </div>
+                <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name) %>
+                <%= p.name %>
               </div>
+              </div>
+                <% if(p.id== 3 || p.id==6 || p.id==9 || p.id==12) %>
+                    </div>
+                    </div>
+                <% end %>
+      <% end %>
               <br>
 
-              <div>
-                <img class="title-image" src="../assets/bebes.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Ninos")%>
-                      <input type="checkbox" checked> Niños </input>
-                  <%else%>
-                      <input type="checkbox"> Niños </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
 
-          <div class="span2">
-            <div class="wrapper-padding">
-
-              <div>
-                <img class="title-image" src="../assets/gastronomia.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Gastronomia")%>
-                      <input type="checkbox" checked> Gastronomía </input>
-                  <%else%>
-                      <input type="checkbox"> Gastronomía </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/belleza.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Belleza")%>
-                      <input type="checkbox" checked> Belleza </input>
-                  <%else%>
-                      <input type="checkbox"> Belleza </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/cine.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Cine")%>
-                      <input type="checkbox" checked> Cine </input>
-                  <%else%>
-                      <input type="checkbox"> Cine </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-            </div>
-          </div>
-
-
-          <div class="span2">
-            <div class="wrapper-padding">
-              <div>
-                <img class="title-image" src="../assets/teatro.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Teatro")%>
-                      <input type="checkbox" checked> Teatro </input>
-                  <%else%>
-                      <input type="checkbox"> Teatro </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/electronicos.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Electronica")%>
-                      <input type="checkbox" checked> Electronica </input>
-                  <%else%>
-                      <input type="checkbox"> Electronica </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/estudio.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Estudio")%>
-                      <input type="checkbox" checked> Estudio </input>
-                  <%else%>
-                      <input type="checkbox"> Estudio </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-            </div>
-          </div>
-
-          <div class="span2">
-            <div class="wrapper-padding">
-              <div>
-                <img class="title-image" src="../assets/deporte.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Deportes")%>
-                      <input type="checkbox" checked> Deporte </input>
-                  <%else%>
-                      <input type="checkbox"> Deporte </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/hogar.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Hogar")%>
-                      <input type="checkbox" checked> Hogar </input>
-                  <%else%>
-                      <input type="checkbox"> Hogar </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-              <div>
-                <img class="title-image" src="../assets/viajes.jpg" alt=""/>
-                <div>
-                  <%if @user.client.prefer("Viajes y Hoteles")%>
-                      <input type="checkbox" checked> Viajes </input>
-                  <%else%>
-                      <input type="checkbox"> Viajes </input>
-                  <%end%>
-                </div>
-              </div>
-              <br>
-
-            </div>
-          </div>
-
-        </article>
+      </article>
 
         <% if !session[:flash].nil? %>
             <% if !session[:flash][:notice].nil? %>
@@ -187,6 +43,7 @@
           <hr>
           <div class="text-center">
             <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Grabar Información</button>
+              <% end %>
           </div>
         </div><!--end wrapper-padding-->
       </div>

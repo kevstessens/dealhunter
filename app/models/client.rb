@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   has_one :address
   has_and_belongs_to_many :offers
 
-  attr_accessible :first_name, :last_name, :user_id, :address_attributes
+  attr_accessible :first_name, :last_name, :user_id, :address_attributes, :titles
 
   accepts_nested_attributes_for :address, :allow_destroy => true
 
@@ -13,7 +13,9 @@ class Client < ActiveRecord::Base
   def prefer(preference)
     prefer = false
     self.titles.each do |p|
-      prefer = preference.equals(p.name)
+      if preference == p.name
+        prefer = true
+      end
     end
     return prefer
   end
