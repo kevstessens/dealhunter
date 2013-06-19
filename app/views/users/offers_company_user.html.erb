@@ -33,11 +33,11 @@
                         <div class="media hotel-item">
                           <a class="pull-left" href="#">
                             <% unless offer.photo.nil? %>
-                                <img src="<%= offer.photo %>" class="media-object">
+                                <img src="<%= offer.photo %>" class="media-object imgSize">
                             <%end%>
                           </a>
                           <div class="media-body">
-                            <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
+                            <h4 class="media-heading"><a href="#offer_<%=offer.id%>" role="button"  data-toggle="modal"><%= offer.name %></a></h4>
                             <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
                           </div><!--end media-body-->
                         </div><!--end media-->
@@ -61,21 +61,21 @@
 
               <div class="tab-pane fade" id="profile">
 
-                <% @offers.where('end_date > ?', Date.current).each do |offer| %>
+                    <% @offers.where('end_date > ?', Date.current).each do |offer| %>
 
-                    <div class="media hotel-item">
-                      <a class="pull-left" href="#">
-                        <% unless offer.photo.nil? %>
-                            <img src="<%= offer.photo%>" class="media-object">
-                        <%end%>
-                      </a>
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
-                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                      </div><!--end media-body-->
-                    </div><!--end media-->
+                        <div class="media hotel-item">
+                          <a class="pull-left" href="#">
+                            <% unless offer.photo.nil? %>
+                                <img src="<%= offer.photo%>" class="media-object">
+                            <%end%>
+                          </a>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="#offer_<%=offer.id%>" role="button"  data-toggle="modal" ><%= offer.name %></a></h4>
+                            <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                          </div><!--end media-body-->
+                        </div><!--end media-->
 
-                <% end %>
+                    <% end %>
 
                 <div class="pagination">
                   <ul>
@@ -100,7 +100,7 @@
                         <%end%>
                       </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="<%= offer_path(offer)%>"><%= offer.name %></a></h4>
+                        <h4 class="media-heading"><a href="#offer_<%=offer.id%>" role="button"  data-toggle="modal"><%= offer.name %></a></h4>
                         <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
 
                       </div><!--end media-body-->
@@ -203,6 +203,55 @@
       <% end %>
 
       </div>  <!--end Modal-->
+
+
+<% @offers.each do |offer| %>
+
+    <div id="offer_<%=offer.id%>" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="label"><%= offer.name %> </h3>
+      </div>
+      <div class="modal-body">
+        <div class="media hotel-item">
+          <a class="pull-left" href="#">
+            <% unless offer.photo.nil? %>
+                <img src="<%= offer.photo%>" class="media-object">
+            <%end%>
+          </a>
+          <div class="media-body">
+            <p>
+              <b>Fecha de inicio:</b>
+              <%= offer.start_date %>
+            </p>
+            <p>
+              <b>Fecha de finalización:</b>
+              <%= offer.end_date %>
+            </p>
+          </div><!--end media-body-->
+          <hr>
+          <p>
+            <b>Clientes adheridos: </b>
+            <% offer.clients.each do |client| %>
+                <%= client.user.email %>
+            <%end%>
+          </p>
+          <hr>
+
+
+          <p>
+            <b>Áreas: </b>
+            <% offer.titles.each do |title| %>
+                <%= title.name %>
+            <%end%>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+<%end%>
 
 <script type="text/javascript">
     $(function() {
