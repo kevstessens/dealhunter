@@ -219,9 +219,9 @@
       </div>
       <div class="modal-body">
         <div class="media hotel-item">
-          <a class="pull-left" href="#">
+          <a class="pull-right" href="#">
             <% unless offer.photo.nil? %>
-                <img src="<%= offer.photo%>" class="media-object">
+                <img src="<%= offer.photo%>" class="media-object imgCenter">
             <%end%>
           </a>
           <div class="media-body">
@@ -237,21 +237,54 @@
           <hr>
           <p>
             <b>Clientes adheridos: </b>
-            <% offer.clients.each do |client| %>
-                <%= client.user.email %>
-            <%end%>
+            <%= offer.clients.count %>
           </p>
+
+
           <hr>
-
-
           <p>
             <b>Áreas: </b>
+          <ul class="nav-list">
             <% offer.titles.each do |title| %>
-                <%= title.name %>
-            <%end%>
-          </p>
 
-        </div>
+            <li type="disc"> <%= title.name %>.</li>
+
+            <%end%>
+
+          </ul>
+
+          </p>
+          </hr>
+
+          <hr>
+          <p class="row">
+          <div class="span3">  <b>Premio: </b>
+          <ul class="text-left">
+            <% i=1 %>
+            <% offer.prizes.each do |prize| %>
+                <li type="disc"><%= i %>) <%= prize.name %> - <%= prize.real_price %>(<%= prize.discount_percentage %>).</li>
+                <% i+=1 %>
+            <%end%>
+
+          </ul>
+
+
+          </div>
+        <div class="span3"> <b>Sucursal: </b>
+          <ul class="text-left">
+            <li type="disc">Sucursal 1.</li>
+            <li type="disc">Sucursal 2</li>
+            <li type="disc">Sucursal 3</li>
+
+
+          </ul>
+         </div>
+          </p>
+          </hr>
+
+          </hr>
+
+                 </div>
 
       </div>
     </div>
