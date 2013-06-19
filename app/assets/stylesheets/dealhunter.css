@@ -69,12 +69,12 @@ h5 {
     font-size: 11px;
     line-height: 14px !important;
     text-transform: uppercase;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 
 }
 
 .red {
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 .white {
@@ -145,7 +145,7 @@ aside .wrapper-padding {
 ul.aside-nav li.credit span {
     float: right;
     font-weight: bold;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 ul.aside-nav li:last-child {
@@ -166,13 +166,13 @@ ul.aside-nav > li:last-child > a {
 
 ul.aside-nav > .active > a {
     background: #f7f6f4;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 ul.aside-nav  > li > a:hover,
 ul.aside-nav> li > a.active {
     background: #f7f6f4;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
     padding-left: 6px;
     text-decoration: none;
 }
@@ -276,9 +276,9 @@ header#top nav ul {
 .btn-dealhunter {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: rgb(50, 83, 255);
+    background-color: rgb(23, 46, 117);
     background-image: none;
-    *background-color: rgb(50, 83, 255);
+    *background-color: rgb(23, 46, 117);
     /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 }
 
@@ -355,8 +355,8 @@ header#top nav ul {
 
 .btn-red {
     color: #fff;
-    background-color: #ff4b3d; /* red */
-    *background-color: #ff4b3d;
+    background-color: mediumaquamarine; /* red */
+    *background-color: mediumaquamarine;
     /* Darken IE7 buttons by default so they stand out more given they won't have borders */
     border-radius: 0px;
 }
@@ -443,7 +443,7 @@ header#top nav ul {
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
     background: none;
-    color: #ff4b3d !important; /* red */
+    color: mediumaquamarine !important; /* red */
     background: #f7f6f4;
 
 }
@@ -597,7 +597,7 @@ section h2 {
 .pagination ul > .active > a,
 .pagination ul > .active > span {
     background-color: #F7F6F4;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 .share-btns {
@@ -632,14 +632,20 @@ section h2 {
 
 #footer-wrapper {
     background: #FFF;
-    margin-top: 20px;
+    margin-top: 4%;
     font-size: 12px;
     color: #595e61;
+    box-shadow: none;
+    border-top-style: solid;
+    border-top-color: mediumaquamarine;
+}
+#footer-wrapper .container{
+  padding: 2%;
 }
 
 #footer-wrapper .bg {
     background-color: #CCC;
-}
+    }
 
 #footer-top {
     padding-top: 20px;
@@ -665,7 +671,7 @@ section h2 {
 }
 
 #footer-middle nav li a:hover {
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 #footer-middle nav li:first-child {
@@ -687,7 +693,7 @@ section h2 {
 
 .custumer-support-title {
     font-weight: bold;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
 }
 
 .telephone-number {
@@ -730,7 +736,7 @@ section h2 {
 /* Tabbed menu --------------------------- */
 
 ul#myTab {
-    background-color: #f7f6f4;
+    background-color: white;
     padding: 20px 10px 0px 10px;
 }
 
@@ -768,8 +774,8 @@ ul#myTab {
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
-    color: #ff4b3d; /* red */
-    border-top: 4px solid #ff4b3d;
+    color: mediumaquamarine; /* red */
+    border-top: 4px solid mediumaquamarine;
     margin-top: -3px;
     text-shadow: none;
 
@@ -798,7 +804,7 @@ ul#myTab {
 }
 
 .hotel-item h4 a:hover {
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
     text-decoration: none;
 }
 
@@ -822,7 +828,7 @@ ul.hotel-item-description h4 a {
 }
 
 ul.hotel-item-description h4 a:hover {
-    color: #ff4b3d;
+    color: mediumaquamarine;
     text-decoration: none;
 }
 
@@ -830,7 +836,7 @@ ul.hotel-item-description h4 a:hover {
 
 .counter {
     font-family: 'Open Sans', sans-serif;
-    background: #FF4B3D url(../assets/bg-triangle-red.jpg) repeat-x bottom left;
+    background: mediumaquamarine url(../assets/bg-triangle-red.jpg) repeat-x bottom left;
 }
 
 .clock-wrapper {
@@ -896,7 +902,7 @@ ul.hotel-item-description h4 a:hover {
 .offer-price-box {
     display: block;
     float: left;
-    background-color: #ff4b3d; /* red */
+    background-color: mediumaquamarine; /* red */
     color: #333;
     width: 30%;
     text-align: center;
@@ -912,7 +918,7 @@ ul.hotel-item-description h4 a:hover {
 
 .offer-price-box .offer-price {
     font-size: 18px;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
     background-color: #FFF;
     display: block;
     margin: 5px 8%;
@@ -957,11 +963,11 @@ ul.hotel-item-description h4 a:hover {
 .toggle .accord-tab:hover {
     border-bottom: 1px solid #fff;
     background: #f7f6f4;
-    color: #ff4b3d !important; /* red */
+    color: mediumaquamarine !important; /* red */
 }
 
 .accordion .accord-tab.active h3 {
-    color: #ff4b3d !important; /* red */
+    color: mediumaquamarine !important; /* red */
 }
 
 .accordion h3.active span,
@@ -1057,7 +1063,7 @@ ul.info li {
 
 .prev:hover, .next:hover {
     background: #333;
-    color: #ff4b3d !important; /* red */
+    color: mediumaquamarine !important; /* red */
     text-decoration: none !important;
 }
 
@@ -1102,7 +1108,7 @@ ul.info li {
 }
 
 .carousel-item-city a:hover {
-    color: #ff4b3d !important; /* red */
+    color: mediumaquamarine !important; /* red */
     text-decoration: none;
 }
 
@@ -1174,7 +1180,7 @@ ul.list-box-grey li span {
 
 .widget-calendar h3 {
     font-family: 'Open Sans', sans-serif;
-    background-color: #ff4b3d; /* red */
+    background-color: mediumaquamarine; /* red */
     color: #fff;
     font-size: 14px;
     text-align: center;
@@ -1283,7 +1289,7 @@ body#landing {
 
 .label-important {
     background: #f7f6f4;
-    color: #ff4b3d; /* red */
+    color: mediumaquamarine; /* red */
     text-shadow: none;
 }
 
@@ -1432,6 +1438,24 @@ label.tweenty {
     width: 30.9%;
 }
 
+.modal-header{
+    background: mediumaquamarine;
+}
+.modal-header h3{
+    color: white;
+}
+
+.modal-footer .btn{
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: rgb(23, 46, 117);
+    background-image: none;
+    *background-color: rgb(23, 46, 117);
+    border-radius: 8px !important;
+
+}
+
+
 .modal-window .headlines {
     width: 99%;
 }
@@ -1460,7 +1484,7 @@ label.tweenty {
 
 #page-confirm ul.offer-details li span {
     float: right;
-    color: #ff4b3d;
+    color: mediumaquamarine;
 }
 
 #page-confirm ul.offer-details li p {
@@ -2004,6 +2028,7 @@ label.tweenty {
     #footer-wrapper {
         margin-left: -20px;
         margin-right: -20px;
+
     }
 
     #custumer-support {
