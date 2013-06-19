@@ -34,6 +34,8 @@ gem 'carrierwave'
 
 gem "mini_magick"
 
+gem 'jquery_datepicker'
+
 
 
 
