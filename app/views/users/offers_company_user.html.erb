@@ -241,19 +241,6 @@
           </p>
 
 
-          <hr>
-          <p>
-            <b>Áreas: </b>
-          <ul class="nav-list">
-            <% offer.titles.each do |title| %>
-
-            <li type="disc"> <%= title.name %>.</li>
-
-            <%end%>
-
-          </ul>
-
-          </p>
           </hr>
 
           <hr>
@@ -272,9 +259,7 @@
           </div>
         <div class="span3"> <b>Sucursal: </b>
           <ul class="text-left">
-            <li type="disc">Sucursal 1.</li>
-            <li type="disc">Sucursal 2</li>
-            <li type="disc">Sucursal 3</li>
+            <li type="disc"> <%= offer.branch.name unless offer.branch.nil?%></li>
 
 
           </ul>
