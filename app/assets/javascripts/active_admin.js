@@ -87,6 +87,12 @@ function toggle_admin_user(){
     }
 }
 
+$(document).ready(function(){
+
+    $('head').append("<link href='favicon.ico' rel='shortcut icon'>");
+
+});
+
 
 
 
