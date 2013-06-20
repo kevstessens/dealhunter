@@ -38,6 +38,7 @@ gem "mini_magick"
 
 gem 'jquery_datepicker'
 
+gem 'bootstrap-sass'
 
 
 
