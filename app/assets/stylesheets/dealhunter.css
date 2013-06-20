@@ -19,6 +19,9 @@ a {
 input::-moz-focus-inner {
     border: 0;
 }
+.input-medium-large{
+width: 162px !important;
+}
 
 body {
     /* fallback */

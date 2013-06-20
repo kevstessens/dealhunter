@@ -66,16 +66,6 @@ ActiveRecord::Schema.define(:version => 20130619212106) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "client_titles", :force => true do |t|
-    t.integer  "client_id"
-    t.integer  "title_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "client_titles", ["client_id"], :name => "index_client_titles_on_client_id"
-  add_index "client_titles", ["title_id"], :name => "index_client_titles_on_title_id"
-
   create_table "clients", :force => true do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -97,10 +87,8 @@ ActiveRecord::Schema.define(:version => 20130619212106) do
   add_index "clients_offers", ["offer_id"], :name => "index_clients_offers_on_offer_id"
 
   create_table "clients_titles", :force => true do |t|
-    t.integer  "client_id"
-    t.integer  "title_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "client_id"
+    t.integer "title_id"
   end
 
   add_index "clients_titles", ["client_id"], :name => "index_clients_titles_on_client_id"
@@ -152,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20130619212106) do
 
   create_table "titles", :force => true do |t|
     t.string   "name"
+    t.string   "icon_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
