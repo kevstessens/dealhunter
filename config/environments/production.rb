@@ -16,6 +16,7 @@ DealHunter::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
+  config.serve_static_assets = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
