@@ -1,6 +1,7 @@
 class Branch < ActiveRecord::Base
   has_one :company
   has_one :address
+  has_many :offers
 
   attr_accessible :company_id, :name, :address_attributes
   validates_presence_of :company_id

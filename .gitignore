@@ -19,7 +19,6 @@ pickle-email-*.html
 Gemfile.lock
 
 # Ignore public
-/pubic/*
 
 # Ignore .idea
 .idea/*
@@ -47,13 +46,10 @@ Gemfile.lock
 /log/*.log
 /tmp
 /db/schema.rb
-public/uploads
 
 .idea
 .rvmrc
-public/system
 
 # Ignore DS_STORE
 /.DS_Store
 
-public/

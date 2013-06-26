@@ -2,7 +2,6 @@ ActiveAdmin.register Company do
 
   form :partial => "form"
 
-
   controller do
     def create
       super

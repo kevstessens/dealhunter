@@ -16,7 +16,7 @@
 
               <div>
                 <img class="title-image" src="../assets/<%= p.icon_name%>.jpg" alt=""/>
-              <div>
+              <div class="interestName">
                 <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name) %>
                 <%= p.name %>
               </div>

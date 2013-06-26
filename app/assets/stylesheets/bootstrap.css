@@ -6308,3 +6308,29 @@ button.close {
     overflow: visible !important;
   }
 }
+
+.imgSize {
+
+    width: 150px;
+    height: 106px;
+    border: 1px solid mediumaquamarine;
+
+}
+
+.imgCenter {
+
+
+    height: 200px;
+    width: 247px;
+    border: 1px solid mediumaquamarine;
+    text-align: center;
+
+}
+
+.align-right{
+    text-align: right;
+}
+
+.align-left{
+    text-align: left;
+}
