@@ -24,7 +24,9 @@ ActiveAdmin.register Offer do
       row :branch
       row :start_date
       row :end_date
-      row :photo
+      row ("Foto"){
+        (image_tag(offer.photo_url(:thumb))) if !offer.photo.nil?
+      }
     end
     panel "Premios" do
       table_for(offer.prizes) do |t|

@@ -12,7 +12,7 @@ es:
         encrypted_password: Contraseña encriptada
         current_sign_in_at: Sign in actual
         last_sign_in_at: Último sign in
-        sing_in_count: Cantidad de sign in
+        sign_in_count: Cantidad de sign in
       address:
         city: Localidad
         country: Pais
