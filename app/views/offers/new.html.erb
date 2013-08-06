@@ -50,27 +50,32 @@
                   </div>
 
 
-      </div><!--end wrapper-padding-->
-      </div><!--end span4-->
+                </div><!--end wrapper-padding-->
+              </div><!--end span4-->
 
               <div class="span8">
 
               <% f.object.prizes.build unless !f.object.prizes.blank? %>
               <%= f.semantic_fields_for :prizes do |prize| %>
                   <%=prize.inputs "Premio" do%>
-                      <%= prize.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre", :style => "width: 130px;
-                          margin-left: 5px;
-                          margin-right: 25px;" } %>
+                      <%= prize.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre", :style => "width: 165px;
+                          margin-left: 20px;
+                          margin-right: 5px;float: left;"} %>
                       <%= prize.input :real_price, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Precio Real", :style => "width: 120px;
                           margin-left: 10px;
-                          margin-right: 5px;" } %>
-                      <%= prize.input :discount_percentage, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Porcentaje Descuento",  :style => "width: 120px;
+                          margin-right: 5px;float: left;" } %>
+                      <%= prize.input :discount_percentage, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "% Descuento",  :style => "width: 120px;
                           margin-left: 10px;
-                          margin-right: 5px;" }%>
-                      <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
+                          margin-right: 5px; float: left;" }%>
+                      <div style= "float: right;
+                        margin-right: 50px;
+                        margin-top: 5px;"
+                        >
+                        <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
+                      </div>
                   <%end%>
               <%end%>
-              <div id="add_claim_messages">
+              <div id="add_claim_messages" style="margin-left: 15px; margin-top: 10px;">
                 <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
               </div>
           </div>
