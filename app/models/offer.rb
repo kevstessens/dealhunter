@@ -1,5 +1,5 @@
 class Offer < ActiveRecord::Base
-  has_one :company
+  belongs_to :company
   has_many :prizes
   has_and_belongs_to_many :clients
   has_and_belongs_to_many :titles
