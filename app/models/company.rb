@@ -1,7 +1,8 @@
 class Company < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
+  has_many :branches
 
-  attr_accessible :cuit, :name, :user_id, :user_attributes
+  attr_accessible :cuit, :name, :user_id, :user_attributes, :branches_attributes
 
   validates_presence_of :name, :user
 
@@ -12,4 +13,11 @@ class Company < ActiveRecord::Base
                                   attributes['email'].blank? and
                                       attributes['password'].blank?
                                 }
+
+  accepts_nested_attributes_for :branches, :allow_destroy => true
+
+  def email
+    self.user.email unless self.user.nil?
+  end
+
 end
