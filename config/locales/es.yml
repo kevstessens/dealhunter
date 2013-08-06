@@ -13,6 +13,18 @@ es:
         current_sign_in_at: Sign in actual
         last_sign_in_at: Último sign in
         sing_in_count: Cantidad de sign in
+      address:
+        city: Localidad
+        country: Pais
+        floor: Piso
+        number: Numero
+        state: Provincia
+        client: Cliente
+        branch: Sucursal
+      branch:
+        company: Empresa
+        name: Nombre
+        address: Direccion
       user:
         email: Mail
         password: Contraseña
@@ -44,12 +56,28 @@ es:
         state: Provincia
         floor: Piso
         number: Número
+      offer:
+        company: Empresa
+        end_date: Fecha de fin
+        name: Nombre
+        start_date: Fecha de inicio
+        photo: Foto
+        branch: Sucursal
+      prize:
+        discount_percentage: Porcentaje de Descuento
+        name: Título
+        offer: Oferta
+        real_price: Precio Original
     models:
        address: Dirección
        admin_user: Administrador
+       branch: Sucursal
        client: Cliente
        company: Empresa
        country: País
+       offer: Oferta
+       prize: Premio
+       title: Area
        user: Usuario
 
     errors:
