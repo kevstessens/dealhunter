@@ -10,20 +10,20 @@
         <%= form_for current_user, :url => {:action => "save_titles_user"} do |f| %>
             <%Title.all.each do |p|%>
         <% if(p.id== 1 || p.id==4 || p.id==7 || p.id==10) %>
-        <div class="span2">
+        <div class="row">
             <div class="wrapper-padding">
         <% end %>
 
-              <div>
-                <img class="title-image" src="../assets/<%= p.icon_name%>.jpg" alt=""/>
-              <div class="interestName">
-                <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name) %>
-                <%= p.name %>
+              <div class="span2 ">
+              <div class="roundedTwo" >
+                <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name), :id => p.id %>
+                <label for="<%= p.id %>" style="background: url('../assets/<%= p.icon_name%>.jpg')"></label>
               </div>
               </div>
+
                 <% if(p.id== 3 || p.id==6 || p.id==9 || p.id==12) %>
-                    </div>
-                    </div>
+            </div>
+        </div>
                 <% end %>
       <% end %>
               <br>
@@ -73,3 +73,91 @@
     </aside><!--end sidebar-->
   </div><!--end container-->
 </div><!--end row-->
+
+<style>
+
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+
+    .roundedTwo {
+        width: 108px;
+        height: 108px;
+        background: #fcfff4;
+
+
+        background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+
+
+
+        -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+        -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+        box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+        position: relative;
+    }
+
+    .roundedTwo label {
+        cursor: pointer;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        left: 4px;
+        top: 4px;
+
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+
+        background-size: 50px;
+
+    }
+
+    .roundedTwo label:after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        opacity: 0;
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 20px;
+        background: transparent;
+        top: 30px;
+        left: 20px;
+        border: 7px solid #fcfff4;
+        border-top: none;
+        border-right: none;
+
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .roundedTwo label:hover::after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+        filter: alpha(opacity=30);
+        opacity: 0.3;
+    }
+
+    .roundedTwo input[type=checkbox]:checked + label:after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        opacity: 1;
+    }
+</style>
