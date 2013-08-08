@@ -44,25 +44,13 @@
 
                     <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
+                <%= paginate @offers %>
 
               </div><!--end myTabContent-->
 
               <div class="tab-pane fade" id="profile">
 
-                    <% @offers.where('end_date > ?', Date.current).each do |offer| %>
+                    <% @actual_offers.each do |offer| %>
 
                         <div class="media hotel-item">
                           <a class="pull-left" href="#">
@@ -78,24 +66,10 @@
 
                     <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
-
               </div>
               <div class="tab-pane fade" id="completadas">
 
-                <% @offers.where('end_date < ?', Date.current).each do |offer| %>
+                <% @old_offers.each do |offer| %>
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
@@ -112,19 +86,6 @@
 
                 <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
               </div>
 
             </div>

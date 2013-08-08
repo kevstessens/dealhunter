@@ -95,7 +95,9 @@ class UsersController < ApplicationController
   def offers_company_user
     session[:body]='page-micuenta'
     @user = current_user
-    @offers = Offer.where("company_id = ?",@user.company.id)
+    @offers = Offer.where("company_id = ?",@user.company.id).page(params[:page]).per(3)
+    @actual_offers = @offers.where('end_date < ?', Date.current).page(params[:page]).per(3)
+    @old_offers = @offers.where('end_date > ?', Date.current).page(params[:page]).per(3)
   end
 
   def offers_client_user

@@ -40,7 +40,7 @@ gem 'jquery_datepicker'
 
 gem 'bootstrap-sass'
 
-
+gem "kaminari"
 
 group :development, :test do
   gem 'sqlite3'
