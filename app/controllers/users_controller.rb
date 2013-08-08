@@ -129,7 +129,7 @@ class UsersController < ApplicationController
   def branches_company_user
     session[:body]='page-micuenta'
     @user = current_user
-    @branches = Branch.where("company_id = ?",@user.company.id)
+    @branches = Branch.where("company_id = ?",@user.company.id).page(params[:page]).per(2)
   end
 
 end
