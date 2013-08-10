@@ -8,7 +8,7 @@ class ContactMailer < ActionMailer::Base
     mail(:subject => "[Dealhunter-contacto] #{message.subject}")
   end
 
-  def new_message_proveedor(message)
+  def new_message_empresa(message)
     @message = message
     mail(:subject => "[Dealhunter-contacto-empresa-potencial] #{message.subject}")
   end
