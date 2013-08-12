@@ -3,7 +3,7 @@
 <%= semantic_nested_form_for [:admin, @company] do |f|%>
 
     <div>
-      <%=f.inputs "User Info" , :for => [:user, f.object.user || User.new] do |h|%>
+      <%=f.inputs "Info de Usuario" , :for => [:user, f.object.user || User.new] do |h|%>
           <%=h.input :email, :label => "Email" %>
           <%=h.input :password, :label => "Password" %>
           <%=h.input :password_confirmation, :label => "Repeat Password" %>
@@ -12,7 +12,7 @@
     </div>
 
     <div>
-    <%=f.inputs "Company Info" do%>
+    <%=f.inputs "Info de Empresa" do%>
         <%= f.input :name, :label => "Name" %>
         <%= f.input :cuit, :label => "CUIT"%>
     <%end%>
