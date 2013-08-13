@@ -4,7 +4,7 @@
 
 
       <header class="out rounded-borders-btn">
-        <h2>Información de Usuario</h2>
+        <h2>Nueva Oferta</h2>
 
       </header>
 
@@ -23,12 +23,12 @@
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Fecha de inicio</label>
-                    <%=f.input :start_date, :as => :string, :input_html => {:class => 'datepicker'}, :label => false %>
+                    <%=f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium '}, :label => false %>
                   </div>
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Sucursal</label>
-                    <%=f.input :branch, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)), :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
+                    <%=f.input :branch,:input_html => {:class => 'datepicker pull-right input-medium-large '}, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)) %>
 
                  </div>
 
@@ -41,30 +41,44 @@
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Imagen</label>
-                    <%=f.input :photo, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Imagen" } %>
+                    <%=f.input :photo, :label => false, :input_html => { :class => "pull-right input-medium-large", :placeholder => "Imagen" } %>
                   </div>
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Fecha de fin</label>
-                    <%=f.datepicker :end_date, :label => false %>
+                    <%=f.input :end_date,:as => :string, :input_html => {:class => 'datepicker pull-right input-medium '}, :label => false %>
                   </div>
 
 
-      </div><!--end wrapper-padding-->
-      </div><!--end span4-->
+                </div><!--end wrapper-padding-->
+              </div><!--end span4-->
+
+              <div class="span8">
 
               <% f.object.prizes.build unless !f.object.prizes.blank? %>
               <%= f.semantic_fields_for :prizes do |prize| %>
                   <%=prize.inputs "Premio" do%>
-                      <%= prize.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre" } %>
-                      <%= prize.input :real_price, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Precio Real"}%>
-                      <%= prize.input :discount_percentage, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Porcentaje Descuento"}%>
-                      <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
+                      <%= prize.input :name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre", :style => "width: 165px;
+                          margin-left: 20px;
+                          margin-right: 5px;float: left;"} %>
+                      <%= prize.input :real_price, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Precio Real", :style => "width: 120px;
+                          margin-left: 10px;
+                          margin-right: 5px;float: left;" } %>
+                      <%= prize.input :discount_percentage, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "% Descuento",  :style => "width: 120px;
+                          margin-left: 10px;
+                          margin-right: 5px; float: left;" }%>
+                      <div style= "float: right;
+                        margin-right: 50px;
+                        margin-top: 5px;"
+                        >
+                        <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
+                      </div>
                   <%end%>
               <%end%>
-              <div id="add_claim_messages">
+              <div id="add_claim_messages" style="margin-left: 15px; margin-top: 10px;">
                 <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
               </div>
+          </div>
       <%end%>
       </article>
 

@@ -3,18 +3,18 @@
 <%= semantic_nested_form_for [:admin, @company] do |f|%>
 
     <div>
-      <%=f.inputs "User Info" , :for => [:user, f.object.user || User.new] do |h|%>
-          <%=h.input :email, :label => "Email" %>
-          <%=h.input :password, :label => "Password" %>
-          <%=h.input :password_confirmation, :label => "Repeat Password" %>
-          <%=h.hidden_field :user_role_id, :label => "Role",:required => true, :value => UserRole.where("name = ?", "CompanyUser" ).first() %>
+      <%=f.inputs "Info de Usuario" , :for => [:user, f.object.user || User.new] do |h|%>
+          <%=h.input :email %>
+          <%=h.input :password %>
+          <%=h.input :password_confirmation %>
+          <%=h.hidden_field :user_role_id, :label => "Role", :value => UserRole.where("name = ?", "CompanyUser" ).first() %>
       <% end %>
     </div>
 
     <div>
-    <%=f.inputs "Company Info" do%>
-        <%= f.input :name, :label => "Name" %>
-        <%= f.input :cuit, :label => "CUIT"%>
+    <%=f.inputs "Info de Empresa" do%>
+        <%= f.input :name %>
+        <%= f.input :cuit %>
     <%end%>
     </div>
 

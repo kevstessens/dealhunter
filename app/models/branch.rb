@@ -1,5 +1,5 @@
 class Branch < ActiveRecord::Base
-  has_one :company
+  belongs_to :company
   has_one :address
   has_many :offers
 

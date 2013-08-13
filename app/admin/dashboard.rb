@@ -2,32 +2,32 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
+
   content :title => proc{ I18n.t("active_admin.dashboard") } do
-    div :class => "blank_slate_container", :id => "dashboard_default_message" do
-      span :class => "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+
+    columns do
+      column do
+        panel "Ofertas Recientes" do
+          table_for Offer.order('id desc').limit(10) do |o|
+            column("Nombre"){|o| link_to o.name, admin_offer_path(o)                                    }
+            column("Empresa"){|o| link_to(o.branch.company.name, admin_company_path(o.branch.company)) unless o.branch.nil?          }
+          end
+        end
       end
+
+      column do
+        panel "Clientes Registrados Recientemente" do
+          table_for Client.order('id desc').limit(10) do |c|
+            column("Mail"){|c| c.user.email }
+            column("Nombre"){|c| c.first_name}
+            column("Apellido"){|c| c.last_name}
+          end
+        end
+      end
+
     end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
+  end
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
-end
+end # content
+

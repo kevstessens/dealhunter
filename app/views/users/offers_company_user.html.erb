@@ -2,12 +2,10 @@
   <div class="row">
     <section class="span8 rounded-borders light-shadowed">
 
-      <div id="recommend-to-friend" class="pull-right">
-        <ul>
-          <li><h2 class="pull-right rounded-borders light-shadowed"><a href="<%= new_offer_path %>" role="button"  data-toggle="modal">Nueva oferta</a></h2></li>
+      <a href="<%= new_offer_path %>" role="button">
+        <h2 id="recommend-to-friend" class="pull-right rounded-borders light-shadowed">Nueva oferta</h2>
+      </a>
 
-        </ul>
-      </div><!--end recommend-to-friend-->
 
       <header class="out rounded-borders-btn">
         <h2>Ofertas</h2>
@@ -46,25 +44,13 @@
 
                     <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
+                <%= paginate @offers %>
 
               </div><!--end myTabContent-->
 
               <div class="tab-pane fade" id="profile">
 
-                    <% @offers.where('end_date > ?', Date.current).each do |offer| %>
+                    <% @actual_offers.each do |offer| %>
 
                         <div class="media hotel-item">
                           <a class="pull-left" href="#">
@@ -80,24 +66,10 @@
 
                     <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
-
               </div>
               <div class="tab-pane fade" id="completadas">
 
-                <% @offers.where('end_date < ?', Date.current).each do |offer| %>
+                <% @old_offers.each do |offer| %>
 
                     <div class="media hotel-item">
                       <a class="pull-left" href="#">
@@ -114,19 +86,6 @@
 
                 <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
               </div>
 
             </div>
@@ -221,9 +180,9 @@
       </div>
       <div class="modal-body">
         <div class="media hotel-item">
-          <a class="pull-left" href="#">
+          <a class="pull-right" href="#">
             <% unless offer.photo.nil? %>
-                <img src="<%= offer.photo%>" class="media-object">
+                <img src="<%= offer.photo%>" class="media-object imgCenter">
             <%end%>
           </a>
           <div class="media-body">
@@ -239,21 +198,39 @@
           <hr>
           <p>
             <b>Clientes adheridos: </b>
-            <% offer.clients.each do |client| %>
-                <%= client.user.email %>
-            <%end%>
+            <%= offer.clients.count %>
           </p>
+
+
+          </hr>
+
           <hr>
-
-
-          <p>
-            <b>Áreas: </b>
-            <% offer.titles.each do |title| %>
-                <%= title.name %>
+          <p class="row">
+          <div class="span3">  <b>Premio: </b>
+          <ul class="text-left">
+            <% i=1 %>
+            <% offer.prizes.each do |prize| %>
+                <li type="disc"><%= i %>) <%= prize.name %> - <%= prize.real_price %>(<%= prize.discount_percentage %>).</li>
+                <% i+=1 %>
             <%end%>
-          </p>
 
-        </div>
+          </ul>
+
+
+          </div>
+        <div class="span3"> <b>Sucursal: </b>
+          <ul class="text-left">
+            <li type="disc"> <%= offer.branch.name unless offer.branch.nil?%></li>
+
+
+          </ul>
+         </div>
+          </p>
+          </hr>
+
+          </hr>
+
+                 </div>
 
       </div>
     </div>

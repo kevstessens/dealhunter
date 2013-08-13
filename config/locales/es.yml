@@ -12,7 +12,19 @@ es:
         encrypted_password: Contraseña encriptada
         current_sign_in_at: Sign in actual
         last_sign_in_at: Último sign in
-        sing_in_count: Cantidad de sign in
+        sign_in_count: Cantidad de sign in
+      address:
+        city: Localidad
+        country: Pais
+        floor: Piso
+        number: Numero
+        state: Provincia
+        client: Cliente
+        branch: Sucursal
+      branch:
+        company: Empresa
+        name: Nombre
+        address: Direccion
       user:
         email: Mail
         password: Contraseña
@@ -37,6 +49,7 @@ es:
         user_id: Usuario
         created_at: Creación
         updated_at: Actualización
+        email: Mail
       address:
         country: País
         street: Calle
@@ -44,15 +57,33 @@ es:
         state: Provincia
         floor: Piso
         number: Número
+      offer:
+        company: Empresa
+        end_date: Fecha de fin
+        name: Nombre
+        start_date: Fecha de inicio
+        photo: Foto
+        branch: Sucursal
+      prize:
+        discount_percentage: Porcentaje de Descuento
+        name: Título
+        offer: Oferta
+        real_price: Precio Original
     models:
        address: Dirección
        admin_user: Administrador
+       branch: Sucursal
        client: Cliente
        company: Empresa
        country: País
+       offer: Oferta
+       prize: Premio
+       title: Area
        user: Usuario
 
     errors:
+      messages:
+        record_invalid: Registro Inválido
       models:
         user:
           attributes:
@@ -70,6 +101,14 @@ es:
               blank: No puede estar en blanco
               too_short: Demasiado corto
               too_long: Demasiado largo
+            email:
+              taken: Ya existe un usuario con ese mail
+              invalid: Mail inválido
+              blank: Completar
+            password:
+              too_short: Demasiado corta (min 8 caracteres)
+              confirmation: Contraseñas no coinciden
+              blank: Completar
         admin_user:
           attributes:
             email:
@@ -106,6 +145,61 @@ es:
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
     pm: pm
+
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+
 
 
   errors:

@@ -9,21 +9,21 @@
       <article class="row">
         <%= form_for current_user, :url => {:action => "save_titles_user"} do |f| %>
             <%Title.all.each do |p|%>
-        <% if(p.id== 1 || p.id==4 || p.id==7 || p.id==10) %>
-        <div class="span2">
+        <% if(p.id== 1 || p.id==5 || p.id==9) %>
+        <div class="row">
             <div class="wrapper-padding">
         <% end %>
 
-              <div>
-                <img class="title-image" src="../assets/<%= p.icon_name%>.jpg" alt=""/>
-              <div class="interestName">
-                <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name) %>
-                <%= p.name %>
+              <div class="my-span2" style="width: 135px">
+              <div class="roundedTwo" >
+                <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name), :id => p.id %>
+                <label for="<%= p.id %>" style="background: url('../assets/<%= p.icon_name%>.png') no-repeat no-repeat; background-size: 100px"></label>
               </div>
               </div>
-                <% if(p.id== 3 || p.id==6 || p.id==9 || p.id==12) %>
-                    </div>
-                    </div>
+
+                <% if(p.id== 4 || p.id==8 || p.id==12) %>
+            </div>
+        </div>
                 <% end %>
       <% end %>
               <br>
@@ -73,3 +73,8 @@
     </aside><!--end sidebar-->
   </div><!--end container-->
 </div><!--end row-->
+
+<style>
+
+
+</style>

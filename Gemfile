@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -32,12 +34,13 @@ gem 'validates_timeliness'
 
 gem 'carrierwave'
 
-gem "mini_magick"
+gem 'mini_magick', '3.5.0'
 
 gem 'jquery_datepicker'
 
+gem 'bootstrap-sass'
 
-
+gem "kaminari"
 
 group :development, :test do
   gem 'sqlite3'
