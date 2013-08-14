@@ -1,5 +1,3 @@
-<% if current_user.nil?%>
-
     <html>
     <head>
       <meta charset="UTF-8">
@@ -72,6 +70,7 @@
 
     </head>
 
+    <% if current_user.nil?%>
 
     <body id="page-micuenta">
 
@@ -99,28 +98,26 @@
             <div class="wrapper">
               <article class="row-fluid">
                 <div class="span8">
-                  <%= form_for(User.new(), :url => { :action => "contact", :controller => :pages }, :html => { :method => :post }) do |f| %>
+                  <%= form_for(Message.new(), :url => { :action => "contact_potential_advertiser", :controller => :pages }, :html => { :method => :post }) do |f| %>
                       <fieldset>
                         <p>Por favor, ponete en contacto con nosotros mediante el formulario.</p>
                         <hr>
                         <div class="row-fluid">
                           <div class="span6">
                             <label>Nombre</label>
-                            <%=f.text_field :first_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
+                            <%=f.text_field :name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
 
                             <label>Email</label>
                             <%=f.text_field :email, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
                           </div>
-                          <div class="span6">
-                            <label>Apellido</label>
-                            <%=f.text_field :last_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
+                          <div class="span6" style="margin-top: 66.5px">
                             <label>Asunto</label>
-                            <%=f.text_field :full_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
+                            <%=f.text_field :subject, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
                           </div>
                         </div>
 
                         <label>Comentarios</label>
-                        <%=f.text_area :contrasena, :label => false, :rows => "3", :style => "width:97%;" %>
+                        <%=f.text_area :body, :label => false, :rows => "3", :style => "width:97%;" %>
 
                         <hr>
                         <div class="text-center">
@@ -163,53 +160,6 @@
     </div><!--end row-->
 
 
-    <!--footer-->
-    <footer id="footer-wrapper">
-      <div class="container" >
-        <div class="row" id="footer-top">
-          <div class="span6 hidden-phone"><img id="footer-top-img" src="/assets/logo-footer.png"></div>
-          <div class="span6">
-            <ul id="custumer-support" class="pull-right">
-              <li class="custumer-support-title">Atención al Cliente</li>
-              <li class="telephone-number">0800-345-TRIP(8747)</li>
-              <li class="contact-mail"><a href="<%= pages_contact_path %>"><i class="icon-contact-mail"></i> info@dealhunter.com</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <hr>
-
-        <div id="footer-middle" class="row">
-          <div class="span7">
-            <nav>
-              <ul class="inline">
-                <li><a href="/pages/we">Quiénes Somos</a></li>
-                <li><a href="/pages/work_with_us">Trabajá con Nosotros</a></li>
-                <li><a href="/pages/terms_and_conds">Términos y Condiciones</a></li>
-                <li><a href="/pages/faqs">Ayuda</a></li>
-                <li><a href="/pages/contact">Contacto</a></li>
-              </ul>
-            </nav>
-            <p class="copyright">Copyright © 2013 dealhunter.com. Todos los derechos reservados</p>
-          </div>
-
-          <div class="span5">
-            <ul class="inline pull-right social">
-              <li><a href="http://www.facebook.com/dealhunterargentina" target="_blank"><img src="/assets/icon-fb.png"></a></li>
-              <li><a href="https://twitter.com/dealhunterArg"target="_blank"><img src="/assets/icon-twitter.png"></a></li>
-              <li><a href="https://plus.google.com/116522684361738618061" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
-
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-
-    </footer><!--end footer-->
-
-
-
 <% else %>
 
 
@@ -225,28 +175,19 @@
             <div class="wrapper">
               <article class="row-fluid">
                 <div class="span8">
-                  <%= form_for(User.new(), :url => { :action => "contact", :controller => :pages }, :html => { :method => :post }) do |f| %>
+                  <%= form_for(Message.new(), :url => { :action => "contact", :controller => :pages }, :html => { :method => :post }) do |f| %>
                       <fieldset>
                         <p>Por favor, ponete en contacto con nosotros mediante el formulario.</p>
                         <hr>
                         <div class="row-fluid">
                           <div class="span6">
-                            <label>Nombre</label>
-                            <%=f.text_field :first_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
-
-                            <label>Email</label>
-                            <%=f.text_field :email, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
-                          </div>
-                          <div class="span6">
-                            <label>Apellido</label>
-                            <%=f.text_field :last_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
                             <label>Asunto</label>
-                            <%=f.text_field :full_name, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
+                            <%=f.text_field :subject, :label => false, :class => "input-xlarge", :style => "margin-right:10px;" %>
                           </div>
                         </div>
 
                         <label>Comentarios</label>
-                        <%=f.text_area :contrasena, :label => false, :rows => "3", :style => "width:97%;" %>
+                        <%=f.text_area :body, :label => false, :rows => "3", :style => "width:97%;" %>
 
                         <hr>
                         <div class="text-center">
