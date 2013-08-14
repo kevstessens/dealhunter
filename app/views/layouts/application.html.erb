@@ -80,13 +80,13 @@
                       <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu pull-right">
-                      <% if current_user.user_role_id == 1%>
+                      <% if current_user.company? %>
                         <li><a href="<%= users_offers_company_user_path %>">Mis Ofertas</a></li>
                       <% else %>
                           <li><a href="<%= users_offers_client_user_path %>">Mis Ofertas</a></li>
                       <% end %>
                       <li><a href="<%= edit_user_path(current_user) %>">Mi Perfil</a></li>
-                      <% if current_user.user_role_id == 1%>
+                      <% if current_user.company? %>
                         <li><a href="<%= users_branches_company_user_path %>">Mis sucursales</a></li>
                       <%else%>
                         <li><a href="<%= users_titles_user_path %>">Mis Intereses</a></li>
@@ -120,7 +120,7 @@
           <div class="span7">
             <nav>
               <ul class="inline">
-                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="<%= pages_we_path %>">Quiénes Somos</a></li>
                 <li><a href="#">Trabajá con Nosotros</a></li>
                 <li><a href="#">Términos y Condiciones</a></li>
                 <li><a href="<%= pages_faqs_path %>">Ayuda</a></li>
@@ -155,6 +155,46 @@
 <% else %>
 
     <%= yield %>
+
+
+
+    <footer id="footer-wrapper" class="dh-footer">
+      <div class="container">
+
+        <div id="footer-middle" class="row">
+          <div class="span7">
+            <nav>
+              <ul class="inline">
+                <li><a href="<%= pages_we_path %>">Quiénes Somos</a></li>
+                <li><a href="#">Trabajá con Nosotros</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+              </ul>
+            </nav>
+            <p class="copyright">Copyright © 2013 DealHunter.com. Todos los derechos reservados</p>
+          </div>
+          <div class="span3">
+            <ul id="custumer-support" class="pull-right">
+              <li class="custumer-support-title">Atención al Cliente</li>
+              <li class="telephone-number">0800-111-DEAL(3315)</li>
+              <li class="contact-mail"><a href="#"><i class="icon-contact-mail"></i> info@dealhunter.com</a></li>
+            </ul>
+          </div>
+
+          <div class="span2">
+            <ul class="inline pull-right social">
+              <li><a href="#" target="_blank"><img src="/assets/icon-fb.png"></a></li>
+              <li><a href="https://twitter.com/dealhunterArg" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
+              <li><a href="#" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+    <!--end footer-->
 
 <% end %>
 
