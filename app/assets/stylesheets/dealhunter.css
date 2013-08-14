@@ -1553,7 +1553,7 @@ input:focus {
     background: transparent;
     top: 30px;
     left: 15px;
-    border: 7px solid #fcfff4;
+    border: 7px solid rgb(23, 46, 117);
     border-top: none;
     border-right: none;
 
@@ -2581,7 +2581,7 @@ input:focus {
     background: transparent;
     top: 30px;
     left: 20px;
-    border: 7px solid #fcfff4;
+    border: 7px solid rgb(23, 46, 117);
     border-top: none;
     border-right: none;
 
