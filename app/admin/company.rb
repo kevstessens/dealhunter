@@ -33,7 +33,8 @@ ActiveAdmin.register Company do
     def create
       super
       unless @company.user.nil?
-        @company.user.user_role_id = 1
+        role_id = UserRole.where(:name => "CompanyUser").first().id
+        @company.user.user_role_id = role_id
         @company.save!
         NewUserMailer.new_user_email(@company.user, @company).deliver
       end
