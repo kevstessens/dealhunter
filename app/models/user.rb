@@ -17,5 +17,10 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :client, :allow_destroy => true
 
+  def company?
+    role_id = UserRole.where(:name => "CompanyUser").first().id
+    self.user_role_id == role_id
+  end
+
 
 end
