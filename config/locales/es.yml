@@ -49,6 +49,7 @@ es:
         user_id: Usuario
         created_at: Creación
         updated_at: Actualización
+        email: Mail
       address:
         country: País
         street: Calle
@@ -81,6 +82,8 @@ es:
        user: Usuario
 
     errors:
+      messages:
+        record_invalid: Registro Inválido
       models:
         user:
           attributes:
@@ -98,6 +101,14 @@ es:
               blank: No puede estar en blanco
               too_short: Demasiado corto
               too_long: Demasiado largo
+            email:
+              taken: Ya existe un usuario con ese mail
+              invalid: Mail inválido
+              blank: Completar
+            password:
+              too_short: Demasiado corta (min 8 caracteres)
+              confirmation: Contraseñas no coinciden
+              blank: Completar
         admin_user:
           attributes:
             email:
