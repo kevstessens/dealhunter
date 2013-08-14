@@ -19,14 +19,14 @@
           <article>
 
             <ul id="myTab" class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab">Todas</a></li>
-              <li><a href="#profile" data-toggle="tab">Activas</a></li>
-              <li><a href="#completadas" data-toggle="tab">Finalizadas</a></li>
+              <li class="active"><a href="#all" data-toggle="tab" id="all-tab">Todas</a></li>
+              <li><a href="#active" data-toggle="tab" id="actual-tab">Activas</a></li>
+              <li><a href="#old" data-toggle="tab" id="old-tab">Finalizadas</a></li>
             </ul>
 
             <div id="myTabContent" class="tab-content">
 
-              <div class="tab-pane fade in active clearfix" id="home">
+              <div class="tab-pane fade in active clearfix" id="all">
 
                 <% @offers.each do |offer| %>
 
@@ -48,7 +48,7 @@
 
               </div><!--end myTabContent-->
 
-              <div class="tab-pane fade" id="profile">
+              <div class="tab-pane fade" id="active">
 
                     <% @actual_offers.each do |offer| %>
 
@@ -66,8 +66,9 @@
 
                     <% end %>
 
+
               </div>
-              <div class="tab-pane fade" id="completadas">
+              <div class="tab-pane fade" id="old">
 
                 <% @old_offers.each do |offer| %>
 
@@ -243,5 +244,15 @@
             $(this).datepicker();
         });
     });
+
+   function old_click(){
+       document.getElementById("old-tab").click();
+       console.log("click");
+   }
+
+    function actual_click(){
+        document.getElementById("actual-tab").click();
+        console.log("click");
+    }
 </script>
 

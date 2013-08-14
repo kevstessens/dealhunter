@@ -8,11 +8,14 @@ class Company < ActiveRecord::Base
 
   validates :name, :presence => true, :length => { :minimum => 3, :maximum => 50}
 
+  validates_associated :user
+
   accepts_nested_attributes_for :user, :allow_destroy => true,
                                 :reject_if => proc { |attributes|
                                   attributes['email'].blank? or
                                       attributes['password'].blank?
                                 }
+
 
   accepts_nested_attributes_for :branches, :allow_destroy => true
 

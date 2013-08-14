@@ -41,7 +41,7 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(params[:offer])
-    @offer.company_id = Company.where("user_id = ?", current_user.id).first.id
+   # @offer.company_id = Company.where("user_id = ?", current_user.id).first.id
 
     respond_to do |format|
       if @offer.save

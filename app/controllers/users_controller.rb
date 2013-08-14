@@ -97,7 +97,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     @offers = Offer.where(:branch_id => Branch.where(:company_id => @user.company.id)).page(params[:page]).per(3)
-    @actual_offers = @offers.where('end_date < ?', Date.current).page(params[:page]).per(3)
+    @actual_offers = @offers.where('end_date <= ?', Date.current).page(params[:page]).per(3)
     @old_offers = @offers.where('end_date > ?', Date.current).page(params[:page]).per(3)
   end
 
@@ -130,7 +130,7 @@ class UsersController < ApplicationController
   def branches_company_user
     session[:body]='page-micuenta'
     @user = current_user
-    @branches = Branch.where("company_id = ?",@user.company.id).page(params[:page]).per(2)
+    @branches = Branch.where("company_id = ?",@user.company.id).page(params[:page]).per(4)
   end
 
 end
