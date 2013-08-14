@@ -3,8 +3,14 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate_user!
 
   def work_with_us
-
+    @message=Message.new
   end
+
+
+  def potential_advertiser
+    @message=Message.new
+  end
+
 
   def we
 
@@ -15,19 +21,33 @@ class PagesController < ApplicationController
   end
 
   def contact
-    unless params[:user].nil?
-      first_name = params[:user][:first_name]
-      last_name = params[:user][:last_name]
-      email = params[:user][:email]
-      subject = params[:user][:full_name]
-      content = params[:user][:contrasena]
-      ContactMailer.contact_email(first_name,last_name,email,subject,content).deliver
+    @message = Message.new(params[:message])
+    @message.subject = "--"
+
+    if @message.valid?
+      ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
+      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+    else
+      flash.now.alert = "Completa todos los datos por favor"
+      render :new
     end
-
-
   end
+
+  def contact_potential_advertiser
+    @message = Message.new(params[:message])
+
+    if @message.valid?
+      ContactMailer.new_message_empresa(@message).deliver
+      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+    else
+      flash.now.alert = "Completa todos los datos por favor"
+      render :new
+    end
+  end
+
 
   def terms_and_conds
 
   end
+
 end
