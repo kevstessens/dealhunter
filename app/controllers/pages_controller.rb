@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
-      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+      redirect_to(:root, :notice => "El mensaje se ha enviado correctamente.")
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_contact_path
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
     if @message.valid?
       ContactMailer.new_message_empresa(@message).deliver
-      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+      redirect_to(:root, :notice => "El mensaje se ha enviado correctamente.")
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_contact_path
@@ -60,7 +60,11 @@ class PagesController < ApplicationController
         message.name = data[:name]
         message.email = data[:email]
       else
-        message.name = current_user.client.last_name
+        if current_user.client.last_name.nil?
+          message.name = ""
+        else
+          message.name = current_user.client.last_name
+        end
         message.email = current_user.email
       end
     end
