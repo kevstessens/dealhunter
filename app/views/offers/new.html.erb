@@ -27,11 +27,9 @@
                   </div>
 
                   <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Sucursal</label>
-                    <%=f.input :branch,:input_html => {:class => 'pull-right input-medium-large '}, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)) %>
-
-                 </div>
-
+                    <label class="pull-left" for="inputEmail">Imagen</label>
+                    <%=f.input :photo, :label => false, :input_html => { :class => "pull-right input-medium-large", :placeholder => "Imagen" } %>
+                  </div>
 
                 </div><!--end wrapper-padding-->
               </div><!--end span4-->
@@ -40,8 +38,9 @@
                 <div class="wrapper-padding">
 
                   <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Imagen</label>
-                    <%=f.input :photo, :label => false, :input_html => { :class => "pull-right input-medium-large", :placeholder => "Imagen" } %>
+                    <label class="pull-left" for="inputEmail">Sucursal</label>
+                    <%=f.input :branch,:input_html => {:class => 'pull-right input-medium-large '}, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)) %>
+
                   </div>
 
                   <div class="control-group clearfix">

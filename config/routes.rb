@@ -1,6 +1,7 @@
 DealHunter::Application.routes.draw do
 
   match 'pages/work_with_us' => 'pages#work_with_us'
+  match 'pages/form_company' => 'pages#form_company'
   match 'pages/faqs' => 'pages#faqs'
   match 'pages/contact' => 'pages#contact'
   match 'pages/contact_potential_advertiser' => 'pages#contact_potential_advertiser'

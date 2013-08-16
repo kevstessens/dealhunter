@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     @message=Message.new
   end
 
+  def form_company
+    @message=Message.new
+  end
+
 
   def potential_advertiser
     @message=Message.new
