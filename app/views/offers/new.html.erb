@@ -26,10 +26,7 @@
                     <%=f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
                   </div>
 
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Imagen</label>
-                    <%=f.input :photo, :label => false, :input_html => { :class => "pull-right input-medium-large", :placeholder => "Imagen" } %>
-                  </div>
+
 
                 </div><!--end wrapper-padding-->
               </div><!--end span4-->
@@ -51,6 +48,16 @@
 
                 </div><!--end wrapper-padding-->
               </div><!--end span4-->
+
+              <div class="span7">
+                <div class="wrapper-padding2">
+              <div class="control-group clearfix">
+                <label class="pull-left" for="inputEmail">Imagen</label>
+                <%=f.input :photo, :label => false, :input_html => { :class => "pull-right2 input-fullwidth", :placeholder => "Imagen" } %>
+              </div>
+              </div>
+                </div>
+
 
               <div class="span8">
 

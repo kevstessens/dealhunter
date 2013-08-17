@@ -1328,6 +1328,12 @@ input[type="radio"],
 input[type="checkbox"] {
   width: auto;
 }
+
+.pull-right2{
+
+    margin-left: 70px;
+
+}
 select,
 input[type="file"] {
   height: 30px;

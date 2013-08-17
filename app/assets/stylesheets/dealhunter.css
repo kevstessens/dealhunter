@@ -532,6 +532,12 @@ header#top nav ul {
     overflow: hidden;
 }
 
+#main-content .wrapper-padding2 {
+    padding: 0px 2%;
+    margin-top: -19px;
+    overflow: hidden;
+}
+
 .light-shadowed {
     -webkit-box-shadow: 9px 9px 13px -4px black;
     -moz-box-shadow: 9px 9px 13px -4px black;
