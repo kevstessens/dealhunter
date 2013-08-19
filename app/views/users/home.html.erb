@@ -1,0 +1,9 @@
+
+<% @offers.each do |offer| %>
+
+    <img src="<%= offer.photo%>">
+    <%= offer.name %>
+    <%= offer.start_date%>
+    <%= offer.end_date%>
+
+<%end%>

@@ -133,4 +133,13 @@ class UsersController < ApplicationController
     @branches = Branch.where("company_id = ?",@user.company.id).page(params[:page]).per(4)
   end
 
+  def home
+    user = current_user
+    if user.user_role_id == 1 #company
+      @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => user.company.id)).order("created_at DESC").take(6)
+    else
+
+    end
+  end
+
 end
