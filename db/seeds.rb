@@ -7,13 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 UserRole.delete_all
+UserRole.reset_pk_sequence
 UserRole.create(:name => "CompanyUser")
 UserRole.create(:name => "ClientUSer")
 
 Country.delete_all
+Country.reset_pk_sequence
 Country.create!(:name => "Argentina")
 
 Title.delete_all
+Title.reset_pk_sequence
 Title.create!(:name => "Ind. Masculina", :icon_name =>"indumentaria-masculina")
 Title.create!(:name => "Ind. Femenina", :icon_name =>"indumentaria-femenina")
 Title.create!(:name => "Ninos", :icon_name =>"nenes")
