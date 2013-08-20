@@ -31,7 +31,7 @@
                 <% @offers.each do |offer| %>
 
                         <div class="media hotel-item">
-                          <a class="pull-left" href="#">
+                          <a class="pull-left" href="#offer_<%=offer.id%>">
                             <% unless offer.photo.nil? %>
                                 <img src="<%= offer.photo %>" class="media-object imgSize">
                             <%end%>

@@ -26,7 +26,7 @@
                 <!-- 	/* solapa --------------------------- */-->
                         <ul class="secondary-info pull-right">
                           <li>
-                            <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                            <h3> <%= offer.clients.count %> </h3><p>Usuarios Inscriptos</p>
                           </li>
                         </ul>
                     </div>
@@ -44,13 +44,13 @@
                     <div class="wrapper-padding">
                       <ul class="inline hotel-item clearfix">
                         <li class="pull-left">
-                          <h4 class="media-heading"><a href="#"><%=offer.name%></a></h4>
+                          <h4 class="media-heading"><a href="#offer_<%=offer.id%>" data-toggle="modal"><%=offer.name%></a></h4>
                           <% unless offer.branch.nil? %>
                               <h5> <%=offer.branch.name%> </h5>
                           <%end%>
                         </li>
                         <li class="pull-right">
-                          <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite">Ver Oferta</button></a>
+                          <a href="#offer_<%=offer.id%>" data-toggle="modal"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite">Ver Oferta</button></a>
                         </li>
                       </ul>
                     </div><!--end wrapper-padding-->
@@ -75,6 +75,73 @@
 
 </div><!--end row-->
 </div><!--end container-->
+
+
+<% @offers.each do |offer| %>
+
+    <div id="offer_<%=offer.id%>" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="label"><%= offer.name %> </h3>
+      </div>
+      <div class="modal-body">
+        <div class="media hotel-item">
+          <a class="pull-right" href="#">
+            <% unless offer.photo.nil? %>
+                <img src="<%= offer.photo%>" class="media-object imgCenter">
+            <%end%>
+          </a>
+          <div class="media-body">
+            <p>
+              <b>Fecha de inicio:</b>
+              <%= offer.start_date %>
+            </p>
+            <p>
+              <b>Fecha de finalización:</b>
+              <%= offer.end_date %>
+            </p>
+          </div><!--end media-body-->
+          <hr>
+          <p>
+            <b>Clientes adheridos: </b>
+            <%= offer.clients.count %>
+          </p>
+
+
+          </hr>
+
+          <hr>
+          <p class="row">
+          <div class="span3">  <b>Premio: </b>
+            <ul class="text-left">
+              <% i=1 %>
+              <% offer.prizes.each do |prize| %>
+                  <li type="disc"><%= i %>) <%= prize.name %> - <%= prize.real_price %>(<%= prize.discount_percentage %>).</li>
+                  <% i+=1 %>
+              <%end%>
+
+            </ul>
+
+
+          </div>
+          <div class="span3"> <b>Sucursal: </b>
+            <ul class="text-left">
+              <li type="disc"> <%= offer.branch.name unless offer.branch.nil?%></li>
+
+
+            </ul>
+          </div>
+          </p>
+          </hr>
+
+          </hr>
+
+        </div>
+
+      </div>
+    </div>
+
+<%end%>
 
 
 
