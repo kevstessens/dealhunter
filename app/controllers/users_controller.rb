@@ -134,6 +134,7 @@ class UsersController < ApplicationController
   end
 
   def home
+    session[:body]='offer-listing-page'
     user = current_user
     if user.user_role_id == 1 #company
       @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => user.company.id)).order("created_at DESC").take(6)

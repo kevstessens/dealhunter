@@ -1,9 +1,325 @@
+<div class="container">
+<div class="row" style="height: 600px;">
 
-<% @offers.each do |offer| %>
 
-    <img src="<%= offer.photo%>">
-    <%= offer.name %>
-    <%= offer.start_date%>
-    <%= offer.end_date%>
+  <!-- 	/* solapa --------------------------- */-->
+        <div class="row" style= "width: 980px; height: 320px;">
+          <% unless @offers.at(0).nil? %>
 
-<%end%>
+              <div class="span4 offer-small">
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="flap-items">
+                  <li class="img_item">
+                    <div class="caption" style=" width: 280px;">
+                      <ul class="offer-price-box pull-left">
+                        <li class="offer-disccount"><%= "-" + @offers.at(0).prizes.first.discount_percentage.to_s + "%"%> </li>
+                        <li class="offer-price">$<%= @offers.at(0).prizes.first.discounted_price.to_i unless @offers.at(0).prizes.first.nil? %></li>
+                      </ul>
+
+                    <!-- End of .flap-items -->
+                <!-- 	/* solapa --------------------------- */-->
+                        <ul class="secondary-info pull-right">
+                          <li>
+                            <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                          </li>
+                        </ul>
+                    </div>
+
+                    <% unless @offers.at(0).photo.nil? %>
+                        <img class="small-photo" src="<%= @offers.at(0).photo %>" alt="" style="width:300px; height: 250px"/>
+                    <%end%>
+                  </li>
+                </ul>
+
+
+                <div class="row">
+                  <div class="span4" style="position:relative;">
+                    <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+                    <div class="wrapper-padding">
+                      <ul class="inline hotel-item clearfix">
+                        <li class="pull-left">
+                          <h4 class="media-heading"><a href="#"><%=@offers.at(0).name%></a></h4>
+                          <% unless @offers.at(0).branch.nil? %>
+                              <h5> <%=@offers.at(0).branch.name%> </h5>
+                          <%end%>
+                        </li>
+                        <li class="pull-right">
+                          <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite">Ver Oferta</button></a>
+                        </li>
+                      </ul>
+                    </div><!--end wrapper-padding-->
+                  </div><!--end span4-->
+                </div><!--end row-->
+              </div><!--end span4-->
+
+          <% end %>
+
+
+
+
+          <% unless @offers.at(1).nil? %>
+
+              <div class="span4 offer-small">
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="flap-items">
+                  <li class="img_item">
+                    <div class="caption" style=" width: 280px;">
+                      <ul class="offer-price-box pull-left">
+                        <li class="offer-disccount"><%= "-" + @offers.at(1).prizes.first.discount_percentage.to_s + "%"%> </li>
+                        <li class="offer-price">$<%= @offers.at(1).prizes.first.discounted_price.to_i unless @offers.at(0).prizes.first.nil? %></li>
+                      </ul>
+
+                      <!-- End of .flap-items -->
+                      <!-- 	/* solapa --------------------------- */-->
+                      <ul class="secondary-info pull-right">
+                        <li>
+                          <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <% unless @offers.at(1).photo.nil? %>
+                        <img class="small-photo" src="<%= @offers.at(1).photo %>" alt="" style="width:300px; height: 250px"/>
+                    <%end%>
+                  </li>
+                </ul>
+
+
+                <div class="row">
+                  <div class="span4" style="position:relative;">
+                    <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+                    <div class="wrapper-padding">
+                      <ul class="inline hotel-item clearfix">
+                        <li class="pull-left">
+                          <h4 class="media-heading"><a href="#"><%=@offers.at(1).name%></a></h4>
+                          <% unless @offers.at(1).branch.nil? %>
+                              <h5> <%=@offers.at(1).branch.name%> </h5>
+                          <%end%>
+                        </li>
+                        <li class="pull-right">
+                          <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite1">Ver Oferta</button></a>
+                        </li>
+                      </ul>
+                    </div><!--end wrapper-padding-->
+                  </div><!--end span4-->
+                </div><!--end row-->
+              </div><!--end span4-->
+
+          <% end %>
+
+          <% unless @offers.at(2).nil? %>
+
+              <div class="span4 offer-small">
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="flap-items">
+                  <li class="img_item">
+                    <div class="caption" style=" width: 280px;">
+                      <ul class="offer-price-box pull-left">
+                        <li class="offer-disccount"><%= "-" + @offers.at(2).prizes.first.discount_percentage.to_s + "%"%> </li>
+                        <li class="offer-price">$<%= @offers.at(2).prizes.first.discounted_price.to_i unless @offers.at(2).prizes.first.nil? %></li>
+                      </ul>
+
+                      <!-- End of .flap-items -->
+                      <!-- 	/* solapa --------------------------- */-->
+                      <ul class="secondary-info pull-right">
+                        <li>
+                          <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <% unless @offers.at(0).photo.nil? %>
+                        <img class="small-photo" src="<%= @offers.at(2).photo %>" alt="" style="width:300px; height: 250px"/>
+                    <%end%>
+                  </li>
+                </ul>
+
+
+                <div class="row">
+                  <div class="span4" style="position:relative;">
+                    <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+                    <div class="wrapper-padding">
+                      <ul class="inline hotel-item clearfix">
+                        <li class="pull-left">
+                          <h4 class="media-heading"><a href="#"><%=@offers.at(0).name%></a></h4>
+                          <% unless @offers.at(2).branch.nil? %>
+                              <h5> <%=@offers.at(2).branch.name%> </h5>
+                          <%end%>
+                        </li>
+                        <li class="pull-right">
+                          <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite2">Ver Oferta</button></a>
+                        </li>
+                      </ul>
+                    </div><!--end wrapper-padding-->
+                  </div><!--end span4-->
+                </div><!--end row-->
+              </div><!--end span4-->
+
+          <% end %>
+
+        </div>
+
+
+
+  <div class="row" style= "width: 980px; height: 320px;">
+    <% unless @offers.at(3).nil? %>
+
+        <div class="span4 offer-small">
+          <!-- 	/* solapa --------------------------- */-->
+          <ul class="flap-items">
+            <li class="img_item">
+              <div class="caption" style=" width: 280px;">
+                <ul class="offer-price-box pull-left">
+                  <li class="offer-disccount"><%= "-" + @offers.at(3).prizes.first.discount_percentage.to_s + "%"%> </li>
+                  <li class="offer-price">$<%= @offers.at(3).prizes.first.discounted_price.to_i unless @offers.at(3).prizes.first.nil? %></li>
+                </ul>
+
+                <!-- End of .flap-items -->
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="secondary-info pull-right">
+                  <li>
+                    <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                  </li>
+                </ul>
+              </div>
+
+              <% unless @offers.at(0).photo.nil? %>
+                  <img class="small-photo" src="<%= @offers.at(3).photo %>" alt="" style="width:300px; height: 250px"/>
+              <%end%>
+            </li>
+          </ul>
+
+
+          <div class="row">
+            <div class="span4" style="position:relative;">
+              <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+              <div class="wrapper-padding">
+                <ul class="inline hotel-item clearfix">
+                  <li class="pull-left">
+                    <h4 class="media-heading"><a href="#"><%=@offers.at(3).name%></a></h4>
+                    <% unless @offers.at(0).branch.nil? %>
+                        <h5> <%=@offers.at(0).branch.name%> </h5>
+                    <%end%>
+                  </li>
+                  <li class="pull-right">
+                    <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite3">Ver Oferta</button></a>
+                  </li>
+                </ul>
+              </div><!--end wrapper-padding-->
+            </div><!--end span4-->
+          </div><!--end row-->
+        </div><!--end span4-->
+
+    <% end %>
+
+
+
+
+    <% unless @offers.at(4).nil? %>
+
+        <div class="span4 offer-small">
+          <!-- 	/* solapa --------------------------- */-->
+          <ul class="flap-items">
+            <li class="img_item">
+              <div class="caption" style=" width: 280px;">
+                <ul class="offer-price-box pull-left">
+                  <li class="offer-disccount"><%= "-" + @offers.at(4).prizes.first.discount_percentage.to_s + "%"%> </li>
+                  <li class="offer-price">$<%= @offers.at(4).prizes.first.discounted_price.to_i unless @offers.at(4).prizes.first.nil? %></li>
+                </ul>
+
+                <!-- End of .flap-items -->
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="secondary-info pull-right">
+                  <li>
+                    <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                  </li>
+                </ul>
+              </div>
+
+              <% unless @offers.at(1).photo.nil? %>
+                  <img class="small-photo" src="<%= @offers.at(4).photo %>" alt="" style="width:300px; height: 250px"/>
+              <%end%>
+            </li>
+          </ul>
+
+
+          <div class="row">
+            <div class="span4" style="position:relative;">
+              <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+              <div class="wrapper-padding">
+                <ul class="inline hotel-item clearfix">
+                  <li class="pull-left">
+                    <h4 class="media-heading"><a href="#"><%=@offers.at(3).name%></a></h4>
+                    <% unless @offers.at(4).branch.nil? %>
+                        <h5> <%=@offers.at(4).branch.name%> </h5>
+                    <%end%>
+                  </li>
+                  <li class="pull-right">
+                    <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite4">Ver Oferta</button></a>
+                  </li>
+                </ul>
+              </div><!--end wrapper-padding-->
+            </div><!--end span4-->
+          </div><!--end row-->
+        </div><!--end span4-->
+
+    <% end %>
+
+    <% unless @offers.at(5).nil? %>
+
+        <div class="span4 offer-small">
+          <!-- 	/* solapa --------------------------- */-->
+          <ul class="flap-items">
+            <li class="img_item">
+              <div class="caption" style=" width: 280px;">
+                <ul class="offer-price-box pull-left">
+                  <li class="offer-disccount"><%= "-" + @offers.at(5).prizes.first.discount_percentage.to_s + "%"%> </li>
+                  <li class="offer-price">$<%= @offers.at(5).prizes.first.discounted_price.to_i unless @offers.at(5).prizes.first.nil? %></li>
+                </ul>
+
+                <!-- End of .flap-items -->
+                <!-- 	/* solapa --------------------------- */-->
+                <ul class="secondary-info pull-right">
+                  <li>
+                    <h3> 5 </h3><p>Usuarios Inscriptos</p>
+                  </li>
+                </ul>
+              </div>
+
+              <% unless @offers.at(5).photo.nil? %>
+                  <img class="small-photo" src="<%= @offers.at(2).photo %>" alt="" style="width:300px; height: 250px"/>
+              <%end%>
+            </li>
+          </ul>
+
+
+          <div class="row">
+            <div class="span4" style="position:relative;">
+              <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+              <div class="wrapper-padding">
+                <ul class="inline hotel-item clearfix">
+                  <li class="pull-left">
+                    <h4 class="media-heading"><a href="#"><%=@offers.at(0).name%></a></h4>
+                    <% unless @offers.at(5).branch.nil? %>
+                        <h5> <%=@offers.at(5).branch.name%> </h5>
+                    <%end%>
+                  </li>
+                  <li class="pull-right">
+                    <a href="#"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite5">Ver Oferta</button></a>
+                  </li>
+                </ul>
+              </div><!--end wrapper-padding-->
+            </div><!--end span4-->
+          </div><!--end row-->
+        </div><!--end span4-->
+
+    <% end %>
+    </div>
+
+  </div>
+
+</div><!--end row-->
+</div><!--end container-->
+
+
+
