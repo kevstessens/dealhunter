@@ -3,7 +3,9 @@ class OffersController < ApplicationController
   # GET /offers.json
   def index
     @offers = Offer.all
-
+    @json = Address.all.to_gmaps4rails
+    @latitude = -34.603683
+    @longitude = -58.381244
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offers }
