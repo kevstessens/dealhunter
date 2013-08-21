@@ -18,10 +18,42 @@
                   <li class="img_item">
                     <div class="caption" style=" width: 280px;">
                       <ul class="offer-price-box pull-left">
-                        <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_s + "%"%> </li>
-                        <li class="offer-price">$<%= offer.prizes.first.discounted_price.to_i unless offer.prizes.first.nil? %></li>
+                        <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_i.to_s + "%" unless offer.prizes.first.nil?%> </li>
+                        <li class="offer-price">$<%= offer.prizes.first.discounted_price unless offer.prizes.first.nil? %></li>
                       </ul>
 
+                      <%if offer.start_date.to_date < Date.current and offer.end_date.to_date > Date.current%>
+                          <ul class="time-left pull-left">
+                            <li>
+                              <ul class="inline" style="margin-top:8px;">
+                                <li><ul class="inline"><li>En curso </li><li></li></ul></li>
+                              </ul>
+                            </li>
+                            <li><p>Aprovechala!</p></li>
+                          </ul>
+
+                          <%elsif offer.start_date.to_date < Date.current and offer.end_date.to_date < Date.current%>
+                          <ul class="time-left pull-left">
+                            <li>
+                              <ul class="inline" style="margin-top:8px;">
+                                <li><ul class="inline"><li>Finalizada </li><li></li></ul></li>
+                              </ul>
+                            </li>
+                            <li><p>No pierdas otra!</p></li>
+                          </ul>
+                          <%else%>
+                          <ul class="time-left pull-left">
+                            <li>
+                              <% distance = time_distance(offer.start_date.to_datetime) %>
+                              <ul class="inline" style="margin-top:8px;">
+                                <li><ul class="inline"><li><%= distance[:days] %></li><li>D</li></ul></li>
+                                <li><ul class="inline"><li><%= distance[:hours] %></li><li>H</li></ul></li>
+                                <li><ul class="inline"><li><%= distance[:minutes] %></li><li>M</li></ul></li>
+                              </ul>
+                            </li>
+                            <li><p>Para el comienzo</p></li>
+                          </ul>
+                          <%end%>
                     <!-- End of .flap-items -->
                 <!-- 	/* solapa --------------------------- */-->
                         <ul class="secondary-info pull-right">
