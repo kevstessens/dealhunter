@@ -20,104 +20,115 @@
 
               <div class="tab-pane fade in active clearfix" id="home">
 
-                <% @offers.each do |offer| %>
+               <% if @offers.empty?%>
 
                     <div class="media hotel-item">
-                      <a class="pull-left" href="#">
-                        <% unless offer.photo.nil? %>
-                            <img src="<%= offer.photo%>" class="media-object">
-                        <%end%>
-                      </a>
+
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
-                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%=  Company.find_by_id(offer.company_id).name %></p>
+                        <h5 style="text-align: center;">Aún no te inscribiste en ninguna oferta</h5>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
-                <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
+               <% else %>
+
+
+                        <% @offers.each do |offer| %>
+
+                            <div class="media hotel-item">
+                              <a class="pull-left" href="#">
+                                <% unless offer.photo.nil? %>
+                                    <img src="<%= offer.photo%>" class="media-object">
+                                <%end%>
+                              </a>
+                              <div class="media-body">
+                                <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
+                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                                <p><%=  Company.find_by_id(offer.company_id).name %></p>
+                              </div><!--end media-body-->
+                            </div><!--end media-->
+
+                        <% end %>
+
+                        <%= paginate @offers %>
+
+               <% end %>
+
 
               </div><!--end myTabContent-->
 
               <div class="tab-pane fade" id="profile">
 
-                <% @offers.where('end_date > ?', Date.current).each do |offer| %>
+                <% if @actual_offers.empty?%>
 
-                    <div class="media hotel-item">
-                      <a class="pull-left" href="#">
-                        <% unless offer.photo.nil? %>
-                            <img src="<%= offer.photo%>" class="media-object">
-                        <%end%>
-                      </a>
-                      <div class="media-body">
-                        <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
-                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%=  Company.find_by_id(offer.company_id).name %></p>
-                      </div><!--end media-body-->
-                    </div><!--end media-->
+                        <div class="media hotel-item">
 
-                <% end %>
+                          <div class="media-body">
+                            <h5 style="text-align: center;">No posees ofertas activas al momento</h5>
+                          </div><!--end media-body-->
+                        </div><!--end media-->
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
+
+                <% else %>
+
+                        <% @actual_offers.each do |offer| %>
+
+                            <div class="media hotel-item">
+                              <a class="pull-left" href="#">
+                                <% unless offer.photo.nil? %>
+                                    <img src="<%= offer.photo%>" class="media-object">
+                                <%end%>
+                              </a>
+                              <div class="media-body">
+                                <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
+                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                                <p><%=  Company.find_by_id(offer.company_id).name %></p>
+                              </div><!--end media-body-->
+                            </div><!--end media-->
+
+                        <% end %>
+
+                        <%= paginate @actual_offers %>
+              <% end %>
+
+
               </div>
               <div class="tab-pane fade" id="completadas">
 
-                <% @offers.where('end_date < ?', Date.current).each do |offer| %>
+                <% if @old_offers.empty?%>
 
                     <div class="media hotel-item">
-                      <a class="pull-left" href="#">
-                        <% unless offer.photo.nil? %>
-                            <img src="<%= offer.photo%>" class="media-object">
-                        <%end%>
-                      </a>
+
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
-                        <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
-                        <p><%= Company.find_by_id(offer.company_id).name %></p>
+                        <h5 style="text-align: center;">No hay ofertas finalizadas en las que hayas participado</h5>
                       </div><!--end media-body-->
                     </div><!--end media-->
 
+
+                <% else %>
+
+                    <% @old_offers.each do |offer| %>
+
+                        <div class="media hotel-item">
+                          <a class="pull-left" href="#">
+                            <% unless offer.photo.nil? %>
+                                <img src="<%= offer.photo%>" class="media-object">
+                            <%end%>
+                          </a>
+                          <div class="media-body">
+                            <h4 class="media-heading"><a href="#"><%= offer.name %></a></h4>
+                            <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                            <p><%= Company.find_by_id(offer.company_id).name %></p>
+                          </div><!--end media-body-->
+                        </div><!--end media-->
+
+                    <% end %>
+
+                    <%= paginate @old_offers %>
+
                 <% end %>
 
-                <!--
-                <div class="pagination">
-                  <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-                -->
+
 
               </div>
 
