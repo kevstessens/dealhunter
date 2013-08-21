@@ -18,8 +18,8 @@
                   <li class="img_item">
                     <div class="caption" style=" width: 280px;">
                       <ul class="offer-price-box pull-left">
-                        <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_s + "%"%> </li>
-                        <li class="offer-price">$<%= offer.prizes.first.discounted_price.to_i unless offer.prizes.first.nil? %></li>
+                        <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_i.to_s + "%" unless offer.prizes.first.nil?%> </li>
+                        <li class="offer-price">$<%= offer.prizes.first.discounted_price unless offer.prizes.first.nil? %></li>
                       </ul>
 
                     <!-- End of .flap-items -->
