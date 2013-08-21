@@ -14,6 +14,9 @@ class Offer < ActiveRecord::Base
   validates_presence_of :name, :start_date, :end_date
   validate :time_coherence
 
+  scope :ended, Offer.where('end_date < ?', Date.today)
+  scope :actual, Offer.where('end_date >= ?', Date.today)
+
   def time_coherence
     errors.add(:start_date, "No puede ser posterior a la fecha de fin") if self.start_date > self.end_date unless (start_date.nil? or end_date.nil?)
   end
