@@ -94,11 +94,11 @@
           <div class="media-body">
             <p>
               <b>Fecha de inicio:</b>
-              <%= offer.start_date %>
+              <%= offer.start_date.strftime("%d%m/%y") %>
             </p>
             <p>
               <b>Fecha de finalización:</b>
-              <%= offer.end_date %>
+              <%= offer.end_date.strftime("%d%m/%y") %>
             </p>
           </div><!--end media-body-->
           <hr>
