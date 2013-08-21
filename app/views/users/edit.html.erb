@@ -38,17 +38,20 @@
                                 <%=address.input :floor, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Piso", :id => "inputLocalidad" } %>
                               </div>
 
+
                               <div class="control-group clearfix">
-                                <label class="pull-left" for="inputLocalidad">Localidad</label>
-                                <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
+                                <label class="pull-left" for="inputProvincia">Provincia</label>
+                                <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
                               </div>
 
 
-                              <div class="control-group clearfix">
-                                <label class="pull-left" for="inputPais">País</label>
-                                <%=address.input :country, :label => false, :required => true, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
-                              </div>
                           <% end %>
+
+
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputEmail">Email</label>
+                                <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
+                              </div>
                       <% end %>
 
                     </div><!--end wrapper-padding-->
@@ -71,19 +74,22 @@
                                 <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
                               </div>
 
+
                               <div class="control-group clearfix">
-                                <label class="pull-left" for="inputProvincia">Provincia</label>
-                                <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
+                                <label class="pull-left" for="inputLocalidad">Localidad</label>
+                                <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
+                              </div>
+
+
+                              <div class="control-group clearfix">
+                                <label class="pull-left" for="inputPais">País</label>
+                                <%=address.input :country, :label => false, :required => true, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :input_html =>{ :style=>"width: 164px;padding-left: 50px;margin-left: 93px;"} %>
                               </div>
 
                           <% end %>
 
                       <%end%>
 
-                      <div class="control-group clearfix">
-                        <label class="pull-left" for="inputEmail">Email</label>
-                        <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
-                      </div>
                   <%end%>
 
                 </div><!--end wrapper-padding-->
