@@ -42,6 +42,8 @@ gem 'bootstrap-sass'
 
 gem "kaminari"
 
+gem 'gmaps4rails'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'

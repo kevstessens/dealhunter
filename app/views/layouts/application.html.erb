@@ -14,6 +14,7 @@
   <%= stylesheet_link_tag 'bootstrap.css' %>
   <%= stylesheet_link_tag 'formtastic.css' %>
   <%= stylesheet_link_tag 'dealhunter.css' %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
 
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
@@ -111,6 +112,8 @@
     <!--end header-->
 
     <%= yield %>
+    <%= yield :scripts %>
+
     <!--footer-->
 
     <footer id="footer-wrapper" class="dh-footer">
