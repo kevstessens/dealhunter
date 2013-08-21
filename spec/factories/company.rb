@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :company do
     user
-    name { Forgery::LoremIpsum.sentence(random: true) }
+    name { Forgery::Name.first_name }
   end
 end
