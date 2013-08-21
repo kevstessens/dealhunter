@@ -165,7 +165,10 @@
           </div>
           </p>
           </hr>
+            <% unless @user.company? %>
+              <%= link_to 'Incribir', new_clients_offer_path(:client => @client.id, :offer => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width"} %>
 
+            <%end%>
           </hr>
 
         </div>
