@@ -140,7 +140,7 @@ class UsersController < ApplicationController
     @user = current_user
     @offers = Array.new
     if @user.user_role_id == 1 #company
-      @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => user.company.id)).order("created_at DESC").take(6)
+      @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
      # @offers = aca tenés que agarrar todas las ofertas que no estén finalizadas y que el coincidan los titles con los del current_user
     end
