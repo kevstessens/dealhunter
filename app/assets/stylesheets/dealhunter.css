@@ -25,24 +25,24 @@ width: 162px !important;
 
 body {
     /* fallback */
-    background-color: #1a82f7;
-    background: url(../assets/linear_bg_2.png);
-    background-repeat: repeat-x;
+    /*background-color: #1a82f7;*/
+    background: url(/assets/bgTexture.png);
+    /*background-repeat: repeat-x;*/
 
     /* Safari 4-5, Chrome 1-9 */
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbeafa), to(#b1e7dd));
+    /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbeafa), to(#b1e7dd));*/
 
     /* Safari 5.1, Chrome 10+ */
-    background: -webkit-linear-gradient(top, #cbeafa, #b1e7dd);
+    /*background: -webkit-linear-gradient(top, #cbeafa, #b1e7dd);*/
 
     /* Firefox 3.6+ */
-    background: -moz-linear-gradient(top, #cbeafa, #b1e7dd);
+    /*background: -moz-linear-gradient(top, #cbeafa, #b1e7dd);*/
 
     /* IE 10 */
-    background: -ms-linear-gradient(top, #cbeafa, #b1e7dd);
+    /*background: -ms-linear-gradient(top, #cbeafa, #b1e7dd);*/
 
     /* Opera 11.10+ */
-    background: -o-linear-gradient(top, #cbeafa, #b1e7dd);
+    /*background: -o-linear-gradient(top, #cbeafa, #b1e7dd);*/
 
     font-size: 13px;
     line-height: 20px;
@@ -114,8 +114,15 @@ aside h3 {
 }
 
 #page-micuenta {
-    background-image: url(../assets/userbg.png);
+    background: url(/assets/bgTexture.png);
 
+}
+
+.rounded-borders-bottom{
+    border-radius: 0px 0px 25px 25px;
+}
+.rounded-borders-top{
+    border-radius: 25px 25px 0px 0px ;
 }
 
 #block {

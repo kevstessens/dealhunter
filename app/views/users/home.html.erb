@@ -64,7 +64,7 @@
                     </div>
 
                     <% unless offer.photo.nil? %>
-                        <img class="small-photo" src="<%= offer.photo %>" alt="" style="width:300px; height: 250px"/>
+                        <img class="small-photo rounded-borders" src="<%= offer.photo %>" alt="" style="width:300px; height: 250px"/>
                     <%end%>
                   </li>
                 </ul>
@@ -82,7 +82,7 @@
                           <%end%>
                         </li>
                         <li class="pull-right">
-                          <a href="#offer_<%=offer.id%>" data-toggle="modal"><button type="button" class="btn btn-dealhunter medium full-width" id="btn-inscribite">Ver Oferta</button></a>
+                          <a href="#offer_<%=offer.id%>" data-toggle="modal"><button type="button" class="btn btn-dealhunter medium full-width rounded-borders-btn" id="btn-inscribite">Ver Oferta</button></a>
                         </li>
                       </ul>
                     </div><!--end wrapper-padding-->

@@ -2,7 +2,7 @@
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8 rounded-borders light-shadowed">
-      <header class="out rounded-borders-btn">
+      <header class="out rounded-borders-top">
         <h2>Cambiar Contraseña</h2>
       </header>
 
@@ -12,15 +12,16 @@
           <article>
             <%= form_for(current_user) do |f| %>
                 <label for="inputPass">Contraseña Actual: </label>
-                <%= f.password_field :password, :autocomplete => "off", :class => "input-xlarge" %>
+                <%= f.password_field :password, :autocomplete => "off", :class => "input-xlarge", :required => true %>
                 <label for="inputNewPass">Nueva Contraseña: </label>
-                <%= f.password_field :password, :class => "input-xlarge" %>
+                <%= f.password_field :password, :class => "input-xlarge", :required => true %>
                 <label for="inputNewPassAgain">Repetir Contraseña: </label>
-                <%= f.password_field :password, :class => "input-xlarge" %>
+                <%= f.password_field :password, :class => "input-xlarge", :required => true %>
                 <hr>
                 <div class="text-center">
                   <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Cambiar Contraseña</button>
                 </div>
+
             <% end %>
 
           </article>
