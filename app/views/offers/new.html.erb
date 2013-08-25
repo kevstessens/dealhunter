@@ -9,8 +9,6 @@
       </header>
 
       <%= semantic_nested_form_for [Offer.new()] do |f|%>
-
-
           <div class="wrapper">
             <article class="row">
               <div class="span4">
@@ -25,6 +23,7 @@
                     <label class="pull-left" for="inputEmail">Fecha de inicio</label>
                     <%=f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
                   </div>
+
 
 
 
@@ -85,7 +84,11 @@
                 <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
               </div>
           </div>
-      <%end%>
+              <script type="text/javascript">
+                  assignOfferValidation();
+              </script>
+
+    <%end%>
       </article>
 
       <% if !session[:flash].nil? %>
