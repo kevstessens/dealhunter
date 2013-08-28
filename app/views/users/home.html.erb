@@ -1,5 +1,5 @@
 <div class="container">
-<div class="row" style="height: 600px;">
+<div class="row">
 
 
   <!-- 	/* solapa --------------------------- */-->
@@ -8,15 +8,15 @@
 
              <% if i%3 == 0 %>
 
-                <div class="row" style= "width: 980px; height: 320px;">
+                <div class="row">
 
              <%end%>
 
-              <div class="span4 offer-small">
+              <div class="span4 offer-small rounded-borders">
                 <!-- 	/* solapa --------------------------- */-->
                 <ul class="flap-items">
                   <li class="img_item">
-                    <div class="caption" style=" width: 280px;">
+                    <div class="caption">
                       <ul class="offer-price-box pull-left">
                         <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_i.to_s + "%" unless offer.prizes.first.nil?%> </li>
                         <li class="offer-price">$<%= offer.prizes.first.discounted_price unless offer.prizes.first.nil? %></li>
@@ -64,7 +64,7 @@
                     </div>
 
                     <% unless offer.photo.nil? %>
-                        <img class="small-photo rounded-borders" src="<%= offer.photo %>" alt="" style="width:300px; height: 250px"/>
+                        <img class="small-photo rounded-borders-top" src="<%= offer.photo %>" alt="" />
                     <%end%>
                   </li>
                 </ul>
@@ -126,11 +126,11 @@
           <div class="media-body">
             <p>
               <b>Fecha de inicio:</b>
-              <%= offer.start_date.strftime("%d%m/%y") %>
+              <%= offer.start_date.strftime("%d/%m/%y") %>
             </p>
             <p>
               <b>Fecha de finalización:</b>
-              <%= offer.end_date.strftime("%d%m/%y") %>
+              <%= offer.end_date.strftime("%d/%m/%y") %>
             </p>
           </div><!--end media-body-->
           <hr>
@@ -177,6 +177,7 @@
     </div>
 
 <%end%>
+
 
 
 
