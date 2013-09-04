@@ -1,5 +1,8 @@
 DealHunter::Application.routes.draw do
 
+  resources :newsletter_frequencies
+
+
   match 'pages/work_with_us' => 'pages#work_with_us'
   match 'pages/form_company' => 'pages#form_company'
   match 'pages/faqs' => 'pages#faqs'
@@ -12,6 +15,7 @@ DealHunter::Application.routes.draw do
   match 'users/titles_user' => 'users#titles_user'
   match 'users/save_titles_user' => 'users#save_titles_user'
   match 'users/branches_company_user' => 'users#branches_company_user'
+  match 'users/newsletter_freq' => 'users#change_newsletter_frequency'
   match 'users/home' => 'users#home'
   match 'users/inscribe' => 'users#inscribe'
 
