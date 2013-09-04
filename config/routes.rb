@@ -13,6 +13,7 @@ DealHunter::Application.routes.draw do
   match 'users/save_titles_user' => 'users#save_titles_user'
   match 'users/branches_company_user' => 'users#branches_company_user'
   match 'users/home' => 'users#home'
+  match 'users/inscribe' => 'users#inscribe'
 
   root :to => "users#home"
 

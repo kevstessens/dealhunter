@@ -181,10 +181,9 @@
           </div>
           </p>
           </hr>
-            <% unless @user.company? %>
-              <%= link_to 'Incribir', new_clients_offer_path(:client => @client.id, :offer => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width"} %>
 
-            <%end%>
+              <%= link_to 'Incribir', users_inscribe_path(:offer_id => offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+
           </hr>
 
         </div>
