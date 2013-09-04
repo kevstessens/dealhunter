@@ -15,12 +15,7 @@
         <div class="wrapper">
           <article>
 
-            <%= gmaps("map_options" => {
-                    "zoom" => 13,
-                    "center_latitude" => @latitude,
-                    "center_longitude" => @longitude,
-                    "auto_adjust" => false,
-            }, "markers" => { "data" => @json }) %>
+            <%= gmaps4rails(@json) %>
 
           </article>
 
