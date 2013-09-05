@@ -3,8 +3,9 @@ class Client < ActiveRecord::Base
   has_and_belongs_to_many :titles
   has_one :address
   has_and_belongs_to_many :offers
+  belongs_to :newsletter_frequency
 
-  attr_accessible :first_name, :last_name, :user_id, :address_attributes, :titles
+  attr_accessible :first_name, :last_name, :user_id, :address_attributes, :titles, :newsletter_frequency_id
 
   accepts_nested_attributes_for :address, :allow_destroy => true
 

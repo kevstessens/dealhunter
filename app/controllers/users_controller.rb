@@ -142,8 +142,31 @@ class UsersController < ApplicationController
     if @user.user_role_id == 1 #company
       @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
-     # @offers = aca tenés que agarrar todas las ofertas que no estén finalizadas y que el coincidan los titles con los del current_user
+      @offers = Offer.all #aca tenés que agarrar todas las ofertas que no estén finalizadas y que el coincidan los titles con los del current_user
     end
+  end
+
+  def inscribe
+    offer_id = params[:offer_id]
+    client_id = Client.where(:user_id => current_user.id).first.id
+    clients_offers = ClientsOffer.new
+    clients_offers.client_id = client_id
+    clients_offers.offer_id = offer_id
+    if clients_offers.save
+      redirect_to users_home_path
+    end
+
+  end
+
+  def change_newsletter_frequency
+    session[:body]='page-micuenta'
+    if !params[:user].nil?
+      current_user.client.newsletter_frequency_id=params[:user][:client_attributes][:newsletter_frequency_id]
+      if current_user.client.save
+        redirect_to :back, :notice => "Se ha cambiado correctamente la frecuencia del newsletter"
+      end
+    end
+
   end
 
 end

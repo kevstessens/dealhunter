@@ -30,4 +30,11 @@ Title.create!(:name => "Electronica", :icon_name =>"electronicos")
 Title.create!(:name => "Estudio", :icon_name =>"estudio")
 Title.create!(:name => "Hogar", :icon_name =>"hogar")
 
+NewsletterFrequency.create!(:name => "Nunca", :days =>0)
+NewsletterFrequency.create!(:name => "Una vez por semana", :days =>1)
+NewsletterFrequency.create!(:name => "Tres veces por semana", :days =>3)
+NewsletterFrequency.create!(:name => "A diario", :days =>7)
+
+
+
 
