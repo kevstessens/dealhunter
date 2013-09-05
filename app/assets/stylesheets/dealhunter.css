@@ -1861,6 +1861,16 @@ input:focus {
     border-color: darkgray;
 }
 
+
+.message-box {
+    height: auto;
+    width: auto;
+    background: white;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: mediumaquamarine;
+}
 .offer-small .offer-price-box {
     width: 70px;
 }
