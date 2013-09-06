@@ -9,7 +9,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Ofertas Recientes" do
           table_for Offer.order('id desc').limit(10) do |o|
-            column("Nombre"){|o| link_to o.name, admin_offer_path(o)                                    }
+            column("Nombre"){|o| link_to o.name, admin_offer_path(o)}
             column("Empresa"){|o| link_to(o.branch.company.name, admin_company_path(o.branch.company)) unless o.branch.nil?          }
           end
         end

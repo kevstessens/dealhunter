@@ -35,6 +35,13 @@ ActiveAdmin.register Offer do
         t.column("Porcentaje de Descuento"){|item| item.discount_percentage}
       end
     end
+    panel "Inscriptos" do
+      table_for(offer.clients) do |c|
+        c.column("Mail"){|o| o.user.email }
+        c.column("Nombre"){|o| o.first_name }
+        c.column("Apellido"){|o| o.last_name }
+      end
+    end
   end
 
 end
