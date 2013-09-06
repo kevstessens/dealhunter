@@ -27,6 +27,7 @@ class OffersController < ApplicationController
   # GET /offers/new.json
   def new
     @offer = Offer.new
+    @user = current_user
 
     respond_to do |format|
       format.html # new.html.erb

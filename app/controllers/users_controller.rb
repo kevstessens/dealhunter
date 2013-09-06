@@ -158,4 +158,15 @@ class UsersController < ApplicationController
 
   end
 
+  def change_newsletter_frequency
+    session[:body]='page-micuenta'
+    if !params[:user].nil?
+      current_user.client.newsletter_frequency_id=params[:user][:client_attributes][:newsletter_frequency_id]
+      if current_user.client.save
+        redirect_to :back, :notice => "Se ha cambiado correctamente la frecuencia del newsletter"
+      end
+    end
+
+  end
+
 end
