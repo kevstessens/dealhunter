@@ -4,8 +4,7 @@ class Offer < ActiveRecord::Base
   has_and_belongs_to_many :titles
   belongs_to :branch
 
-
-  attr_accessible :end_date, :name, :start_date, :photo, :branch_id, :prizes_attributes
+  attr_accessible :end_date, :name, :start_date, :photo, :branch_id, :prizes_attributes, :description
 
   accepts_nested_attributes_for :prizes, :allow_destroy => true
 
