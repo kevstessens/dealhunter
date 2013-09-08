@@ -1,6 +1,6 @@
 class ContactMailerTrabajaConNosotros < ActionMailer::Base
 
-  default :from => "admin.docnet@gmail.com"
+  default :from =>  "noresponder@dealhunter.com"
   default :to => "kevstessens@gmail.com"
 
   def new_message_trabaja_con_nosotros(message)

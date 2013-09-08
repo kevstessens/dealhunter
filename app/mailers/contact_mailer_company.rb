@@ -1,6 +1,6 @@
 class ContactMailerCompany < ActionMailer::Base
 
-  default :from => "admin.docnet@gmail.com"
+  default :from =>  "noresponder@dealhunter.com"
   default :to => "kevstessens@gmail.com"
 
   def new_message_company(message)
