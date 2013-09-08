@@ -35,7 +35,7 @@
           <td valign="middle" align="center" style="background:#c1beb6; color:#fff;" bgcolor="#ff4b3d">
             <table width="600" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td height="58" width="480"><p style="letter-spacing:-0.6px; color:#fff;">DealHunter</p></td>
+                <td height="58" width="480"><p style="letter-spacing:-0.6px; color:#fff;font-size: 17px;">Participá en estas y más ofertas de tu interés</p></td>
                 <td width="120">
                   <table width="120" border="0" cellspacing="0" cellpadding="10" style="background:#899fac; color:#fff;" bgcolor="#5d717d">
                     <tr>
@@ -63,63 +63,65 @@
       <!--end divider-->
 
       <!--content one-->
-      <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="background:#fff;" bgcolor="#fff">
+      <table width="750" border="0" align="center" cellpadding="0" cellspacing="0" style="background:#fff;" bgcolor="#fff">
         <tr>
           <td width="330" valign="top">
             <table width="100%" border="0" cellspacing="0" cellpadding="20">
               <tr>
                 <td style="font-size: 14px; line-height:20px; color:#333;">
 
-
-
-
-
                   <% i =0 %>
                   <% @offers.each do |offer| %>
 
-                      <% if i%2 == 0 %>
+                      <% if i%3 == 0 %>
 
                           <div class="row">
 
                       <%end%>
 
-                      <div class="span4 offer-small rounded-borders">
+                      <div class="span3 offer-small">
                         <!-- 	/* solapa --------------------------- */-->
                         <ul class="flap-items">
                           <li class="img_item">
                             <% unless offer.photo.nil? %>
-                                <img class="small-photo rounded-borders-top" src="<%= offer.photo %>" alt="" />
+                                <img class="small-photo " src="<%= offer.photo %>" alt=""
+                                     style="height: 195px;" />
                             <%end%>
                           </li>
                         </ul>
 
                         <div class="row">
-                          <div class="span4" style="position:relative;">
-                            <img src="../assets/arrow-opentab.jpg" class="button-arrow">
+                          <div class="span3" style="position:relative;">
                             <div class="wrapper-padding">
                               <ul class="inline hotel-item clearfix">
-                                <li class="pull-left">
-                                  <h4 class="media-heading"><a href="#offer_<%=offer.id%>" data-toggle="modal"><%=offer.name%></a></h4>
+                                <li>
+                                  <h3 class="media-heading"><%=offer.name%></h3>
                                   <% unless offer.branch.nil? %>
-                                      <h5> <%=offer.branch.name%> </h5>
+                                      <h5> <%=offer.branch.company.name%> - <%=offer.branch.name%> </h5>
                                   <%end%>
+                                  <hr style="margin-top: 5px; margin-bottom: 5px;
+">
+                                  <h7><p style="color: grey">Precio: $<%= offer.prizes.first.discounted_price unless offer.prizes.first.nil? %> </p>
+                                      <p style="color: grey">Descuento: <%= "-" + offer.prizes.first.discount_percentage.to_i.to_s + "%" unless offer.prizes.first.nil?%> </p>
+                                  </h7>
+
                                 </li>
-                                <li class="pull-right">
-                                  <ul class="offer-price-box pull-left">
-                                    <li class="offer-disccount"><%= "-" + offer.prizes.first.discount_percentage.to_i.to_s + "%" unless offer.prizes.first.nil?%> </li>
-                                    <li class="offer-price">$<%= offer.prizes.first.discounted_price unless offer.prizes.first.nil? %></li>
+                                <li>
+                                  <ul>
+                                    <li class="offer-disccount"> </li>
+                                    <li class="offer-price"></li>
                                   </ul>
                                 </li>
                               </ul>
                             </div><!--end wrapper-padding-->
-                          </div><!--end span4-->
+                          </div><!--end span3-->
                         </div><!--end row-->
-                      </div><!--end span4-->
+                      </div><!--end span3-->
 
 
 
                       <% i += 1 %>
-                      <% if i%2 == 0 %>
+                      <% if i%3 == 0 %>
 
                           </div>
 
@@ -132,27 +134,27 @@
               </tr>
             </table>
           </td>
-          <td valign="top" width="270"><img src="https://dealhunterarg.herokuapp.com/assets/mailer.png" width="270" height="270" style="margin-top: 50px;"></td>
+
         </tr>
         <tr>
-          <td colspan="2" valign="middle" align="center" height="21"><img src="https://s3-us-west-2.amazonaws.com/vontrip/img+html+mailer+app/divider.jpg" width="551" height="21"></td>
+          <td valign="middle" align="center" height="21"><img src="https://s3-us-west-2.amazonaws.com/vontrip/img+html+mailer+app/divider.jpg" width="551" height="21"></td>
         </tr>
 
         <tr>
-          <td colspan="2" valign="middle" align="center"><h2 style="color:#3253ff; padding:10px 0;">Encontrá las mejores ofertas<br> para vos</h2></td>
+          <td valign="middle" align="center"><h2 style="color: mediumAquaMarine; padding:10px 0;">Encontrá las mejores ofertas<br> para vos</h2></td>
         </tr>
       </table>
       <!--end content one-->
 
       <!-- content two-->
-      <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="background:#FFF;" bgcolor="#fff">
+      <table width="750" border="0" align="center" cellpadding="0" cellspacing="0" style="background:#FFF;" bgcolor="#fff">
 
         <tr>
           <td align="center">
-            <table width="600" border="0" cellspacing="0" style="padding:10px 30px 20px 30px;">
+            <table width="750" border="0" cellspacing="0" style="padding:10px 30px 20px 30px;">
               <tr>
                 <td align="center">
-                  <table width="220" height="60" border="0" cellspacing="0" cellpadding="10" style="background:#3253ff; color:#ffffff;" bgcolor="#ff4b3d">
+                  <table width="220" height="60" border="0" cellspacing="0" cellpadding="10" style="background: mediumAquaMarine; color:#ffffff;" bgcolor="#ff4b3d">
                     <tr>
                       <td align="center"><a href="http://localhost:3000" style="color:#fff; text-decoration:none; font-size:20px; font-weight:bold;">VER OFERTAS</a></td>
                     </tr>
