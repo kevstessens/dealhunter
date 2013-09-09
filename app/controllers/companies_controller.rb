@@ -88,8 +88,4 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def save_titles
-    a = 0
-  end
-
 end

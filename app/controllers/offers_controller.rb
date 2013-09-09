@@ -27,7 +27,7 @@ class OffersController < ApplicationController
   # GET /offers/new
   # GET /offers/new.json
   def new
-    @offer = Offer.new
+    @offer = Offer.new if @offer.nil?
     @user = current_user
 
     respond_to do |format|
@@ -85,5 +85,18 @@ class OffersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def save_titles
+    @offer = Offer.new
+    titles = params[:title_ids]
+    titles.each do |titles_id|
+      title=Title.find(titles_id)
+      @offer.titles.push(title)
+    end
+
+    redirect_to new_offer_path(:offer => @offer)
+
+  end
+
 end
 

@@ -7,8 +7,7 @@
         <h2>Nueva Oferta</h2>
 
       </header>
-
-      <%= semantic_nested_form_for [Offer.new()] do |f|%>
+      <%= semantic_nested_form_for [@offer] do |f|%>
           <div class="wrapper">
             <article class="row">
               <div class="span4">
@@ -191,7 +190,7 @@
 
                 <div class="my-span2" style="width: 135px">
                   <div class="roundedTwo" >
-                    <%= check_box_tag "title_ids[]", p.id, :id => p.id %>
+                    <%= check_box_tag "title_ids[]", p.id, false,:id => p.id %>
                     <label for="<%= p.id %>" style="background: url('../assets/<%= p.icon_name%>.png') no-repeat no-repeat; background-size: 100px"></label>
                   </div>
                 </div>
@@ -216,10 +215,11 @@
 
             <div>
               <div class="text-center">
-        <% end %>
-        <button id="btn" class="btn btn-dealhunter rounded-borders-btn">Grabar Información</button>
-        </div>
-        </div><!--end wrapper-padding-->
+                <button id="btn" class="btn btn-dealhunter rounded-borders-btn">Grabar Información</button>
+                </div>
+            </div>
+      <% end %>
+        <!--end wrapper-padding-->
         </div>
 
   </section>
