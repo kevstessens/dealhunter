@@ -26,6 +26,9 @@
           <ul id="myTab" class="nav nav-tabs 3tabs">
             <li class="active"><a href="#detalles" data-toggle="tab">Detalles</a></li>
             <li><a href="#mapas" data-toggle="tab">Mapa</a></li>
+            <% if @user.company? %>
+              <li><a href="#clients" data-toggle="tab">Inscriptos</a></li>
+            <% end%>
           </ul>
 
           <div class="tab-content">
@@ -52,6 +55,17 @@
             <div class="tab-pane" id="mapas" align="center">
 
                 falta poner el mapa con la @offer.branch
+
+            </div>
+
+
+            <div class="tab-pane" id="clients">
+              <h5> Los clientes que se han inscripto son: </h5>
+              <ul>
+                  <% @offer.clients.each do |client| %>
+                     <li> >   <%= "#{client.user.email} - #{client.first_name} #{client.last_name} "%></li>
+                  <%end%>
+              </ul>
 
             </div>
 
@@ -87,19 +101,19 @@
       <div class="row"><div class="span4">
         <div class="wrapper-padding">
 
-          <%clients_offer = ClientsOffer.where(:client_id => Client.where(:user_id => @user.id).first.id, :offer_id => @offer.id) %>
 
-          <% unless @user.company? or !clients_offer.first.nil? %>
-              <%= link_to 'Inscribir', users_inscribe_path(:offer_id => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+
+          <% unless @user.company? %>
+              <%clients_offer = ClientsOffer.where(:client_id => Client.where(:user_id => @user.id).first.id, :offer_id => @offer.id) %>
+              <% if clients_offer.first.nil? %>
+                <%= link_to 'Inscribir', users_inscribe_path(:offer_id => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+              <%else%>
+                  <%= link_to 'Desinscribir', users_unsubscribe_path(:clients_offers_id => clients_offer.first.id, :offer_id => @offer.id ), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+              <%end%>
               <br>
               <br>
           <%end%>
 
-          <% if !clients_offer.first.nil?%>
-              <%= link_to 'Desinscribir', users_unsubscribe_path(:clients_offers_id => clients_offer.first.id, :offer_id => @offer.id ), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
-              <br>
-              <br>
-          <%end%>
 
 
             <% i = 1 %>
