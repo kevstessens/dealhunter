@@ -95,7 +95,7 @@
                             <div class="wrapper-padding">
                               <ul class="inline hotel-item clearfix">
                                 <li>
-                                  <h3 class="media-heading"><%=offer.name%></h3>
+                                  <h3 class="media-heading"> <a href="<%= offer_path(offer) %>"> <%=offer.name%> </a></h3>
                                   <% unless offer.branch.nil? %>
                                       <h5> <%=offer.branch.company.name%> - <%=offer.branch.name%> </h5>
                                   <%end%>
