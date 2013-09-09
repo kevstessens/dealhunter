@@ -16,6 +16,7 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
