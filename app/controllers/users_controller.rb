@@ -153,9 +153,15 @@ class UsersController < ApplicationController
     clients_offers.client_id = client_id
     clients_offers.offer_id = offer_id
     if clients_offers.save
-      redirect_to users_home_path
+      redirect_to offer_path(Offer.find_by_id(offer_id))
     end
+  end
 
+  def unsubscribe
+    clients_offers = ClientsOffer.find(params[:clients_offers_id])
+    if clients_offers.destroy
+      redirect_to offer_path(Offer.find_by_id(params[:offer_id]))
+    end
   end
 
   def change_newsletter_frequency
