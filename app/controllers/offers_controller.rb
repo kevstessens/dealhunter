@@ -44,8 +44,18 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
-    @offer = Offer.new(params[:offer])
-   # @offer.company_id = Company.where("user_id = ?", current_user.id).first.id
+    offer = params[:offer]
+    @offer = Offer.new
+    @offer.name = offer[:name]
+    @offer.start_date = offer[:start_date]
+    @offer.end_date = offer[:end_date]
+    @offer.created_at = Time.now
+    @offer.updated_at = Time.now
+    @offer.photo = offer[:photo]
+    @offer.branch = Branch.find(offer[:branch_id])
+    @offer.description = offer[:description]
+    #@offer.start_date.change({:hour => (offer[:start_hour]).to_i})
+    #@offer.end_date.change({:hour => (offer[:end_hour]).to_i})
 
     respond_to do |format|
       if @offer.save

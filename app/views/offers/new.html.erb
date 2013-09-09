@@ -25,9 +25,11 @@
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Hora de inicio</label>
-                    <%=f.time_select :start_date, :ignore_date => true, :label => false, :input_html => { :class => "pull-right input-mini" } %>
-
-                    <%#=f.input :start_date, :ignore_date => true, :input_html => {:class => 'pull-right input-mini'}, :as => :string, :label => false %>
+                    <select id="offer_start_hour" name="offer[start_hour]" class="pull-right input-mini">
+                      <% for i in 0..23 %>
+                          <option value="<%=i%>"><%=i%></option>
+                      <% end %>
+                    </select>
                   </div>
 
 
@@ -50,7 +52,12 @@
 
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Hora de fin</label>
-                    <%=f.time_select :end_date, :ignore_date => true, :label => false, :input_html => { :class => "pull-right input-mini" } %>
+                    <select id="offer_end_hour" name="offer[end_hour]" class="pull-right input-mini">
+
+                    <% for i in 0..23 %>
+                      <option value="<%=i%>"><%=i%></option>
+                      <% end %>
+                    </select>
                   </div>
 
 
