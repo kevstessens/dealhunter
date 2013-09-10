@@ -54,8 +54,8 @@ class OffersController < ApplicationController
     @offer.photo = offer[:photo]
     @offer.branch = Branch.find(offer[:branch_id])
     @offer.description = offer[:description]
-    #@offer.start_date.change({:hour => (offer[:start_hour]).to_i})
-    #@offer.end_date.change({:hour => (offer[:end_hour]).to_i})
+    @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
+    @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
 
     respond_to do |format|
       if @offer.save
