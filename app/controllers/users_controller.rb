@@ -167,15 +167,20 @@ class UsersController < ApplicationController
   def home_map
     @user = current_user
     @offers = Array.new
-
-    @latitude = -34.603683
     @longitude = -58.381244
+    @latitude = -34.603683
     @json = Address.all.to_gmaps4rails
-
-    if @user.user_role_id == 1 #company
-      @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
-    else
-      @offers = Offer.all #aca tenés que agarrar todas las ofertas que no estén finalizadas y que el coincidan los titles con los del current_user
+    address = Address.new
+    if @user.user_role_id == 2
+      address = @user.client.address
+    else if @user.user_role_id == 1
+      address = @user.company.branches.first.address
+      @json = Address.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).take(10).to_gmaps4rails
+    end
+    end
+    unless address.nil?
+      @latitude = address.latitude
+      @longitude = address.longitude
     end
   end
 
