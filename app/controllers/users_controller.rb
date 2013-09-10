@@ -67,7 +67,25 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     respond_to do |format|
-
+    if @user.user_role_id == 2
+      client = @user.client
+      client_attr = params[:user][:client_attributes]
+      address_attr = client_attr[:address_attributes]
+      client.first_name = client_attr[:first_name]
+      client.last_name = client_attr[:last_name]
+      address = Address.new
+      address = client.address unless client.address.nil?
+      address.street = address_attr[:street]
+      address.floor = address_attr[:floor]
+      address.state = address_attr[:state]
+      address.number = address_attr[:number]
+      address.city = address_attr[:city]
+      address.country_id = address_attr[:country_id]
+      address.client_id = client.id
+      address.save
+      client.address = address
+      client.save
+    end
       if @user.update_attributes(params[:user])
         sign_in(@user, :bypass => true)
         format.html { redirect_to edit_user_path(@user), notice: 'Se han registrado los cambios en su perfil.' }
@@ -139,6 +157,21 @@ class UsersController < ApplicationController
     session[:body]='offer-listing-page'
     @user = current_user
     @offers = Array.new
+    if @user.user_role_id == 1 #company
+      @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
+    else
+      @offers = Offer.all #aca tenés que agarrar todas las ofertas que no estén finalizadas y que el coincidan los titles con los del current_user
+    end
+  end
+
+  def home_map
+    @user = current_user
+    @offers = Array.new
+
+    @latitude = -34.603683
+    @longitude = -58.381244
+    @json = Address.all.to_gmaps4rails
+
     if @user.user_role_id == 1 #company
       @offers = Offer.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else

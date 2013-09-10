@@ -17,6 +17,7 @@ DealHunter::Application.routes.draw do
   match 'users/branches_company_user' => 'users#branches_company_user'
   match 'users/newsletter_freq' => 'users#change_newsletter_frequency'
   match 'users/home' => 'users#home'
+  match 'users/home_map' => 'users#home_map'
 
   match 'offers/save_titles' => 'offers#save_titles'
 
