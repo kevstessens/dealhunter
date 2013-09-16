@@ -22,6 +22,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'whenever', git: 'git://github.com/Insomniware/whenever.git', :require => false
+
+
 gem 'jquery-rails'
 
 gem 'activeadmin'
