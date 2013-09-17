@@ -1334,6 +1334,12 @@ input[type="checkbox"] {
     margin-left: 70px;
 
 }
+
+.pull-left2{
+
+    margin-right: 5px;
+
+}
 select,
 input[type="file"] {
   height: 30px;
