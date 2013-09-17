@@ -23,7 +23,7 @@
                     <%= f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
                   </div>
 
-                  <div class="control-group clearfix">
+                  <div class="control-group clearfix" style="margin-right: 105px;" >
                     <label class="pull-left" for="inputEmail">Hora de inicio</label>
                     <select id="offer_start_hour" name="offer[start_hour]" class="pull-right input-mini">
                       <% for i in 0..23 %>
@@ -52,7 +52,7 @@
                     <%= f.input :end_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
                   </div>
 
-                  <div class="control-group clearfix">
+                  <div class="control-group clearfix" style="margin-right: 105px;">
                     <label class="pull-left" for="inputEmail">Hora de fin</label>
                     <select id="offer_end_hour" name="offer[end_hour]" class="pull-right input-mini">
 
@@ -68,14 +68,15 @@
               </div>
               <!--end span4-->
 
-              <div class="span7">
+              <div class="span8">
                 <div class="wrapper-padding2">
                   <div class="control-group clearfix">
-                      <%= f.input :photo, :label => false, :input_html => {:class => "pull-right2 input-fullwidth", :placeholder => "Imagen",:name =>"file"} %>
+                    <label class="pull-left" for="inputEmail">Imagen</label>
+                      <%= f.input :photo, :label => false, :input_html => {:class => "pull-right2 input-fullwidth" ,:style => "width: 479px;", :placeholder => "Imagen",:name =>"file"} %>
                    </div>
                   <div class="control-group clearfix">
                     <label class="pull-left" for="inputEmail">Descripción</label>
-                    <%= f.input :description, :label => false, :input_html => {:class => "pull-right2 input-fullwidth", :placeholder => "Descripción", :style => "width: 300px; height: 100px; margin-left: 45px;"} %>
+                    <%= f.input :description, :label => false, :input_html => {:class => "pull-right2 input-fullwidth", :placeholder => "Descripción", :style => "width: 468px; height: 100px; margin-left: 45px;"} %>
                   </div>
 
                 </div>
