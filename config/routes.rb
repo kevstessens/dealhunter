@@ -19,9 +19,6 @@ DealHunter::Application.routes.draw do
   match 'users/home' => 'users#home'
   match 'users/home_view' => 'users#home_view'
   match 'users/home_map' => 'users#home_map'
-
-  match 'offers/save_titles' => 'offers#save_titles'
-
   match 'users/inscribe' => 'users#inscribe'
   match 'users/unsubscribe' => 'users#unsubscribe'
 

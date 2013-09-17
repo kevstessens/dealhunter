@@ -7,117 +7,143 @@
         <h2>Nueva Oferta</h2>
 
       </header>
-      <%= semantic_nested_form_for [@offer] do |f| %>
+      <%= semantic_nested_form_for [@offer], :url => {:action => "create"} do |f| %>
           <div class="wrapper">
             <article class="row">
-              <div class="span4">
-                <div class="wrapper-padding">
-
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Nombre</label>
-                    <%= f.input :name, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Nombre"} %>
-                  </div>
-
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Fecha de inicio</label>
-                    <%= f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
-                  </div>
-
-                  <div class="control-group clearfix" style="margin-right: 105px;" >
-                    <label class="pull-left" for="inputEmail">Hora de inicio</label>
-                    <select id="offer_start_hour" name="offer[start_hour]" class="pull-right input-mini">
-                      <% for i in 0..23 %>
-                          <option value="<%= i %>"><%= i %></option>
-                      <% end %>
-                    </select>
-                  </div>
-
-
-                </div>
-                <!--end wrapper-padding-->
+              <div class="shade" id="shade">
               </div>
-              <!--end span4-->
+              <div class="modal" id="modal">
+                <div class="container" id="main-content">
+                  <div class="row">
+                    <section class="span8 rounded-borders light-shadowed" style="height: 640px">
+                      <div class="wrapper">
+                        <article class="row">
+                          <% Title.all.each do |p2| %>
+                              <% if (p2.id== 1 || p2.id==5 || p2.id==9) %>
+                                  <div class="row">
+                                    <div class="wrapper-padding">
+                              <% end %>
 
-              <div class="span4">
-                <div class="wrapper-padding">
+                              <div class="my-span2" style="width: 135px">
+                                <div class="roundedTwo">
+                                  <%= check_box_tag "title_ids[]", p2.id, false, :id => p2.id %>
+                                  <label for="<%= p2.id %>" style="background: url('../assets/<%= p2.icon_name%>.png') no-repeat no-repeat; background-size: 100px"></label>
+                                </div>
+                              </div>
 
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Sucursal</label>
-                    <%= f.input :branch, :input_html => {:class => 'pull-right input-medium-large '}, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)) %>
+                              <% if (p2.id== 4 || p2.id==8 || p2.id==12) %>
+                                  </div>
+                                  </div>
+                              <% end %>
+                          <% end %>
+                          <br>
 
-                  </div>
+                        </article>
+                        <% if !session[:flash].nil? %>
+                            <% if !session[:flash][:notice].nil? %>
+                                <div class="alert" id="login-alert">
+                                  <%= session[:flash][:notice] %>
+                                </div>
+                            <% end %>
+                        <% end %>
 
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Fecha de fin</label>
-                    <%= f.input :end_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
-                  </div>
+                        <div>
+                          <div class="text-center">
+                            <a id="btn" class="btn btn-dealhunter rounded-borders-btn">Grabar</a>
+                          </div>
+                        </div>
+      <!--end wrapper-padding-->
+      </div>
 
-                  <div class="control-group clearfix" style="margin-right: 105px;">
-                    <label class="pull-left" for="inputEmail">Hora de fin</label>
-                    <select id="offer_end_hour" name="offer[end_hour]" class="pull-right input-mini">
+      </section>
+      </div>
+      </div>
+      </div>
 
-                      <% for i in 0..23 %>
-                          <option value="<%= i %>"><%= i %></option>
-                      <% end %>
-                    </select>
-                  </div>
-
-
-                </div>
-                <!--end wrapper-padding-->
-              </div>
-              <!--end span4-->
-
-              <div class="span8">
-                <div class="wrapper-padding2">
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Imagen</label>
-                      <%= f.input :photo, :label => false, :input_html => {:class => "pull-right2 input-fullwidth" ,:style => "width: 479px;", :placeholder => "Imagen",:name =>"file"} %>
-                   </div>
-                  <div class="control-group clearfix">
-                    <label class="pull-left" for="inputEmail">Descripción</label>
-                    <%= f.input :description, :label => false, :input_html => {:class => "pull-right2 input-fullwidth", :placeholder => "Descripción", :style => "width: 468px; height: 100px; margin-left: 45px;"} %>
-                  </div>
-
-                </div>
-              </div>
-
-
-              <div class="span8">
-
-                <% f.object.prizes.build unless !f.object.prizes.blank? %>
-                <%= f.semantic_fields_for :prizes do |prize| %>
-                    <%= prize.inputs "Premio" do %>
-                        <%= prize.input :name, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Nombre", :style => "width: 165px;
+      <div class="span4">
+        <div class="wrapper-padding">
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Nombre</label>
+            <%= f.input :name, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Nombre"} %>
+          </div>
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Fecha de inicio</label>
+            <%= f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
+          </div>
+          <div class="control-group clearfix" style="margin-right: 105px;" >
+            <label class="pull-left" for="inputEmail">Hora de inicio</label>
+            <select id="offer_start_hour" name="offer[start_hour]" class="pull-right input-mini">
+              <% for i in 0..23 %>
+                  <option value="<%= i %>"><%= i %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="wrapper-padding">
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Sucursal</label>
+            <%= f.input :branch, :input_html => {:class => 'pull-right input-medium-large '}, :label => false, :required => true, :as => :select, :prompt => "Seleccione Sucursal", :collection => Branch.where("company_id = ?", Company.where("user_id = ?", current_user.id)) %>
+          </div>
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Fecha de fin</label>
+            <%= f.input :end_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
+          </div>
+          <div class="control-group clearfix" style="margin-right: 105px;">
+            <label class="pull-left" for="inputEmail">Hora de fin</label>
+            <select id="offer_end_hour" name="offer[end_hour]" class="pull-right input-mini">
+              <% for i in 0..23 %>
+                  <option value="<%= i %>"><%= i %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="span8">
+        <div class="wrapper-padding2">
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Imagen</label>
+            <%= f.input :photo, :label => false, :input_html => {:class => "pull-right2 input-fullwidth" ,:style => "width: 479px;", :placeholder => "Imagen",:name =>"file"} %>
+          </div>
+          <div class="control-group clearfix">
+            <label class="pull-left" for="inputEmail">Descripción</label>
+            <%= f.input :description, :label => false, :input_html => {:class => "pull-right2 input-fullwidth", :placeholder => "Descripción", :style => "width: 468px; height: 100px; margin-left: 45px;"} %>
+          </div>
+        </div>
+      </div>
+      <div class="span8">
+        <% f.object.prizes.build unless !f.object.prizes.blank? %>
+        <%= f.semantic_fields_for :prizes do |prize| %>
+            <%= prize.inputs "Premio" do %>
+                <%= prize.input :name, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Nombre", :style => "width: 165px;
                           margin-left: 20px;
                           margin-right: 5px;float: left;"} %>
-                        <%= prize.input :real_price, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Precio Real", :style => "width: 120px;
+                <%= prize.input :real_price, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Precio Real", :style => "width: 120px;
                           margin-left: 10px;
                           margin-right: 5px;float: left;"} %>
-                        <%= prize.input :discount_percentage, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "% Descuento", :style => "width: 120px;
+                <%= prize.input :discount_percentage, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "% Descuento", :style => "width: 120px;
                           margin-left: 10px;
                           margin-right: 5px; float: left;"} %>
-                        <div style="float: right;
-                                margin-right: 50px;
-                                margin-top: 5px;"
-                        >
-                          <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
-                        </div>
-                    <% end %>
-                <% end %>
-                <div id="add_claim_messages" style="margin-top: 10px;">
-                  <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
+                <div style="float: right;
+                        margin-right: 50px;
+                        margin-top: 5px;">
+                  <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
                 </div>
-                <div id="visibleModal" style="margin-top: 10px;"><a class="button">Cargar Intereses</a>
+            <% end %>
+        <% end %>
+        <div id="add_claim_messages" style="margin-top: 10px;">
+          <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
+        </div>
+        <div id="visibleModal" style="margin-top: 10px;"><a class="button">Cargar Intereses</a>
 
-                </div>
+        </div>
 
-              </div>
-              <script type="text/javascript">
-                  assignOfferValidation();
-              </script>
+      </div>
+      <script type="text/javascript">
+          assignOfferValidation();
+      </script>
 
-      <% end %>
       </article>
 
       <% if !session[:flash].nil? %>
@@ -136,6 +162,7 @@
       </div>
       <!--end wrapper-padding-->
       </div><!--end wrapper-->
+      <% end %>
 
 
     </section>
@@ -177,69 +204,6 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-
-
-<div class="shade" id="shade">
-</div>
-<div class="modal" id="modal">
-
-
-  <div class="container" id="main-content">
-    <div class="row">
-      <section class="span8 rounded-borders light-shadowed" style="height: 640px">
-
-        <div class="wrapper">
-
-          <article class="row">
-            <%= form_for current_user.company, :url => {:action => "save_titles"} do |f| %>
-                <% Title.all.each do |p| %>
-                    <% if (p.id== 1 || p.id==5 || p.id==9) %>
-                        <div class="row">
-                          <div class="wrapper-padding">
-                    <% end %>
-
-                    <div class="my-span2" style="width: 135px">
-                      <div class="roundedTwo">
-                        <%= check_box_tag "title_ids[]", p.id, false, :id => p.id %>
-                        <label for="<%= p.id %>" style="background: url('../assets/<%= p.icon_name%>.png') no-repeat no-repeat; background-size: 100px"></label>
-                      </div>
-                    </div>
-
-                    <% if (p.id== 4 || p.id==8 || p.id==12) %>
-                        </div>
-                        </div>
-                    <% end %>
-                <% end %>
-                <br>
-
-
-                </article>
-
-                <% if !session[:flash].nil? %>
-                    <% if !session[:flash][:notice].nil? %>
-                        <div class="alert" id="login-alert">
-                          <%= session[:flash][:notice] %>
-                        </div>
-                    <% end %>
-                <% end %>
-
-                <div>
-                  <div class="text-center">
-                    <button id="btn" class="btn btn-dealhunter rounded-borders-btn">Grabar Información</button>
-                  </div>
-                </div>
-            <% end %>
-            <!--end wrapper-padding-->
-            </div>
-
-      </section>
-    </div>
-  </div>
-
-
-</div>
-
-
 <style type="text/css">
 
     #shade, #modal {
@@ -275,6 +239,10 @@
 
 <script>
 
+    document.getElementById('shade').onclick = function () {
+        modal.style.display = shade.style.display = 'none';
+    };
+
     document.getElementById('btn').onclick = function () {
         modal.style.display = shade.style.display = 'none';
     };
@@ -298,5 +266,3 @@
     });
 
 </script>
-
-

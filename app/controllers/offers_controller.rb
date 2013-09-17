@@ -33,9 +33,8 @@ class OffersController < ApplicationController
   # GET /offers/new
   # GET /offers/new.json
   def new
-    @offer = Offer.new if @offer.nil?
+    @offer = Offer.new
     @user = current_user
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @offer }
@@ -63,8 +62,18 @@ class OffersController < ApplicationController
     @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
     @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
 
+
     respond_to do |format|
       if @offer.save
+        title_ids = params[:title_ids]
+        unless title_ids.nil?
+          title_ids.each do |id|
+            offers_titles = OffersTitles.new
+            offers_titles.offer_id = @offer.id
+            offers_titles.title_id = id
+            offers_titles.save
+          end
+        end
         format.html { redirect_to users_offers_company_user_path , notice: 'offer was successfully created.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
@@ -101,18 +110,5 @@ class OffersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def save_titles
-    @offer = Offer.new
-    titles = params[:title_ids]
-    titles.each do |titles_id|
-      title=Title.find(titles_id)
-      @offer.titles.push(title)
-    end
-
-    redirect_to new_offer_path(:offer => @offer)
-
-  end
-
 end
 
