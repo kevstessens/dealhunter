@@ -1,7 +1,7 @@
 class ContactMailer < ActionMailer::Base
 
   default :from =>  "noresponder@dealhunter.com"
-  default :to => "tmsmateus@gmail.com"
+  default :to => "damianminniti@hotmail.com"
 
   def new_message(message)
     @message = message
