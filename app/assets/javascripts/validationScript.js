@@ -14,6 +14,7 @@ function assignBranchValidation() {
     $("#branch_name").attr("title","4 a 25 caracteres");
     $("#branch_address_attributes_street").attr("required",true);
     $("#branch_address_attributes_number").attr("required",true);
+    $("#branch_address_attributes_number").attr("pattern","{1,6}");
     $("#branch_address_attributes_city").attr("required",true);
     $("#branch_address_attributes_state").attr("required",true);
     $("#branch_address_attributes_country_id").attr("required",true);
