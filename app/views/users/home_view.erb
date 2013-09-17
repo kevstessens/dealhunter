@@ -4,17 +4,29 @@
 
     <!-- 	/* solapa --------------------------- */-->
     <%if @offers.empty?%>
-
-        <div id="main-content" class="span8 center">
-          <div class="span4 message-box center">
-            <div class="text-center">
-              <p class="ng-binding">Hola,</p>
-              <p>Todavía no hay ofertas para mostrarte, pero no desesperes, quedate en <b>Dealhunter</b>.</p>
-              <p>Esperamos poder ayudarte a obtener los mejores beneficios.</p>
-              <p>Te saluda,<br>El equipo de <b>Dealhunter</b></p>
+        <%if @user.company? %>
+            <div id="main-content" class="span8 center">
+              <div class="span4 message-box center">
+                <div class="text-center">
+                  <p class="ng-binding">Hola,</p>
+                  <p>En el momento no tienes ninguna oferta activa</b>.</p>
+                  <p><a href="<%= new_offer_path %>"> Carga una nueva oferta para publicitar tu empresa.</a></p>
+                  <p>Te saluda,<br>El equipo de <b>Dealhunter</b></p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+        <%else%>
+            <div id="main-content" class="span8 center">
+              <div class="span4 message-box center">
+                <div class="text-center">
+                  <p class="ng-binding">Hola,</p>
+                  <p>Todavía no hay ofertas para mostrarte, pero no desesperes, quedate en <b>Dealhunter</b>.</p>
+                  <p>Esperamos poder ayudarte a obtener los mejores beneficios.</p>
+                  <p>Te saluda,<br>El equipo de <b>Dealhunter</b></p>
+                </div>
+              </div>
+            </div>
+        <%end%>
     <% else %>
 
         <% i =0 %>
