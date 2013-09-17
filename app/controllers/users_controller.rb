@@ -154,7 +154,9 @@ class UsersController < ApplicationController
   end
 
   def home
-
+    if current_user.company?
+       redirect_to users_home_view_path
+    end
   end
 
   def home_view
