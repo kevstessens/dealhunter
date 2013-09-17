@@ -154,6 +154,10 @@ class UsersController < ApplicationController
   end
 
   def home
+
+  end
+
+  def home_view
     session[:body]='offer-listing-page'
     @user = current_user
     @offers = Array.new
@@ -173,6 +177,8 @@ class UsersController < ApplicationController
     address = Address.new
     if @user.user_role_id == 2
       address = @user.client.address
+      #Mostrar solo los que interesen
+      #@json = Address.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).take(10).to_gmaps4rails
     else if @user.user_role_id == 1
       address = @user.company.branches.first.address
       @json = Address.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).take(10).to_gmaps4rails

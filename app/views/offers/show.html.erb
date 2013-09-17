@@ -1,4 +1,4 @@
-<!--container-->
+x<!--container-->
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8">
@@ -54,7 +54,12 @@
 
             <div class="tab-pane" id="mapas" align="center">
 
-                falta poner el mapa con la @offer.branch
+              <%= gmaps("map_options" => {
+                      "zoom" => 13,
+                      "center_latitude" => @latitude,
+                      "center_longitude" => @longitude,
+                      "auto_adjust" => false,
+              }, "markers" => { "data" => @json }) %>
 
             </div>
 
@@ -143,7 +148,7 @@
           </div>
         </div><!--end wrapper padding-->
       </div>
-      </div><!--end row-->
+
 
     </aside><!--end sidebar-->
 

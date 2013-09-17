@@ -17,6 +17,12 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @user = current_user
+    address = @offer.branch.address
+    @latitude = address.latitude
+    @longitude = address.longitude
+    addresses = Array.new
+    addresses.push(address)
+    @json = addresses.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
