@@ -4,6 +4,7 @@ require 'rails/all'
 require 'csv'
 require 'iconv'
 require "sprockets/railtie"
+require 'net/http'
 
 
 if defined?(Bundler)

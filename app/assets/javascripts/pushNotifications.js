@@ -5,10 +5,11 @@
  * Time: 10:21
  * To change this template use File | Settings | File Templates.
  */
-function startFaye(){
+function startFaye(userID){
     var faye = new Faye.Client('http://localhost:9292/faye');
-    alert("Connecting..");
-    faye.subscribe('/users/home', function(data){
+    console.log("Connecting... "+ userID);
+    faye.subscribe('/offers/start/'+userID, function(data){
+        console.log("AAAA");
         alert(data);
     })
 }
