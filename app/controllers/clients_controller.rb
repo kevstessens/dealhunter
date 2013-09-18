@@ -41,6 +41,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
+    @client.newsletter_frequency_id = 3
 
     respond_to do |format|
       if @client.save
