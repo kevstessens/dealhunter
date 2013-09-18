@@ -27,7 +27,6 @@ class PagesController < ApplicationController
   def contact_work_with_us
     @message = Message.new
     get_params(@message)
-
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
       redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
