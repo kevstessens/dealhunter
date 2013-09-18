@@ -146,7 +146,8 @@ class UsersController < ApplicationController
         @user.client.titles.push(title)
       end
     end
-    redirect_to users_titles_user_path
+    redirect_to users_titles_user_path, :notice => "Se han guardado sus intereses"
+
   end
 
   def branches_company_user
