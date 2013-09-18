@@ -70,21 +70,23 @@ class UsersController < ApplicationController
     if @user.user_role_id == 2
       client = @user.client
       client_attr = params[:user][:client_attributes]
-      address_attr = client_attr[:address_attributes]
-      client.first_name = client_attr[:first_name]
-      client.last_name = client_attr[:last_name]
-      address = Address.new
-      address = client.address unless client.address.nil?
-      address.street = address_attr[:street]
-      address.floor = address_attr[:floor]
-      address.state = address_attr[:state]
-      address.number = address_attr[:number]
-      address.city = address_attr[:city]
-      address.country_id = address_attr[:country_id]
-      address.client_id = client.id
-      address.save
-      client.address = address
-      client.save
+      unless client_attr.nil?
+        address_attr = client_attr[:address_attributes]
+        client.first_name = client_attr[:first_name]
+        client.last_name = client_attr[:last_name]
+        address = Address.new
+        address = client.address unless client.address.nil?
+        address.street = address_attr[:street]
+        address.floor = address_attr[:floor]
+        address.state = address_attr[:state]
+        address.number = address_attr[:number]
+        address.city = address_attr[:city]
+        address.country_id = address_attr[:country_id]
+        address.client_id = client.id
+        address.save
+        client.address = address
+        client.save
+      end
     end
       if @user.update_attributes(params[:user])
         sign_in(@user, :bypass => true)
