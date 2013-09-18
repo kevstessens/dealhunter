@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" id="main-content2">
   <div class="row">
-    <div class="row">
-      <div class="span4 offer-small rounded-borders">
+
+      <div class="offset1 span4 offer-small rounded-borders">
 
         <ul class="flap-items">
           <li class="img_item">
@@ -17,7 +17,7 @@
                 </li>
               </ul>
             </div>
-            <img class="small-photo rounded-borders-top" src="<%= Offer.last.photo %>" alt="" />
+            <img class="small-photo rounded-borders-top" src="/assets/home/home1.png" alt="" />
           </li>
         </ul>
 
@@ -28,7 +28,7 @@
               <ul class="inline hotel-item clearfix">
                 <li class="pull-left">
                   <h4 class="media-heading">Ofertas</h4>
-                  <h5> Información de las últimas ofertas </h5>
+                  <h5> Info de últimas ofertas </h5>
                 </li>
                 <li class="pull-right">
                   <a href="<%= users_home_view_path%>"><button type="button" class="btn btn-dealhunter medium full-width rounded-borders-btn" id="btn-inscribite">Ver Ofertas</button></a>
@@ -40,7 +40,9 @@
 
       </div>
 
-      <div class="span4 offer-small rounded-borders">
+
+
+      <div class="offset2 span4 offer-small rounded-borders">
 
         <ul class="flap-items">
           <li class="img_item">
@@ -56,7 +58,7 @@
                 </li>
               </ul>
             </div>
-            <img class="small-photo rounded-borders-top" src="<%= Offer.first.photo %>" alt="" />
+            <img class="small-photo rounded-borders-top" src="/assets/home/home2.png" alt="" />
           </li>
         </ul>
 
@@ -77,8 +79,11 @@
           </div><!--end span4-->
         </div><!--end row-->
 
-      </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    startFaye(<%=current_user.id%>);
+</script>
 
