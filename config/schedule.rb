@@ -23,3 +23,11 @@
 every 1.hour do
   rake "cron"
 end
+
+every 1.day, :at => '5pm' do
+  rake "daily_news_cron"
+end
+
+every :monday, :at => '5pm' do
+  rake "week_news_cron"
+end
