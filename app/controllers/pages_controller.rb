@@ -24,12 +24,27 @@ class PagesController < ApplicationController
     session[:body]="page-faq"
   end
 
-  def contact
+  def contact_work_with_us
     @message = Message.new
     get_params(@message)
 
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
+      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+    else
+      flash.now.alert = "Completa todos los datos por favor"
+      render pages_work_with_us_path
+    end
+
+  end
+
+
+  def contact
+    @message = Message.new
+    get_params(@message)
+
+    if @message.valid?
+      ContactMailer.new_message(@message).deliver
       redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
     else
       flash.now.alert = "Completa todos los datos por favor"
@@ -46,7 +61,7 @@ class PagesController < ApplicationController
       redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
     else
       flash.now.alert = "Completa todos los datos por favor"
-      render pages_contact_path
+      render form_company_path
     end
   end
 
