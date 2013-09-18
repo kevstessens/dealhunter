@@ -174,6 +174,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def homeee_view(branch)
+    session[:body]='offer-listing-page'
+    @user = current_user
+    @offers = Array.new
+    if @user.user_role_id == 1 #company
+      @offers = Offer.actual.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
+    else
+      clients_titles = ClientsTitles.select("title_id").where(:client_id => Client.where(:user_id => @user.id))
+      @offers = Offer.actual.where(:id => OffersTitles.select("offer_id").where(:title_id => clients_titles)).all
+    end
+  end
+
   def home_map
     @user = current_user
     @offers = Array.new
