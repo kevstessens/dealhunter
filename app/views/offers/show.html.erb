@@ -49,6 +49,13 @@ x<!--container-->
               <h5> Inscripciones </h5>
               <p> <%= @offer.clients.count %> clientes inscriptos </p>
 
+              <h5> Áreas de Interés </h5>
+              <ul>
+                <% @offer.titles.each do |title| %>
+                  <li> <%= title.name %></li>
+                <%end%>
+              </ul>
+
 
             </div>
 
