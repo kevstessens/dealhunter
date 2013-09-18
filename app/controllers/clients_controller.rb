@@ -47,11 +47,14 @@ class ClientsController < ApplicationController
       if @client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render json: @client, status: :created, location: @client }
+        NewUserMailer.new_client_email(@client.user).deliver
       else
         format.html { render action: "new" }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PUT /clients/1
