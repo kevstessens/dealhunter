@@ -1,4 +1,6 @@
 class Address < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   belongs_to :client, :dependent => :destroy
   belongs_to :branch, :dependent => :destroy
   belongs_to :country
@@ -14,12 +16,9 @@ class Address < ActiveRecord::Base
 
 
   def gmaps4rails_infowindow
-    #'<h1 id="firstHeading" class="firstHeading">'+"#{self.client.name}"+'</h1>'+
-      '<div id="bodyContent">'+
-      "#{self.street} #{self.number}, #{self.city}"+
-      #"#{self.street} #{self.number}, #{self.city}, #{self.country.name}"+
-      #'<img src="'+self.client.logo_url+'">'+
-      '</div>'
+    unless self.branch.nil?
+    "<a href='#{users_home_view_path}'><img src='/assets/bag2.png' width='25' height='22px'> #{self.branch.name}</a>"
+    end
   end
 
 end
