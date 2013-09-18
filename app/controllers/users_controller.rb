@@ -167,8 +167,7 @@ class UsersController < ApplicationController
       @offers = Offer.actual.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
       clients_titles = ClientsTitles.select("title_id").where(:client_id => Client.where(:user_id => @user.id))
-      #@offers = Offer.actual.where(:id => OffersTitles.select("offer_id").where(:title_id => clients_titles)).all
-      @offers = Offer.actual #hay que sacar esta linea y dejar la comentada arriba
+      @offers = Offer.actual.where(:id => OffersTitles.select("offer_id").where(:title_id => clients_titles)).all
     end
   end
 
