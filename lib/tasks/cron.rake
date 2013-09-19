@@ -3,7 +3,7 @@ task :cron => :environment do
     if offer.start_date.to_date == DateTime.current.to_date
       offer.clients.each do |client|
         OfferStartMailer.offer_start_email(client).deliver
-        broadcast ("/offers/start/"+client.id, offer)
+        #broadcast ("/offers/start/"+client.id, offer)
       end
     end
   end
