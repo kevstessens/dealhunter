@@ -49,7 +49,7 @@ gem 'gmaps4rails'
 
 gem 'eventmachine'
 
-gem 'thin'
+#gem 'thin'
 
 gem 'faye', '0.8.9'
 
