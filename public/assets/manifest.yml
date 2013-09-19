@@ -7,10 +7,18 @@ arrow-right.png: arrow-right-d6ce84b92a682984cc3dc6784359afa2.png
 arrow-right/index.png: arrow-right-d6ce84b92a682984cc3dc6784359afa2.png
 arrows.png: arrows-89508fb3766c677a9349744c7cf7a8c6.png
 arrows/index.png: arrows-89508fb3766c677a9349744c7cf7a8c6.png
-bag.png: bag-d5b3f63cd33286a4e1dd47cc6350d8a0.png
-bag/index.png: bag-d5b3f63cd33286a4e1dd47cc6350d8a0.png
+bag copy 2.png: bag copy 2-d5b3f63cd33286a4e1dd47cc6350d8a0.png
+bag copy 2/index.png: bag copy 2-d5b3f63cd33286a4e1dd47cc6350d8a0.png
+bag copy.png: bag copy-d5b3f63cd33286a4e1dd47cc6350d8a0.png
+bag copy/index.png: bag copy-d5b3f63cd33286a4e1dd47cc6350d8a0.png
+bag.png: bag-db7b09ad4d571f6e3fadf98b4153fe05.png
+bag/index.png: bag-db7b09ad4d571f6e3fadf98b4153fe05.png
+bag2.png: bag2-db7b09ad4d571f6e3fadf98b4153fe05.png
+bag2/index.png: bag2-db7b09ad4d571f6e3fadf98b4153fe05.png
 belleza.jpg: belleza-3f46d54a039132a0abe9f3a8b0eb8c93.jpg
 belleza/index.jpg: belleza-3f46d54a039132a0abe9f3a8b0eb8c93.jpg
+belleza.png: belleza-163eb704aa42e8a24afc77e257bae19c.png
+belleza/index.png: belleza-163eb704aa42e8a24afc77e257bae19c.png
 bg-light.png: bg-light-95b0f0246356ae1b073537ec2f6ec723.png
 bg-light/index.png: bg-light-95b0f0246356ae1b073537ec2f6ec723.png
 bg-triangle-red.jpg: bg-triangle-red-ebe7f9c69f2432f0f3217cb805303f18.jpg
@@ -21,6 +29,8 @@ bg.jpg: bg-286b498aefd34bad992969aef1226769.jpg
 bg/index.jpg: bg-286b498aefd34bad992969aef1226769.jpg
 bg.png: bg-c68ce5e4973740e22b8ce3858b4363d6.png
 bg/index.png: bg-c68ce5e4973740e22b8ce3858b4363d6.png
+bgTexture.png: bgTexture-575c54d552065eb12b702e3c95b42370.png
+bgTexture/index.png: bgTexture-575c54d552065eb12b702e3c95b42370.png
 btn-subscribe.png: btn-subscribe-8637dee8b49fcf943c4a1324f7cffca7.png
 btn-subscribe/index.png: btn-subscribe-8637dee8b49fcf943c4a1324f7cffca7.png
 button-arrows.png: button-arrows-6bf3c7681447e315c0b9e9a39b25a3bf.png
@@ -35,22 +45,34 @@ carousel/carousel_4.jpg: carousel/carousel_4-ef5c35054b67fc187ff015dbf4be396d.jp
 carousel/carousel_4/index.jpg: carousel/carousel_4-ef5c35054b67fc187ff015dbf4be396d.jpg
 cine.jpg: cine-f7422b964ac0bede443b45fa12b00502.jpg
 cine/index.jpg: cine-f7422b964ac0bede443b45fa12b00502.jpg
+cine.png: cine-ecae0d1b5539b72f7e0d33d7e6699de7.png
+cine/index.png: cine-ecae0d1b5539b72f7e0d33d7e6699de7.png
 data-fiscal.png: data-fiscal-0ddb9b228329928012c1bb20d95522ca.png
 data-fiscal/index.png: data-fiscal-0ddb9b228329928012c1bb20d95522ca.png
 dealhunter.png: dealhunter-87c1dff1e564b30748eb9d4966cb50f6.png
 dealhunter/index.png: dealhunter-87c1dff1e564b30748eb9d4966cb50f6.png
 deporte.jpg: deporte-84453d3748b5173647c553ca84d1962e.jpg
 deporte/index.jpg: deporte-84453d3748b5173647c553ca84d1962e.jpg
+deporte.png: deporte-7f043d77c0186dd82019f81c935b71d6.png
+deporte/index.png: deporte-7f043d77c0186dd82019f81c935b71d6.png
 divider.png: divider-7f0c3b9b0f2c9ee1d11b69c0e89807d6.png
 divider/index.png: divider-7f0c3b9b0f2c9ee1d11b69c0e89807d6.png
 electronicos.jpg: electronicos-f843315b78a5970a6c20f32d008c79ea.jpg
 electronicos/index.jpg: electronicos-f843315b78a5970a6c20f32d008c79ea.jpg
+electronicos.png: electronicos-7a8ee97c1c313679cd778aacf0e5ae74.png
+electronicos/index.png: electronicos-7a8ee97c1c313679cd778aacf0e5ae74.png
 estudio.jpg: estudio-2326f60d419d3cddf051a35f0c5616bc.jpg
 estudio/index.jpg: estudio-2326f60d419d3cddf051a35f0c5616bc.jpg
+estudio.png: estudio-29f3999f724538331407cd18e178e24e.png
+estudio/index.png: estudio-29f3999f724538331407cd18e178e24e.png
+examinar.png: examinar-e77fca4156320b41248abd1d9288f00d.png
+examinar/index.png: examinar-e77fca4156320b41248abd1d9288f00d.png
 form-bg.png: form-bg-f3bb1c0afa15f50cc1112d91e83d2eba.png
 form-bg/index.png: form-bg-f3bb1c0afa15f50cc1112d91e83d2eba.png
 gastronomia.jpg: gastronomia-a0838424e05d5d56bfdc4d85da5db6b6.jpg
 gastronomia/index.jpg: gastronomia-a0838424e05d5d56bfdc4d85da5db6b6.jpg
+gastronomia.png: gastronomia-2c5100add40842d6a83b8fa432273ba9.png
+gastronomia/index.png: gastronomia-2c5100add40842d6a83b8fa432273ba9.png
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
@@ -63,6 +85,12 @@ h3_plus_h.png: h3_plus_h-190a3f6643d4e93c8082d33d470500ec.png
 h3_plus_h/index.png: h3_plus_h-190a3f6643d4e93c8082d33d470500ec.png
 hogar.jpg: hogar-084ee67ce5c8dc5025ba12fa33a77cac.jpg
 hogar/index.jpg: hogar-084ee67ce5c8dc5025ba12fa33a77cac.jpg
+hogar.png: hogar-164071fb5cdc0aa5705dda83ced354b1.png
+hogar/index.png: hogar-164071fb5cdc0aa5705dda83ced354b1.png
+home/home1.png: home/home1-529e1d4ba70c3c62049efc1d0a2f023b.png
+home/home1/index.png: home/home1-529e1d4ba70c3c62049efc1d0a2f023b.png
+home/home2.png: home/home2-244e2857f8d0654bbc51ad93ad867e68.png
+home/home2/index.png: home/home2-244e2857f8d0654bbc51ad93ad867e68.png
 hotel-thumbnail.jpg: hotel-thumbnail-4e90bfaec824caabc1747c54052b0eb2.jpg
 hotel-thumbnail/index.jpg: hotel-thumbnail-4e90bfaec824caabc1747c54052b0eb2.jpg
 icon-checkout.png: icon-checkout-2e26d2b16355ad9457113345c66f28ef.png
@@ -87,10 +115,14 @@ img-offer-small.jpg: img-offer-small-3f50def5cd5b580202b73a4496cde6fb.jpg
 img-offer-small/index.jpg: img-offer-small-3f50def5cd5b580202b73a4496cde6fb.jpg
 indumentaria-femenina.jpg: indumentaria-femenina-3b244ad7a9f9d685b6908976242e775e.jpg
 indumentaria-femenina/index.jpg: indumentaria-femenina-3b244ad7a9f9d685b6908976242e775e.jpg
+indumentaria-femenina.png: indumentaria-femenina-68d472907aa74703069f20a1d149f12c.png
+indumentaria-femenina/index.png: indumentaria-femenina-68d472907aa74703069f20a1d149f12c.png
 indumentaria-femenina1.jpg: indumentaria-femenina1-7babf717591d67c941ffbb37a1eb1fb3.jpg
 indumentaria-femenina1/index.jpg: indumentaria-femenina1-7babf717591d67c941ffbb37a1eb1fb3.jpg
 indumentaria-masculina.jpg: indumentaria-masculina-13ba6f20bc855f3f0db6344a4ed383df.jpg
 indumentaria-masculina/index.jpg: indumentaria-masculina-13ba6f20bc855f3f0db6344a4ed383df.jpg
+indumentaria-masculina.png: indumentaria-masculina-9acc2ff6e40c06a9fb5109eb4cdfd50a.png
+indumentaria-masculina/index.png: indumentaria-masculina-9acc2ff6e40c06a9fb5109eb4cdfd50a.png
 lock.png: lock-d683127305018cb6a220798948dbd15b.png
 lock/index.png: lock-d683127305018cb6a220798948dbd15b.png
 logo-footer.png: logo-footer-87c1dff1e564b30748eb9d4966cb50f6.png
@@ -107,6 +139,8 @@ mercado-pago.png: mercado-pago-03927d824ac93f929bbbf7ea90208bd2.png
 mercado-pago/index.png: mercado-pago-03927d824ac93f929bbbf7ea90208bd2.png
 nenes.jpg: nenes-acf2b517ceabcf2b10dea24a611c9e82.jpg
 nenes/index.jpg: nenes-acf2b517ceabcf2b10dea24a611c9e82.jpg
+nenes.png: nenes-6f1d3e2705d1f4cd7f3138f347baddb4.png
+nenes/index.png: nenes-6f1d3e2705d1f4cd7f3138f347baddb4.png
 opaqueBG.png: opaqueBG-ca791af9f1733e805b1fa3a2e1a30cbe.png
 opaqueBG/index.png: opaqueBG-ca791af9f1733e805b1fa3a2e1a30cbe.png
 progress-bar.png: progress-bar-2868aada8c14a6bf6975b0372e14f3d8.png
@@ -145,6 +179,8 @@ slider/loading.gif: slider/loading-e6c3a0b324539c02fd9259fe24fbcfcd.gif
 slider/loading/index.gif: slider/loading-e6c3a0b324539c02fd9259fe24fbcfcd.gif
 teatro.jpg: teatro-6d3e107e0e766f5ce917f8b0b647661b.jpg
 teatro/index.jpg: teatro-6d3e107e0e766f5ce917f8b0b647661b.jpg
+teatro.png: teatro-acc846001caabfac99e12a7a23075e77.png
+teatro/index.png: teatro-acc846001caabfac99e12a7a23075e77.png
 tilde.png: tilde-60297f419c65e623bad216e52a6cb21c.png
 tilde/index.png: tilde-60297f419c65e623bad216e52a6cb21c.png
 tipsy.gif: tipsy-5ab7448ab119da372c4ff15c362a94c4.gif
@@ -161,10 +197,12 @@ userbg.png: userbg-5ff89b760e81893916aff709522642af.png
 userbg/index.png: userbg-5ff89b760e81893916aff709522642af.png
 viajes.jpg: viajes-7db4df4bf6b4c67797f3f5991e3ee9e6.jpg
 viajes/index.jpg: viajes-7db4df4bf6b4c67797f3f5991e3ee9e6.jpg
-active_admin.js: active_admin-5d7ea3d238a7f04864e82636c04e3856.js
-active_admin/index.js: active_admin-5d7ea3d238a7f04864e82636c04e3856.js
-application.js: application-e0966ce1a0a7a0f9ea9c69ad13c6c21a.js
-application/index.js: application-e0966ce1a0a7a0f9ea9c69ad13c6c21a.js
+viajes.png: viajes-6a74d5fd9053d3b47f503dd7d10af288.png
+viajes/index.png: viajes-6a74d5fd9053d3b47f503dd7d10af288.png
+active_admin.js: active_admin-26861f19962d6da65edd51a6f72b2be4.js
+active_admin/index.js: active_admin-26861f19962d6da65edd51a6f72b2be4.js
+application.js: application-a886e90e7b55f06e17dcf803c8df9da9.js
+application/index.js: application-a886e90e7b55f06e17dcf803c8df9da9.js
 calendar.html: calendar-778bf1911be1a96e43ad57f215040b8c.html
 calendar/index.html: calendar-778bf1911be1a96e43ad57f215040b8c.html
 popup.html: popup-71253f7fba41d24f2eb1eaaf656ed7e6.html
@@ -179,8 +217,8 @@ League_Gothic-webfont.woff: League_Gothic-webfont-a7873edf9a534ed336956835a9dab7
 League_Gothic-webfont/index.woff: League_Gothic-webfont-a7873edf9a534ed336956835a9dab7ce.woff
 active_admin.css: active_admin-bc9dddbfc362b51ff172e1acba73154a.css
 active_admin/index.css: active_admin-bc9dddbfc362b51ff172e1acba73154a.css
-application.css: application-91fb8d97a46819e01f1f186b5d4820bd.css
-application/index.css: application-91fb8d97a46819e01f1f186b5d4820bd.css
+application.css: application-0fc9a262ee9b4b5e1eb9aecf58238535.css
+application/index.css: application-0fc9a262ee9b4b5e1eb9aecf58238535.css
 slider/themes/bar/arrows.png: slider/themes/bar/arrows-5dcac09039d38d4a70442da070bc0960.png
 slider/themes/bar/arrows/index.png: slider/themes/bar/arrows-5dcac09039d38d4a70442da070bc0960.png
 slider/themes/bar/bullets.png: slider/themes/bar/bullets-a5fbbe7fb25eab4b36a278b05ee0420a.png
@@ -263,5 +301,5 @@ active_admin/pages/application.js: active_admin/pages/application-933a377407f68b
 active_admin/pages/application/index.js: active_admin/pages/application-933a377407f68bbb2ce7f673d7feca0a.js
 active_admin/print.css: active_admin/print-e2186aeecceb677443527e791ac876ed.css
 active_admin/print/index.css: active_admin/print-e2186aeecceb677443527e791ac876ed.css
-jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
-jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
+jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
+jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
