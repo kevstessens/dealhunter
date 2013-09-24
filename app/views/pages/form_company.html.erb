@@ -96,7 +96,7 @@
     <div class="rounded-borders ">
         <section class="span12 rounded-borders light-shadowed">
             <header class="out rounded-borders-top">
-            <h2>Alta empresa</h2>
+            <h2>Queres publicar con nosotros?</h2>
             </header>
 
             <div class="wrapper-padding">
@@ -206,7 +206,7 @@
                     <ul class="inline">
                       <li><a href="<%= pages_we_path %>">Quiénes Somos</a></li>
                       <li><a href="<%= pages_work_with_us_path %>">Trabajá con Nosotros</a></li>
-                      <li><a href="<%= pages_form_company_path %>">Alta Empresa</a></li>
+                      <li><a href="<%= pages_form_company_path %>">Queres publicar?</a></li>
                       <li><a href="<%= pages_faqs_path %>">Ayuda</a></li>
                       <li><a href="<%= pages_contact_path %>">Contacto</a></li>
                     </ul>
@@ -321,7 +321,7 @@
     <div class="row">
         <section class="span12">
             <header class="out">
-                <h2>Alta Empresa</h2>
+                <h2>Queres publicar con nosotros?</h2>
             </header>
 
             <div class="wrapper-padding">
@@ -329,7 +329,7 @@
                 <div class="wrapper">
                     <article class="row-fluid">
                         <div class="span8">
-                            <%= form_for @message, :url => pages_contact_path do |form| %>
+                          <%= form_for(Message.new(), :url => { :action => "contact_potential_advertiser", :controller => :pages }, :html => { :method => :post }) do |form| %>
                             <fieldset>
 
                                 <p>Se parte de DealHunter y suma a tu empresa. Completá los campos del formulario para

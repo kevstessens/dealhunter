@@ -30,6 +30,7 @@ class PagesController < ApplicationController
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
       redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+      flash.now.alert = "Completa todos los datos por favor"
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_work_with_us_path
@@ -60,7 +61,7 @@ class PagesController < ApplicationController
       redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
     else
       flash.now.alert = "Completa todos los datos por favor"
-      render form_company_path
+      render pages_form_company_path
     end
   end
 
