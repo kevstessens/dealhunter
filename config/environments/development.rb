@@ -41,8 +41,8 @@ DealHunter::Application.configure do
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'docnet.argentina@gmail.com',
-      :password             => 'iPassword2013',
+      :user_name            => 'dealhunter.argentina@gmail.com',
+      :password             => 'dealhunter123',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
