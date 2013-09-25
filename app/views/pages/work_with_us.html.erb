@@ -34,13 +34,6 @@
                         <%= alert %>
                       </div>
                   <%end%>
-                  <% if !flash[:notice].nil? %>
-                      <div class="alert">
-
-                        <%= flash[:notice] %>
-
-                      </div>
-                  <% end%>
 
                   <%= form_for(Message.new(), :url => {:action => "contact_work_with_us", :controller => :pages}, :html => {:method => :post}) do |form| %>
                       <fieldset>
@@ -187,13 +180,6 @@
                         <%= alert %>
                       </div>
                   <%end%>
-                  <% if !flash[:notice].nil? %>
-                      <div class="alert">
-
-                        <%= flash[:notice] %>
-
-                      </div>
-                  <% end%>
                   <%= form_for(Message.new(), :url => {:action => "contact_work_with_us", :controller => :pages}, :html => {:method => :post}) do |form| %>
                       <fieldset>
 
