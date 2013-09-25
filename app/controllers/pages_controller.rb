@@ -74,6 +74,19 @@ class PagesController < ApplicationController
   end
 
   def get_params(message)
+
+    unless current_user.nil?
+      if current_user.company?
+      unless params[:message].nil?
+        data = params[:message]
+        message.subject = data[:subject]
+        message.body = data[:body]
+        message.name = data[:name]
+        message.email = data[:email]
+      end
+      end
+    else
+
     unless params[:message].nil?
       data = params[:message]
       message.subject = data[:subject]
@@ -90,6 +103,8 @@ class PagesController < ApplicationController
         message.email = current_user.email
       end
     end
+    end
   end
+
 
 end
