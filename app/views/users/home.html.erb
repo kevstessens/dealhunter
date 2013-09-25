@@ -84,6 +84,15 @@
 </div>
 
 <script type="text/javascript">
+    function removeId(){
+        $("#landing").attr("id", "page-faq");
+    }
+    removeId();
+
+</script>
+
+<script type="text/javascript">
     startFaye(<%=current_user.id%>);
+
 </script>
 

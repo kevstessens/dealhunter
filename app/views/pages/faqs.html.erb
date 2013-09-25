@@ -1,29 +1,5 @@
 <% if current_user.nil? %>
 
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>dealhunter</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Le styles -->
-
-      <link href="/assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css"/>
-      <link href="/assets/dealhunter.css?body=1" media="screen" rel="stylesheet" type="text/css"/>
-      <link href="/assets/formtastic.css?body=1" media="screen" rel="stylesheet" type="text/css"/>
-      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-      <!--    <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
-      -->
-      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-      <!--[if lt IE 9]>
-      <script src="/assets/html5shiv.js"></script>
-      <![endif]-->
-
-    </head>
-
-
     <body id="page-micuenta">
 
     <!--header-->
@@ -213,15 +189,15 @@
       </div>
     </footer>
 
-
+    </body>
 
 <% else %>
 
 
     <div class="container" id="main-content">
-      <div class="row">
-        <section class="span12">
-          <header class="out">
+      <div class="rounded-borders ">
+        <section class="span12 rounded-borders light-shadowed">
+          <header class="out rounded-borders-top">
             <h2>Preguntas Frecuentes</h2>
           </header>
 
@@ -233,7 +209,7 @@
                 <div class="accordion">
                   <ul class="accord-tab clearfix">
                     <li>
-                      <h3>¿Cómo puedo hacerme miembre de dealhunter Argentina?</h3>
+                      <h3>¿Cómo puedo hacerme miembro de dealhunter Argentina?</h3>
                     </li>
                     <li>
                   <span>
@@ -341,13 +317,13 @@
             <!--end wrapper-->
           </div>
           <!--end wrapper-->
-      </div>
       </section>
       <!--end main content-->
     </div><!--end container-->
     </div><!--end row-->
 
 <% end %>
+
 
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>

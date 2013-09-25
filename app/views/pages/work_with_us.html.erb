@@ -1,90 +1,19 @@
-<% if current_user.nil?%>
-
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>dealhunter</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Le styles -->
-
-      <link href="/assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/assets/dealhunter.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/assets/formtastic.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-      <script src="../assets/bootstrap-dropdown.js"></script>
-
-
-      <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/lib/namespace.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.popover.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/pages/application.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/pages/batch_actions.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/application.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/base.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery_nested_form.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tagsinput.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tokeninput.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin.js?body=1" type="text/javascript"></script>
-      <script src="/assets/batches.js?body=1" type="text/javascript"></script>
-      <script src="/assets/billings.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-alert.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-collapse.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-filestyle-0.1.0.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-modal.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-tab.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-transition.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.ba-throttle-debounce.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.mousewheel.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.touchSwipe.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.transit.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery-1.8.2.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery.carouFredSel-6.2.0-packed.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery.carouFredSel-6.2.0.js?body=1" type="text/javascript"></script>
-      <script src="/assets/credits.js?body=1" type="text/javascript"></script>
-      <script src="/assets/faqs.js?body=1" type="text/javascript"></script>
-      <script src="/assets/html5shiv.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jcalendar.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tipsy.js?body=1" type="text/javascript"></script>
-      <script src="/assets/pages.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery-1.9.0.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery.nivo.slider.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery.nivo.slider.pack.js?body=1" type="text/javascript"></script>
-      <script src="/assets/application.js?body=1" type="text/javascript"></script>
-
-      <!--    <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
-      -->
-      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-      <!--[if lt IE 9]>
-      <script src="/assets/html5shiv.js"></script>
-      <![endif]-->
-
-    </head>
-
-
+<% if current_user.nil? %>
 
     <body id="page-micuenta">
 
     <!--header-->
     <header id="top" class="light-shadowed">
-    <div class="container">
+      <div class="container">
         <div class="row">
           <div class="span3" id="logo-header"><a href="/offers"><img src="/assets/logo-header.png"></a></div>
 
-        </div><!--end row-->
-      </div><!--end container header-->
-    </header><!--end header-->
-
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container header-->
+    </header>
+    <!--end header-->
 
 
     <div class="container" id="main-content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
@@ -92,7 +21,7 @@
       <div class="rounded-borders ">
         <section class="span12 rounded-borders light-shadowed">
           <header class="out rounded-borders-top">
-          <h2>Trabajá con Nosotros</h2>
+            <h2>Trabajá con Nosotros</h2>
           </header>
 
           <div class="wrapper-padding">
@@ -100,37 +29,49 @@
             <div class="wrapper">
               <article class="row-fluid">
                 <div class="span8">
-                  <%= form_for(Message.new(), :url => { :action => "contact_work_with_us", :controller => :pages }, :html => { :method => :post }) do |form| %>
-                    <fieldset>
+                  <% unless flash[:notice].nil? %>
+                      <div class="alert">
 
-                      <p>En este momento no tenemos búsquedas abiertas. Sin embargo, siempre estamos buscando gente calificada y nos gustaría saber de vos. Completá los campos del formulario para que guardemos tu información.</p>
+                        <%= flash[:notice] %>
 
-                      <hr>
-
-                      <div class="row-fluid">
-                        <div class="span6">
-                          <label>Nombre</label>
-                          <%= form.text_field :name, :class =>"input_xlarge" %>
-
-
-                        </div>
-                        <div class="span6">
-                          <label>Email</label>
-                          <%= form.text_field :email, :class =>"input_xlarge" %>
-
-                        </div>
                       </div>
+                  <% end %>
 
-                      <label>Mensaje/Datos de interes</label>
-                      <%= form.text_area :body, :rows =>3, :style =>"width:97.8%;" %>
-                      <hr>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Enviar</button>
-                      </div>
-                    </fieldset>
-                    <% end %>
+                  <%= form_for(Message.new(), :url => {:action => "contact_work_with_us", :controller => :pages}, :html => {:method => :post}) do |form| %>
+                      <fieldset>
 
-                </div> <!--end span8-->
+
+                        <p>En este momento no tenemos búsquedas abiertas. Sin embargo, siempre estamos buscando gente
+                          calificada y nos gustaría saber de vos. Completá los campos del formulario para que guardemos
+                          tu información.</p>
+
+                        <hr>
+
+                        <div class="row-fluid">
+                          <div class="span6">
+                            <label>Nombre</label>
+                            <%= form.text_field :name, :class => "input_xlarge" %>
+
+
+                          </div>
+                          <div class="span6">
+                            <label>Email</label>
+                            <%= form.text_field :email, :class => "input_xlarge" %>
+
+                          </div>
+                        </div>
+
+                        <label>Mensaje/Datos de interes</label>
+                        <%= form.text_area :body, :rows => 3, :style => "width:97.8%;" %>
+                        <hr>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Enviar</button>
+                        </div>
+                      </fieldset>
+                  <% end %>
+
+                </div>
+                <!--end span8-->
                 <div class="span3 offset1">
                   <address>
                     <strong>Dirección</strong><br>
@@ -146,23 +87,32 @@
 
                   <address>
                     <strong>Teléfono</strong><br>
+
                     <p>0800-111-DEAL(3315)</p>
                   </address>
 
                   <address>
                     <strong>Twitter</strong><br>
-                    <p>Para obtener respuestas en tiempo real a todas tus preguntas agreganos en twitter <a href="http://www.twitter.com/dealhunterarg">@dealhunterArg</a></p>
+
+                    <p>Para obtener respuestas en tiempo real a todas tus preguntas agreganos en twitter
+                      <a href="http://www.twitter.com/dealhunterarg">@dealhunterArg</a></p>
                   </address>
 
-                </div><!--end span4-->
+                </div>
+                <!--end span4-->
 
               </article>
 
-            </div><!--end wrapper-->
-          </div><!--end wrapper-padding-->
-        </section><!--end main content-->
-      </div><!--end container-->
-    </div><!--end row-->
+            </div>
+            <!--end wrapper-->
+          </div>
+          <!--end wrapper-padding-->
+        </section>
+        <!--end main content-->
+      </div>
+      <!--end container-->
+    </div>
+    <!--end row-->
 
 
     <footer id="footer-wrapper" class="dh-footer">
@@ -195,7 +145,8 @@
           <div class="span2">
             <ul class="inline pull-right social">
               <li><a href="#" target="_blank"><img src="/assets/icon-fb.png"></a></li>
-              <li><a href="https://twitter.com/dealhunterArg" target="_blank"><img src="/assets/icon-twitter.png"></a></li>
+              <li><a href="https://twitter.com/dealhunterArg" target="_blank"><img src="/assets/icon-twitter.png"></a>
+              </li>
               <li><a href="#" target="_blank"><img src="/assets/icon-gPlus.png"></a></li>
 
             </ul>
@@ -211,87 +162,14 @@
 <% else %>
 
 
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>dealhunter</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Le styles -->
-
-      <link href="/assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/assets/dealhunter.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/assets/formtastic.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-      <script src="../assets/bootstrap-dropdown.js"></script>
-
-
-      <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/lib/namespace.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.popover.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/pages/application.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/pages/batch_actions.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/application.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin/base.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery_nested_form.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tagsinput.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tokeninput.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap.js?body=1" type="text/javascript"></script>
-      <script src="/assets/active_admin.js?body=1" type="text/javascript"></script>
-      <script src="/assets/batches.js?body=1" type="text/javascript"></script>
-      <script src="/assets/billings.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-alert.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-collapse.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-filestyle-0.1.0.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-modal.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-tab.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap-transition.js?body=1" type="text/javascript"></script>
-      <script src="/assets/bootstrap.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.ba-throttle-debounce.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.mousewheel.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.touchSwipe.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/helper-plugins/jquery.transit.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery-1.8.2.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery.carouFredSel-6.2.0-packed.js?body=1" type="text/javascript"></script>
-      <script src="/assets/carousel/jquery.carouFredSel-6.2.0.js?body=1" type="text/javascript"></script>
-      <script src="/assets/credits.js?body=1" type="text/javascript"></script>
-      <script src="/assets/faqs.js?body=1" type="text/javascript"></script>
-      <script src="/assets/html5shiv.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jcalendar.js?body=1" type="text/javascript"></script>
-      <script src="/assets/jquery.tipsy.js?body=1" type="text/javascript"></script>
-      <script src="/assets/pages.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery-1.9.0.min.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery.nivo.slider.js?body=1" type="text/javascript"></script>
-      <script src="/assets/slider/jquery.nivo.slider.pack.js?body=1" type="text/javascript"></script>
-      <script src="/assets/application.js?body=1" type="text/javascript"></script>
-
-      <!--    <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
-      -->
-      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-      <!--[if lt IE 9]>
-      <script src="/assets/html5shiv.js"></script>
-      <![endif]-->
-
-    </head>
-
-
     <body id="page-micuenta">
 
 
-
     <div class="container" id="main-content">
-      <div class="row">
-        <section class="span12">
-          <header class="out">
-            <h2>Trabaja con Nosotros</h2>
+      <div class="rounded-borders ">
+        <section class="span12 rounded-borders light-shadowed">
+          <header class="out rounded-borders-top">
+          <h2>Trabaja con Nosotros</h2>
           </header>
 
           <div class="wrapper-padding">
@@ -299,38 +177,48 @@
             <div class="wrapper">
               <article class="row-fluid">
                 <div class="span8">
-                  <%= form_for(Message.new(), :url => { :action => "contact_work_with_us", :controller => :pages }, :html => { :method => :post }) do |form| %>
-                    <fieldset>
+                  <% unless flash[:notice].nil? %>
+                      <div class="alert">
 
-                      <p>En este momento no tenemos busquedas abiertas. Sin embargo, siempre estamos buscando gente calificada y nos gustaría saber de vos. Completá los campos del formulario para que guardemos tu información.</p>
+                        <%= flash[:notice] %>
 
-                      <hr>
-
-                      <div class="row-fluid">
-                        <div class="span6">
-                          <label>Nombre</label>
-                          <%= form.text_field :name, :class =>"input_xlarge" %>
-
-
-                        </div>
-                        <div class="span6">
-                          <label>Email</label>
-                          <%= form.text_field :email, :class =>"input_xlarge" %>
-
-                        </div>
                       </div>
+                  <% end %>
+                  <%= form_for(Message.new(), :url => {:action => "contact_work_with_us", :controller => :pages}, :html => {:method => :post}) do |form| %>
+                      <fieldset>
 
-                      <label>Mensaje/Datos de interes</label>
-                      <%= form.text_area :body, :rows =>3, :style =>"width:97.8%;" %>
-                      <hr>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-dealhunter">Enviar</button>
-                      </div>
-                    </fieldset>
+                        <p>En este momento no tenemos busquedas abiertas. Sin embargo, siempre estamos buscando gente
+                          calificada y nos gustaría saber de vos. Completá los campos del formulario para que guardemos
+                          tu información.</p>
+
+                        <hr>
+
+                        <div class="row-fluid">
+                          <div class="span6">
+                            <label>Nombre</label>
+                            <%= form.text_field :name, :class => "input_xlarge" %>
+
+
+                          </div>
+                          <div class="span6">
+                            <label>Email</label>
+                            <%= form.text_field :email, :class => "input_xlarge" %>
+
+                          </div>
+                        </div>
+
+                        <label>Mensaje/Datos de interes</label>
+                        <%= form.text_area :body, :rows => 3, :style => "width:97.8%;" %>
+                        <hr>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Enviar</button>
+                        </div>
+                      </fieldset>
                   <% end %>
 
 
-                </div> <!--end span8-->
+                </div>
+                <!--end span8-->
                 <div class="span3 offset1">
                   <address>
                     <strong>Dirección</strong><br>
@@ -346,23 +234,32 @@
 
                   <address>
                     <strong>Teléfono</strong><br>
+
                     <p>0800-111-DEAL(3315)</p>
                   </address>
 
                   <address>
                     <strong>Twitter</strong><br>
-                    <p>Para obtener respuestas en tiempo real a todas tus preguntas agreganos en twitter <a href="http://www.twitter.com/dealhunterarg">@dealhunterArg</a></p>
+
+                    <p>Para obtener respuestas en tiempo real a todas tus preguntas agreganos en twitter
+                      <a href="http://www.twitter.com/dealhunterarg">@dealhunterArg</a></p>
                   </address>
 
-                </div><!--end span4-->
+                </div>
+                <!--end span4-->
 
               </article>
 
-            </div><!--end wrapper-->
-          </div><!--end wrapper-padding-->
-        </section><!--end main content-->
-      </div><!--end container-->
-    </div><!--end row-->
+            </div>
+            <!--end wrapper-->
+          </div>
+          <!--end wrapper-padding-->
+        </section>
+        <!--end main content-->
+      </div>
+      <!--end container-->
+    </div>
+    <!--end row-->
 
 
 <% end %>
