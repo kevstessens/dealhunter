@@ -28,6 +28,12 @@
             <div class="wrapper">
               <article class="row-fluid">
                 <div class="span8">
+
+                  <% if !alert.nil?%>
+                      <div class="alert">
+                        <%= alert %>
+                      </div>
+                  <%end%>
                   <% unless flash[:notice].nil? %>
                       <div class="alert">
 
@@ -165,13 +171,19 @@
               <article class="row-fluid">
                 <div class="span8">
 
-                  <% unless flash[:notice].nil? %>
+                  <% if !alert.nil?%>
+                      <div class="alert">
+                        <%= alert %>
+                      </div>
+                  <%end%>
+                  <% if !flash[:notice].nil? %>
                       <div class="alert">
 
                         <%= flash[:notice] %>
 
                       </div>
-                  <% end %>
+                  <% end%>
+
 
                   <%= form_for(Message.new(), :url => {:action => "contact", :controller => :pages}, :html => {:method => :post}) do |f| %>
                       <fieldset>
@@ -237,6 +249,14 @@
     </div><!--end row-->
 
 <% end %>
+
+<script type="text/javascript">
+    function removeId(){
+        $("#landing").attr("id", "page-faq");
+    }
+    removeId();
+
+</script>
 
 
 

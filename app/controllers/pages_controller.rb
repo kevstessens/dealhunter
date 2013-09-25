@@ -29,8 +29,9 @@ class PagesController < ApplicationController
     get_params(@message)
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
-      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
-      flash.now.alert = "Completa todos los datos por favor"
+      flash.now.alert = "El mensaje se ha enviado correctamente."
+      render pages_work_with_us_path
+
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_work_with_us_path
@@ -45,7 +46,8 @@ class PagesController < ApplicationController
 
     if @message.valid?
       ContactMailer.new_message(@message).deliver
-      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+      flash.now.alert = "El mensaje se ha enviado correctamente."
+      render pages_contact_path
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_contact_path
@@ -58,7 +60,8 @@ class PagesController < ApplicationController
 
     if @message.valid?
       ContactMailer.new_message_empresa(@message).deliver
-      redirect_to(:back, :notice => "El mensaje se ha enviado correctamente.")
+      flash.now.alert = "El mensaje se ha enviado correctamente."
+      render pages_form_company_path
     else
       flash.now.alert = "Completa todos los datos por favor"
       render pages_form_company_path
