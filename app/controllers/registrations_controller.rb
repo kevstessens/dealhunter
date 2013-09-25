@@ -37,7 +37,31 @@ def create
     super
   end
 
-  def update
+  def edit
     super
+  end
+
+  def update
+    @user = current_user
+    p = params[:user]
+    if @user.valid_password?(p[:password])
+      @user.update_password = true
+      if p[:new_password] == p[:password_confirmation]
+        @user.password = p[:new_password]
+        if @user.save
+          flash.now.alert = "OK"
+          render users_home_path
+        else
+          flash.now.alert = "NO"
+          render :edit
+        end
+      else
+        flash.now.alert = "NO"
+        render :edit
+      end
+    else
+      flash.now.alert = "NO"
+      redirect_to :back
+    end
   end
 end

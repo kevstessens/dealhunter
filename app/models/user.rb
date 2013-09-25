@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :client_attributes
+  attr_accessor :new_password
    belongs_to :user_role
    has_one :company
    has_one :client
@@ -14,6 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :user_role_id, :company
 
   validates_presence_of :email, :password
+  validates_confirmation_of :password
 
   accepts_nested_attributes_for :client, :allow_destroy => true
 
