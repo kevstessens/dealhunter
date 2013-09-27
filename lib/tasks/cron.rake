@@ -1,8 +1,17 @@
 task :cron => :environment do
   Offer.all.each do |offer|
-    if offer.start_date.to_date == DateTime.current.to_date
+
+    print(offer.start_date.hour)
+    print(DateTime.current.hour)
+
+
+    print(offer.start_date.day)
+    print(DateTime.current.day)
+
+    if offer.start_date.hour == DateTime.current.hour and offer.start_date.day == DateTime.current.day
       offer.clients.each do |client|
-        OfferStartMailer.offer_start_email(client).deliver
+        OfferStartMailer.offer_start_email(client.user, offer).deliver
+        print("Se envio algo")
         #broadcast ("/offers/start/"+client.id, offer)
       end
     end
