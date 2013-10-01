@@ -77,7 +77,11 @@ class PagesController < ApplicationController
   def contact_potential_advertiser
     @message = Message.new
     get_params(@message)
-
+    @message.body = params[:message][:body]
+    @message.name =  params[:message][:name]
+    @message.email =  params[:message][:email]
+    @message.cuit =  params[:message][:cuit]
+    @message.phone =  params[:message][:phone]
     if @message.valid?
       ContactMailer.new_message_empresa(@message).deliver
       flash.now.alert = "El mensaje se ha enviado correctamente."
