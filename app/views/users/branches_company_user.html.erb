@@ -75,6 +75,13 @@
   </div>
   <div class="modal-body">
     <div id="invitar-amigo-box">
+
+      <%if @e == "true" %>
+          <div class="alert">
+            La dirección especificada es incorrecta
+          </div>
+      <%end%>
+
       <%= semantic_nested_form_for [Branch.new()] do |f| %>
           <div id="nameFields">
             <label>Nombre: <%= f.input :name, :label => false %> </label>
@@ -119,3 +126,14 @@
 
 
       </div>  <!--end Modal-->
+
+
+<script>
+    $(document).ready(function(){
+      var e = <%= @e %>;
+      if (e) {
+          $("#recommend-to-friend").click();
+      }
+
+  })
+</script>

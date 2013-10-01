@@ -154,6 +154,7 @@ class UsersController < ApplicationController
     session[:body]='page-micuenta'
     @user = current_user
     @branches = Branch.where("company_id = ?",@user.company.id).page(params[:page]).per(4)
+    @e = params[:e]
   end
 
   def home
