@@ -59,10 +59,10 @@ class PagesController < ApplicationController
     if @message.valid?
       ContactMailer.new_message(@message).deliver
       flash.now.alert = "El mensaje se ha enviado correctamente."
-      render pages_contact_path
+      render pages_form_contact_path
     else
       flash.now.alert = "Completa todos los datos por favor"
-      render pages_contact_path
+      render pages_form_contact_path
     end
   end
 
