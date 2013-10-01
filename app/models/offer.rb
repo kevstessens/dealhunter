@@ -24,4 +24,25 @@ class Offer < ActiveRecord::Base
     self.branch.company unless self.branch.nil?
   end
 
+
+  acts_as_gmappable
+
+  def gmaps4rails_address
+    "#{self.branch.address.street} #{self.branch.address.number}, #{self.branch.address.city}"
+    #"#{self.street} #{self.number}, #{self.city}, #{self.country.name}"
+  end
+
+
+  def gmaps4rails_infowindow
+    "<a href='http://localhost:3000/offers/#{self.id}'><h4>#{self.name}</h4></a>"
+  end
+
+
+  def latitude
+    self.branch.address.latitude
+  end
+
+  def longitude
+    self.branch.address.longitude
+  end
 end

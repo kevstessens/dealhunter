@@ -192,7 +192,7 @@ class UsersController < ApplicationController
     @offers = Array.new
     @longitude = -58.381244
     @latitude = -34.603683
-    @json = Address.all.to_gmaps4rails
+    @json = Offer.all.to_gmaps4rails
     address = Address.new
     if @user.user_role_id == 2
       address = @user.client.address
