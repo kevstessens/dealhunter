@@ -3,11 +3,15 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate_user!
 
   def work_with_us
-    @message=Message.new
+    @message = Message.new
   end
 
   def form_company
-    @message=Message.new
+    @message = Message.new
+  end
+
+  def form_contact
+    @message = Message.new
   end
 
 
@@ -43,6 +47,14 @@ class PagesController < ApplicationController
   def contact
     @message = Message.new
     get_params(@message)
+    if !current_user.nil?
+      @message.email = current_user.email
+      if current_user.company?
+         @message.name = Company.where(:user_id => current_user.id).first().name
+      else
+        @message.name = Company.where(:user_id => current_user.id).first().first_name
+      end
+    end
 
     if @message.valid?
       ContactMailer.new_message(@message).deliver
