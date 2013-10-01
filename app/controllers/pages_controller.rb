@@ -31,6 +31,9 @@ class PagesController < ApplicationController
   def contact_work_with_us
     @message = Message.new
     get_params(@message)
+    @message.body = params[:message][:body]
+    @message.name =  params[:message][:name]
+    @message.email =  params[:message][:email]
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
       flash.now.alert = "El mensaje se ha enviado correctamente."
@@ -47,12 +50,17 @@ class PagesController < ApplicationController
   def contact
     @message = Message.new
     get_params(@message)
+    @message.body = params[:message][:body]
+    @message.subject =  params[:message][:subject]
     if !current_user.nil?
       @message.email = current_user.email
       if current_user.company?
          @message.name = Company.where(:user_id => current_user.id).first().name
       else
-        @message.name = Company.where(:user_id => current_user.id).first().first_name
+        @message.name = Client.where(:user_id => current_user.id).first().first_name
+        if @message.name.nil?
+          @message.name = current_user.email
+        end
       end
     end
 
