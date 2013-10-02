@@ -1,7 +1,7 @@
 class ContactMailerTrabajaConNosotros < ActionMailer::Base
 
   default :from =>  "noresponder@dealhunter.com"
-  default :to => "laura_lopez_bukovac@hotmail.com"
+  default :to => "damianminniti@hotmail.com"
 
   def new_message_trabaja_con_nosotros(message)
     @message = message
