@@ -4,7 +4,7 @@ class Offer < ActiveRecord::Base
   has_and_belongs_to_many :titles
   belongs_to :branch
 
-  attr_accessible :end_date, :name, :start_date, :photo, :branch_id, :prizes_attributes, :description
+  attr_accessible :end_date, :gmaps, :name, :start_date, :photo, :branch_id, :prizes_attributes, :description
 
   accepts_nested_attributes_for :prizes, :allow_destroy => true
 
@@ -23,6 +23,11 @@ class Offer < ActiveRecord::Base
   def company
     self.branch.company unless self.branch.nil?
   end
+
+  def gmaps
+    self.branch.address.gmaps
+  end
+
 
 
   acts_as_gmappable
