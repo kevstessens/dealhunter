@@ -9,10 +9,13 @@ es:
       admin_user:
         email: Mail
         password: Contraseña
+        password_confirmation: Confirmación
         encrypted_password: Contraseña encriptada
         current_sign_in_at: Sign in actual
         last_sign_in_at: Último sign in
         sign_in_count: Cantidad de sign in
+        created_at: Fecha de creación
+        updated_at: Fecha de actualización
       address:
         city: Localidad
         country: Pais
