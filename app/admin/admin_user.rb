@@ -16,5 +16,17 @@ ActiveAdmin.register AdminUser do
       f.input :password_confirmation  
     end                               
     f.actions                         
-  end                                 
+  end
+
+  show do |f|
+    attributes_table do
+      row :id
+      row :email
+      row :current_sign_in_at
+      row :last_sign_in_at
+      row :sign_in_count
+      row :created_at
+      row :updated_at
+    end
+  end
 end                                   
