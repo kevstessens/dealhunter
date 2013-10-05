@@ -30,6 +30,8 @@ Title.create!(:name => "Electronica", :icon_name =>"electronicos")
 Title.create!(:name => "Estudio", :icon_name =>"estudio")
 Title.create!(:name => "Hogar", :icon_name =>"hogar")
 
+NewsletterFrequency.delete_all
+NewsletterFrequency.reset_pk_sequence
 NewsletterFrequency.create!(:name => "Nunca", :days =>0)
 NewsletterFrequency.create!(:name => "Una vez por semana", :days =>1)
 NewsletterFrequency.create!(:name => "A diario", :days =>7)
