@@ -68,6 +68,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
     if @user.user_role_id == 2
+
       client = @user.client
       client_attr = params[:user][:client_attributes]
       unless client_attr.nil?
@@ -88,7 +89,7 @@ class UsersController < ApplicationController
         client.save
       end
     end
-      if @user.update_attributes(params[:user])
+      if @user.update_attribute(:email,params[:user][:email])
         sign_in(@user, :bypass => true)
         format.html { redirect_to edit_user_path(@user), notice: 'Se han registrado los cambios en su perfil.' }
         format.json { head :no_content }

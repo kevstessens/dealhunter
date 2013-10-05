@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :user_role_id, :company
 
   validates_presence_of :email, :password
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :on => :create
 
   accepts_nested_attributes_for :client, :allow_destroy => true
 
