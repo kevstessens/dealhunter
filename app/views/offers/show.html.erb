@@ -92,20 +92,19 @@ x<!--container-->
       <div class="row">
         <div class="span4 clearfix" style="background-color: grey;">
           <div class="clock-wrapper">
-
+            <div class="clock-info">
             <div class="clock-title pull-left">
               <i class="icon-white icon-time"></i> Quedan</li>
             </div><!--end clock-wrapper-->
             <div class="clock-numbers pull-right">
               <ul class="inline">
                 <% distance = time_distance(@offer.start_date.to_datetime) %>
-                <ul class="inline" style="margin-top:8px;">
-                  <li><ul class="inline"><li><%= distance[:days] %></li><li>D</li></ul></li>
-                  <li><ul class="inline"><li><%= distance[:hours] %></li><li>H</li></ul></li>
-                  <li><ul class="inline"><li><%= distance[:minutes] %></li><li>M</li></ul></li>
-                </ul>
+                 <li><ul class="inline"><li><%= distance[:days] %> D</li></ul></li>
+                  <li><ul class="inline"><li><%= distance[:hours] %> H</li></ul></li>
+                  <li><ul class="inline"><li><%= distance[:minutes] %> M</li></ul></li>
               </ul>
             </div><!--end clock-numbers-->
+            </div>
 
           </div>
         </div><!--end counter-->

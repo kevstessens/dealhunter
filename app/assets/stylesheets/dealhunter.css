@@ -957,15 +957,23 @@ ul.hotel-item-description h4 a:hover {
     overflow: hidden;
 }
 
+.clock-info{
+    width: 280px;
+    height: 41px;
+}
+
 .clock-title {
     background: #899fac url(../assets/triangle-corner-grey.png) no-repeat center right;
     width: 35%;
+
     padding: 10px 0 10px 10px;
     font-weight: 700;
     font-size: 11px;
     text-transform: uppercase;
     color: #fff;
+    height: 21px;
 }
+
 
 .clock-numbers {
     background: #fff;
@@ -974,14 +982,16 @@ ul.hotel-item-description h4 a:hover {
 }
 
 .clock-numbers ul {
-    margin: 8px 0 0 0;
+    margin: 5px 0 0 0;
     padding: 0px;
 }
 
 .clock-numbers ul li {
-    width: 24%;
+    width: auto;
+    padding: 0 !important;
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
+    margin: 0 5px 0px 0px;
 }
 
 .clock-numbers ul li span {
