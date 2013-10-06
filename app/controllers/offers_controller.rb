@@ -74,7 +74,7 @@ class OffersController < ApplicationController
             offers_titles.save
           end
         end
-        format.html { redirect_to users_offers_company_user_path , notice: 'offer was successfully created.' }
+        format.html { redirect_to users_offers_company_user_path , notice: @offer.name + ' fue creada correctamente.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
         format.html { render action: "new" }
@@ -103,10 +103,11 @@ class OffersController < ApplicationController
   # DELETE /offers/1.json
   def destroy
     @offer = Offer.find(params[:id])
+    name = @offer.name
     @offer.destroy
 
     respond_to do |format|
-      format.html { redirect_to offers_url }
+      format.html { redirect_to users_offers_company_user_path , notice: name + ' se ha eliminado.' }
       format.json { head :no_content }
     end
   end

@@ -46,7 +46,7 @@
                               </a>
                               <div class="media-body">
                                 <h4 class="media-heading"><a href="<%= offer_path(offer) %>"><%= offer.name %></a></h4>
-                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> <b>|</b> <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
                                 <p><%=  Company.find_by_id(offer.branch.company_id).name %></p>
                               </div><!--end media-body-->
                             </div><!--end media-->
@@ -84,7 +84,7 @@
                               </a>
                               <div class="media-body">
                                 <h4 class="media-heading"><a href="<%= offer_path(offer) %>"><%= offer.name %></a></h4>
-                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                                <h5><%=offer.start_date.strftime('%d/%m/%Y') %> <b>|</b> <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
                                 <p><%=  Company.find_by_id(offer.branch.company_id).name %></p>
                               </div><!--end media-body-->
                             </div><!--end media-->
@@ -120,7 +120,7 @@
                           </a>
                           <div class="media-body">
                             <h4 class="media-heading"><a href="<%= offer_path(offer) %>"><%= offer.name %></a></h4>
-                            <h5><%=offer.start_date.strftime('%d/%m/%Y') %> / <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
+                            <h5><%=offer.start_date.strftime('%d/%m/%Y') %> <b>|</b> <%= offer.end_date.strftime('%d/%m/%Y')%></h5>
                             <p><%= Company.find_by_id(offer.branch.company_id).name %></p>
                           </div><!--end media-body-->
                         </div><!--end media-->
