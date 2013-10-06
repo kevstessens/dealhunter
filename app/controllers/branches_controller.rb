@@ -45,7 +45,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to users_branches_company_user_path , notice: 'Branch was successfully created.' }
+        format.html { redirect_to users_branches_company_user_path , notice: 'La sucursal ha sido creada correctamente.' }
         format.json { render json: @branch, status: :created, location: @branch }
       else
         format.html { redirect_to users_branches_company_user_path(:e => "true") }
@@ -74,11 +74,11 @@ class BranchesController < ApplicationController
   # DELETE /branches/1.json
   def destroy
     @branch = Branch.find(params[:id])
+    name = @branch.name
     @branch.destroy
 
     respond_to do |format|
-      format.html { redirect_to branches_url }
-      format.json { head :no_content }
+      format.html { redirect_to users_branches_company_user_path , notice: name + ' se ha eliminado.' }
     end
   end
 end

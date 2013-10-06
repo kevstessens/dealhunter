@@ -12,6 +12,11 @@
         <div class="wrapper">
           <article>
 
+            <%unless flash[:notice].nil? %>
+                <div class="alert">
+                    <%= flash[:notice]%>
+                </div>
+            <%end%>
             <% @branches.each do |branch| %>
 
                 <div class="media hotel-item">
@@ -20,6 +25,9 @@
                     <h5><%= branch.address_as_string %></h5>
                   </div>
                   <!--end media-body-->
+
+                  <td><%= button_to 'Eliminar Sucursal', branch_path(branch),
+                              :confirm => 'Está seguro?', :method => :delete %></td>
                 </div>
                 <!--end media-->
 

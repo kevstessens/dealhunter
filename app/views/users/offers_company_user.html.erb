@@ -18,6 +18,12 @@
         <div class="wrapper">
           <article>
 
+            <%unless flash[:notice].nil? %>
+                <div class="alert">
+                  <%= flash[:notice]%>
+                </div>
+            <%end%>
+
             <ul id="myTab" class="nav nav-tabs">
               <li class="active"><a href="#all" data-toggle="tab" id="all-tab">Todas</a></li>
               <li><a href="#active" data-toggle="tab" id="actual-tab">Activas</a></li>
@@ -55,9 +61,14 @@
                               <a href="#offer_<%= offer.id %>" role="button" data-toggle="modal"><%= offer.name %></a>
                             </h4>
                             <h5><%= offer.start_date.strftime('%d/%m/%Y') %>
-                              / <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
+                              <b> | </b> <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
                           </div>
                           <!--end media-body-->
+                          <td><%= button_to 'Eliminar Oferta', offer_path(offer),
+                                            :confirm => 'Está seguro?', :method => :delete %>
+
+                            <%= button_to 'Ver Detalles', offer_path(offer), :method => :put%></td>
+
                         </div>
                         <!--end media-->
 
@@ -99,9 +110,13 @@
                               <a href="#offer_<%= offer.id %>" role="button" data-toggle="modal"><%= offer.name %></a>
                             </h4>
                             <h5><%= offer.start_date.strftime('%d/%m/%Y') %>
-                              / <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
+                              <b> | </b> <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
                           </div>
                           <!--end media-body-->
+                          <td><%= button_to 'Eliminar Oferta', offer_path(offer),
+                                            :confirm => 'Está seguro?', :method => :delete %>
+
+                            <%= button_to 'Ver Detalles', offer_path(offer), :method => :put%></td>
                         </div>
                         <!--end media-->
 
@@ -139,10 +154,15 @@
                               <a href="#offer_<%= offer.id %>" role="button" data-toggle="modal"><%= offer.name %></a>
                             </h4>
                             <h5><%= offer.start_date.strftime('%d/%m/%Y') %>
-                              / <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
+                              <b> | </b> <%= offer.end_date.strftime('%d/%m/%Y') %></h5>
 
                           </div>
                           <!--end media-body-->
+                          <td><%= button_to 'Eliminar Oferta', offer_path(offer),
+                                            :confirm => 'Está seguro?', :method => :delete %>
+
+                            <%= button_to 'Ver Detalles', offer_path(offer), :method => :put%></td>
+
                         </div>
                         <!--end media-->
 
