@@ -953,7 +953,7 @@ ul.hotel-item-description h4 a:hover {
 
 .clock-wrapper {
     background: #fff;
-    margin: 10px 10px 20px 10px;
+    margin: 10px 10px 15px 10px;
     overflow: hidden;
 }
 
@@ -2248,6 +2248,10 @@ input:focus {
         width: 110px;
     }
 
+    .clock-info{
+        width: 228px;
+    }
+
     .small-photo{
         height: 180px;
     }
@@ -2261,9 +2265,11 @@ input:focus {
     /* sidebar --------------------------- */
 
     .clock-numbers ul li {
-        font-size: 22px;
+        font-size: 16px;
         text-align: center;
-        width: 22%;
+        width: auto;
+        margin: 0;
+
     }
 
     #page-checkout .hotel-item-thumb {
@@ -2325,6 +2331,10 @@ input:focus {
 
     .small-photo{
         height: 350px;
+    }
+
+    .clock-info{
+        width: 100%;
     }
 
     header#top {

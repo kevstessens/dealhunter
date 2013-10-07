@@ -1,10 +1,12 @@
-x<!--container-->
+<!--container-->
 <div class="container" id="main-content">
   <div class="row">
-    <section class="span8">
+    <section class="span8 rounded-borders light-shadowed">
       <div class="wrapper-padding">
 
-        <header>
+        <header class="rounded-borders-btn" style="
+        padding: 1px 10px;
+        ">
           <h2> <%= @offer.name%> </h2>
           <h3> <%= @offer.branch.company.name %> / <%= @offer.branch.name%> </h3>
         </header>
@@ -88,10 +90,10 @@ x<!--container-->
     </section> <!--end main content section-->
 
     <!--sidebar-->
-    <aside class="span4">
-      <div class="row">
-        <div class="span4 clearfix" style="background-color: grey;">
-          <div class="clock-wrapper">
+    <aside class="span4 rounded-borders light-shadowed">
+      <div class="row rounded-borders-top">
+        <div class="span4 clearfix rounded-borders-top" style="background-color: grey;">
+          <div class="clock-wrapper rounded-borders-top">
             <div class="clock-info">
             <div class="clock-title pull-left">
               <i class="icon-white icon-time"></i> Quedan</li>
@@ -117,9 +119,9 @@ x<!--container-->
           <% unless @user.company? %>
               <%clients_offer = ClientsOffer.where(:client_id => Client.where(:user_id => @user.id).first.id, :offer_id => @offer.id) %>
               <% if clients_offer.first.nil? %>
-                <%= link_to 'Inscribir', users_inscribe_path(:offer_id => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+                <%= link_to 'Inscribir', users_inscribe_path(:offer_id => @offer.id), { :type =>"button", :class => "btn btn-dealhunter medium full-width rounded-borders-btn", :method => :post, } %>
               <%else%>
-                  <%= link_to 'Desinscribir', users_unsubscribe_path(:clients_offers_id => clients_offer.first.id, :offer_id => @offer.id ), { :type =>"button", :class => "btn btn-dealhunter medium full-width", :method => :post, } %>
+                  <%= link_to 'Desinscribir', users_unsubscribe_path(:clients_offers_id => clients_offer.first.id, :offer_id => @offer.id ), { :type =>"button", :class => "btn btn-dealhunter medium full-width rounded-borders-btn", :method => :post, } %>
               <%end%>
               <br>
               <br>
