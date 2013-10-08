@@ -28,6 +28,7 @@
 
                   <td><%= button_to 'Eliminar Sucursal', branch_path(branch),
                               :confirm => 'Está seguro?', :method => :delete %></td>
+                  <td><a href="#editBranchModal_<%=branch.id%>" role="button" data-toggle="modal"> Editar Sucursal </a></td>
                 </div>
                 <!--end media-->
 
@@ -133,9 +134,63 @@
     <% end %>
 
 
-      </div>  <!--end Modal-->
+</div>  <!--end Modal-->
 
 
+<% @branches.each do |branch| %>
+
+    <div id="editBranchModal_<%=branch.id%>" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Editar Sucursal</h3>
+      </div>
+      <div class="modal-body">
+        <div id="invitar-amigo-box">
+
+          <%= semantic_nested_form_for branch do |f| %>
+              <div id="nameFields">
+                <label>Nombre: <%= f.input :name, :label => false %> </label>
+              </div>
+              <hr>
+
+              <%= f.inputs :for => [:address, f.object.address || Address.new] do |address| %>
+                  <div class="row">
+                    <div id="nameFields" class="span3">
+                      <label>Calle: <%= address.input :street, :label => false %> </label>
+                    </div>
+                    <div id="nameFields" class="span3">
+                      <label>Número: <%= address.input :number, :label => false %> </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="nameFields" class="span3">
+                      <label>Localidad: <%= address.input :city, :label => false %> </label>
+                    </div>
+                    <div id="nameFields" class="span3">
+                      <label>Provincia: <%= address.input :state, :label => false %> </label>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div id="nameFields" class="span3">
+                      <label>País: <%= address.input :country, :as => :select, :prompt => "Seleccione País", :collection => Country.all, :label => false %> </label>
+                    </div>
+                  </div>
+              <% end %>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                <button class="btn btn-vontrip" type="submit">Guardar</button>
+              </div>
+              <script type="text/javascript">
+                  assignBranchValidation();
+              </script>
+         </div>
+<%end%>
+
+
+          <%end%>
 <script>
     $(document).ready(function(){
       var e = <%= @e %>;
