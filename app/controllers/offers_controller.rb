@@ -51,6 +51,7 @@ class OffersController < ApplicationController
   def create
     offer = params[:offer]
     @offer = Offer.new
+    @offer.prizes_attributes = offer[:prizes_attributes]
     @offer.name = offer[:name]
     @offer.start_date = offer[:start_date]
     @offer.end_date = offer[:end_date]

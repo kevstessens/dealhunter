@@ -61,10 +61,10 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.update_attributes(params[:branch])
-        format.html { redirect_to @branch, notice: 'Branch was successfully updated.' }
+        format.html { redirect_to :back, notice: 'La sucursal fue actualizada.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to :back, notice: 'La sucursal no fue actualizada.'}
         format.json { render json: @branch.errors, status: :unprocessable_entity }
       end
     end
