@@ -1269,6 +1269,9 @@ ul.list-box-grey li span {
     font-weight: bold;
 }
 
+.offer-btns-div form{
+    margin: 3px 0;
+}
 /* calendar
 -------------------------------------------------- */
 .calendar-footer {
@@ -2526,6 +2529,10 @@ input:focus {
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+
+    a{
+        text-decoration: none;
+    }
 
     /* header --------------------------- */
     body#landing {
