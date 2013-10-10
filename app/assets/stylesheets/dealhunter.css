@@ -1272,6 +1272,23 @@ ul.list-box-grey li span {
 .offer-btns-div form{
     margin: 3px 0;
 }
+
+.offer-btns-div a{
+    background: #f7f6f4 !important;
+    border: 2px solid #dadada !important;
+    border-radius: 7px !important;
+    width: auto;
+    font: -webkit-small-control;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    padding: 3px 6px;
+    text-decoration: none;
+}
 /* calendar
 -------------------------------------------------- */
 .calendar-footer {

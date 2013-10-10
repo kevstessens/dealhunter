@@ -1,7 +1,8 @@
 <div class="container" id="main-content">
   <div class="row">
     <section class="span8 rounded-borders light-shadowed">
-      <h2 id="recommend-to-friend" class="pull-right rounded-borders light-shadowed" href="#newBranchModal" role="button" data-toggle="modal">Nueva sucursal</h2>
+      <h2 id="recommend-to-friend" class="pull-right rounded-borders light-shadowed" href="#newBranchModal" role="button" data-toggle="modal">Nueva
+        sucursal</h2>
 
       <header class="out rounded-borders-top">
         <h2>Sucursales</h2>
@@ -12,23 +13,27 @@
         <div class="wrapper">
           <article>
 
-            <%unless flash[:notice].nil? %>
+            <% unless flash[:notice].nil? %>
                 <div class="alert">
-                    <%= flash[:notice]%>
+                  <%= flash[:notice] %>
                 </div>
-            <%end%>
+            <% end %>
             <% @branches.each do |branch| %>
 
                 <div class="media hotel-item">
                   <div class="media-body">
                     <h4 class="media-heading"><%= branch.name %></a></h4>
                     <h5><%= branch.address_as_string %></h5>
+
+                    <div class="offer-btns-div">
+                      <%= button_to 'Eliminar Sucursal', branch_path(branch),
+                      :confirm => 'Está seguro?', :method => :delete %>
+                      <a href="#editBranchModal_<%= branch.id %>" role="button" data-toggle="modal"> Editar Sucursal </a>
+
+                    </div>
                   </div>
                   <!--end media-body-->
 
-                  <td><%= button_to 'Eliminar Sucursal', branch_path(branch),
-                              :confirm => 'Está seguro?', :method => :delete %></td>
-                  <td><a href="#editBranchModal_<%=branch.id%>" role="button" data-toggle="modal"> Editar Sucursal </a></td>
                 </div>
                 <!--end media-->
 
@@ -85,11 +90,11 @@
   <div class="modal-body">
     <div id="invitar-amigo-box">
 
-      <%if @e == "true" %>
+      <% if @e == "true" %>
           <div class="alert">
             La dirección especificada es incorrecta
           </div>
-      <%end%>
+      <% end %>
 
       <%= semantic_nested_form_for [Branch.new()] do |f| %>
           <div id="nameFields">
@@ -131,15 +136,15 @@
               assignBranchValidation();
           </script>
 
-    <% end %>
+      <% end %>
 
 
-</div>  <!--end Modal-->
+      </div>  <!--end Modal-->
 
 
 <% @branches.each do |branch| %>
 
-    <div id="editBranchModal_<%=branch.id%>" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="editBranchModal_<%= branch.id %>" class="modal modal-window hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Editar Sucursal</h3>
@@ -186,17 +191,17 @@
               <script type="text/javascript">
                   assignBranchValidation();
               </script>
-         </div>
-<%end%>
+              </div>
+          <% end %>
 
 
-          <%end%>
+<% end %>
 <script>
-    $(document).ready(function(){
-      var e = <%= @e %>;
-      if (e) {
-          $("#recommend-to-friend").click();
-      }
+    $(document).ready(function () {
+        var e = <%= @e %>;
+        if (e) {
+            $("#recommend-to-friend").click();
+        }
 
-  })
+    })
 </script>
