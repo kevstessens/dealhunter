@@ -44,7 +44,7 @@ DealHunter::Application.routes.draw do
 
   resources :addresses
 
-  devise_for :users, :controllers => { :registrations => "registrations"}
+  devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords"}
 
   resources :clients
 
@@ -53,6 +53,8 @@ DealHunter::Application.routes.draw do
   resources :user_roles
 
   resources :users
+
+  resources :passwords
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

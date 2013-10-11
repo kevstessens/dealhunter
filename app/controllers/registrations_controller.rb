@@ -41,27 +41,38 @@ def create
     super
   end
 
-  def update
+  def lupdate
     @user = current_user
     p = params[:user]
     if @user.valid_password?(p[:password])
-      @user.update_password = true
       if p[:new_password] == p[:password_confirmation]
         @user.password = p[:new_password]
+        @user.update_password = true
         if @user.save
-          flash.now.alert = "OK"
+          flash.now.alert = "Password updated."
           render users_home_path
         else
-          flash.now.alert = "NO"
+          flash.now.alert = "Password not updated."
           render :edit
         end
       else
-        flash.now.alert = "NO"
+        flash.now.alert = "Password not updated."
         render :edit
       end
     else
-      flash.now.alert = "NO"
+      flash.now.alert = "Invalid password."
       redirect_to :back
+    end
+  end
+
+  def update
+    @user = current_user
+    # raise params.inspect
+    if @user.update_with_password(params[:user])
+      sign_in(@user, :bypass => true)
+      redirect_to root_path, :notice => "Your Password has been updated!"
+    else
+      render :edit,:locals => { :resource => @user, :resource_name => "user" }
     end
   end
 end
