@@ -147,6 +147,12 @@ class UsersController < ApplicationController
         @user.client.titles.push(title)
       end
     end
+    ClientsTitles.all.each do |c|
+      if c.weight.nil?
+        c.weight = 1
+        c.save!
+      end
+    end
     redirect_to users_titles_user_path, :notice => "Se han guardado sus intereses"
 
   end
@@ -216,6 +222,16 @@ class UsersController < ApplicationController
     clients_offers = ClientsOffer.new
     clients_offers.client_id = client_id
     clients_offers.offer_id = offer_id
+
+    offer = Offer.find(params[:offer_id])
+    offer.titles.each do|t|
+      client_title = ClientsTitles.where(:client_id => client_id, :title_id => Title.select(:id).where(:id => t.id)).first()
+      unless client_title.nil?
+        client_title.weight += 1
+        client_title.save
+      end
+    end
+
     if clients_offers.save
       redirect_to offer_path(Offer.find_by_id(offer_id))
     end
@@ -223,6 +239,18 @@ class UsersController < ApplicationController
 
   def unsubscribe
     clients_offers = ClientsOffer.find(params[:clients_offers_id])
+
+    client_id = Client.where(:user_id => current_user.id).first.id
+    offer = Offer.find(clients_offers.offer_id)
+    offer.titles.each do|t|
+      client_title = ClientsTitles.where(:client_id => client_id, :title_id => Title.select(:id).where(:id => t.id)).first()
+      unless client_title.nil?
+        client_title.weight -= 1
+        client_title.save
+      end
+    end
+
+
     if clients_offers.destroy
       redirect_to offer_path(Offer.find_by_id(params[:offer_id]))
     end
