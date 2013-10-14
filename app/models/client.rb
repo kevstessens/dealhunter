@@ -4,6 +4,7 @@ class Client < ActiveRecord::Base
   has_one :address
   has_and_belongs_to_many :offers
   belongs_to :newsletter_frequency
+  has_and_belongs_to_many :companies
 
   attr_accessible :first_name, :last_name, :user_id, :address_attributes, :titles, :newsletter_frequency_id
 

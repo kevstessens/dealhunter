@@ -1,5 +1,8 @@
 DealHunter::Application.routes.draw do
 
+  resources :clients_companies
+
+
   resources :newsletter_frequencies
 
 

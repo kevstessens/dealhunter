@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   has_many :branches
+  has_and_belongs_to_many :clients
 
   attr_accessible :cuit, :name, :user_id, :user_attributes, :branches_attributes
 
