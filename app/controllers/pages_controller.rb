@@ -47,6 +47,15 @@ class PagesController < ApplicationController
   end
 
 
+  def sendNewsletter
+    Client.all.each do |client|
+      NewsletterMailer.newsletter_email(client).deliver
+    end
+    print("El newsletter se ha enviado")
+    redirect_to users_home_view_path
+  end
+
+
   def contact
     @message = Message.new
     get_params(@message)

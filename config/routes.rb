@@ -26,6 +26,7 @@ DealHunter::Application.routes.draw do
   match 'users/home_map' => 'users#home_map'
   match 'users/inscribe' => 'users#inscribe'
   match 'users/unsubscribe' => 'users#unsubscribe'
+  match 'send/newsletter' => 'pages#sendNewsletter'
 
   root :to => "users#home"
 
