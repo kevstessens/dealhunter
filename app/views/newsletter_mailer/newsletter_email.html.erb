@@ -51,9 +51,7 @@
 
       }
 
-      .rounded-borders {
-          border-radius: 25px 25px 25px 25px;
-      }
+
 
       .light-shadowed {
           -webkit-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
@@ -79,11 +77,12 @@
       }
 
       .firstP {
+          margin: 0 ;
           letter-spacing: -0.6px;
           color: #66cdaa;
           font-weight: bold;
           font-size: 17px;
-          margin: 0 !important;
+          margin: 0 ;
       }
 
       .firstTable {
@@ -93,32 +92,14 @@
       }
 
       .firstA {
-          color: white;
-          font-size: 12px;
-          text-decoration: none;
-          text-align: center;
+
       }
 
       .secondTD {
-          font-size: 14px;
-          line-height: 20px;
-          color: #333;
       }
 
-      .firstH2 {
-          color: mediumAquaMarine;
-          padding: 10px 0;
-      }
 
-      .secondA {
-          background-color: rgb(23, 46, 117);
-          color: #fff;
-          text-decoration: none;
-          font-size: 20px;
-          padding: 10px;
-          margin: 10px;
-          border-radius: 5px;
-      }
+
           .no-padding{
               margin:0 !important;
           }
@@ -130,23 +111,40 @@
   <td>
     <!--header-->
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr class="light-shadowed">
-        <td valign="middle" align="center" height="100" class="whitebg" style="" bgcolor="#fff">
+      <tr style="      -webkit-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+              -moz-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+              box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+      " >
+        <td valign="middle" align="center" height="100" style="          background: white;
+        " bgcolor="#fff">
           <img src="http://cursosflipstudios.com.ar/imgdeal/logo-landing.png" alt="dealhunter, Tu club privado de viajes y escapadas" width="258" height="100" longdesc="http://www.dealhunter.com">
         </td>
       </tr>
       <tr>
-        <td valign="middle" align="center" class="firstTd" bgcolor="#ff4b3d">
+        <td valign="middle" align="center" class="firstTd" style="     background: #F5F5F5;
+                color: #696969;
+                border: 1px solid #C4C4C4;
+        ">
           <table width="600" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <td height="58" width="480">
-                <p class="firstP" style="">Participá en estas y más ofertas de tu
+                <p  style="margin: 0 ;
+                        letter-spacing: -0.6px;
+                        color: #66cdaa;
+                        font-weight: bold;
+                        font-size: 17px;
+                        margin: 0 ;">Participá en estas y más ofertas de tu
                   interés</p></td>
               <td width="120">
-                <table width="120" border="0" cellspacing="0" cellpadding="10" class="firstTable" style="">
+                <table width="120" border="0" cellspacing="0" cellpadding="10"  style="background: rgb(23, 46, 117);
+                        color: #fff;
+                        border-radius: 5px;">
                   <tr>
                     <td align="center" width="120">
-                      <a href="http://localhost:3000" class=" rounded-borders-btn firstA" style="">VER OFERTAS</a></td>
+                      <a href="http://localhost:3000" class=" rounded-borders-btn firstA" style="color: white;
+                              font-size: 12px;
+                              text-decoration: none;
+                              text-align: center;">VER OFERTAS</a></td>
                   </tr>
                 </table>
               </td>
@@ -159,7 +157,8 @@
   </td>
 </tr>
 <tr>
-  <td class="middleTd" valign="middle" align="top">
+  <td style="       background: url(http://cursosflipstudios.com.ar/imgdeal/bgTexture.png);
+  " valign="middle" align="top">
     <!--body-->
     <!--divider-->
     <table width="600" height="40" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -170,12 +169,21 @@
     <!--end divider-->
 
     <!--content one-->
-    <table class="rounded-borders light-shadowed whitebg" width="750" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff">
+    <table style="          border-radius: 25px 25px 25px 25px;        -webkit-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+            -moz-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+            box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+            background: white;
+
+
+    "class=" whitebg" width="750" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff">
       <tr>
         <td width="330" valign="top">
           <table width="100%" border="0" cellspacing="0" cellpadding="20">
             <tr>
-              <td style="" class="secondTD">
+              <td style="     font-size: 14px;
+                      line-height: 20px;
+                      color: #333;
+              " >
 
                 <% i =0 %>
                 <% @offers.each do |offer| %>
@@ -189,7 +197,8 @@
                     <div class="span3 offer-small">
                       <!-- 	/* solapa --------------------------- */-->
                       <ul class="flap-items">
-                        <li class="img_item">
+                        <li style="          list-style: none;
+                        " class="img_item">
                           <% unless offer.photo.nil? %>
                               <img class="small-photo " src="<%= offer.photo %>" alt=""
                                    style="height: 195px;"/>
@@ -201,7 +210,8 @@
                         <div class="span3" style="position:relative;">
                           <div class="wrapper-padding">
                             <ul class="inline hotel-item clearfix">
-                              <li>
+                              <li style="          list-style: none;
+                              ">
                                 <h3 class="media-heading"><a href="<%= offer_path(offer) %>"> <%= offer.name %> </a>
                                 </h3>
                                 <% unless offer.branch.nil? %>
@@ -216,10 +226,13 @@
                                 </h7>
 
                               </li>
-                              <li>
+                              <li style="          list-style: none;
+                              ">
                                 <ul>
-                                  <li class="offer-disccount"></li>
-                                  <li class="offer-price"></li>
+                                  <li style="          list-style: none;
+                                  " class="offer-disccount"></li>
+                                  <li style="          list-style: none;
+                                  " class="offer-price"></li>
                                 </ul>
                               </li>
                             </ul>
@@ -257,12 +270,20 @@
 
       <tr>
         <td valign="middle" align="center">
-          <h2 style="" class="firstH2">Encontrá las mejores ofertas<br> para vos</h2></td>
+          <h2 style="          color: mediumAquaMarine;
+                  padding: 10px 0;
+          " >Encontrá las mejores ofertas<br> para vos</h2></td>
 
       </tr>
       <tr style="height:70px;">
         <td align="center">
-          <a href="http://localhost:3000" class="secondA" style="
+          <a href="http://localhost:3000" style="background-color: rgb(23, 46, 117);
+                  color: #fff;
+                  text-decoration: none;
+                  font-size: 20px;
+                  padding: 10px;
+                  margin: 10px;
+                  border-radius: 5px;
           ">VER
             OFERTAS</a></td>
       </tr>
