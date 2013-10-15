@@ -22,4 +22,8 @@ class Client < ActiveRecord::Base
     return prefer
   end
 
+  def preferences
+    ClientsTitles.where(:client_id => self.id).select("title_id, weight")
+  end
+
 end
