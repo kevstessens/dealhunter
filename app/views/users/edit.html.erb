@@ -21,7 +21,7 @@
 
                       <%=f.inputs :for => [:client, f.object.client] do |h|%>
 
-                          <div class="span4 control-group clearfix">
+                          <div class="span12 control-group clearfix">
                             <label class="pull-left" for="inputEmail">Nombre</label>
                             <%=h.input :first_name, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Nombre" } %>
                           </div>
@@ -35,7 +35,7 @@
 
                       <%=h.inputs :for => [:address, h.object.address || Address.new] do |address|%>
 
-                          <div class="span4 control-group clearfix">
+                          <div class="span12 control-group clearfix">
                             <label class="pull-left" for="inputDireccion">Calle</label>
                             <%=address.input :street, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Dirección Completa", :id => "inputDireccion" } %>
                           </div>
@@ -45,7 +45,7 @@
                             <%=address.input :number, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Número", :id => "inputProvincia"} %>
                           </div>
 
-                          <div class="span4 control-group clearfix">
+                          <div class="span12 control-group clearfix">
                             <label class="pull-left" for="inputLocalidad">Piso</label>
                             <%=address.input :floor, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Piso", :id => "inputLocalidad" } %>
                           </div>
@@ -56,7 +56,7 @@
                             <%=address.input :city, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Localidad", :id => "inputLocalidad" } %>
                           </div>
 
-                          <div class="span4 control-group clearfix">
+                          <div class="span12 control-group clearfix">
                             <label class="pull-left" for="inputProvincia">Provincia</label>
                             <%=address.input :state, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Provincia", :id => "inputProvincia"} %>
                           </div>
@@ -71,7 +71,7 @@
 
                       <% end %>
 
-                      <div class="span4 control-group clearfix">
+                      <div class="span12 control-group clearfix">
                         <label class="pull-left" for="inputEmail">Email</label>
                         <%= f.input :email, :label => false, :input_html => { :class => "pull-right input-medium", :placeholder => "Email", :id => "inputEmail"} %>
                       </div>
