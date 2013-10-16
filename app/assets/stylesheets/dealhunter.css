@@ -576,9 +576,9 @@ header#top nav ul {
 }
 
 .light-shadowed {
-    -webkit-box-shadow: 9px 9px 13px -4px black;
-    -moz-box-shadow: 9px 9px 13px -4px black;
-    box-shadow: 9px 9px 13px -4px black;
+    -webkit-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+    -moz-box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
+    box-shadow: 9px 9px 13px -4px rgb(99, 98, 98);
 }
 
 .btn-group.open .btn.dropdown-toggle {

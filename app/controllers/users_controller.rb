@@ -177,8 +177,15 @@ class UsersController < ApplicationController
     if @user.user_role_id == 1 #company
       @offers = Offer.actual.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
-      clients_titles = ClientsTitles.select("title_id").where(:client_id => Client.where(:user_id => @user.id))
-      @offers = Offer.actual.where(:id => OffersTitles.select("offer_id").where(:title_id => clients_titles)).all
+      current_client =  current_user.client.id
+      offers=Array.new
+      Offer.all.each do |offer|
+        if offer.weight(current_client)>0
+          offers.append(offer)
+        end
+      end
+      @offers=offers.sort_by {|e| e.current_weight}.reverse
+
     end
   end
 
@@ -189,7 +196,7 @@ class UsersController < ApplicationController
     if @user.user_role_id == 1 #company
       @offers = Offer.actual.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
-      clients_titles = ClientsTitles.select("title_id").where(:client_id => Client.where(:user_id => @user.id))
+      clients_titles = ClientsTitles.select("title_id, weight").where(:client_id => Client.where(:user_id => @user.id))
       @offers = Offer.actual.where(:id => OffersTitles.select("offer_id").where(:title_id => clients_titles)).all
     end
   end

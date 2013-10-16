@@ -4,7 +4,8 @@ class Offer < ActiveRecord::Base
   has_and_belongs_to_many :titles
   belongs_to :branch
 
-  attr_accessible :end_date, :gmaps, :name, :start_date, :photo, :branch_id, :prizes_attributes, :description
+  attr_accessible :end_date, :gmaps, :name, :start_date, :photo, :branch_id, :prizes_attributes, :description, :titles
+  attr_accessor :current_weight
 
   accepts_nested_attributes_for :prizes, :allow_destroy => true
 
@@ -49,5 +50,18 @@ class Offer < ActiveRecord::Base
 
   def longitude
     self.branch.address.longitude
+  end
+
+  def weight(id) #recibe el id del cliente en cuestion
+    sum = 0
+    Client.find(id).preferences.each do |pref|
+      self.titles.all.each do |title|
+        if title == Title.find(pref.title_id)
+          sum = sum + pref.weight.to_i
+        end
+      end
+    end
+    self.current_weight = sum
+    return sum
   end
 end
