@@ -11,10 +11,13 @@
         <div class="wrapper">
           <article>
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-                </fieldset>
+                <% if @alert %>
+                    <div class="alert" id="register-alert">
+                      Datos inválidos.
+                    </div>
+                <% end %>
 
-                <%= devise_error_messages! %>
-
+                <fieldset>
                 <label for="inputPass">Contraseña Actual: </label>
                 <%= f.password_field :current_password, :autocomplete => "off", :class => "input-xlarge", :required => true %>
                 <label for="inputNewPass">Nueva Contraseña: </label>
@@ -22,7 +25,6 @@
                 <label for="inputNewPassAgain">Repetir Contraseña: </label>
                 <%= f.password_field :password_confirmation, :class => "input-xlarge", :required => true %>
                 <hr>
-
                 </fieldset>
 
                 <div class="text-center">
@@ -58,6 +60,7 @@
     <h2 class="rounded-borders-btn">Información Personal</h2>
     <ul class="aside-nav">
       <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+      <li><a href="<%= users_statistics_path %>">Mis Estadísticas</a></li>
     </ul>
     <h2 class="rounded-borders-btn">Preferencias</h2>
     <ul class="aside-nav">
