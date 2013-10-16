@@ -299,6 +299,7 @@ class UsersController < ApplicationController
 
 
   def statistics
+    @user = current_user
 
   end
 
