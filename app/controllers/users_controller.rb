@@ -297,4 +297,9 @@ class UsersController < ApplicationController
 
   end
 
+
+  def statistics
+
+  end
+
 end
