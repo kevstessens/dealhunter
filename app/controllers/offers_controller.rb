@@ -112,5 +112,16 @@ class OffersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def results
+    @offer = Offer.find(params[:id])
+    @offer_clients = ClientsOffer.find_all_by_offer_id(params[:id])
+    @offer_prizes = @offer.prizes
+  end
+
+  def save_results_offer
+
+  end
+
 end
 
