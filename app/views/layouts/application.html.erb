@@ -77,11 +77,8 @@
 
 <% if user_signed_in? %>
 
-    <% if session[:body].nil? %>
-        <body id="landing">
-    <% else %>
-        <body id="<%= session[:body] %>">
-    <% end %>
+
+        <body id="page-micuenta">
 
     <!--header-->
     <header id="top" class="light-shadowed">
