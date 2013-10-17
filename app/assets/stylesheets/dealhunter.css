@@ -2278,7 +2278,7 @@ input:focus {
 
     /* header --------------------------- */
     .my-span2 {
-        width: 224px !important
+        width: 198px !important;
     }
 
     #recommend-to-friend {
@@ -2890,6 +2890,6 @@ input:focus {
 }
 
 .my-span2 {
-    width: 135px;
+    width: 124px;
     margin-left: 10px;
 }
