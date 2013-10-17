@@ -4,6 +4,7 @@ class OfferStartMailer < ActionMailer::Base
   def offer_start_email(user, offer)
     @user = user
     @offer = offer
+
     mail(:to => user.email, :subject => "Comienza tu oferta!")
   end
 
