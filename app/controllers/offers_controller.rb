@@ -43,6 +43,7 @@ class OffersController < ApplicationController
 
   # GET /offers/1/edit
   def edit
+    session[:body]='page-micuenta'
     @offer = Offer.find(params[:id])
   end
 
