@@ -15,10 +15,12 @@
 
            <% if @user.company?%>
                <!-- aca van las estadísiticas de la empresa-->
+                <%= render 'offers/statistics' %>
 
            <%else%>
 
                 <!-- aca van las estadísiticas del cliente-->
+                <%= render 'offers/statistics' %>
 
            <%end%>
 
