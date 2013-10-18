@@ -29,6 +29,7 @@ DealHunter::Application.routes.draw do
   match 'send/newsletter' => 'pages#sendNewsletter'
 
   match 'offers/results' => 'offers#results'
+  match 'offers/save_results' => 'offers#save_results'
 
   match 'users/statistics' => 'users#statistics'
 

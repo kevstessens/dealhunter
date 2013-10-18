@@ -6,6 +6,8 @@
         <h2>Resultados</h2>
 
       </header>
+      <%= form_for @offer, :url => {:action => "save_results"} do |f| %>
+      <%= f.hidden_field :id %>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -26,9 +28,10 @@
                 <%= "#{client.user.email} - #{client.first_name} #{client.last_name} " %>
               </td>
               <td>
-                <select>
+                <select name="<%=client.user.id%>">
                   <% i = 1 %>
                   <% @offer_prizes.each do |f| %>
+                    <%#= select_tag "positions[]", i %>
                       <option>
                         <%= i %>
                       </option>
@@ -52,6 +55,7 @@
           <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Guardar</button>
         </div>
       </div>
+      <% end %>
 
 
     </section>
