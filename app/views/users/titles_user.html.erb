@@ -6,7 +6,7 @@
       </header>
       <div class="wrapper">
 
-      <article class="row">
+      <article >
         <%= form_for current_user, :url => {:action => "save_titles_user"} do |f| %>
             <%Title.all.each do |p|%>
         <% if(p.id== 1 || p.id==5 || p.id==9) %>
@@ -14,7 +14,7 @@
             <div class="wrapper-padding">
         <% end %>
 
-              <div class="my-span2" style="width: 135px">
+              <div class="my-span2" style="">
               <div class="roundedTwo" >
                 <%= check_box_tag "title_ids[]", p.id, @user.client.prefer(p.name), :id => p.id %>
                 <label for="<%= p.id %>" style="background: url('../assets/<%= p.icon_name%>.png') no-repeat no-repeat; background-size: 100px"></label>
@@ -64,6 +64,7 @@
         <h2 class="rounded-borders-btn">Información Personal</h2>
         <ul class="aside-nav">
           <li><a href="<%= edit_user_path(current_user)%>">Mi Perfil</a></li>
+          <li><a href="<%= users_statistics_path %>">Mis Estadísticas</a></li>
         </ul>
         <h2 class="rounded-borders-btn">Preferencias</h2>
         <ul class="aside-nav">

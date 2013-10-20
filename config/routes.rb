@@ -28,6 +28,12 @@ DealHunter::Application.routes.draw do
   match 'users/unsubscribe' => 'users#unsubscribe'
   match 'send/newsletter' => 'pages#sendNewsletter'
 
+  match 'offers/results' => 'offers#results'
+  match 'offers/save_results' => 'offers#save_results'
+
+  match 'users/statistics' => 'users#statistics'
+
+
   root :to => "users#home"
 
   resources :countries

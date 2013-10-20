@@ -77,11 +77,8 @@
 
 <% if user_signed_in? %>
 
-    <% if session[:body].nil? %>
-        <body id="landing">
-    <% else %>
-        <body id="<%= session[:body] %>">
-    <% end %>
+
+        <body id="page-micuenta">
 
     <!--header-->
     <header id="top" class="light-shadowed">
@@ -112,6 +109,7 @@
                       <%else%>
                         <li><a href="<%= users_titles_user_path %>">Mis Intereses</a></li>
                       <%end%>
+                      <li><a href="<%= users_statistics_path %>">Mis Estadísticas</a></li>
                       <li><a href="#">Ayuda</a></li>
                       <li class="divider"></li>
                       <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>

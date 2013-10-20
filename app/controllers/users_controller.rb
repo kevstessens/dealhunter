@@ -230,6 +230,7 @@ class UsersController < ApplicationController
     clients_offers.client_id = client_id
     clients_offers.offer_id = offer_id
 
+    #ponderar clients_titles
     offer = Offer.find(params[:offer_id])
     offer.titles.each do|t|
       client_title = ClientsTitles.where(:client_id => client_id, :title_id => Title.select(:id).where(:id => t.id)).first()
@@ -239,6 +240,19 @@ class UsersController < ApplicationController
       end
     end
 
+    #ponderar clients_companies
+    company_id = Branch.where(:id => offer.branch_id).first().company_id
+    clients_companies = ClientsCompany.where(:client_id => client_id, :company_id => company_id).first
+    if clients_companies.nil?
+      clients_companies = ClientsCompany.new
+      clients_companies.client_id = client_id
+      clients_companies.company_id = company_id
+      clients_companies.weight = 1
+    else
+      clients_companies.weight += 1
+    end
+    clients_companies.save
+
     if clients_offers.save
       redirect_to offer_path(Offer.find_by_id(offer_id))
     end
@@ -246,8 +260,9 @@ class UsersController < ApplicationController
 
   def unsubscribe
     clients_offers = ClientsOffer.find(params[:clients_offers_id])
-
     client_id = Client.where(:user_id => current_user.id).first.id
+
+    #ponderar clients_titles
     offer = Offer.find(clients_offers.offer_id)
     offer.titles.each do|t|
       client_title = ClientsTitles.where(:client_id => client_id, :title_id => Title.select(:id).where(:id => t.id)).first()
@@ -256,6 +271,14 @@ class UsersController < ApplicationController
         client_title.save
       end
     end
+
+
+    #ponderar clients_companies
+    company_id = Branch.where(:id => offer.branch_id).first().company_id
+    clients_companies = ClientsCompany.where(:client_id => client_id, :company_id => company_id).first
+    clients_companies.weight -= 1
+    clients_companies.save
+
 
 
     if clients_offers.destroy
@@ -271,6 +294,12 @@ class UsersController < ApplicationController
         redirect_to :back, :notice => "Se ha cambiado correctamente la frecuencia del newsletter"
       end
     end
+
+  end
+
+
+  def statistics
+    @user = current_user
 
   end
 
