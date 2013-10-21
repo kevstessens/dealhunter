@@ -30,6 +30,7 @@ DealHunter::Application.routes.draw do
   match 'send/endOfferMail' => 'pages#sendEndOfferMail'
 
   match 'offers/results' => 'offers#results'
+  match 'offers/save_results' => 'offers#save_results'
 
   match 'users/statistics' => 'users#statistics'
 
