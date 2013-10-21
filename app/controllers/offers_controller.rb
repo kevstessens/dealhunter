@@ -15,8 +15,11 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
-    @offer = Offer.find(params[:id])
     @user = current_user
+    @offer = Offer.find(params[:id])
+    @offer_prizes = @offer.prizes
+    @offer_clients = ClientsOffer.find_all_by_offer_id(params[:id])
+
     address = @offer.branch.address
     @latitude = address.latitude
     @longitude = address.longitude
