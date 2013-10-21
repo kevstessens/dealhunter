@@ -112,7 +112,7 @@
           </div>
         </div>
       </div>
-      <div class="span8">
+      <div class="span8 offer-btns-div" >
         <% f.object.prizes.build unless !f.object.prizes.blank? %>
         <%= f.semantic_fields_for :prizes do |prize| %>
             <%= prize.inputs "Premio" do %>
@@ -126,16 +126,17 @@
                           margin-left: 10px;
                           margin-right: 5px; float: left;"} %>
                 <div style="float: right;
-                        margin-right: 50px;
-                        margin-top: 5px;">
+                        margin-right: 10px;
+                        margin-top: 3px;">
                   <%= prize.link_to_remove "Eliminar", :class => "button_remove" %>
                 </div>
             <% end %>
         <% end %>
-        <div id="add_claim_messages" style="margin-top: 10px;">
+        <div id="add_claim_messages" class="offer-btns-div" style="margin-top: 10px;">
           <%= f.link_to_add "Agregar premio", :prizes, :class => "button" %>
         </div>
-        <div id="visibleModal" style="margin-top: 10px;"><a class="button">Cargar Intereses</a>
+        <div id="visibleModal" class="offer-btns-div" style="margin-top: 10px;">
+          <a class="button">Cargar Intereses</a>
 
         </div>
 

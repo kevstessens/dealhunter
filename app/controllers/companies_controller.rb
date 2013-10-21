@@ -61,9 +61,9 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.name = params[:company][:name]
     @company.cuit = params[:company][:cuit]
-    @company.save!
-
     @company.user.update_attribute(:email, params[:company][:user][:email])   unless params[:company][:user].nil?
+
+    @company.save!
 
     respond_to do |format|
       if @company.update_attributes(params[:company])

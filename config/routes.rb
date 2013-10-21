@@ -27,8 +27,10 @@ DealHunter::Application.routes.draw do
   match 'users/inscribe' => 'users#inscribe'
   match 'users/unsubscribe' => 'users#unsubscribe'
   match 'send/newsletter' => 'pages#sendNewsletter'
+  match 'send/endOfferMail' => 'pages#sendEndOfferMail'
 
   match 'offers/results' => 'offers#results'
+  match 'offers/save_results' => 'offers#save_results'
 
   match 'users/statistics' => 'users#statistics'
 

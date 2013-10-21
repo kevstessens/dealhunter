@@ -3,7 +3,13 @@
   <div class="row">
     <section class="span8 rounded-borders light-shadowed">
       <div class="wrapper-padding">
-
+        <% if !session[:flash].nil? %>
+            <% if !session[:flash][:notice].nil? %>
+                <div class="alert" id="login-alert">
+                  <%= session[:flash][:notice] %>
+                </div>
+            <% end %>
+        <% end %>
         <header class="rounded-borders-btn" style="
         padding: 1px 10px;
         ">

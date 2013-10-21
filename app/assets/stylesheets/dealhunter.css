@@ -19,8 +19,9 @@ a {
 input::-moz-focus-inner {
     border: 0;
 }
-.input-medium-large{
-width: 162px !important;
+
+.input-medium-large {
+    width: 162px !important;
 }
 
 body {
@@ -112,6 +113,7 @@ aside h3 {
     padding: 10px;
     margin: 0 0 10px 0;
 }
+
 #main-content aside h2 {
     background-color: rgb(23, 46, 117);
     color: #FFF;
@@ -128,17 +130,17 @@ aside h3 {
 
 }
 
-
 #main-content {
     background: url(/assets/bgTexture.png);
 
 }
 
-.rounded-borders-bottom{
+.rounded-borders-bottom {
     border-radius: 0px 0px 25px 25px;
 }
-.rounded-borders-top{
-    border-radius: 25px 25px 0px 0px ;
+
+.rounded-borders-top {
+    border-radius: 25px 25px 0px 0px;
 }
 
 #block {
@@ -327,7 +329,8 @@ header#top nav ul {
     *background-color: rgb(23, 46, 117);
 
 }
-.interestName{
+
+.interestName {
     width: 120px;
 }
 
@@ -354,7 +357,7 @@ header#top nav ul {
 
 .btn-dealhunter:active,
 .btn-dealhunter.active {
-    background-color: #003399    \9;
+    background-color: #003399     \9;
 }
 
 .btn-dealhunter-grey {
@@ -379,7 +382,7 @@ header#top nav ul {
 
 .btn-dealhunter-grey:active,
 .btn-dealhunter-grey.active {
-    background-color: #003399    \9;
+    background-color: #003399     \9;
 }
 
 .btn-group.open .btn.dropdown-toggle {
@@ -491,7 +494,7 @@ header#top nav ul {
     /*	float:left;
     */
     position: relative;
-     /*todo: hacer responsive*/
+    /*todo: hacer responsive*/
 
     /*background: url(../assets/recomendar-bt.png) no-repeat top center;*/
     background-color: mediumaquamarine;
@@ -503,7 +506,6 @@ header#top nav ul {
     font-size: 14.5px;
     color: white;
     cursor: pointer;
-
 
 }
 
@@ -849,7 +851,6 @@ section h2 {
     font-size: 11px;
 }
 
-
 #landing footer #container {
     min-height: 100%;
     position: relative;
@@ -973,7 +974,7 @@ ul.hotel-item-description h4 a:hover {
     overflow: hidden;
 }
 
-.clock-info{
+.clock-info {
     width: 280px;
     height: 41px;
 }
@@ -989,7 +990,6 @@ ul.hotel-item-description h4 a:hover {
     color: #fff;
     height: 21px;
 }
-
 
 .clock-numbers {
     background: #fff;
@@ -1285,11 +1285,11 @@ ul.list-box-grey li span {
     font-weight: bold;
 }
 
-.offer-btns-div form{
+.offer-btns-div form {
     margin: 3px 0;
 }
 
-.offer-btns-div a{
+.offer-btns-div a {
     background: #f7f6f4 !important;
     border: 2px solid #dadada !important;
     border-radius: 7px !important;
@@ -1305,6 +1305,7 @@ ul.list-box-grey li span {
     padding: 3px 6px;
     text-decoration: none;
 }
+
 /* calendar
 -------------------------------------------------- */
 .calendar-footer {
@@ -1361,7 +1362,7 @@ footer {
     padding: 0px !important;
 }
 
-.floating-left-span{
+.floating-left-span {
     height: 80px;
     top: 150px;
     position: fixed;
@@ -1371,7 +1372,7 @@ footer {
 
 }
 
-.languages a:hover{
+.languages a:hover {
     color: white;
 }
 
@@ -1456,7 +1457,7 @@ body#landing {
     margin-top: 10px;
 }
 
-#languages{
+#languages {
     position: fixed;
     background-color: aquamarine;
     padding: 10px;
@@ -1479,8 +1480,7 @@ body#landing {
     -o-transform: translateX(20px);
 }
 
-
-.flag{
+.flag {
     width: 70px;
     margin: 2px -2px 2px 2px;
     cursor: pointer;
@@ -1707,20 +1707,20 @@ input:focus {
     background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfff4', endColorstr='#b3bead', GradientType=0);
     margin: 20px auto;
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
 
-    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
-.roundedTwo input[type="checkbox"]{
+.roundedTwo input[type="checkbox"] {
     /*display: none;*/
 }
 
@@ -1736,26 +1736,27 @@ input:focus {
     left: 4px;
     top: 4px;
 
-    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
 
     background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
     background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
     background: -o-linear-gradient(top, #222 0%, #45484d 100%);
     background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
     background: linear-gradient(top, #222 0%, #45484d 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222', endColorstr='#45484d', GradientType=0);
 }
 
 .roundedTwo label:after {
+
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
     content: '';
     position: absolute;
     width: 65px;
-    height:25px;
+    height: 25px;
     background: transparent;
     top: 30px;
     left: 15px;
@@ -1776,11 +1777,11 @@ input:focus {
     opacity: 0.3;
 }
 
-.roundedTwo input[type="checkbox"]:checked{
+.roundedTwo input[type="checkbox"]:checked {
     content: '';
     position: absolute;
     width: 65px;
-    height:25px;
+    height: 25px;
 
     top: 30px;
     left: 15px;
@@ -1800,15 +1801,13 @@ input:focus {
     opacity: 1;
 }
 
-
-#invitar-amigo-box{
-   margin-top: 0;
-}
-
-#invitar-amigo-box hr{
+#invitar-amigo-box {
     margin-top: 0;
 }
 
+#invitar-amigo-box hr {
+    margin-top: 0;
+}
 
 .modal-window .headlines {
     width: 99%;
@@ -2049,7 +2048,6 @@ input:focus {
     border-color: darkgray;
 }
 
-
 .message-box {
     height: auto;
     width: auto;
@@ -2059,6 +2057,7 @@ input:focus {
     border-width: 1px;
     border-color: mediumaquamarine;
 }
+
 .offer-small .offer-price-box {
     width: 70px;
 }
@@ -2258,7 +2257,7 @@ input:focus {
         padding: 20px;
     }
 
-    #main-content{
+    #main-content {
         min-height: 440px;
     }
 }
@@ -2269,7 +2268,7 @@ input:focus {
         padding: 20px;
     }
 
-    #main-content2{
+    #main-content2 {
         min-height: 345px;
     }
 }
@@ -2278,21 +2277,21 @@ input:focus {
 @media (min-width: 768px) and (max-width: 979px) {
 
     /* header --------------------------- */
-
+    .my-span2 {
+        width: 224px !important
+    }
 
     #recommend-to-friend {
         width: 110px;
     }
 
-    .clock-info{
+    .clock-info {
         width: 228px;
     }
 
-    .small-photo{
+    .small-photo {
         height: 180px;
     }
-
-
 
     header#top nav {
         width: 220px;
@@ -2365,11 +2364,42 @@ input:focus {
 
     }
 
-    .small-photo{
+    .roundedTwo{
+        width: 210px !important;
+        height: 210px !important;
+    }
+
+    .roundedTwo label{
+       background-size: 200px !important;
+        width: 200px !important;
+        height: 200px !important;
+        border-radius: 100px !important;
+    }
+    .roundedTwo label:after {
+        width: 120px !important;
+        height: 65px !important;
+        background: transparent;
+        top: 50px !important;
+        left: 40px !important;
+     }
+    .roundedTwo input[type="checkbox"]:checked {
+        width: 165px !important;
+        height: 125px !important;
+        top: 30px;
+        left: 15px;
+
+    }
+
+
+    .my-span2{
+        width: auto !important;
+    }
+
+    .small-photo {
         height: 350px;
     }
 
-    .clock-info{
+    .clock-info {
         width: 100%;
     }
 
@@ -2554,16 +2584,21 @@ input:focus {
     #offer-listing-page .button-arrow {
         display: none;
     }
-    #languages{
+
+    #languages {
         top: 250px;
     }
 
-    }
+}
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+    .my-span2 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
-    a{
+    a {
         text-decoration: none;
     }
 
@@ -2573,13 +2608,13 @@ input:focus {
 
     }
 
-    #languages{
+    #languages {
         top: 250px;
         height: 50px;
         width: 70px;
     }
 
-    .flag{
+    .flag {
         width: 40px;
     }
 
@@ -2755,8 +2790,6 @@ input:focus {
     height: 325px;
 }
 
-
-
 .list-photo {
     width: 110px;
     height: 90px;
@@ -2776,7 +2809,6 @@ input:focus {
 
 }
 
-
 .my-span2 input[type=checkbox] {
     visibility: hidden ! important;
 }
@@ -2786,23 +2818,20 @@ input:focus {
     height: 108px;
     background: #fcfff4;
 
-
     background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfff4', endColorstr='#b3bead', GradientType=0);
 
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
 
-
-
-    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
@@ -2818,10 +2847,9 @@ input:focus {
     left: 4px;
     top: 4px;
 
-    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
 
     background-size: 50px;
 
@@ -2861,6 +2889,7 @@ input:focus {
     opacity: 1;
 }
 
-.my-span2{
-    width: 135px ! important;
+.my-span2 {
+    width: 141px;
+    margin-left: 10px;
 }

@@ -43,6 +43,7 @@ class OffersController < ApplicationController
 
   # GET /offers/1/edit
   def edit
+    session[:body]='page-micuenta'
     @offer = Offer.find(params[:id])
   end
 
@@ -119,8 +120,19 @@ class OffersController < ApplicationController
     @offer_prizes = @offer.prizes
   end
 
-  def save_results_offer
+  def save_results
+    @offer = Offer.find(params[:offer][:id])
+    @offer.clients.each do |c|
+      position = params[c.user.id.to_s].to_i
+      participation = ClientsOffer.find_by_client_id_and_offer_id(c.user.id, @offer.id)
+      participation.participated = position!=0
+      participation.position = position
+      participation.save
+    end
 
+    respond_to do |format|
+      format.html { redirect_to @offer, notice: 'Los resultados se han guardado.' }
+    end
   end
 
 end

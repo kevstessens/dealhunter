@@ -32,8 +32,8 @@ class PagesController < ApplicationController
     @message = Message.new
     get_params(@message)
     @message.body = params[:message][:body]
-    @message.name =  params[:message][:name]
-    @message.email =  params[:message][:email]
+    @message.name = params[:message][:name]
+    @message.email = params[:message][:email]
     if @message.valid?
       ContactMailerTrabajaConNosotros.new_message_trabaja_con_nosotros(@message).deliver
       flash.now.alert = "El mensaje se ha enviado correctamente."
@@ -55,16 +55,28 @@ class PagesController < ApplicationController
     redirect_to users_home_view_path
   end
 
+  def sendEndOfferMail
+    Offer.all.each do |offer|
+      offer.clients.each do |client|
+        OfferEndMailer.offer_end_email(client, offer).deliver
+      end
+    end
+    print("El endOfferMail se ha enviado")
+    redirect_to users_home_view_path
+
+  end
+
+
 
   def contact
     @message = Message.new
     get_params(@message)
     @message.body = params[:message][:body]
-    @message.subject =  params[:message][:subject]
+    @message.subject = params[:message][:subject]
     if !current_user.nil?
       @message.email = current_user.email
       if current_user.company?
-         @message.name = Company.where(:user_id => current_user.id).first().name
+        @message.name = Company.where(:user_id => current_user.id).first().name
       else
         @message.name = Client.where(:user_id => current_user.id).first().first_name
         if @message.name.nil?
@@ -87,10 +99,10 @@ class PagesController < ApplicationController
     @message = Message.new
     get_params(@message)
     @message.body = params[:message][:body]
-    @message.name =  params[:message][:name]
-    @message.email =  params[:message][:email]
-    @message.cuit =  params[:message][:cuit]
-    @message.phone =  params[:message][:phone]
+    @message.name = params[:message][:name]
+    @message.email = params[:message][:email]
+    @message.cuit = params[:message][:cuit]
+    @message.phone = params[:message][:phone]
     if @message.valid?
       ContactMailer.new_message_empresa(@message).deliver
       flash.now.alert = "El mensaje se ha enviado correctamente."
@@ -110,32 +122,32 @@ class PagesController < ApplicationController
 
     unless current_user.nil?
       if current_user.company?
+        unless params[:message].nil?
+          data = params[:message]
+          message.subject = data[:subject]
+          message.body = data[:body]
+          message.name = data[:name]
+          message.email = data[:email]
+        end
+      end
+    else
+
       unless params[:message].nil?
         data = params[:message]
         message.subject = data[:subject]
         message.body = data[:body]
-        message.name = data[:name]
-        message.email = data[:email]
-      end
-      end
-    else
-
-    unless params[:message].nil?
-      data = params[:message]
-      message.subject = data[:subject]
-      message.body = data[:body]
-      if current_user.nil?
-        message.name = data[:name]
-        message.email = data[:email]
-      else
-        if current_user.client.last_name.nil?
-          message.name = ""
+        if current_user.nil?
+          message.name = data[:name]
+          message.email = data[:email]
         else
-          message.name = current_user.client.last_name
+          if current_user.client.last_name.nil?
+            message.name = ""
+          else
+            message.name = current_user.client.last_name
+          end
+          message.email = current_user.email
         end
-        message.email = current_user.email
       end
-    end
     end
   end
 
