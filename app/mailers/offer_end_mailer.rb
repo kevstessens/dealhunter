@@ -4,8 +4,8 @@ class OfferEndMailer < ActionMailer::Base
   def offer_end_email(user, offer)
     @user = user
     @offer = offer
-    #mail(:to => user.email, :subject => "Ha finalizado tu oferta!")
-    mail(:to => "tatiana.slod@gmail.com", :subject => "Ha finalizado tu oferta!")
+    mail(:to => user.email, :subject => "Ha finalizado tu oferta!")
+    #mail(:to => "tatiana.slod@gmail.com", :subject => "Ha finalizado tu oferta!")
   end
 
 end
