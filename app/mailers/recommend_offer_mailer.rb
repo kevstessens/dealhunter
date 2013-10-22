@@ -4,7 +4,7 @@ class RecommendOfferMailer < ActionMailer::Base
   def recommend_offer_email(user, offer, email)
     @user = user
     @offer = offer
-    mail(:to => email, :subject => "¡Un amigo te ha recomendado una oferta!")
+    mail(:to => email, :subject => "Un amigo te ha recomendado una oferta!")
   end
 
 end
