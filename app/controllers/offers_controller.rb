@@ -68,7 +68,12 @@ class OffersController < ApplicationController
     @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
 
 
+
+
     respond_to do |format|
+      if params[:title_ids].nil?
+        format.html { redirect_to :back , notice: @offer.name + ' posee errores o no posee intereses.' }
+      end
       if @offer.save
         title_ids = params[:title_ids]
         unless title_ids.nil?
