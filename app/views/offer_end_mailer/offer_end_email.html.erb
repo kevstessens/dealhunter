@@ -108,7 +108,7 @@
                         color: #66cdaa;
                         font-weight: bold;
                         font-size: 17px;
-                        margin: 0 ;">Participá en estas y más ofertas de tu
+                        margin: 0 ;">Participá en esta y más ofertas de tu
                   interés</p></td>
               <td width="120">
                 <table width="120" border="0" cellspacing="0" cellpadding="10" style="background: rgb(23, 46, 117);
@@ -160,6 +160,56 @@
                 <p>¡Hola, <%= @user.user.email %>!</p>
 
                 <p>Tu oferta <%= @offer.name %> acaba de finalizar. </p>
+
+                <div class="span3 offer-small">
+                  <!-- 	/* solapa --------------------------- */-->
+                  <ul class="flap-items">
+                    <li style="          list-style: none;
+                    " class="img_item">
+                      <% unless @offer.photo.nil? %>
+                          <img class="small-photo " src="<%= @offer.photo %>" alt=""
+                               style="height: 195px;"/>
+                      <% end %>
+                    </li>
+                  </ul>
+
+                  <div class="row">
+                    <div class="span3" style="position:relative;">
+                      <div class="wrapper-padding">
+                        <ul class="inline hotel-item clearfix">
+                          <li style="          list-style: none;
+                          ">
+                            <h3 class="media-heading"><a href="http://localhost:3000/offers/<%=@offer.id %>"> <%= @offer.name %> </a>
+                            </h3>
+                            <% unless @offer.branch.nil? %>
+                                <h5> <%= @offer.branch.company.name %> - <%= @offer.branch.name %> </h5>
+                            <% end %>
+                            <hr style="margin-top: 5px; margin-bottom: 5px;
+                            ">
+                            <h7><p style="color: grey">Precio:
+                              $<%= @offer.prizes.first.discounted_price unless @offer.prizes.first.nil? %> </p>
+
+                              <p style="color: grey">Descuento: <%= "-" + @offer.prizes.first.discount_percentage.to_i.to_s + "%" unless @offer.prizes.first.nil? %> </p>
+                            </h7>
+
+                          </li>
+                          <li style="          list-style: none;
+                          ">
+                            <ul>
+                              <li style="          list-style: none;
+                              " class="offer-disccount"></li>
+                              <li style="          list-style: none;
+                              " class="offer-price"></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <!--end wrapper-padding-->
+                    </div>
+                    <!--end span3-->
+                  </div>
+                  <!--end row-->
+                </div>
 
                 <p>¡Esperamos que la hayas disfrutado!.</p>
 

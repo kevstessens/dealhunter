@@ -28,6 +28,7 @@ DealHunter::Application.routes.draw do
   match 'users/unsubscribe' => 'users#unsubscribe'
   match 'send/newsletter' => 'pages#sendNewsletter'
   match 'send/endOfferMail' => 'pages#sendEndOfferMail'
+  match 'send/recommendOfferMail' => 'pages#recommendOfferMail'
 
   match 'offers/results' => 'offers#results'
   match 'offers/save_results' => 'offers#save_results'

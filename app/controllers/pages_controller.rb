@@ -66,6 +66,17 @@ class PagesController < ApplicationController
 
   end
 
+  def recommendOfferMail
+    @user = Client.find(1).user
+
+    Offer.all.each do |offer|
+        RecommendOfferMailer.recommend_offer_email(@user, offer, "tatiana.slod@gmail.com")
+    end
+
+    print("El recommendOfferMail se ha enviado")
+    redirect_to users_home_view_path
+  end
+
 
 
   def contact
