@@ -52,9 +52,12 @@
         <h2 class="rounded-borders-btn">Preferencias</h2>
         <ul class="aside-nav">
           <li><a href="<%= edit_user_registration_path %>">Contraseña</a></li>        </ul>
-        <ul class="aside-nav">
-          <li><a href="<%= users_newsletter_freq_path %>">Frecuencia del newsletter</a></li>        </ul>
-        </ul>
+        <% if !current_user.company? %>
+            <ul class="aside-nav">
+              <li><a href="<%= users_newsletter_freq_path %>">Frecuencia del newsletter</a></li>
+            </ul>
+            </ul>
+        <% end %>
       </div>
       <!--<div id="bags">-->
       <!--<div id="stage">-->
