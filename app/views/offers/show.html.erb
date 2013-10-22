@@ -240,6 +240,37 @@
             </div>
         <% end %>
 
+
+        <div style="margin-bottom: 15px">
+          <ul class="accord-tab clearfix">
+            <li class="offer-number">Recomendá esta oferta: </li>
+
+          </ul>
+          <!--end tab oferta-->
+
+
+        </div>
+
+
+        <%= form_for(Message.new(), :url => {:action => "contact_recommendation", :controller => :pages}, :html => {:method => :post}) do |f| %>
+
+            <div class="control-group clearfix">
+              <label class="pull-left" for="inputEmail">Email: </label>
+              <%= f.text_field :email, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Email"} %>
+                <%= f.hidden_field :offer, :value => @offer.id %>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Enviar Invitación</button>
+            </div>
+            <br>
+            <br>
+
+        <% end %>
+
+
+
+
       </div>
     </div>
     <!--end wrapper padding-->

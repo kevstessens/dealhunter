@@ -46,6 +46,24 @@ class PagesController < ApplicationController
 
   end
 
+  def contact_recommendation
+    @message = Message.new
+    get_params(@message)
+    @message.body = "Has sido invitado a esta oferta"
+    @message.name = "Invitation"
+    @message.email = params[:message][:email]
+    if @message.valid?
+      RecommendOfferMailer.recommend_offer_email(current_user,params[:message][:offer], @message.email).deliver
+      flash.now.alert = "El mensaje se ha enviado correctamente."
+      redirect_to :back
+
+    else
+      flash.now.alert = "Completa todos los datos por favor"
+      redirect_to :back
+    end
+
+  end
+
 
   def sendNewsletter
     Client.all.each do |client|

@@ -3,7 +3,7 @@ class RecommendOfferMailer < ActionMailer::Base
 
   def recommend_offer_email(user, offer, email)
     @user = user
-    @offer = offer
+    @offer = Offer.find(offer)
     mail(:to => email, :subject => "Un amigo te ha recomendado una oferta!")
   end
 
