@@ -300,6 +300,7 @@ class UsersController < ApplicationController
 
   def statistics
     @user = current_user
+    puts '@user'
 
   end
 
