@@ -14,6 +14,9 @@
           <article>
 
            <% if @user.company?%>
+                <div>
+                  Total de dinero ganado hasta el momento: $<%=@user.company.earned_money %>
+                </div>
                <!-- aca van las estadísiticas de la empresa-->
                 <%= render 'users/statistics' %>
 

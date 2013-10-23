@@ -60,8 +60,10 @@ class Offer < ActiveRecord::Base
         end
       end
     end
-    company_weight = ClientsCompany.where(:client_id => id, :company_id => self.company.id).select("weight").first.weight
-    self.current_weight = sum + company_weight
+    company_weight = ClientsCompany.where(:client_id => id, :company_id => self.company.id).select("weight").first
+    if !company_weight.nil?
+     self.current_weight = sum + company_weight.weight
+    end
     return sum
   end
 

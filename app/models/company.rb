@@ -26,16 +26,17 @@ class Company < ActiveRecord::Base
 
   def earned_money
     total = 0
-    self.offers.each do |o|
-      clients_offer = ClientsOffer.where(:offer_id => o.id)
-      prices = Prize.where(:offer_id => o.id)
+    Offer.where(:branch_id => self.branches.select(:id)).each do |o|
+      clients_offer = ClientsOffer.where(:offer_id => o.id).all
+      prices = Prize.where(:offer_id => o.id).all
       clients_offer.each do |c|
           if c.participated
             position = c.position
-            total += prices.at(position).discounted_price
+            total += prices.at(position-1).discounted_price
           end
       end
     end
+    return total
   end
 
 end
