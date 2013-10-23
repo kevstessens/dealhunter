@@ -30,8 +30,6 @@ class Offer < ActiveRecord::Base
     self.branch.address.gmaps
   end
 
-
-
   acts_as_gmappable
 
   def gmaps4rails_address
