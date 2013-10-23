@@ -64,10 +64,8 @@ class OffersController < ApplicationController
     @offer.photo = offer[:photo]
     @offer.branch = Branch.find(offer[:branch_id])
     @offer.description = offer[:description]
-    @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
-    @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
-
-
+    @offer.start_date = @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
+    @offer.end_date = @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
 
 
     respond_to do |format|
@@ -97,9 +95,21 @@ class OffersController < ApplicationController
   # PUT /offers/1.json
   def update
     @offer = Offer.find(params[:id])
-
+    offer = params[:offer]
+    #offer =  offer
+    @offer.prizes_attributes = offer[:prizes_attributes] unless offer[:prizes_attributes].nil?
+    @offer.name = offer[:name]
+    @offer.start_date = offer[:start_date]
+    @offer.end_date = offer[:end_date]
+    @offer.created_at = Time.now
+    @offer.updated_at = Time.now
+    @offer.photo = offer[:photo]
+    @offer.branch = Branch.find(offer[:branch_id])
+    @offer.description = offer[:description]
+    @offer.start_date = @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
+    @offer.end_date = @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
     respond_to do |format|
-      if @offer.update_attributes(params[:offer])
+      if @offer.save
         format.html { redirect_to @offer, notice: 'offer was successfully updated.' }
         format.json { head :no_content }
       else

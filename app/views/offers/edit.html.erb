@@ -69,11 +69,12 @@
                 </div>
                 <div class="control-group clearfix">
                   <label class="pull-left" for="inputEmail">Fecha de inicio</label>
-                  <%= f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
+                  <%= f.input :start_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker', :value => @offer.start_date.to_date}, :label => false %>
                 </div>
                 <div class="control-group clearfix" style="margin-right: 105px;" >
                   <label class="pull-left" for="inputEmail">Hora de inicio</label>
                   <select id="offer_start_hour" name="offer[start_hour]" class="pull-right input-mini">
+                    <option value="<%= @offer.start_date.hour %>"><%=@offer.start_date.hour %></option>
                     <% for i in 0..23 %>
                         <option value="<%= i %>"><%= i %></option>
                     <% end %>
@@ -89,11 +90,12 @@
                 </div>
                 <div class="control-group clearfix">
                   <label class="pull-left" for="inputEmail">Fecha de fin</label>
-                  <%= f.input :end_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker'}, :label => false %>
+                  <%= f.input :end_date, :as => :string, :input_html => {:class => 'datepicker pull-right input-medium datepicker', :value => @offer.end_date.to_date }, :label => false %>
                 </div>
                 <div class="control-group clearfix" style="margin-right: 105px;">
                   <label class="pull-left" for="inputEmail">Hora de fin</label>
                   <select id="offer_end_hour" name="offer[end_hour]" class="pull-right input-mini">
+                    <option value="<%= @offer.end_date.hour %>"><%=@offer.end_date.hour %></option>
                     <% for i in 0..23 %>
                         <option value="<%= i %>"><%= i %></option>
                     <% end %>
