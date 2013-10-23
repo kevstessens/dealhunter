@@ -64,4 +64,6 @@ class Offer < ActiveRecord::Base
     self.current_weight = sum
     return sum
   end
+
+
 end

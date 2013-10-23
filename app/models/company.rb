@@ -24,4 +24,18 @@ class Company < ActiveRecord::Base
     self.user.email unless self.user.nil?
   end
 
+  def earned_money
+    total = 0
+    self.offers.each do |o|
+      clients_offer = ClientsOffer.where(:offer_id => o.id)
+      prices = Prize.where(:offer_id => o.id)
+      clients_offer.each do |c|
+          if c.participated
+            position = c.position
+            total += prices.at(position).discounted_price
+          end
+      end
+    end
+  end
+
 end
