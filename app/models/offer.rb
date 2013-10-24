@@ -18,6 +18,16 @@ class Offer < ActiveRecord::Base
   scope :ended, Offer.where('end_date < ?', Date.today)
   scope :actual, Offer.where('end_date >= ?', Date.today)
 
+  def prefer(preference)
+    prefer = false
+    self.titles.each do |p|
+      if preference == p.name
+        prefer = true
+      end
+    end
+    return prefer
+  end
+
   def time_coherence
     errors.add(:start_date, "No puede ser posterior a la fecha de fin") if self.start_date > self.end_date unless (start_date.nil? or end_date.nil?)
   end
