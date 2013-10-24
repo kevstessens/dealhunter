@@ -52,7 +52,7 @@
         <div class="tab-pane fade" id="completadas">
 
           <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
-          <div id="actividaChart" style="height: 275px;"></div>
+          <div id="otroChart" style="height: 275px;"></div>
 
         </div><!--end myTabContent-->
 
@@ -127,4 +127,25 @@
             '#FF99CC'
         ]
     });
+//OTRO
+new Morris.Donut({
+    element: 'otroChart',
+    data: [
+        {label: "b", value: 100 }
+    ],
+    colors: [
+        '#FF0000',
+        '#FF8000',
+        '#FFFF00',
+        '#80FF00',
+        '#006600',
+        '#00FF80',
+        '#00CCCC',
+        '#0000FF',
+        '#000066',
+        '#4C0099',
+        '#FF00FF',
+        '#FF99CC'
+    ]
+});
 </script>
