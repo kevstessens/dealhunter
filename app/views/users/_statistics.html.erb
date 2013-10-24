@@ -27,19 +27,6 @@
 </body>
 </html>
 <script>
-    <% titles = Hash.new %>
-    <% Title.all.each do |t| %>
-        <% titles[t.name] = 0 %>
-    <% end %>
-    <% co = ClientsOffer.find_all_by_client_id(@user.client.id) %>
-    <% co.each do |c| %>
-        <% offer_id = c.offer_id %>
-        <% ot = OffersTitles.find_all_by_offer_id(offer_id) %>
-        <% ot.each do |o| %>
-            <% title = Title.find(o.title_id) %>
-            <% titles[title.name] = titles[title.name] + 1 %>
-        <% end %>
-    <% end %>
 
     new Morris.Donut({
         // ID of the element in which to draw the chart.
@@ -49,11 +36,8 @@
 
         data: [
 
-            <% Title.all.each do |t| %>
-                <% unless titles[t.name] == 0 %>
-                    {label: "<%=t.name%>", value: <%=titles[t.name] %>},
-                <% end %>
-            <% end %>
+            {label: "A", value: 50 },
+            {label: "B", value: 50 }
 
         ],
 
@@ -62,8 +46,6 @@
             '#0BA462'
 
         ]
-
-
 
     });
 </script>

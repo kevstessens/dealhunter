@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+
+  <script type='text/javascript'>//<![CDATA[
+  var m_timer = null;
+
+  jQuery(document).ready(function ()
+  {
+      $("div#footer").empty();
+      $("div#footer").append("<a href='/'><img  src='/assets/flip_logo_aadmin.png' width='90px' height='35px' style='margin-top: 35px;'/></a> ");
+      $("div#footer").css("float", "right");
+  });
+
+
+  </script>
+</head>
+<body>
+<div class="wrapper-padding">
+
+  <div class="wrapper">
+    <article>
+
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#titles" data-toggle="tab">Intereses</a></li>
+        <li><a href="#activity" data-toggle="tab">Actividad</a></li>
+        <li><a href="#completadas" data-toggle="tab">Finalizadas</a></li>
+      </ul>
+
+      <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade in active clearfix" id="titles">
+
+          <label class="pull-left">Cantidad de ofertas a las que te has inscripto por interés.</label>
+          <div id="interesesChart" style="height: 275px;"></div>
+
+        </div><!--end myTabContent-->
+
+        <div class="tab-pane fade" id="activity">
+
+          <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
+          <div id="actividadChart" style="height: 275px;"></div>
+
+        </div><!--end myTabContent-->
+
+        <div class="tab-pane fade" id="completadas">
+
+          <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
+          <div id="actividaChart" style="height: 275px;"></div>
+
+        </div><!--end myTabContent-->
+
+      </div>
+
+    </article>
+
+  </div>
+  <!--end wrapper-->
+</div>
+
+
+</body>
+</html>
+<script> //INTERESES
+    <% titles = Hash.new %>
+    <% Title.all.each do |t| %>
+        <% titles[t.name] = 0 %>
+    <% end %>
+    <% co = ClientsOffer.find_all_by_client_id(@user.client.id) %>
+    <% co.each do |c| %>
+        <% offer_id = c.offer_id %>
+        <% ot = OffersTitles.find_all_by_offer_id(offer_id) %>
+        <% ot.each do |o| %>
+            <% title = Title.find(o.title_id) %>
+            <% titles[title.name] = titles[title.name] + 1 %>
+        <% end %>
+    <% end %>
+
+    new Morris.Donut({
+        element: 'interesesChart',
+        data: [
+            <% Title.all.each do |t| %>
+                <% unless titles[t.name] == 0 %>
+                    {label: "<%=t.name%>", value: <%=titles[t.name] %>},
+                <% end %>
+            <% end %>
+        ],
+        colors: [
+            '#FF0000',
+            '#FF8000',
+            '#FFFF00',
+            '#80FF00',
+            '#006600',
+            '#00FF80',
+            '#00CCCC',
+            '#0000FF',
+            '#000066',
+            '#4C0099',
+            '#FF00FF',
+            '#FF99CC'
+        ]
+    });
+//ACTIVIDAD
+    new Morris.Donut({
+        element: 'actividadChart',
+        data: [
+            {label: "a", value: 100 }
+        ],
+        colors: [
+            '#FF0000',
+            '#FF8000',
+            '#FFFF00',
+            '#80FF00',
+            '#006600',
+            '#00FF80',
+            '#00CCCC',
+            '#0000FF',
+            '#000066',
+            '#4C0099',
+            '#FF00FF',
+            '#FF99CC'
+        ]
+    });
+</script>
