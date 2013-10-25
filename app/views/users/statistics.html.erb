@@ -16,12 +16,17 @@
            <% if @user.company?%>
                 <div>
                   Total de dinero ganado hasta el momento: $<%=@user.company.earned_money %>
+
                 </div>
                <!-- aca van las estadísiticas de la empresa-->
                 <%= render 'users/statistics' %>
-
            <%else%>
-
+               <div> Total de dinero ahorrado hasta el momento: $<%=@user.client.saved_money %>
+               </div>
+                <div> Total de dinero que se hubiese pagado hasta el momento: $<%=@user.client.real %>
+                </div>
+                <div> Total de dinero que se gastó hasta el momento: $<%=@user.client.spent_money %>
+                </div>
                 <!-- aca van las estadísiticas del cliente-->
                 <%= render 'users/statistics' %>
 
