@@ -96,26 +96,31 @@ class OffersController < ApplicationController
   def update
     @offer = Offer.find(params[:id])
     offer = params[:offer]
-    #offer =  offer
-    @offer.prizes_attributes = offer[:prizes_attributes] unless offer[:prizes_attributes].nil?
-    @offer.name = offer[:name]
-    @offer.start_date = offer[:start_date]
-    @offer.end_date = offer[:end_date]
-    @offer.created_at = Time.now
-    @offer.updated_at = Time.now
-    @offer.photo = offer[:photo]
-    @offer.branch = Branch.find(offer[:branch_id])
-    @offer.description = offer[:description]
-    @offer.start_date = @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
-    @offer.end_date = @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
-    respond_to do |format|
-      if @offer.save
-        format.html { redirect_to @offer, notice: 'offer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @offer.errors, status: :unprocessable_entity }
+    unless offer.nil?
+      @offer.prizes_attributes = offer[:prizes_attributes] unless offer[:prizes_attributes].nil?
+      @offer.name = offer[:name]
+      @offer.start_date = offer[:start_date]
+      @offer.end_date = offer[:end_date]
+      @offer.created_at = Time.now
+      @offer.updated_at = Time.now
+      @offer.photo = offer[:photo]
+      @offer.branch = Branch.find(offer[:branch_id])
+      @offer.description = offer[:description]
+      @offer.start_date = @offer.start_date.change({:hour => (offer[:start_hour]).to_i})
+      @offer.end_date = @offer.end_date.change({:hour => (offer[:end_hour]).to_i})
+      respond_to do |format|
+        if @offer.save
+          format.html { redirect_to @offer, notice: 'offer was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @offer.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    if @offer.nil?
+      format.html { redirect_to @offer }
+      format.json { head :no_content }
     end
   end
 
@@ -142,7 +147,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:offer][:id])
     @offer.clients.each do |c|
       position = params[c.user.id.to_s].to_i
-      participation = ClientsOffer.find_by_client_id_and_offer_id(c.user.id, @offer.id)
+      participation = ClientsOffer.find_by_client_id_and_offer_id(c.id, @offer.id)
       participation.participated = position!=0
       participation.position = position
       participation.save

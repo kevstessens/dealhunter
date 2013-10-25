@@ -40,6 +40,15 @@ ActiveAdmin.register Company do
       end
     end
 
+    def update
+      super
+      unless @company.user.nil?
+        role_id = UserRole.where(:name => "CompanyUser").first().id
+        @company.user.user_role_id = role_id
+        @company.save!
+      end
+    end
+
   end
 
 end
