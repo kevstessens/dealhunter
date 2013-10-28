@@ -28,31 +28,31 @@
     <article>
 
       <ul id="myTab" class="nav nav-tabs">
-        <li class="active"><a href="#titles" data-toggle="tab">Intereses</a></li>
-        <li><a href="#activity" data-toggle="tab">Actividad</a></li>
+        <li><a href="#titles" data-toggle="tab">Intereses</a></li>
+        <li class="active"><a href="#activity" data-toggle="tab">Actividad</a></li>
         <li><a href="#completadas" data-toggle="tab">Finalizadas</a></li>
       </ul>
 
       <div id="myTabContent" class="tab-content">
 
-        <div class="tab-pane fade in active clearfix" id="titles">
+        <div class="tab-pane active clearfix" id="titles">
 
           <label class="pull-left">Cantidad de ofertas a las que te has inscripto por interés.</label>
-          <div id="interesesChart" style="height: 275px;"></div>
+          <div id="interesesChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
-        <div class="tab-pane fade" id="activity">
+        <div class="tab-pane fade in active clearfix" id="activity">
 
           <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
-          <div id="actividadChart" style="height: 275px;"></div>
+          <div id="actividadChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
-        <div class="tab-pane fade" id="completadas">
+        <div class="tab-pane fade in active clearfix" id="completadas">
 
           <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
-          <div id="otroChart" style="height: 275px;"></div>
+          <div id="otroChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
@@ -68,26 +68,13 @@
 </body>
 </html>
 <script> //INTERESES
-    <% titles = Hash.new %>
-    <% Title.all.each do |t| %>
-        <% titles[t.name] = 0 %>
-    <% end %>
-    <% co = ClientsOffer.find_all_by_client_id(@user.client.id) %>
-    <% co.each do |c| %>
-        <% offer_id = c.offer_id %>
-        <% ot = OffersTitles.find_all_by_offer_id(offer_id) %>
-        <% ot.each do |o| %>
-            <% title = Title.find(o.title_id) %>
-            <% titles[title.name] = titles[title.name] + 1 %>
-        <% end %>
-    <% end %>
 
     new Morris.Donut({
         element: 'interesesChart',
         data: [
             <% Title.all.each do |t| %>
-                <% unless titles[t.name] == 0 %>
-                    {label: "<%=t.name%>", value: <%=titles[t.name] %>},
+                <% unless @titles[t.name] == 0 %>
+                    {label: "<%=t.name%>", value: <%= @titles[t.name] %>},
                 <% end %>
             <% end %>
         ],
@@ -106,27 +93,39 @@
             '#FF99CC'
         ]
     });
+
 //ACTIVIDAD
-    new Morris.Donut({
+
+<% amounts = Array.new %>
+<% @months.each do |m| %>
+    <% amounts.push(Tuple.new(m, 0)) %>
+<% end %>
+<% co = ClientsOffer.find_all_by_client_id(@user.client.id) %>
+<% co.each do |c| %>
+    <% o = Offer.find(c.offer_id) %>
+    <% m = @months[o.created_at.mon - 1] %>
+    <% a = amounts.find(:name => m) %>
+    <% a.first[1] = a.first[1] + 1 %>
+<% end %>
+<%  %>
+<%  %>
+<%  %>
+<%  %>
+
+
+    new Morris.Bar({
         element: 'actividadChart',
         data: [
-            {label: "a", value: 100 }
+            <% amounts.each do |a| %>
+            { y: "a", a: 2, b: 0 }
+            <% end %>
+
         ],
-        colors: [
-            '#FF0000',
-            '#FF8000',
-            '#FFFF00',
-            '#80FF00',
-            '#006600',
-            '#00FF80',
-            '#00CCCC',
-            '#0000FF',
-            '#000066',
-            '#4C0099',
-            '#FF00FF',
-            '#FF99CC'
-        ]
+       xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['Inscripciones', 'Participaciones']
     });
+
 //OTRO
 new Morris.Donut({
     element: 'otroChart',

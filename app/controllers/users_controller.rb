@@ -300,7 +300,31 @@ class UsersController < ApplicationController
 
   def statistics
     @user = current_user
+    @titles = titles_data
+    @months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
     puts '@user'
+  end
+
+  def titles_data
+    titles = Hash.new
+    Title.all.each do |t|
+      titles[t.name] = 0
+    end
+    co = ClientsOffer.find_all_by_client_id(current_user.client.id)
+    co.each do |c|
+      offer_id = c.offer_id
+      ot = OffersTitles.find_all_by_offer_id(offer_id)
+      ot.each do |o|
+        title = Title.find(o.title_id)
+        titles[title.name] = titles[title.name] + 1
+      end
+    end
+    return titles
+  end
+
+  def activity_data
+
 
   end
 
