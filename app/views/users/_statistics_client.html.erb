@@ -104,38 +104,33 @@
 <% co.each do |c| %>
     <% o = Offer.find(c.offer_id) %>
     <% m = @months[o.created_at.mon - 1] %>
-    <% a = amounts.find(:name => m) %>
-    <% a.first[1] = a.first[1] + 1 %>
+    <% a = amounts[@months.find_index(m)] %>
+    <% a[1] = a[1] + 1 %>
 <% end %>
-<%  %>
-<%  %>
-<%  %>
-<%  %>
-
 
     new Morris.Bar({
         element: 'actividadChart',
         data: [
             <% amounts.each do |a| %>
-            { y: "a", a: 2, b: 0 }
+            { y:'1' <%#= a[0] %>, a: 1<%#= a[1] %>, b: 0 }
             <% end %>
 
         ],
-       xkey: 'y',
-      ykeys: ['a', 'b'],
-      labels: ['Inscripciones', 'Participaciones']
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Inscripciones', 'Participaciones']
     });
 
 //OTRO
-new Morris.Donut({
-    element: 'otroChart',
-    data: [
-        {label: "b", value: 100 }
-    ],
-    colors: [
-        '#FF0000',
-        '#FF8000',
-        '#FFFF00',
+    new Morris.Donut({
+        element: 'otroChart',
+        data: [
+            {label: "b", value: 100 }
+        ],
+        colors: [
+            '#FF0000',
+            '#FF8000',
+            '#FFFF00',
         '#80FF00',
         '#006600',
         '#00FF80',
