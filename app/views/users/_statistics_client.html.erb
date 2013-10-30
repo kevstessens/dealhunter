@@ -52,7 +52,7 @@
         <div class="tab-pane fade in active clearfix" id="completadas">
 
           <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
-          <div id="otroChart" style="height: 310px;"></div>
+          <div id="winChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
@@ -107,25 +107,25 @@
         labels: ['Inscripciones', 'Participaciones']
     });
 
-//OTRO
-    new Morris.Donut({
-        element: 'otroChart',
-        data: [
-            {label: "b", value: 100 }
-        ],
-        colors: [
-            '#FF0000',
-            '#FF8000',
-            '#FFFF00',
-        '#80FF00',
-        '#006600',
-        '#00FF80',
-        '#00CCCC',
-        '#0000FF',
-        '#000066',
-        '#4C0099',
-        '#FF00FF',
-        '#FF99CC'
+new Morris.Donut({
+    // ID of the element in which to draw the chart.
+    element: 'winChart',
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
+
+
+    data: [
+
+        {label: "Ganó", value: <%=@user.client.win %> },
+        {label: "Perdió", value: <%=@user.client.lose %> }
+
+    ],
+
+    colors: [
+        '#e23351',
+        '#0BA462'
     ]
+
 });
+
 </script>

@@ -77,7 +77,7 @@ class Client < ActiveRecord::Base
       prices = Prize.where(:offer_id => o.id).all
       clients_offer = ClientsOffer.where(:offer_id => o.id, :client_id => self.id).all
       clients_offer.each do |c|
-        if c.participated && (c.position == 1)
+        if c.participated
           total += 1
         end
       end
@@ -94,9 +94,7 @@ class Client < ActiveRecord::Base
       prices = Prize.where(:offer_id => o.id).all
       clients_offer = ClientsOffer.where(:offer_id => o.id, :client_id => self.id).all
       clients_offer.each do |c|
-        if c.participated && (c.position != 1)
-          total += 1
-        end
+        total += 1 if c.participated == false
       end
     end
     return total
