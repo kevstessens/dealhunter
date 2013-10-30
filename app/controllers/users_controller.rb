@@ -303,6 +303,7 @@ class UsersController < ApplicationController
     @months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     if @user.client.nil?
       @offers = offers_data
+      @comp = comp_data
     else
       @titles = titles_data
       @activity = activity_data
@@ -360,5 +361,24 @@ class UsersController < ApplicationController
       a[2] = a[2] + 1 if o.end_date < Date.current
     end
     return offers
+  end
+
+  def comp_data
+    comp = Hash.new
+    Title.all.each do |t|
+      comp[t.name] = 0
+    end
+    os = Array.new
+    Offer.all.each do |o|
+      os.push(o) unless o.branch.company_id == @user.company.id
+    end
+    os.each do |o|
+      ot = OffersTitles.find_all_by_offer_id(o.id)
+      ot.each do |t|
+        title = Title.find(t.title_id)
+        comp[title.name] = comp[title.name] + 1
+      end
+    end
+    return comp
   end
 end
