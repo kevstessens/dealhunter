@@ -68,4 +68,39 @@ class Client < ActiveRecord::Base
     return a
   end
 
+  def win
+    total = 0
+    offers_ids = ClientsOffer.select(:offer_id).where(:client_id => self.id)
+    offers = Offer.where(:id => offers_ids ).all
+    offers.each do |o|
+      #prices = Prize.where(:offer_id => o.id).all
+      prices = Prize.where(:offer_id => o.id).all
+      clients_offer = ClientsOffer.where(:offer_id => o.id, :client_id => self.id).all
+      clients_offer.each do |c|
+        if c.participated && (c.position == 1)
+          total += 1
+        end
+      end
+    end
+    return total
+  end
+
+  def lose
+    total = 0
+    offers_ids = ClientsOffer.select(:offer_id).where(:client_id => self.id)
+    offers = Offer.where(:id => offers_ids ).all
+    offers.each do |o|
+      #prices = Prize.where(:offer_id => o.id).all
+      prices = Prize.where(:offer_id => o.id).all
+      clients_offer = ClientsOffer.where(:offer_id => o.id, :client_id => self.id).all
+      clients_offer.each do |c|
+        if c.participated && (c.position != 1)
+          total += 1
+        end
+      end
+    end
+    return total
+  end
+
+
 end
