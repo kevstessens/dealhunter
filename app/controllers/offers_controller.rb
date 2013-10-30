@@ -112,13 +112,17 @@ class OffersController < ApplicationController
         if @offer.save
           title_ids = params[:title_ids]
           unless title_ids.nil?
+            ot = OffersTitles.find_all_by_offer_id(@offer.id)
+            ot.each do |o|
+              o.destroy
+            end
             title_ids.each do |id|
-              unless @offer.prefer(Title.find(id))
+#              unless @offer.prefer(Title.find(id))
                 offers_titles = OffersTitles.new
                 offers_titles.offer_id = @offer.id
                 offers_titles.title_id = id
                 offers_titles.save
-              end
+ #             end
             end
           end
           format.html { redirect_to @offer, notice: 'offer was successfully updated.' }
