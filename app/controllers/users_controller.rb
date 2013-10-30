@@ -210,6 +210,10 @@ class UsersController < ApplicationController
     address = Address.new
     if @user.user_role_id == 2
       address = @user.client.address
+      unless address.nil?
+        @longitude = address.longitude
+        @latitude = address.latitude
+      end
       #Mostrar solo los que interesen
       #@json = Address.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).take(10).to_gmaps4rails
     else if @user.user_role_id == 1
