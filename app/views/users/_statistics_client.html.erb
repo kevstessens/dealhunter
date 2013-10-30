@@ -95,26 +95,15 @@
     });
 
 //ACTIVIDAD
-
-<% amounts = Array.new %>
-<% @months.each do |m| %>
-    <% amounts.push(Tuple.new(m, 0)) %>
-<% end %>
-<% co = ClientsOffer.find_all_by_client_id(@user.client.id) %>
-<% co.each do |c| %>
-    <% o = Offer.find(c.offer_id) %>
-    <% m = @months[o.created_at.mon - 1] %>
-    <% a = amounts[@months.find_index(m)] %>
-    <% a[1] = a[1] + 1 %>
-<% end %>
-
-    new Morris.Bar({
+   new Morris.Bar({
         element: 'actividadChart',
         data: [
-            <% amounts.each do |a| %>
-            { y:'1' <%#= a[0] %>, a: 1<%#= a[1] %>, b: 0 }
+            <% @activity.each do |a| %>
+                <% unless a[1] == 0 %>
+                <%  %>
+                    { y: '<%= a[0] %>', a: <%= a[1] %>, b: <%= a[2] %> },
+                <% end %>
             <% end %>
-
         ],
         xkey: 'y',
         ykeys: ['a', 'b'],

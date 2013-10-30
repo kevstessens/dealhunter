@@ -302,6 +302,7 @@ class UsersController < ApplicationController
     @user = current_user
     @titles = titles_data
     @months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    @activity = activity_data
 
     puts '@user'
   end
@@ -324,8 +325,19 @@ class UsersController < ApplicationController
   end
 
   def activity_data
-
-
+    amounts = Array.new
+    @months.each do |m|
+      amounts.push([m, 0, 0])
+    end
+    co = ClientsOffer.find_all_by_client_id(@user.client.id)
+    co.each do |c|
+      o = Offer.find(c.offer_id)
+      m = @months[o.created_at.mon - 1]
+      a = amounts[@months.find_index(m)]
+      a[1] = a[1] + 1
+      a[2] = a[2] + 1 if c.participated
+    end
+    return amounts
   end
 
 end
