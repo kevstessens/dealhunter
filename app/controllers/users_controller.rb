@@ -300,9 +300,13 @@ class UsersController < ApplicationController
 
   def statistics
     @user = current_user
-    @titles = titles_data
     @months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-    @activity = activity_data
+    if @user.client.nil?
+      @offers = offers_data
+    else
+      @titles = titles_data
+      @activity = activity_data
+    end
 
     puts '@user'
   end
@@ -340,4 +344,21 @@ class UsersController < ApplicationController
     return amounts
   end
 
+  def offers_data
+    offers = Array.new
+    @months.each do |m|
+      offers.push([m, 0, 0])
+    end
+    os = Array.new
+    @user.company.branches.each do |b|
+      os = os.concat(Offer.find_all_by_branch_id(b.id))
+    end
+    os.each do |o|
+      m = @months[o.created_at.mon - 1]
+      a = offers[@months.find_index(m)]
+      a[1] = a[1] + 1
+      a[2] = a[2] + 1 if o.end_date < Date.current
+    end
+    return offers
+  end
 end

@@ -98,7 +98,7 @@
    new Morris.Bar({
         element: 'actividadChart',
         data: [
-            <% @activity.each do |a| %>
+            <% @offers.each do |a| %>
                 <% unless a[1] == 0 %>
                 <%  %>
                     { y: '<%= a[0] %>', a: <%= a[1] %>, b: <%= a[2] %> },

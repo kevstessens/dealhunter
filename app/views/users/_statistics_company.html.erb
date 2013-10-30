@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+
+  <script type='text/javascript'>//<![CDATA[
+  var m_timer = null;
+
+  jQuery(document).ready(function ()
+  {
+      $("div#footer").empty();
+      $("div#footer").append("<a href='/'><img  src='/assets/flip_logo_aadmin.png' width='90px' height='35px' style='margin-top: 35px;'/></a> ");
+      $("div#footer").css("float", "right");
+  });
+
+
+  </script>
+</head>
+<body>
+<div class="wrapper-padding">
+
+  <div class="wrapper">
+    <article>
+
+          <label class="pull-left">Cantidad de ofertas a las que te has inscripto por interés.</label>
+          <div id="ofertasChart" style="height: 310px;"></div>
+
+    </article>
+
+  </div>
+  <!--end wrapper-->
+</div>
+
+
+</body>
+</html>
+<script> //INTERESES
+
+//ACTIVIDAD
+new Morris.Bar({
+    element: 'ofertasChart',
+    data: [
+        <% @offers.each do |a| %>
+        <% unless a[1] == 0 %>
+        <%  %>
+        { y: '<%= a[0] %>', a: <%= a[1] %>, b: <%= a[2] %> },
+        <% end %>
+        <% end %>
+    ],
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Ofertas', 'Finalizadas']
+});
+
+</script>
