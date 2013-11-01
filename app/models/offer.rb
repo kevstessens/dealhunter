@@ -21,7 +21,7 @@ class Offer < ActiveRecord::Base
   def prefer(preference)
     prefer = false
     self.titles.each do |p|
-      if preference == p.name
+      if preference.name == p.name
         prefer = true
       end
     end

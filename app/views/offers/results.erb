@@ -28,17 +28,26 @@
                 <%= "#{client.user.email} - #{client.first_name} #{client.last_name} " %>
               </td>
               <td>
+                      <% co = ClientsOffer.find_by_client_id_and_offer_id(client.id, @offer.id) %>
                 <select name="<%=client.user.id%>">
                   <% i = 1 %>
                   <% @offer_prizes.each do |f| %>
                     <%#= select_tag "positions[]", i %>
-                      <option>
+                      <% if co.position == i %>
+                        <option selected="selected">
+                      <% else %>
+                        <option>
+                      <% end %>
                         <%= i %>
                       </option>
                       <% i = 1+1 %>
 
                   <% end %>
-                  <option>
+                  <% if co.position == 0 %>
+                      <option selected="selected">
+                  <% else %>
+                      <option>
+                  <% end %>
                     No Participó
                   </option>
 
