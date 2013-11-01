@@ -18,6 +18,8 @@ class Offer < ActiveRecord::Base
   scope :ended, Offer.where('end_date < ?', Date.today)
   scope :actual, Offer.where('end_date >= ?', Date.today)
 
+  acts_as_gmappable
+
   def prefer(preference)
     prefer = false
     self.titles.each do |p|
