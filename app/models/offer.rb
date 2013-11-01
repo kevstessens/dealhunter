@@ -40,7 +40,7 @@ class Offer < ActiveRecord::Base
     self.branch.address.gmaps
   end
 
-  acts_as_gmappable
+  #acts_as_gmappable
 
   def gmaps4rails_address
     "#{self.branch.address.street} #{self.branch.address.number}, #{self.branch.address.city}"
