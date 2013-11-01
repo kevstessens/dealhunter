@@ -51,11 +51,11 @@ gem 'eventmachine'
 
 #gem 'thin'
 
-gem 'faye', '0.8.9'
+#gem 'faye', '0.8.9'
 
-gem 'faye-websocket'
+#gem 'faye-websocket'
 
-gem 'websocket-driver'
+#gem 'websocket-driver'
 
 group :development, :test do
   gem 'sqlite3'
