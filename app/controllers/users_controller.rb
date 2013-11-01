@@ -118,8 +118,8 @@ class UsersController < ApplicationController
     @user = current_user
 
     @offers = Offer.where(:branch_id => Branch.where(:company_id => @user.company.id)).page(params[:page]).per(3)
-    @actual_offers = Offer.actual.page(params[:page]).per(3)
-    @old_offers = Offer.ended.page(params[:page]).per(3)
+    @actual_offers = Offer.actual.where(:branch_id => Branch.where(:company_id => @user.company.id)).page(params[:page]).per(3)
+    @old_offers = Offer.ended.where(:branch_id => Branch.where(:company_id => @user.company.id)).page(params[:page]).per(3)
   end
 
   def offers_client_user
