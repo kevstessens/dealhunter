@@ -125,10 +125,35 @@ new Morris.Bar({
     ],
     xkey: 'y',
     ykeys: ['a'],
-    labels: ['Registraciones']
+    labels: ['Clientes Registrados'],
+    colors: [
+        '#0000FF'
+    ]
 });
 
+new Morris.Bar({
+    element: 'companyChart',
+    data: [
+        <% Statistics.company_registrations.each do |a| %>
+        { y: '<%= a[0] %>', a: <%= a[1] %> },
+        <% end %>
+    ],
+    xkey: 'y',
+    ykeys: ['a'],
+    labels: ['Empresas Registradas']
+});
 
+new Morris.Bar({
+    element: 'offerChart',
+    data: [
+        <% Statistics.offers_per_month.each do |a| %>
+        { y: '<%= a[0] %>', a: <%= a[1] %> },
+        <% end %>
+    ],
+    xkey: 'y',
+    ykeys: ['a'],
+    labels: ['Ofertas publicadas']
+});
 
 
 </script>

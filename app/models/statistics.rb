@@ -34,4 +34,19 @@ class Statistics
     companies_inscriptions
   end
 
+  def Statistics.offers_per_month
+    offers_per_month = Array.new
+    months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    months.each do |m|
+      offers_per_month.push([m, 0])
+    end
+    offers = Offer.all
+    offers.each do |offer|
+      m = offer.created_at.month
+      a = offers_per_month[m-1]
+      a[1] += 1
+    end
+    offers_per_month
+  end
+
 end
