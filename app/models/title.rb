@@ -7,4 +7,15 @@ class Title < ActiveRecord::Base
   validates_presence_of :name
 
   validates :name, :presence => true, :length => { :minimum => 3, :maximum => 25}
+
+  def num_clients
+    num = 0
+    ClientsTitles.all.each do |client_title|
+      if client_title.title_id == self.id
+          num += 1
+      end
+    end
+    num
+  end
+
 end
