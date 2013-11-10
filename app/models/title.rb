@@ -18,4 +18,14 @@ class Title < ActiveRecord::Base
     num
   end
 
+  def num_offers
+    num = 0
+    OffersTitles.all.each do |offer_title|
+      if offer_title.title_id == self.id
+        num += 1
+      end
+    end
+    num
+  end
+
 end
