@@ -22,7 +22,7 @@
 
       <ul id="myTab" class="nav nav-tabs">
         <li class="active"><a href="#titles" data-toggle="tab">Intereses</a></li>
-        <li><a href="#inscription" data-toggle="tab">Inscripciones</a></li>
+        <li><a href="#registrations" data-toggle="tab">Registraciones</a></li>
         <li><a href="#publish" data-toggle="tab">Publicación de ofertas</a></li>
       </ul>
 
@@ -38,12 +38,12 @@
 
         </div><!--end myTabContent-->
 
-        <div class="tab-pane active clearfix" id="inscription">
+        <div class="tab-pane active clearfix" id="registrations">
 
-          Clientes inscriptos por mes:
+          Clientes registrados por mes:
           <div id="clientsChart" style="height: 310px;"></div>
 
-          Empresas inscriptas por mes:
+          Empresas registradas por mes:
           <div id="companyChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
@@ -119,13 +119,13 @@ new Morris.Donut({
 new Morris.Bar({
     element: 'clientsChart',
     data: [
-        <% Stadistics.client_inscriptions.each do |a| %>
+        <% Statistics.client_registrations.each do |a| %>
             { y: '<%= a[0] %>', a: <%= a[1] %> },
         <% end %>
     ],
     xkey: 'y',
     ykeys: ['a'],
-    labels: ['Inscripciones', 'Participaciones']
+    labels: ['Registraciones']
 });
 
 
