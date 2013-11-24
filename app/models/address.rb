@@ -7,7 +7,7 @@ class Address < ActiveRecord::Base
 
   attr_accessible :city, :country_id, :country, :floor, :number, :state, :street, :client_id, :branch_id, :address, :longitude, :latitude
 
-  acts_as_gmappable :validation => false
+  #acts_as_gmappable :validation => false
 
   def gmaps4rails_address
     "#{self.street} #{self.number}, #{self.city}"
