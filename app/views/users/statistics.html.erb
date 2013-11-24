@@ -14,19 +14,19 @@
           <article>
 
            <% if @user.company?%>
-                <div>
+                <h5 class="blueTitle">
                   Total de dinero ganado hasta el momento: $<%=@user.company.earned_money %>
 
-                </div>
+                </h5>
                <!-- aca van las estadísiticas de la empresa-->
                 <%= render 'users/statistics_company' %>
            <%else%>
-               <div> Total de dinero ahorrado hasta el momento: $<%=@user.client.saved_money %>
-               </div>
-                <div> Total de dinero que se hubiese pagado hasta el momento: $<%=@user.client.real %>
-                </div>
-                <div> Total de dinero que se gastó hasta el momento: $<%=@user.client.spent_money %>
-                </div>
+               <h5 class="blueTitle"> Total de dinero ahorrado hasta el momento: $<%=@user.client.saved_money %>
+               </h5>
+                <h5 class="blueTitle"> Total de dinero que se hubiese pagado hasta el momento: $<%=@user.client.real %>
+                </h5>
+                <h5 class="blueTitle"> Total de dinero que se gastó hasta el momento: $<%=@user.client.spent_money %>
+                </h5>
                 <!-- aca van las estadísiticas del cliente-->
                 <%= render 'users/statistics_client' %>
 

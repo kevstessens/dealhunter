@@ -28,8 +28,8 @@
     <article>
 
       <ul id="myTab" class="nav nav-tabs">
-        <li><a href="#titles" data-toggle="tab">Intereses</a></li>
-        <li class="active"><a href="#activity" data-toggle="tab">Actividad</a></li>
+        <li class="active"><a href="#titles" data-toggle="tab">Intereses</a></li>
+        <li><a href="#activity" data-toggle="tab">Actividad</a></li>
         <li><a href="#completadas" data-toggle="tab">Finalizadas</a></li>
       </ul>
 
@@ -37,21 +37,21 @@
 
         <div class="tab-pane active clearfix" id="titles">
 
-          <label class="pull-left">Cantidad de ofertas a las que te has inscripto por interés.</label>
+          <label class="pull-left"><h5>Cantidad de ofertas a las que te has inscripto por interés</h5></label>
           <div id="interesesChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
-        <div class="tab-pane clearfix" id="activity">
+        <div class="tab-pane active clearfix" id="activity">
 
-          <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
+          <label class="pull-left"><h5>Cantidad de ofertas a las que te has inscripto en el último año</h5></label>
           <div id="actividadChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
 
-        <div class="tab-pane clearfix" id="completadas">
+        <div class="tab-pane active clearfix" id="completadas">
 
-          <label class="pull-left">Cantidad de ofertas a las que te has inscripto en el último año.</label>
+          <label class="pull-left"><h5>Cantidad de ofertas a las que te has inscripto en el último año</h5></label>
           <div id="winChart" style="height: 310px;"></div>
 
         </div><!--end myTabContent-->
@@ -104,7 +104,8 @@
         ],
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['Inscripciones', 'Participaciones']
+        labels: ['Inscripciones', 'Participaciones'],
+        barColors: ['orange','lightgrey']
     });
 
 new Morris.Donut({
@@ -127,5 +128,8 @@ new Morris.Donut({
     ]
 
 });
+
+$('#activity').attr("class","tab-pane");
+$('#completadas').attr("class","tab-pane");
 
 </script>

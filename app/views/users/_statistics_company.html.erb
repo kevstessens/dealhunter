@@ -11,8 +11,7 @@
   <script type='text/javascript'>//<![CDATA[
   var m_timer = null;
 
-  jQuery(document).ready(function ()
-  {
+  jQuery(document).ready(function () {
       $("div#footer").empty();
       $("div#footer").append("<a href='/'><img  src='/assets/flip_logo_aadmin.png' width='90px' height='35px' style='margin-top: 35px;'/></a> ");
       $("div#footer").css("float", "right");
@@ -34,19 +33,23 @@
 
       <div id="myTabContent" class="tab-content">
 
-        <div class="tab-pane active clearfix" id="offers">
+        <div class="tab-pane active " id="offers">
 
-          <label class="pull-left">Cantidad de ofertas de la empresa por mes de este año.</label>
+          <label class="pull-left"><h5>Cantidad de ofertas de la empresa por mes de este año</h5></label>
+
           <div id="ofertasChart" style="height: 310px;"></div>
 
-        </div><!--end myTabContent-->
+        </div>
+        <!--end myTabContent-->
 
-        <div class="tab-pane active clearfix" id="competition">
+        <div class="tab-pane active" id="competition">
 
-          <label class="pull-left">Cantidad de ofertas de las competencias por interés.</label>
+          <label class="pull-left"><h5>Cantidad de ofertas de las competencias por interés</h5></label>
+
           <div id="compChart" style="height: 310px;"></div>
 
-        </div><!--end myTabContent-->
+        </div>
+        <!--end myTabContent-->
 
       </div>
 
@@ -61,30 +64,34 @@
 </html>
 <script>
 
-//OFERTAS
-new Morris.Bar({
-    element: 'ofertasChart',
-    data: [
-        <% @offers.each do |a| %>
+    //OFERTAS
+    new Morris.Bar({
+        element: 'ofertasChart',
+        data: [
+            <% @offers.each do |a| %>
             { y: '<%= a[0] %>', a: <%= a[1] %>, b: <%= a[2] %> },
-        <% end %>
-    ],
-    xkey: 'y',
-    ykeys: ['a', 'b'],
-    labels: ['Ofertas', 'Finalizadas']
-});
+            <% end %>
+        ],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Ofertas', 'Finalizadas'],
+        barColors: ['orange','lightgrey']
+    });
 
-//COMPETENCIA
-new Morris.Bar({
-    element: 'compChart',
-    data: [
-        <% Title.all.each do |t| %>
-                { y: '<%= t.name %>', a: <%= @comp[t.name] %> },
-        <% end %>
-    ],
-    xkey: 'y',
-    ykeys: ['a'],
-    labels: ['Ofertas']
-});
+    //COMPETENCIA
+    new Morris.Bar({
+        element: 'compChart',
+        data: [
+            <% Title.all.each do |t| %>
+            { y: '<%= t.name %>', a: <%= @comp[t.name] %> },
+            <% end %>
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Ofertas'],
+        barColors: ['aquamarine']   //ver colores
+    });
+
+    $('#competition').attr("class","tab-pane");
 
 </script>

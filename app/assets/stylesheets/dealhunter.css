@@ -979,6 +979,11 @@ ul.hotel-item-description h4 a:hover {
     height: 41px;
 }
 
+.blueTitle{
+color:rgb(23, 46, 117);
+    font-size: 12px;
+}
+
 .clock-title {
     background: #899fac url(../assets/triangle-corner-grey.png) no-repeat center right;
     width: 35%;
