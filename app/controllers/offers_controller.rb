@@ -25,7 +25,7 @@ class OffersController < ApplicationController
     @longitude = address.longitude
     addresses = Array.new
     addresses.push(address)
-    @json = addresses.to_gmaps4rails
+    #@json = addresses.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
