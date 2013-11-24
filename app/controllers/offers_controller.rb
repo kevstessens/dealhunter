@@ -125,7 +125,7 @@ class OffersController < ApplicationController
  #             end
             end
           end
-          format.html { redirect_to @offer, notice: 'offer was successfully updated.' }
+          format.html { redirect_to @offer, notice: 'La oferta fue actualizada correctamente' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
