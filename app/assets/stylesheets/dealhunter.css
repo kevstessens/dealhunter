@@ -979,6 +979,12 @@ ul.hotel-item-description h4 a:hover {
     height: 41px;
 }
 
+.twitter-button{
+    background: url(../assets/twitter.png) no-repeat no-repeat;
+    height: 32px;
+    width: 32px;
+}
+
 .blueTitle{
 color:rgb(23, 46, 117);
     font-size: 12px;

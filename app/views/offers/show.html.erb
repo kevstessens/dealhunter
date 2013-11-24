@@ -140,7 +140,7 @@
                 </tbody>
               </table>
           <% else %>
-               <ul>La oferta todavía no ha finalizado.</ul>
+              <ul>La oferta todavía no ha finalizado.</ul>
           <% end %>
 
           <% if @user.company? %>
@@ -215,21 +215,8 @@
             <br>
             <br>
 
-            <a href="https://twitter.com/share" class="twitter-share-button" data-related="dealhunter" data-text=" Estoy viendo la oferta: <%= @offer.name%>. En #Dealhunter, inscribite vos también en: <%= offer_url(@offer) %> " data-lang="es" data-size="large" data-count="none">Compartir en twitter</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=474334446020265";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-
-            <div class="fb-share-button" data-href="http://www.dealhunter.com.ar<%= offer_path(@offer) %>" data-type="button_count">Share</div>
-      <% end %>
+        <% end %>
 
 
 
@@ -258,36 +245,60 @@
             </div>
         <% end %>
 
+        <% unless @user.company? %>
+            <div style="margin-top: 20px;">
+              <ul class="accord-tab clearfix">
+                <li class="offer-number" style="margin-bottom: 15px"><h5>Recomendá esta oferta:</h5></li>
 
-        <div style="margin-bottom: 15px">
-          <ul class="accord-tab clearfix">
-            <li class="offer-number">Recomendá esta oferta: </li>
+                <li style="margin-bottom: 15px">
+                  <a href="https://twitter.com/share" class="twitter-share-button" data-related="dealhunter" data-text=" Estoy viendo la oferta: <%= @offer.name %>. En #Dealhunter, inscribite vos también en: <%= offer_url(@offer) %> " data-lang="es" data-size="large" data-count="none">Compartir
+                    en twitter</a>
+                  <script>!function (d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (!d.getElementById(id)) {
+                          js = d.createElement(s);
+                          js.id = id;
+                          js.src = "https://platform.twitter.com/widgets.js";
+                          fjs.parentNode.insertBefore(js, fjs);
+                      }
+                  }(document, "script", "twitter-wjs");</script>
+                </li>
+                <li style="margin-bottom: 30px">
+                  <div id="fb-root"></div>
+                  <script>(function (d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=474334446020265";
+                      fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));</script>
+                  <div class="fb-share-button" data-href="http://www.dealhunter.com.ar<%= offer_path(@offer) %>" data-type="button">Share</div>
+                </li>
+                <li>
 
-          </ul>
-          <!--end tab oferta-->
+
+                  <%= form_for(Message.new(), :url => {:action => "contact_recommendation", :controller => :pages}, :html => {:method => :post}) do |f| %>
+
+                      <div class="control-group clearfix" style="margin-bottom: 0">
+                        <%= f.text_field :email, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Email"}, :placeholder => "Email", :class => "input-large" %>
+                        <%= f.hidden_field :offer, :value => @offer.id %>
+                      </div>
+
+                      <div class="pull-left">
+                        <button type="submit" style="font-size: 11px;" class="btn btn-dealhunter rounded-borders-btn">Recomendar</button>
+                      </div>
+                      <br>
+                      <br>
+
+                  <% end %>
+                </li>
+              </ul>
+              <!--end tab oferta-->
 
 
-        </div>
-
-
-        <%= form_for(Message.new(), :url => {:action => "contact_recommendation", :controller => :pages}, :html => {:method => :post}) do |f| %>
-
-            <div class="control-group clearfix">
-              <label class="pull-left" for="inputEmail">Email: </label>
-              <%= f.text_field :email, :label => false, :input_html => {:class => "pull-right input-medium", :placeholder => "Email"} %>
-                <%= f.hidden_field :offer, :value => @offer.id %>
             </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn btn-dealhunter rounded-borders-btn">Enviar Invitación</button>
-            </div>
-            <br>
-            <br>
-
         <% end %>
-
-
-
 
       </div>
     </div>
