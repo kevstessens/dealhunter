@@ -203,7 +203,7 @@
       <div class="wrapper-padding">
 
 
-        <% unless @user.company? %>
+        <% unless @user.company? || @offer.finished? %>
             <% clients_offer = ClientsOffer.where(:client_id => Client.where(:user_id => @user.id).first.id, :offer_id => @offer.id) %>
             <% if clients_offer.first.nil? %>
                 <%= link_to 'Inscribir', users_inscribe_path(:offer_id => @offer.id), {:type => "button", :class => "btn btn-dealhunter medium full-width rounded-borders-btn", :method => :post, } %>

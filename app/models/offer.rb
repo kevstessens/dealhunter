@@ -79,5 +79,9 @@ class Offer < ActiveRecord::Base
     return sum
   end
 
+  def finished?
+    self.end_date < Date.today
+  end
+
 
 end
