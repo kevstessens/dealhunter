@@ -174,17 +174,17 @@ class UsersController < ApplicationController
     session[:body]='offer-listing-page'
     @user = current_user
     @offers = Array.new
-    if @user.user_role_id == 1 #company
+    if @user.company?
       @offers = Offer.actual.where(:branch_id => Branch.select(:id).where(:company_id => @user.company.id)).order("created_at DESC").take(6)
     else
       current_client =  current_user.client.id
       offers=Array.new
-      Offer.all.each do |offer|
+      Offer.actual.each do |offer|
         if offer.weight(current_client)>0
           offers.append(offer)
         end
       end
-      @offers=offers.sort_by {|e| e.current_weight}.reverse
+      @offers=offers.sort_by {|e| e.get_current_weight}.reverse
 
     end
   end
@@ -206,7 +206,7 @@ class UsersController < ApplicationController
     @offers = Array.new
     @longitude = -58.381244
     @latitude = -34.603683
-    @json = Offer.all.to_gmaps4rails
+    @json = Offer.actual.to_gmaps4rails
     address = Address.new
     if @user.user_role_id == 2
       address = @user.client.address

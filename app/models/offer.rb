@@ -20,6 +20,11 @@ class Offer < ActiveRecord::Base
 
   acts_as_gmappable
 
+  def get_current_weight
+    if current_weight.nil? then return 0  end
+    current_weight
+  end
+
   def prefer(preference)
     prefer = false
     self.titles.each do |p|
