@@ -21,15 +21,14 @@
   <div class="wrapper">
     <article>
 
-      <ul id="myTab" class="nav nav-tabs">
-        <li class="active"><a href="#titles" data-toggle="tab">Intereses</a></li>
-        <li><a href="#registrations" data-toggle="tab">Registraciones</a></li>
-        <li><a href="#publish" data-toggle="tab">Publicación de ofertas</a></li>
+      <ul style="text-decoration: none;" id="myTab" class="nav nav-tabs">
+        <li style="text-decoration: none;" class="active" ><h2>Estadísticas</h2></li>
+
       </ul>
 
       <div id="myTabContent" class="tab-content">
 
-        <div class="tab-pane active clearfix" id="titles">
+        <div class=" clearfix" id="titles">
 
           Intereses por clientes:
           <div id="titlesChart" style="height: 310px;"></div>
@@ -37,9 +36,10 @@
           Intereses por oferta:
           <div id="titlesOfferChart" style="height: 310px;"></div>
 
-        </div><!--end myTabContent-->
+        </div>
+        <!--end myTabContent-->
 
-        <div class="tab-pane active clearfix" id="registrations">
+        <div class=" clearfix" id="registrations">
 
           Clientes registrados por mes:
           <div id="clientsChart" style="height: 310px;"></div>
@@ -47,17 +47,18 @@
           Empresas registradas por mes:
           <div id="companyChart" style="height: 310px;"></div>
 
-        </div><!--end myTabContent-->
+        </div>
+        <!--end myTabContent-->
 
-        <div class="tab-pane active clearfix" id="publish">
+        <div class=" clearfix" id="publish">
 
           Ofertas publicadas por mes:
           <div id="offerChart" style="height: 310px;"></div>
 
-        </div><!--end myTabContent-->
+        </div>
+        <!--end myTabContent-->
 
       </div>
-
 
 
     </article>
@@ -71,93 +72,90 @@
 </html>
 <script>
 
-new Morris.Donut({
-    element: 'titlesChart',
-    data: [
-        <% Title.all.each do |t| %>
-        {label: "<%=t.name%>", value: <%= t.num_clients %>},
-        <% end %>
-    ],
-    colors: [
-        '#FF0000',
-        '#FF8000',
-        '#FFFF00',
-        '#80FF00',
-        '#006600',
-        '#00FF80',
-        '#00CCCC',
-        '#0000FF',
-        '#000066',
-        '#4C0099',
-        '#FF00FF',
-        '#FF99CC'
-    ]
-});
+    new Morris.Donut({
+        element: 'titlesChart',
+        data: [
+            <% Title.all.each do |t| %>
+            {label: "<%=t.name%>", value: <%= t.num_clients %>},
+            <% end %>
+        ],
+        colors: [
+            '#FF0000',
+            '#FF8000',
+            '#FFFF00',
+            '#80FF00',
+            '#006600',
+            '#00FF80',
+            '#00CCCC',
+            '#0000FF',
+            '#000066',
+            '#4C0099',
+            '#FF00FF',
+            '#FF99CC'
+        ]
+    });
 
-new Morris.Donut({
-    element: 'titlesOfferChart',
-    data: [
-        <% Title.all.each do |t| %>
-        {label: "<%=t.name%>", value: <%= t.num_offers %>},
-        <% end %>
-    ],
-    colors: [
-        '#FF0000',
-        '#FF8000',
-        '#FFFF00',
-        '#80FF00',
-        '#006600',
-        '#00FF80',
-        '#00CCCC',
-        '#0000FF',
-        '#000066',
-        '#4C0099',
-        '#FF00FF',
-        '#FF99CC'
-    ]
-});
+    new Morris.Donut({
+        element: 'titlesOfferChart',
+        data: [
+            <% Title.all.each do |t| %>
+            {label: "<%=t.name%>", value: <%= t.num_offers %>},
+            <% end %>
+        ],
+        colors: [
+            '#FF0000',
+            '#FF8000',
+            '#FFFF00',
+            '#80FF00',
+            '#006600',
+            '#00FF80',
+            '#00CCCC',
+            '#0000FF',
+            '#000066',
+            '#4C0099',
+            '#FF00FF',
+            '#FF99CC'
+        ]
+    });
 
-new Morris.Bar({
-    element: 'clientsChart',
-    data: [
-        <% Statistics.client_registrations.each do |a| %>
+    new Morris.Bar({
+        element: 'clientsChart',
+        data: [
+            <% Statistics.client_registrations.each do |a| %>
             { y: '<%= a[0] %>', a: <%= a[1] %> },
-        <% end %>
-    ],
-    xkey: 'y',
-    ykeys: ['a'],
-    labels: ['Clientes Registrados'],
-    colors: [
-        '#0000FF'
-    ]
-});
+            <% end %>
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Clientes Registrados'],
+        colors: [
+            '#0000FF'
+        ]
+    });
 
-new Morris.Bar({
-    element: 'companyChart',
-    data: [
-        <% Statistics.company_registrations.each do |a| %>
-        { y: '<%= a[0] %>', a: <%= a[1] %> },
-        <% end %>
-    ],
-    xkey: 'y',
-    ykeys: ['a'],
-    labels: ['Empresas Registradas']
-});
+    new Morris.Bar({
+        element: 'companyChart',
+        data: [
+            <% Statistics.company_registrations.each do |a| %>
+            { y: '<%= a[0] %>', a: <%= a[1] %> },
+            <% end %>
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Empresas Registradas']
+    });
 
-new Morris.Bar({
-    element: 'offerChart',
-    data: [
-        <% Statistics.offers_per_month.each do |a| %>
-        { y: '<%= a[0] %>', a: <%= a[1] %> },
-        <% end %>
-    ],
-    xkey: 'y',
-    ykeys: ['a'],
-    labels: ['Ofertas publicadas']
-});
-
-$('#registrations').attr("class","tab-pane");
-$('#publish').attr("class","tab-pane");
+    new Morris.Bar({
+        element: 'offerChart',
+        data: [
+            <% Statistics.offers_per_month.each do |a| %>
+            { y: '<%= a[0] %>', a: <%= a[1] %> },
+            <% end %>
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Ofertas publicadas']
+    });
 
 
 </script>
