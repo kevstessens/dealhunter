@@ -204,13 +204,13 @@ class UsersController < ApplicationController
   def home_map
     @user = current_user
     @offers = Array.new
-    @longitude = -58.381244
-    @latitude = -34.603683
+    @longitude = -58.4
+    @latitude = -34.6
     @json = Offer.actual.to_gmaps4rails
     address = Address.new
     if @user.user_role_id == 2
       address = @user.client.address
-      unless address.nil?
+      unless (address.nil? || address.longitude.nil? || address.latitude.nil?)
         @longitude = address.longitude
         @latitude = address.latitude
       end
