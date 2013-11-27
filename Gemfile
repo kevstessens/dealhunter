@@ -44,7 +44,7 @@ gem 'bootstrap-sass'
 
 gem "kaminari"
 
-gem 'gmaps4rails'
+gem 'gmaps4rails', '1.5.3'
 
 gem 'eventmachine'
 
