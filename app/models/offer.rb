@@ -1,4 +1,6 @@
 class Offer < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   has_many :prizes
   has_and_belongs_to_many :clients
   has_and_belongs_to_many :titles
@@ -54,7 +56,7 @@ class Offer < ActiveRecord::Base
 
 
   def gmaps4rails_infowindow
-    "<a href='http://localhost:3000/offers/#{self.id}'><h4>#{self.name}</h4></a>"
+    "<a href='#{offer_path(self)}'><h4>#{self.name}</h4></a>"
   end
 
 
