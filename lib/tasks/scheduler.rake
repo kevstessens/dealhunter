@@ -1,9 +1,26 @@
 task :cron => :environment do
   Client.all.each do |c|
-    print(c.user.email)
-    NewUserMailer.new_client_email(c.user).deliver
-    print("Se envio algo")
-  end
+    Offer.all.each do |offer|
+
+      print(offer.start_date.hour)
+      print(DateTime.current.hour)
+
+      print(offer.start_date.day)
+      print(DateTime.current.day)
+
+      if offer.start_date.hour == DateTime.current.hour and offer.start_date.day == DateTime.current.day
+        offer.clients.each do |client|
+          OfferStartMailer.offer_start_email(client.user, offer).deliver
+          print("Se envio algo")
+          #broadcast ("/offers/start/"+client.id, offer)
+        end
+      end
+
+      if offer.end_date.hour == DateTime.current.hour and offer.end_date.day == DateTime.current.day
+        OfferEndMailer.offer_end_email(offer.branch.company.user, offer).deliver
+      end
+
+    end
 end
 
 def broadcast(channel, offer)
