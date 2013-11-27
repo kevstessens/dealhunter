@@ -24,6 +24,7 @@ end
 
 gem 'whenever', git: 'git://github.com/Insomniware/whenever.git', :require => false
 
+gem "fog"
 
 gem 'jquery-rails'
 
